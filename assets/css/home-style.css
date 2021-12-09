@@ -11,38 +11,26 @@ button{
     color: white;
 }
 
-
-.sfondo{
-    background-color: white;
-    
-}
-
-.sfondo img{
+main > div > section > div:nth-child(2) > div  img{  /* images categories */
     height: 180px;
 }
 
-
-
 main > div:nth-child(2) > section > div  img{
-    /*background-image: url("../img/bartender.webp");*/
     height: 250px;
 }
-
 
 footer a, footer h3{
     color:white;
 }
 
-
-
-.row.sfondo  .row:nth-child(2) > div:nth-child(1) {
+main > div > section > div:nth-child(2) > div:nth-child(1) {
     text-align: right;
 }
-.row.sfondo  .row:nth-child(2) > div:nth-child(2) {
+main > div > section > div:nth-child(2) > div:nth-child(2) {
     text-align: center;
 }
-.row.sfondo  .row:nth-child(2) > div:nth-child(3) {
-    text-align: start;
+main > div > section > div:nth-child(2) > div:nth-child(3) {
+    text-align: left;
 }
 
 /*
@@ -53,11 +41,11 @@ footer a, footer h3{
   */
 
   @media screen and (max-width: 768px) {
-    .row.sfondo  .row:nth-child(2) > div, .row.sfondo  .row:nth-child(2) > div img{
+    main > div > section > div:nth-child(2) > div, main > div > section > div:nth-child(2) > div img{
         text-align: center !important;
         
     }
-    .row.sfondo  .row:nth-child(2) > div:nth-child(1), .row.sfondo  .row:nth-child(2) > div:nth-child(2){
+    main > div > section > div:nth-child(2) > div:nth-child(1), main > div > section > div:nth-child(2) > div:nth-child(2){
         margin-bottom: 10px !important;
     }
   }
