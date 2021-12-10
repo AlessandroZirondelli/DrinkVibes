@@ -1,0 +1,8 @@
+div.card-header:hover, div.card-header.selected {
+    background-color: #ccc;
+}
+
+div.card-header > div:nth-child(2){
+    float:right;
+
+}
