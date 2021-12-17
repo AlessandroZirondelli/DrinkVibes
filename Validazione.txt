@@ -1,0 +1,3 @@
+tasto destro --> modifica come html , copiamo tutto e validiamo   Questo per javascript
+
+tasto destro --> visualizza sorgente pagina    copio tutto e validiamo  Questo per php
