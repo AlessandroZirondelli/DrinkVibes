@@ -14,17 +14,15 @@ function animation() {
                 $('body > div:nth-child(1) > header:nth-child(1)  > div:nth-child(1) > nav:nth-child(1) > a:nth-child(1)').after(`
                     <div class="col-7 "> 
                         <ul>
-                            <div class="row">
-                                <div class="col-9"></div>
-                                <li class="col-1">
+                                
+                                <li style="display:inline;">
                                     <a class="nav-link text-center text-white" href="#"> <i class="bi bi-cart"></i> </a>
                                 </li>
                                         
-                                <li class="col-1">
+                                <li style="display:inline;">
                                     <a class="nav-link text-center text-white" href="#"><i class="bi bi-person-circle"></i> </a>
                                 </li>
-                                <div class="col-9"></div>
-                            </div>
+                                
                         </ul>
                     </div>
                 `);
@@ -43,27 +41,11 @@ $(document).ready(function() {
         console.log("piccolo schermo");
     }*/
    // console.log($('body > div:nth-child(1) > header:nth-child(1) > div:nth-child(1) > nav > div'));
-	animation();
+	//animation();
     //console.log($('body > div:nth-child(1) > header:nth-child(1) > div:nth-child(1) > nav > div:last-child()'));
+
+    console.log($(".navbar-collapse ul li:nth-child(1)"));
 });
 
 
 
-/**
- * 
- * <div class="col-md-1">
-            <ul class="navbar-nav text-center">
-              <li class="col-md-6">
-                  <a class="nav-link text-center text-white" href="#"> <i class="bi bi-cart"></i> </a>
-              </li>
-              
-              <li class="col-md-6">
-                  <a class="nav-link text-center text-white" href="#"><i class="bi bi-person-circle"></i> </a>
-              </li>
-            </ul>
-          </div>
- * 
- * 
- * 
- * 
- */
