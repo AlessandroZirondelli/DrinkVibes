@@ -60,7 +60,7 @@
                   <a class="nav-link text-center text-white" href="#">Contacts</a>
                 </li>
                 <li class="col-md-1">
-                  <a class="nav-link text-end text-white" href="#" alt="aaa" title="Link icon cart"> <span class="bi bi-cart"></span> </a>
+                  <a class="nav-link text-end text-white" href="#" title="Link icon cart"> <span class="bi bi-cart"></span> </a>
                 </li>
                 <li class="col-md-1">
                   <a class="nav-link text-start text-white" href="#" title="Link icon user "><span class="bi bi-person-circle"></span> </a>
