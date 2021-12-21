@@ -7,18 +7,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
   <!-- Bootstrap CSS -->
-
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  <link href="./assets/css/home-style.css" rel="stylesheet" type="text/css" />
+  <link href="../assets/css/base-style.css" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <?php 
+    foreach($cssArray as $tmpCss){
+      echo '<link href="'.$tmpCss.'" rel="stylesheet" type="text/css" />';
+    }
+  ?>
   <script
 		src="https://code.jquery.com/jquery-3.4.1.min.js"
 		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
 		crossorigin="anonymous">
   </script>
-
-  <title>Drink shop</title>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous">
+  </script>
+  <title> <?php echo $templateParams["title"]; ?> </title>
 </head>
 
 <body class="bg-white">
@@ -53,10 +60,10 @@
                   <a class="nav-link text-center text-white" href="#">Contacts</a>
                 </li>
                 <li class="col-md-1">
-                  <a class="nav-link text-end text-white" href="#"> <i class="bi bi-cart"></i> </a>
+                  <a class="nav-link text-end text-white" href="#" alt="aaa" title="Link icon cart"> <span class="bi bi-cart"></span> </a>
                 </li>
                 <li class="col-md-1">
-                  <a class="nav-link text-start text-white" href="#"><i class="bi bi-person-circle"></i> </a>
+                  <a class="nav-link text-start text-white" href="#" title="Link icon user "><span class="bi bi-person-circle"></span> </a>
                 </li>
               </ul>
             </div>
@@ -65,8 +72,12 @@
       </div>
     </header>
 
+    <aside>
+      <?php require($templateParams["aside-content"]); ?> <!-- Qui bisogna fare il controllo se nell'array associativo la chiave di aside-content esiste o meno . Nel caso includere. -->
+    </aside>
+
    <main>
-    
+    <?php require($templateParams["main-content"]); ?>
    </main>
 
    <footer class="bg-dark">
@@ -122,9 +133,6 @@
    </footer>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-    crossorigin="anonymous"></script>
 </body>
 
 </html>
