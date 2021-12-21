@@ -14,7 +14,6 @@ class DatabaseHelper{
 
 class Manager{
     private $dbh;
-    private $set;
 
     public function __construct() {
         $this->dbh = new DatabaseHelper("localhost","root","", "drinkdb",3306);
