@@ -1,8 +1,10 @@
-div.card-header:hover, div.card-header.selected {
-    background-color: #ccc;
+div.accordion-header{
+    border: medium solid black;
+
 }
-
-div.card-header > div:nth-child(2){
-    float:right;
-
+.accordion-button:hover{
+    background-color:rgb(185, 40, 40) !important;
+}
+[class="accordion-button"]{
+    background-color:rgb(185, 40, 40) !important;
 }

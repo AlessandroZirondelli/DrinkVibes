@@ -5,6 +5,9 @@ function closeAllCollapse(){
         $(".card-header").removeClass("selected");
 }
 $(document).ready(function(){
+    $(".accordion-header").click(function(){
+        console.log($(this));
+    });
     $(".card-header").click(function(){
         if($(this).next().hasClass("show")){
             $(this).removeClass("selected");
