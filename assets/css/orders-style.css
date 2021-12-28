@@ -8,10 +8,17 @@ div.tab-pane>div div {
 }*/
 
 div.tab-content .container {
-    border-style: solid;
+    border: 2px solid grey;
     margin-top: 10px;
     border-radius: 15px;
 }
+
+div.tab-content .container>.row:nth-child(1){
+    border-bottom: 2px solid grey;
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+}
+
 
 /*
 div.tab-content{

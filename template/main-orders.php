@@ -19,8 +19,34 @@ echo '
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="allorders" role="tabpanel" aria-labelledby="all-orders-tab"> 
                     <div class="container">
-                        <div>
-                            ciaoaoao
+                        <div class="row">
+                            <div class="col-3 p-0">
+                                <div>
+                                    Order was issued on: 
+                                </div>
+                                <div>
+                                    23 september 2020
+                                </div>
+                            </div>
+                            <div class="col-2 p-0">
+                                <div>
+                                    Total 
+                                </div>
+                                <div>
+                                    1500 $
+                                </div>
+                            </div>
+
+                            <div class="col-2 p-0">
+                                <div>
+                                    Shipped to 
+                                </div>
+                                <div>
+                                    Campus Cesena
+                                </div>
+                            </div>
+
+                            
                         </div>
                         <div>
                             bellissimi
@@ -32,14 +58,22 @@ echo '
                     </div>
 
                     <div class="container">
-                        <div>
-                            ggghch
+                        <div class="row">
+                            <div class="col-3">
+                            cicic
+                            </div>
+                            <div class="col-5">
+                            aaa
+                            </div>
+                            <div class="col-4">
+                            cixaaaxcic
+                            </div>
                         </div>
                         <div>
-                            belnhkbklissimi
+                            bellissimi
                         </div>
                         <div>
-                            hffyxfyi
+                            bellissimi
                         </div>
                         
                     </div>
