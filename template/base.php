@@ -16,6 +16,12 @@
       echo '<link href="'.$tmpCss.'" rel="stylesheet" type="text/css" />';
     }
   ?>
+   <?php 
+    foreach($jsArray as $tmpJs){
+      echo '<link href="'.$tmpCss.'" rel="stylesheet" type="text/css" />';
+      echo '<script type="text/javascript" src="'.$tmpJs.'"></script>';
+    }
+  ?>
   <script
 		src="https://code.jquery.com/jquery-3.4.1.min.js"
 		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
