@@ -114,7 +114,7 @@
                 <h2 class="h2 text-light border-bottom pb-3 border-light">Products</h2>
                 <ul class="list-unstyled text-light footer-link-list">
                     <li><a class="text-decoration-none" href="#">Wine</a></li>
-                    <li><a class="text-decoration-none" href="#">Beverages Wear</a></li>
+                    <li><a class="text-decoration-none" href="#">Beverages</a></li>
                     <li><a class="text-decoration-none" href="#">Spirits</a></li>
                     <li><a class="text-decoration-none" href="#">Drinks</a></li>
                 </ul>
