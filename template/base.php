@@ -12,9 +12,18 @@
   <link href="../assets/css/base-style.css" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
   <?php 
-    foreach($cssArray as $tmpCss){
-      echo '<link href="'.$tmpCss.'" rel="stylesheet" type="text/css" />';
+    if(isset($cssArray)){
+      foreach($cssArray as $tmpCss){
+        echo '<link href="'.$tmpCss.'" rel="stylesheet" type="text/css" />';
+      }
     }
+  ?>
+   <?php 
+   if(isset($jsArray)){
+    foreach($jsArray as $tmpJs){
+      echo '<script type="text/javascript" src="'.$tmpJs.'"></script>';
+    }
+   } 
   ?>
   <script
 		src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -60,7 +69,7 @@
                   <a class="nav-link text-center text-white" href="#">Contacts</a>
                 </li>
                 <li class="col-md-1">
-                  <a class="nav-link text-end text-white" href="#" alt="aaa" title="Link icon cart"> <span class="bi bi-cart"></span> </a>
+                  <a class="nav-link text-end text-white" href="#" title="Link icon cart"> <span class="bi bi-cart"></span> </a>
                 </li>
                 <li class="col-md-1">
                   <a class="nav-link text-start text-white" href="#" title="Link icon user "><span class="bi bi-person-circle"></span> </a>
@@ -72,9 +81,12 @@
       </div>
     </header>
 
-    <aside>
-      <?php require($templateParams["aside-content"]); ?> <!-- Qui bisogna fare il controllo se nell'array associativo la chiave di aside-content esiste o meno . Nel caso includere. -->
-    </aside>
+    
+   <?php 
+    if(isset($templateParams["aside-content"])){
+      require($templateParams["aside-content"]); 
+    }
+   ?> <!-- Qui bisogna fare il controllo se nell'array associativo la chiave di aside-content esiste o meno . Nel caso includere. -->
 
    <main>
     <?php require($templateParams["main-content"]); ?>

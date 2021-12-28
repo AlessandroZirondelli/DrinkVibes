@@ -1,7 +1,7 @@
 <?php
 //aside content
 echo '
-
+<aside>
 <div class="container-12 align-items-center">
 <div id="customCarousel" class="carousel slide" data-bs-interval="false" data-bs-ride="carousel">
   <div class="carousel-indicators">
@@ -47,6 +47,6 @@ echo '
 </button>
 </div>
 </div>
-
+</aside>
 '
 ?>
