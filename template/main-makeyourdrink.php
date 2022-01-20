@@ -10,60 +10,18 @@
 
               <div class="container mt-5 mb-5">
                 <div class="row g-1">
-                    <div class="col-md-4">
+                <div class="col-md-4">
                         <div class="p-card">
-                            <div class="p-carousel">
-                                <div class="carousel slide" data-ride="carousel" id="carousel-1">
-                                    <div class="carousel-inner" role="listbox">
-                                        <div class="carousel-item active"><img class="w-100 d-block" src="https://i.imgur.com/NwKcuYO.jpg" alt="Slide Image"></div>
-                                        <div class="carousel-item"><img class="w-100 d-block" src="https://i.imgur.com/DDTs3zs.jpg" alt="Slide Image"></div>
-                                        <div class="carousel-item"><img class="w-100 d-block" src="https://i.imgur.com/aFfL7MV.jpg" alt="Slide Image"></div>
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <img src="./assets/img/i.png" alt="Avatar" style="width:100%;height:10rem;">
                                     </div>
-                                    <div><a class="carousel-control-prev" href="#carousel-1" role="button" data-slide="prev"><span class="carousel-control-prev-icon"></span><span class="sr-only">Previous</span></a><a class="carousel-control-next" href="#carousel-1" role="button" data-slide="next"><span class="carousel-control-next-icon"></span><span class="sr-only">Next</span></a></div>
-                                    <ol class="carousel-indicators">
-                                        <li data-target="#carousel-1" data-slide-to="0" class="active"></li>
-                                        <li data-target="#carousel-1" data-slide-to="1"></li>
-                                        <li data-target="#carousel-1" data-slide-to="2"></li>
-                                    </ol>
-                                </div>
-                            </div>
-                            <div class="p-details">
-                                <div class="d-flex justify-content-between align-items-center mx-2">
-                                    <h5>Dell XPS 360</h5><span>$1,200</span>
-                                </div>
-                                <div class="mx-2">
-                                    <hr class="line">
-                                </div>
-                                <div class="d-flex justify-content-between mt-2 spec mx-2">
-                                    <div class="d-flex flex-column align-items-center">
-                                        <h6 class="mb-0">RAM</h6><span>8GB</span>
+                                    <div class="flip-card-back">
+                                        <h1>John Doe</h1>
+                                        <p>Architect & Engineer</p>
+                                        <p>We love that guy</p>
                                     </div>
-                                    <div class="d-flex flex-column align-items-center">
-                                        <h6 class="mb-0">SSD</h6><span>256GB</span>
-                                    </div>
-                                    <div class="d-flex flex-column align-items-center">
-                                        <h6 class="mb-0">CPU</h6><span>1.5 GHZ</span>
-                                    </div>
-                                </div>
-                                <div class="buy mt-3"><button class="btn btn-primary btn-block" type="button">Buy Now</button></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="p-card">
-                            <div class="p-carousel">
-                                <div class="carousel slide" data-ride="carousel" id="carousel-2">
-                                    <div class="carousel-inner" role="listbox">
-                                        <div class="carousel-item active"><img class="w-100 d-block" src=" https://i.imgur.com/O1cHssd.jpg" alt="Slide Image"></div>
-                                        <div class="carousel-item"><img class="w-100 d-block" src="https://i.imgur.com/nayZQY8.jpg" alt="Slide Image"></div>
-                                        <div class="carousel-item"><img class="w-100 d-block" src="https://i.imgur.com/slrsTdn.jpg" alt="Slide Image"></div>
-                                    </div>
-                                    <div><a class="carousel-control-prev" href="#carousel-2" role="button" data-slide="prev"><span class="carousel-control-prev-icon"></span><span class="sr-only">Previous</span></a><a class="carousel-control-next" href="#carousel-2" role="button" data-slide="next"><span class="carousel-control-next-icon"></span><span class="sr-only">Next</span></a></div>
-                                    <ol class="carousel-indicators">
-                                        <li data-target="#carousel-2" data-slide-to="0" class="active"></li>
-                                        <li data-target="#carousel-2" data-slide-to="1"></li>
-                                        <li data-target="#carousel-2" data-slide-to="2"></li>
-                                    </ol>
                                 </div>
                             </div>
                             <div class="p-details">
@@ -90,37 +48,34 @@
                     </div>
                     <div class="col-md-4">
                         <div class="p-card">
-                            <div class="p-carousel">
-                                <div class="carousel slide" data-ride="carousel" id="carousel-3">
-                                    <div class="carousel-inner" role="listbox">
-                                        <div class="carousel-item active"><img class="w-100 d-block" src="https://i.imgur.com/8U19jmz.jpg" alt="Slide Image"></div>
-                                        <div class="carousel-item"><img class="w-100 d-block" src="https://i.imgur.com/3IC1rnk.jpg" alt="Slide Image"></div>
-                                        <div class="carousel-item"><img class="w-100 d-block" src="https://i.imgur.com/yNlOlpO.jpg" alt="Slide Image"></div>
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <img src="./assets/img/i.png" alt="Avatar" style="width:100%;height:10rem;">
                                     </div>
-                                    <div><a class="carousel-control-prev" href="#carousel-3" role="button" data-slide="prev"><span class="carousel-control-prev-icon"></span><span class="sr-only">Previous</span></a><a class="carousel-control-next" href="#carousel-3" role="button" data-slide="next"><span class="carousel-control-next-icon"></span><span class="sr-only">Next</span></a></div>
-                                    <ol class="carousel-indicators">
-                                        <li data-target="#carousel-3" data-slide-to="0" class="active"></li>
-                                        <li data-target="#carousel-3" data-slide-to="1"></li>
-                                        <li data-target="#carousel-3" data-slide-to="2"></li>
-                                    </ol>
+                                    <div class="flip-card-back">
+                                        <h1>John Doe</h1>
+                                        <p>Architect & Engineer</p>
+                                        <p>We love that guy</p>
+                                    </div>
                                 </div>
                             </div>
                             <div class="p-details">
                                 <div class="d-flex justify-content-between align-items-center mx-2">
-                                    <h5>Macbook Pro</h5><span>$3,200</span>
+                                    <h5>Macbook Air</h5><span>$2,200</span>
                                 </div>
                                 <div class="mx-2">
                                     <hr class="line">
                                 </div>
                                 <div class="d-flex justify-content-between mt-2 spec mx-2">
                                     <div class="d-flex flex-column align-items-center">
-                                        <h6 class="mb-0">RAM</h6><span>16GB</span>
+                                        <h6 class="mb-0">RAM</h6><span>8GB</span>
                                     </div>
                                     <div class="d-flex flex-column align-items-center">
-                                        <h6 class="mb-0">SSD</h6><span>512GB</span>
+                                        <h6 class="mb-0">SSD</h6><span>256GB</span>
                                     </div>
                                     <div class="d-flex flex-column align-items-center">
-                                        <h6 class="mb-0">CPU</h6><span>4.5 GHZ</span>
+                                        <h6 class="mb-0">CPU</h6><span>2.5 GHZ</span>
                                     </div>
                                 </div>
                                 <div class="buy mt-3"><button class="btn btn-primary btn-block" type="button">Buy Now</button></div>
@@ -129,37 +84,34 @@
                     </div>
                     <div class="col-md-4">
                         <div class="p-card">
-                            <div class="p-carousel">
-                                <div class="carousel slide" data-ride="carousel" id="carousel-4">
-                                    <div class="carousel-inner" role="listbox">
-                                        <div class="carousel-item active"><img class="w-100 d-block" src="https://i.imgur.com/8U19jmz.jpg" alt="Slide Image"></div>
-                                        <div class="carousel-item"><img class="w-100 d-block" src="https://i.imgur.com/3IC1rnk.jpg" alt="Slide Image"></div>
-                                        <div class="carousel-item"><img class="w-100 d-block" src="https://i.imgur.com/yNlOlpO.jpg" alt="Slide Image"></div>
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <img src="./assets/img/i.png" alt="Avatar" style="width:100%;height:10rem;">
                                     </div>
-                                    <div><a class="carousel-control-prev" href="#carousel-4" role="button" data-slide="prev"><span class="carousel-control-prev-icon"></span><span class="sr-only">Previous</span></a><a class="carousel-control-next" href="#carousel-4" role="button" data-slide="next"><span class="carousel-control-next-icon"></span><span class="sr-only">Next</span></a></div>
-                                    <ol class="carousel-indicators">
-                                        <li data-target="#carousel-4" data-slide-to="0" class="active"></li>
-                                        <li data-target="#carousel-4" data-slide-to="1"></li>
-                                        <li data-target="#carousel-4" data-slide-to="2"></li>
-                                    </ol>
+                                    <div class="flip-card-back">
+                                        <h1>John Doe</h1>
+                                        <p>Architect & Engineer</p>
+                                        <p>We love that guy</p>
+                                    </div>
                                 </div>
                             </div>
                             <div class="p-details">
                                 <div class="d-flex justify-content-between align-items-center mx-2">
-                                    <h5>Macbook Pro</h5><span>$3,200</span>
+                                    <h5>Macbook Air</h5><span>$2,200</span>
                                 </div>
                                 <div class="mx-2">
                                     <hr class="line">
                                 </div>
                                 <div class="d-flex justify-content-between mt-2 spec mx-2">
                                     <div class="d-flex flex-column align-items-center">
-                                        <h6 class="mb-0">RAM</h6><span>16GB</span>
+                                        <h6 class="mb-0">RAM</h6><span>8GB</span>
                                     </div>
                                     <div class="d-flex flex-column align-items-center">
-                                        <h6 class="mb-0">SSD</h6><span>512GB</span>
+                                        <h6 class="mb-0">SSD</h6><span>256GB</span>
                                     </div>
                                     <div class="d-flex flex-column align-items-center">
-                                        <h6 class="mb-0">CPU</h6><span>4.5 GHZ</span>
+                                        <h6 class="mb-0">CPU</h6><span>2.5 GHZ</span>
                                     </div>
                                 </div>
                                 <div class="buy mt-3"><button class="btn btn-primary btn-block" type="button">Buy Now</button></div>
