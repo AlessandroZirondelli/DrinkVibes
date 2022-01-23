@@ -7,7 +7,6 @@
           </div>
           <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body">
-
               <div class="container mt-5 mb-5">
                 <div class="row g-1">
                 <div class="col-md-4">
@@ -42,7 +41,25 @@
                                         <h6 class="mb-0">CPU</h6><span>2.5 GHZ</span>
                                     </div>
                                 </div>
-                                <div class="buy mt-3"><button class="btn btn-primary btn-block" type="button">Buy Now</button></div>
+                                <div class="buy mt-3">
+                                    
+                                    <div class="row justify-content-center">
+                                        <div class="col-md-6">
+                                            <button class="btn btn-primary btn-block" type="button">Buy Now</button>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Quantity
+                                              <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#">HTML</a></li>
+                                                <li><a href="#">CSS</a></li>
+                                                <li><a href="#">JavaScript</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="solid-border"></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
