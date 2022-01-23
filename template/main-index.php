@@ -1,5 +1,3 @@
-<?php
-echo '
 <div class="row">
       <section class="container py-5">
         <div class="row text-center pt-3">
@@ -48,11 +46,3 @@ echo '
         </div>
       </section>     
 </div>
-'
-
-
-
-
-
-
-?>
