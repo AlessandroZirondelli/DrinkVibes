@@ -20,6 +20,22 @@ div.tab-content .container>.row:nth-child(1){
 }
 
 
+.accordion-button:hover{
+    background-color:inherit !important;
+    color:black !important;
+}
+
+.accordion-button:not(.collapsed){
+    color:inherit;
+    background-color: inherit !important;
+}
+
+.accordion-button:focus{
+    box-shadow: inherit !important;
+}
+
+
+
 /*
 div.tab-content{
     background-color: red !important;
