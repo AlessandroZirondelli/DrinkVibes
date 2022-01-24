@@ -9,7 +9,7 @@
             <div class="accordion-body">
               <div class="container mt-5 mb-5">
                 <div class="row g-1">
-                <div class="col-md-4">
+                    <div class="col-md-4">
                         <div class="p-card">
                             <div class="flip-card">
                                 <div class="flip-card-inner">
@@ -44,20 +44,13 @@
                                 <div class="buy mt-3">
                                     
                                     <div class="row justify-content-center">
-                                        <div class="col-md-6">
-                                            <button class="btn btn-primary btn-block" type="button">Buy Now</button>
+                                        <div class="col-md-2">
+                                            <button class="btn btn-primary btn-block" type="button">Add</button>
                                         </div>
-                                        <div class="col-md-6">
-                                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Quantity
-                                              <span class="caret"></span>
-                                            </button>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="#">HTML</a></li>
-                                                <li><a href="#">CSS</a></li>
-                                                <li><a href="#">JavaScript</a></li>
-                                            </ul>
+                                        <div class="form-group float-left col-md-6">
+                                            <input type="text" class="form-control" id="inputAddress" placeholder="Quantity">
                                         </div>
-                                        <div class="solid-border"></div>
+                                        <div class="solid-border col-md-4">Prezzo</div>
                                     </div>
                                 </div>
                             </div>

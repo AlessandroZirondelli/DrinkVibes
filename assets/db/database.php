@@ -10,6 +10,25 @@ class DatabaseHelper{
             die("Connection failed: " . $conn->connect_error);
         }        
     }
+    public function getLiquindIngredientByType($idcategory){
+        $query = "SELECT * FROM liquidingredient";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i',$idcategory);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    public function getUnityIngredient(){
+        $query = "SELECT * FROM unitingredient";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i',$idcategory);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
 }
 
 class Manager{
@@ -18,6 +37,7 @@ class Manager{
     public function __construct() {
         $this->dbh = new DatabaseHelper("localhost","root","", "drinkdb",3306);
     }
+
 }
 
 ?>
