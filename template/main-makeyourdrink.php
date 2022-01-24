@@ -47,10 +47,12 @@
                                         <div class="col-md-2">
                                             <button class="btn btn-primary btn-block" type="button">Add</button>
                                         </div>
-                                        <div class="form-group float-left col-md-6">
+                                        <div class="form-group float-left col-md-4">
                                             <input type="text" class="form-control" id="inputAddress" placeholder="Quantity">
                                         </div>
-                                        <div class="solid-border col-md-4">Prezzo</div>
+                                        <div class= "col-md-2">mL</div>
+                                        <div class="col-md-2">d</div>
+                                        <div class="solid-border col-md-2">4 euro/L</div>
                                     </div>
                                 </div>
                             </div>
