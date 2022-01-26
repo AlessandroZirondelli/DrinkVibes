@@ -39,7 +39,7 @@ class Manager{
 
 $dbhelper = new DatabaseHelper("localhost","root","", "drinkdb",3306);
 $resQuery = $dbhelper->getOrdersByUser("Nick987");
-
+/*
 foreach ($resQuery as $tmp) {
     $orderID = $tmp["orderID"];
     echo "<br> $orderID"; 
@@ -52,7 +52,7 @@ foreach ($resQuery as $tmp) {
     $state = $tmp["state"];
     echo "<br> $state";
 }
-
+*/
 
 
 ?>

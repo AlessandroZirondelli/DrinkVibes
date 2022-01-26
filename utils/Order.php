@@ -1,0 +1,66 @@
+<?php
+class Order{
+    private $userID;
+    private $orderID;
+    private $date;
+    private $time;
+    private $state;
+
+    public function __construct($userID, $orderID, $date, $time, $state){
+         $this-> userID = $userID;
+         $this-> orderID = $orderID;
+         $this-> date = $date;
+         $this-> time = $time;
+         $this-> state = $state;
+    }
+
+    public function setUserID($userID){
+        $this->userID = $userID;
+    }
+    public function getUserID(){
+        return $this->userID;
+    }
+
+    public function setOrderID($orderID){
+        $this->orderID = $orderID;
+    }
+    
+    public function getOrderID(){
+        return $this->orderID;
+    }
+
+    public function setDate($date){
+        $this-> date = $date;
+    }
+    
+    public function getDate(){
+        return $this->date;
+    }
+
+    public function setTime($time){
+        $this-> time = $time;
+    }
+    
+    public function getTime(){
+        return $this-> time;
+    }
+
+    public function setState($state){
+        $this-> state = $state;
+    }
+    
+    public function getState(){
+        return $this->state;
+    }
+
+
+   
+}
+
+/*
+$order = new Order(12,45643,"12-09-2000","23:54","Delivered");
+
+$order->setDate("22/03/2012");
+echo $order->getDate();*/
+
+?>
