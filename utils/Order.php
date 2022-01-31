@@ -64,19 +64,30 @@ class Order{
         return $this->orderDetails;
     }
 
-    public function addOrderDetails($detail){ // it takes OrderDetail object
+    public function addOrderDetail($detail){ // it takes OrderDetail object
         array_push($this->orderDetails,$detail);
     }
 
-    
+    public function toString(){
+        echo "orderID:$this->orderID "."userID: $this->userID "."date: $this->date "."time: $this->time "."state: $this->state ";
+        foreach($this->orderDetails as $tmp){
+            $tmp->toString();
+        }
+    }
 
 
    
 }
 
 /*
-$order = new Order(12,45643,"12-09-2000","23:54","Delivered");
+$order = new Order("Nick987",12,"12-09-2000","23:54","Delivered");
+$orderDetailFirst = new OrderDetail(12,"Vodka",99,3,78);
+$orderDetailSecond = new OrderDetail(12,"Gin",100,7,68);
+$order->addOrderDetail($orderDetailFirst);
+$order->addOrderDetail($orderDetailSecond);
 
+$order->toString();*/
+/*
 $order->setDate("22/03/2012");
 echo $order->getDate();
 

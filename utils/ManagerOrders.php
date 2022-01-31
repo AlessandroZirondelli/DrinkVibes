@@ -28,6 +28,7 @@ require_once("./../assets/db/database.php");
                 $user = $tmp["userID"]; //$user = $userID 
 
                 $newOrder = new Order($user,$orderID,$date,$time,$state);
+                //$newOrder->toString();
 
                 //Ora devo aggiungere le informazioni relative ai vari dettagli ordine
                 $orderDetails = $this-> dbh -> getOrderDetails($orderID); 
@@ -38,13 +39,17 @@ require_once("./../assets/db/database.php");
                     $articName = $this->dbh->getArticleName($articID);
 
                     $newDetail = new OrderDetail($orderID,$articName,$articID,$qty,$subtotal);
-
-                    $newOrder-> addOrderDetails($newDetail); //aggiungo il dettaglio ordine
-                    //array_push($this->orders,$newDetail);
+                    //$newDetail->toString();
+                    $newOrder-> addOrderDetail($newDetail); //aggiungo il dettaglio ordine
+                    
                 }
 
                 $this->addNewOrder($newOrder);
                 
+            }
+
+            foreach($this->orders as $tmp){
+                $tmp->toString();
             }
         }
 
