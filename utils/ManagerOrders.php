@@ -48,9 +48,9 @@ require_once("./../assets/db/database.php");
                 
             }
 
-            foreach($this->orders as $tmp){
+            /*foreach($this->orders as $tmp){
                 $tmp->toString();
-            }
+            }*/
         }
 
        
@@ -60,7 +60,7 @@ require_once("./../assets/db/database.php");
             DATO ELABORATO. Questa funzione dovrà restituire lo storico di  tutti gli ordini che il cliente ha effettuato 
         */
         public function getAllOrders(){
-                
+             return $this->orders;   
         }
         
     }
