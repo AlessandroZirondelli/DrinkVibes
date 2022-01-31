@@ -1,10 +1,12 @@
 <?php
+require_once("./OrderDetail.php");
 class Order{
     private $userID;
     private $orderID;
     private $date;
     private $time;
     private $state;
+    private $orderDetails;
 
     public function __construct($userID, $orderID, $date, $time, $state){
          $this-> userID = $userID;
@@ -12,6 +14,7 @@ class Order{
          $this-> date = $date;
          $this-> time = $time;
          $this-> state = $state;
+         $this-> orderDetails = array();
     }
 
     public function setUserID($userID){
@@ -53,6 +56,20 @@ class Order{
         return $this->state;
     }
 
+    public function setOrderDetails($arr){
+        $this-> orderDetails = $arr;
+    }
+
+    public function getOrderDetails(){
+        return $this->orderDetails;
+    }
+
+    public function addOrderDetails($detail){ // it takes OrderDetail object
+        array_push($this->orderDetails,$detail);
+    }
+
+    
+
 
    
 }
@@ -61,6 +78,21 @@ class Order{
 $order = new Order(12,45643,"12-09-2000","23:54","Delivered");
 
 $order->setDate("22/03/2012");
-echo $order->getDate();*/
+echo $order->getDate();
+
+$order = new Order(0,0,0,0,0);
+$det = new OrderDetail(10,"water",40);
+$order->addOrderDetails($det);
+
+foreach($order->getOrderDetails() as $order){
+    
+}
+
+*/
+
+
+
+
+
 
 ?>

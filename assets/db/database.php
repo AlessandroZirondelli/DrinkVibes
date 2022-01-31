@@ -9,7 +9,7 @@ class DatabaseHelper{
         if ($this->conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         } 
-        echo "Connessione OK" ;      
+        //echo "Connessione OK" ;      
     }
     public function getLiquindIngredientByType($idcategory){
         $query = "SELECT * FROM liquidingredient";
@@ -52,7 +52,7 @@ class DatabaseHelper{
         $stmt-> bind_param("i",$orderID);
         $stmt->execute();
         $result = $stmt->get_result();
-        echo "Query order details fatta";
+        //echo "Query order details fatta";
         return $result->fetch_all(MYSQLI_ASSOC);
     }
         /* DATO ELBAORATO. Restituisce il nome di un prodotto, dato il suo ID. Oppure Custom drink. */ 
@@ -61,7 +61,7 @@ class DatabaseHelper{
         $stmt-> bind_param("i",$articleID);
         $stmt->execute();
         $result = $stmt->get_result();
-        echo "Query article name details fatta";
+        //echo "Query article name details fatta";
         $res = $result->fetch_all(MYSQLI_ASSOC);
         if (!$res){ //se non ho trovato alcuna corrispondenza allora cerco nella tabella drinkhandmade 
             return "Custom drink";
