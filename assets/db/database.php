@@ -12,8 +12,16 @@ class DatabaseHelper{
     }
     public function getLiquindIngredientByType($idcategory){
         $query = "SELECT * FROM liquidingredient";
-        $stmt = $this->db->prepare($query);
+        $stmt = $this->conn->prepare($query);
         $stmt->bind_param('i',$idcategory);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    public function getLiquindIngredient(){
+        $query = "SELECT * FROM liquidingredient";
+        $stmt = $this->conn->prepare($query);
         $stmt->execute();
         $result = $stmt->get_result();
 
@@ -21,11 +29,9 @@ class DatabaseHelper{
     }
     public function getUnityIngredient(){
         $query = "SELECT * FROM unitingredient";
-        $stmt = $this->db->prepare($query);
-        $stmt->bind_param('i',$idcategory);
+        $stmt = $this->conn->prepare($query);
         $stmt->execute();
         $result = $stmt->get_result();
-
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 

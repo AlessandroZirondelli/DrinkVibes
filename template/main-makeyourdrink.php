@@ -10,56 +10,51 @@
               <div class="container mt-5 mb-5">
                 <div class="row g-1">
                     <?php foreach($templateParams["liquidingredient"] as $liquidingredient): ?>
-                        <div class="col-md-4">
+                        <div class="col-md-4  border border-secondary">
                             <div class="p-card">
                                 <div class="flip-card">
-                                    <div class="flip-card-inner">
                                         <div class="flip-card-front">
                                             <img src="./assets/img/i.png" alt="Avatar" style="width:100%;height:10rem;">
                                         </div>
-                                        <div class="flip-card-back">
-                                            <h1>John Doe</h1>
-                                            <p>Architect & Engineer</p>
-                                            <p>We love that guy</p>
-                                        </div>
-                                    </div>
                                 </div>
                                 <div class="p-details">
                                     <div class="d-flex justify-content-between align-items-center mx-2">
-                                        <h5>Macbook Air</h5>
+                                        <h5><?php echo $liquidingredient["name"]; ?></h5>
                                     </div>
                                     <div class="mx-2">
                                         <hr class="line">
                                     </div>
-                                    <div class="d-flex justify-content-between mt-2 spec mx-2">
-                                        <div class="d-flex flex-column align-items-center">
-                                            <h6 class="mb-0">RAM</h6><span>8GB</span>
-                                        </div>
-                                        <div class="d-flex flex-column align-items-center">
-                                            <h6 class="mb-0">SSD</h6><span>256GB</span>
-                                        </div>
-                                        <div class="d-flex flex-column align-items-center">
-                                            <h6 class="mb-0">CPU</h6><span>2.5 GHZ</span>
+                                    
+                                    <div>
+                                        <div class="accordion accordion-flush" id="accordionFlush<?php echo $liquidingredient["ingredientID"]; ?>">
+                                          <div class="accordion-item">
+                                            <div class="accordion-header" id="flush-heading<?php echo $liquidingredient["ingredientID"]; ?>">
+                                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse<?php echo $liquidingredient["ingredientID"]; ?>" aria-expanded="false" aria-controls="flush-collapse<?php echo $liquidingredient["ingredientID"]; ?>">
+                                                <h4>Dettagli</h4>
+                                              </button>
+                                            </div>
+                                            <div id="flush-collapse<?php echo $liquidingredient["ingredientID"]; ?>" class="accordion-collapse collapse" aria-labelledby="flush-heading<?php echo $liquidingredient["ingredientID"]; ?>" data-bs-parent="#accordionFlush<?php echo $liquidingredient["ingredientID"]; ?>">
+                                              <div class="accordion-body"><?php echo $liquidingredient["description"]; ?></div>
+                                            </div>
+                                          </div>
                                         </div>
                                     </div>
                                     <div class="buy mt-3">
                                         
                                         <div class="row justify-content-center">
-                                            <div class="col-md-2">
+                                            <div class="col-2">
                                                 <button class="btn btn-primary btn-block" type="button">Add</button>
                                             </div>
-                                            <div class="form-group float-left col-md-4">
+                                            <div class="form-group col-4">
                                                 <input type="text" class="form-control" id="inputAddress" placeholder="Quantity">
                                             </div>
-                                            <div class= "col-md-2 p-0">mL</div>
-                                            <div class="col-md-1"></div>
-                                            <div class="solid-border col-md-3">4 euro/L</div>
+                                            <div class= "col-sx-auto p-0">mL</div>
+                                            <div class="col-3"><?php echo $liquidingredient["price"]; ?> euro/L</div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        
                     <?php endforeach; ?>
                     
                 </div>
