@@ -7,7 +7,7 @@
           </div>
           <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body">
-              <div class="container mt-5 mb-5">
+              <div class="container mt-5 mb-5 p-0">
                 <div class="row g-1">
                     <?php foreach($templateParams["liquidingredient"] as $liquidingredient): ?>
                         <div class="col-md-4  border border-secondary">
@@ -41,15 +41,15 @@
                                     </div>
                                     <div class="buy mt-3">
                                         
-                                        <div class="row justify-content-center">
-                                            <div class="col-2">
+                                        <div class="row justify-content-center p-0">
+                                            <div class="col-2 p-0">
                                                 <button class="btn btn-primary btn-block" type="button">Add</button>
                                             </div>
-                                            <div class="form-group col-4">
+                                            <div class="form-group col-4 p-0">
                                                 <input type="text" class="form-control" id="inputAddress" placeholder="Quantity">
                                             </div>
                                             <div class= "col-3 p-0">mL</div>
-                                            <div class="col-3"><?php echo $liquidingredient["price"]; ?> euro/L</div>
+                                            <div class="col-3 p-0"><?php echo $liquidingredient["price"]; ?> euro/L</div>
                                         </div>
                                     </div>
                                 </div>
