@@ -28,13 +28,13 @@
                                     <div>
                                         <div class="accordion accordion-flush" id="accordionFlush<?php echo $liquidingredient["ingredientID"]; ?>">
                                           <div class="accordion-item">
-                                            <div class="accordion-header" id="flush-heading<?php echo $liquidingredient["ingredientID"]; ?>">
+                                            <div class="accordion-header<?php echo $liquidingredient["ingredientID"]; ?>" id="flush-heading<?php echo $liquidingredient["ingredientID"]; ?>">
                                               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse<?php echo $liquidingredient["ingredientID"]; ?>" aria-expanded="false" aria-controls="flush-collapse<?php echo $liquidingredient["ingredientID"]; ?>">
                                                 <h4>Dettagli</h4>
                                               </button>
                                             </div>
                                             <div id="flush-collapse<?php echo $liquidingredient["ingredientID"]; ?>" class="accordion-collapse collapse" aria-labelledby="flush-heading<?php echo $liquidingredient["ingredientID"]; ?>" data-bs-parent="#accordionFlush<?php echo $liquidingredient["ingredientID"]; ?>">
-                                              <div class="accordion-body"><?php echo $liquidingredient["description"]; ?></div>
+                                              <div class="accordion-body<?php echo $liquidingredient["ingredientID"]; ?>"><?php echo $liquidingredient["description"]; ?></div>
                                             </div>
                                           </div>
                                         </div>
@@ -48,7 +48,7 @@
                                             <div class="form-group col-4">
                                                 <input type="text" class="form-control" id="inputAddress" placeholder="Quantity">
                                             </div>
-                                            <div class= "col-sx-auto p-0">mL</div>
+                                            <div class= "col-3 p-0">mL</div>
                                             <div class="col-3"><?php echo $liquidingredient["price"]; ?> euro/L</div>
                                         </div>
                                     </div>
