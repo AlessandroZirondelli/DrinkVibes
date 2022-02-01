@@ -11,7 +11,7 @@ class DatabaseHelper{
         } 
         echo "Connessione OK" ;      
     }
-    public function getLiquindIngredientByType($idcategory){
+    public function getLiquidIngredientByType($idcategory){
         $query = "SELECT * FROM liquidingredient";
         $stmt = $this->conn->prepare($query);
         $stmt->bind_param('i',$idcategory);
@@ -20,7 +20,7 @@ class DatabaseHelper{
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-    public function getLiquindIngredient(){
+    public function getLiquidIngredient(){
         $query = "SELECT * FROM liquidingredient";
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
