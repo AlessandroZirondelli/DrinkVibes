@@ -1,6 +1,14 @@
 <?php
+/*
+Questi percorsi vanno bene in riferimento a questo file "ManagerOrders.php
+Ma non vanno bene , dal file "Ordrs.php" in cui faccio il require_once.
+
 require_once("./Order.php"); // include anche OrderDetails.php
-require_once("./../assets/db/database.php");
+require_once("./../assets/db/database.php");*/
+
+require_once("./utils/Order.php");
+require_once("./assets/db/database.php");
+
     class ManagerOrders{
         private $dbh;
         private $orders;
