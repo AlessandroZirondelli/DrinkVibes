@@ -5,6 +5,8 @@
     $templateParams["title"] = "Home";
     $templateParams["main-content"] = "main-orders.php";
     $cssArray[0]="./assets/css/orders-style.css";
+    $manager= new ManagerOrders();
+    $orders= $manager->getAllOrders();
     require_once("template/base.php"); //base.php vede la roba definita dentro  e dentro questo file index.php
 ?>
 

@@ -74,7 +74,7 @@ require_once("./assets/db/database.php");
     }
 
 
-    $man = new ManagerOrders();
+   /* $man = new ManagerOrders();
     $man->createOrdersByUser("Nick987");
-
+*/
 ?>
