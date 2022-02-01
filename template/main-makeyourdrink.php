@@ -1,36 +1,33 @@
-<div class="accordion accordion-flush" id="accordionFlushExample">
+
+<h1 class="p-3">Make your drink</h1>
+<h2 class="p-3">Choose your ingredients</h2>
+<div class="accordion accordion-flush px-3 pb-3" id="accordionFlushExample">
         <div class="accordion-item">
           <div class="accordion-header" id="flush-headingOne">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+            <button class="accordion-button collapsed p-2" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
               <h3>Alcohol</h3>
             </button>
           </div>
           <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body">
+            <div class="accordion-body ">
               <div class="container mt-5 mb-5 p-0">
                 <div class="row g-1">
                     <?php foreach($templateParams["liquidingredient"] as $liquidingredient): ?>
-                        <div class="col-md-4  border border-secondary">
-                            <div class="p-card">
-                                <div class="flip-card">
-                                        <div class="flip-card-front">
-                                            <img src="./assets/img/i.png" alt="Avatar" style="width:100%;height:10rem;">
-                                        </div>
+                      <div class="col-md-4">
+                        <div class="card mb-4 product-wap rounded-0">
+                            <div class="card-inner">
+                                <img class="card-img rounded-0" src="assets/img/i.png">       
+                            </div>
+                            <div class="card-body pb-0">
+                                <p class="h3 text-decoration-none pb-3"><?php echo $liquidingredient["name"]; ?></a>
+                                <div class="mx-1">
+                                  <hr class="line my-0">
                                 </div>
-                                <div class="p-details">
-                                    <div class="d-flex justify-content-between align-items-center mx-2">
-                                        <h5><?php echo $liquidingredient["name"]; ?></h5>
-                                    </div>
-                                    <div class="mx-2">
-                                        <hr class="line">
-                                    </div>
-                                    
-                                    <div>
-                                        <div class="accordion accordion-flush" id="accordionFlush<?php echo $liquidingredient["ingredientID"]; ?>">
+                                <div class="accordion accordion-flush" id="accordionFlush<?php echo $liquidingredient["ingredientID"]; ?>">
                                           <div class="accordion-item">
                                             <div class="accordion-header<?php echo $liquidingredient["ingredientID"]; ?>" id="flush-heading<?php echo $liquidingredient["ingredientID"]; ?>">
                                               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse<?php echo $liquidingredient["ingredientID"]; ?>" aria-expanded="false" aria-controls="flush-collapse<?php echo $liquidingredient["ingredientID"]; ?>">
-                                                <h4>Dettagli</h4>
+                                                <h5>Dettagli</h5>
                                               </button>
                                             </div>
                                             <div id="flush-collapse<?php echo $liquidingredient["ingredientID"]; ?>" class="accordion-collapse collapse" aria-labelledby="flush-heading<?php echo $liquidingredient["ingredientID"]; ?>" data-bs-parent="#accordionFlush<?php echo $liquidingredient["ingredientID"]; ?>">
@@ -38,25 +35,44 @@
                                             </div>
                                           </div>
                                         </div>
-                                    </div>
-                                    <div class="buy mt-3">
-                                        
-                                        <div class="row justify-content-center p-0">
-                                            <div class="col-2 p-0">
-                                                <button class="btn btn-primary btn-block" type="button">Add</button>
-                                            </div>
-                                            <div class="form-group col-4 p-0">
-                                                <input type="text" class="form-control" id="inputAddress" placeholder="Quantity">
-                                            </div>
-                                            <div class= "col-3 p-0">mL</div>
-                                            <div class="col-3 p-0"><?php echo $liquidingredient["price"]; ?> euro/L</div>
+                                        <div class="mx-1">
+                                          <hr class="line my-0">
                                         </div>
+                                    <div class="d-flex align-items-center justify-content-between py-3 px-6">
+                                        <div class="h4"><span>&#8364;</span><?php echo $liquidingredient["price"]; ?>/L</div>
+                                        <div> <button class="btn btn-dark text-uppercase">Add</button> </div>
                                     </div>
-                                </div>
                             </div>
                         </div>
+                      </div>  
                     <?php endforeach; ?>
-                    
+                    <div class="col-md-4">
+                        <div class="card mb-4 product-wap rounded-0">
+                            <div class="card-inner">
+                                <img class="card-img rounded-0" src="assets/img/spirits-icon.PNG">
+                                
+                            </div>
+                            <div class="card-body">
+                                <p class="h3 text-decoration-none"><?php echo $liquidingredient["name"]; ?></a>
+                                <div class="accordion accordion-flush" id="accordionFlush<?php echo $liquidingredient["ingredientID"]; ?>">
+                                          <div class="accordion-item">
+                                            <div class="accordion-header<?php echo $liquidingredient["ingredientID"]; ?>" id="flush-heading<?php echo $liquidingredient["ingredientID"]; ?>">
+                                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse<?php echo $liquidingredient["ingredientID"]; ?>" aria-expanded="false" aria-controls="flush-collapse<?php echo $liquidingredient["ingredientID"]; ?>">
+                                                <h5>Dettagli</h5>
+                                              </button>
+                                            </div>
+                                            <div id="flush-collapse<?php echo $liquidingredient["ingredientID"]; ?>" class="accordion-collapse collapse" aria-labelledby="flush-heading<?php echo $liquidingredient["ingredientID"]; ?>" data-bs-parent="#accordionFlush<?php echo $liquidingredient["ingredientID"]; ?>">
+                                              <div class="accordion-body<?php echo $liquidingredient["ingredientID"]; ?>"><?php echo $liquidingredient["description"]; ?></div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                    <div class="d-flex align-items-center justify-content-between py-1 px-6">
+                                        <div class="h4"><span>&#8364;</span><?php echo $liquidingredient["price"]; ?></div>
+                                        <div> <button class="btn btn-dark text-uppercase">Add</button> </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
               

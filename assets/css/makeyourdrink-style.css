@@ -3,7 +3,7 @@ div.accordion-header{
 
 }
 h3{
-    color:pink;
+    color:black;
 }
 .accordion-button:hover{
     background-color:rgb(185, 40, 40) !important;
@@ -22,38 +22,145 @@ h3{
     background-color:rgb(185, 40, 40) !important;
 }
 
+img {
+  object-fit: contain;
+  /*width: 150px;
+  height: 200px;*/
+  width: 1%;
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
 
- /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
- .flip-card {
-    background-color: transparent;
-    width: 100%;
-    height: 10rem;
-    border: 1px solid #f1f1f1;
- 
-  }
-  
-  /* This container is needed to position the front and back side */
+p.h4 {
+  font-family: 'Roboto Slab', serif
+}
 
-  
-  /* Do an horizontal flip when you move the mouse over the flip box container */
+p {
+  align-self: left;
+  color: rgb(0, 0, 0);
+  font-size: 1pz;
+  font-family: 'Roboto Slab', serif;
+  margin-left: 10px;
+}
 
-  
-  /* Position the front and back side */
-  .flip-card-front {
-    /* position: absolute; */
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden; /* Safari */
-    backface-visibility: hidden;
-  }
-  
-  /* Style the front side (fallback if image is missing) */
-  .flip-card-front {
-    background-color: #bbb;
-    color: black;
-  }
- 
+p.h3.text-decoration-none {
+  margin-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-right: 0;
+}
 
-  .card {
-      padding: 0;
+
+
+.btn {
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 1px 10px
+}
+
+
+
+.card {
+  background-color: transparent;
+  /*width: 200px;
+  height: 200px;*/
+  perspective: 1000px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0px;
+  overflow-wrap: break-word;
+  background-clip: border-box;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.125);
+  border-image: initia
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+
+}
+
+
+.card img {
+  
+  width: 100%;
+  height: 1%;
+  backface-visibility: hidden;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.accordion-button{
+  padding-left: 0;
+}
+
+
+.row>* {
+  max-width: 100%;
+  padding-right: calc(var(--bs-gutter-x)/ 2);
+  padding-left: calc(var(--bs-gutter-x)/ 2);
+  margin-top: var(--bs-gutter-y);
+}
+
+body,
+ul,
+li,
+p,
+a,
+label,
+input,
+div {
+  font-family: Roboto, sans-serif;
+  font-size: 18px !important;
+  font-weight: 300 !important;
+}
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+div {
+  display: block;
+}
+
+.row {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+}
+
+@media(max-width:800px) {
+  .wrapper {
+      margin: 20px 10px
   }
+  p.h4 {
+      font-size: 1.35rem;
+      padding-top: 10px
+  }
+}
+
+@media(max-width:767px) {
+  .wrapper {
+      max-width: 500px;
+      margin: 20px auto
+  }
+}
+
+@media(max-width:424px) {
+  .wrapper {
+      width: 100%;
+      margin: auto
+  }
+  div.text-muted {
+      font-size: 0.75rem
+  }
+}
