@@ -40,11 +40,15 @@
                                 </div>
                             </div>
                             <div class="col-3 col-md-4 p-0">
-                                <div>
-                                    Total: 
-                                </div>
-                                <div>
-                                    <?php echo $tmp->getTotal(); ?>
+                                <div class="dropdown">
+                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Status <!-- Questo si aggiornerà in base al valore selezionato ed attuale dello stato -->
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                            <li><a class="dropdown-item active" href="#">Action</a></li> <!-- Per rendere selezionato un elemento devo aggiungere active -->
+                                            <li><a class="dropdown-item" href="#">Another action</a></li> <!--Per disabilitarlo aggiungere disabled come classe al tag <a> -->
+                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                        </ul>
                                 </div>
                             </div>
                         </div>
@@ -57,14 +61,18 @@
                                         More info
                                     </button>
                                 </h2>
+                                
                                 <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlush1">
                                     <div class="accordion-body p-0">
+                                    <div>
+                                        Total: <?php echo $tmp->getTotal(); ?>
+                                    </div>
                                     <?php foreach($tmp->getOrderDetails() as $detail): ?>
                                         <div>
                                             <?php echo $detail->getQuantity()." ".$detail->getArticleName(); ?>
                                         </div>
                                     <?php endforeach; ?>
-
+                                        
                                     </div>
                                 </div>
                             </div>
