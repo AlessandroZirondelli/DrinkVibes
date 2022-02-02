@@ -34,6 +34,19 @@ div.tab-content .container>.row:nth-child(1){
     box-shadow: inherit !important;
 }
 
+button#dropdownStatus.btn.btn-secondary.dropdown-toggle{
+    background-color:black;
+    border-color: black;
+}
+.btn-secondary:focus{
+    box-shadow: none;
+}
+
+.dropdown-item.active {
+    color: #fff;
+    text-decoration: none;
+    background-color: black;
+}
 
 
 /*

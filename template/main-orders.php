@@ -41,10 +41,10 @@
                             </div>
                             <div class="col-3 col-md-4 p-0">
                                 <div class="dropdown">
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownStatus" data-bs-toggle="dropdown" aria-expanded="false">
                                             Status <!-- Questo si aggiornerà in base al valore selezionato ed attuale dello stato -->
                                         </button>
-                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownStatus">
                                             <li><a class="dropdown-item active" href="#">Action</a></li> <!-- Per rendere selezionato un elemento devo aggiungere active -->
                                             <li><a class="dropdown-item" href="#">Another action</a></li> <!--Per disabilitarlo aggiungere disabled come classe al tag <a> -->
                                             <li><a class="dropdown-item" href="#">Something else here</a></li>
