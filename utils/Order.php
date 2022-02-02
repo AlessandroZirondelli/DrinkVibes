@@ -11,14 +11,16 @@ class Order{
     private $time;
     private $state;
     private $orderDetails;
+    private $total;
 
-    public function __construct($userID, $orderID, $date, $time, $state){
+    public function __construct($userID, $orderID, $date, $time, $state, $total){
          $this-> userID = $userID;
          $this-> orderID = $orderID;
          $this-> date = $date;
          $this-> time = $time;
          $this-> state = $state;
          $this-> orderDetails = array();
+         $this-> total = $total;
     }
 
     public function setUserID($userID){
@@ -66,6 +68,14 @@ class Order{
 
     public function getOrderDetails(){
         return $this->orderDetails;
+    }
+
+    public function setTotal($total){
+        $this-> total = $total;
+    }
+
+    public function getTotal(){
+        return $this->total;
     }
 
     public function addOrderDetail($detail){ // it takes OrderDetail object

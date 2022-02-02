@@ -14,6 +14,13 @@
             </ul>
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="allorders" role="tabpanel" aria-labelledby="all-orders-tab"> 
+                    
+                <?php if(!isset($orders)): ?>
+                    <p>No orders </p>
+                <?php endif;?>
+
+                <?php foreach($orders as $tmp): ?>
+
                     <div class="container">
                         <div class="row">
                             <div class="col-4 col-md-4 p-0">
@@ -21,7 +28,7 @@
                                     Ordered on: 
                                 </div>
                                 <div>
-                                    23/09/2021
+                                    <?php echo $tmp->getDate(); ?>
                                 </div>
                             </div>
                             <div class="col-5 col-md-4 p-0">
@@ -29,7 +36,7 @@
                                     Order number: 
                                 </div>
                                 <div>
-                                    472736
+                                    <?php echo $tmp->getOrderID(); ?>
                                 </div>
                             </div>
                             <div class="col-3 col-md-4 p-0">
@@ -37,7 +44,7 @@
                                     Total: 
                                 </div>
                                 <div>
-                                    1500 $
+                                    <?php echo $tmp->getTotal(); ?>
                                 </div>
                             </div>
                         </div>
@@ -52,12 +59,12 @@
                                 </h2>
                                 <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlush1">
                                     <div class="accordion-body p-0">
+                                    <?php foreach($tmp->getOrderDetails() as $detail): ?>
                                         <div>
-                                            1 Coca-Cola
+                                            <?php echo $detail->getQuantity()." ".$detail->getArticleName(); ?>
                                         </div>
-                                        <div>
-                                            1 Mojito
-                                        </div>
+                                    <?php endforeach; ?>
+
                                     </div>
                                 </div>
                             </div>
@@ -65,108 +72,10 @@
                         
                     </div>
 
-                  
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-4 col-md-4 p-0">
-                                <div>
-                                    Ordered on: 
-                                </div>
-                                <div>
-                                    23/09/2021
-                                </div>
-                            </div>
-                            <div class="col-5 col-md-4 p-0">
-                                <div>
-                                    Order number: 
-                                </div>
-                                <div>
-                                    472736
-                                </div>
-                            </div>
-                            <div class="col-3 col-md-4 p-0">
-                                <div>
-                                    Total: 
-                                </div>
-                                <div>
-                                    1500 $
-                                </div>
-                            </div>
-                        </div>
-                        
+                <?php endforeach; ?>
+                    
 
-                        <div class="accordion accordion-flush" id="accordionFlush2">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="flush-headingOne">
-                                    <button class="accordion-button collapsed px-0" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                                        More info
-                                    </button>
-                                </h2>
-                                <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlush2">
-                                    <div class="accordion-body p-0">
-                                        <div>
-                                            1 Coca-Cola
-                                        </div>
-                                        <div>
-                                            1 Mojito
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>     
-                        
-                    </div>
-
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-4 col-md-4 p-0">
-                                <div>
-                                    Ordered on: 
-                                </div>
-                                <div>
-                                    23/09/2021
-                                </div>
-                            </div>
-                            <div class="col-5 col-md-4 p-0">
-                                <div>
-                                    Order number: 
-                                </div>
-                                <div>
-                                    472736
-                                </div>
-                            </div>
-                            <div class="col-3 col-md-4 p-0">
-                                <div>
-                                    Total: 
-                                </div>
-                                <div>
-                                    1500 $
-                                </div>
-                            </div>
-                        </div>
-                        
-
-                        <div class="accordion accordion-flush" id="accordionFlush3">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="flush-headingOne">
-                                    <button class="accordion-button collapsed px-0" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                                        More info
-                                    </button>
-                                </h2>
-                                <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlush3">
-                                    <div class="accordion-body p-0">
-                                        <div>
-                                            1 Coca-Cola
-                                        </div>
-                                        <div>
-                                            1 Mojito
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>     
-                        
-                    </div>
+                    
                     
                     <!--  AGGIUNGI QUA SOTTO I NUOVI CONTAINER !!! RICORDA DI : 
                      -aggiungere in modo dinamico dei nuovi container con nuove tabelle relative agli ordini

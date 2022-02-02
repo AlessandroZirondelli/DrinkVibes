@@ -34,8 +34,9 @@ require_once("./assets/db/database.php");
                 $time = $tmp["time"];
                 $state = $tmp["state"];
                 $user = $tmp["userID"]; //$user = $userID 
+                $total = $tmp["total"];
 
-                $newOrder = new Order($user,$orderID,$date,$time,$state);
+                $newOrder = new Order($user,$orderID,$date,$time,$state,$total);
                 //$newOrder->toString();
 
                 //Ora devo aggiungere le informazioni relative ai vari dettagli ordine
