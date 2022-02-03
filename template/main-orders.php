@@ -45,9 +45,10 @@
                                             Status <!-- Questo si aggiornerà in base al valore selezionato ed attuale dello stato -->
                                         </button>
                                         <ul class="dropdown-menu" aria-labelledby="dropdownStatus">
-                                            <li><a class="dropdown-item active" href="#">Action</a></li> <!-- Per rendere selezionato un elemento devo aggiungere active -->
-                                            <li><a class="dropdown-item" href="#">Another action</a></li> <!--Per disabilitarlo aggiungere disabled come classe al tag <a> -->
-                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                            <li><a class="dropdown-item active" href="#">To prepare</a></li> <!-- Per rendere selezionato un elemento devo aggiungere active -->
+                                            <li><a class="dropdown-item" href="#">Ready to delivery</a></li> <!--Per disabilitarlo aggiungere disabled come classe al tag <a> -->
+                                            <li><a class="dropdown-item" href="#">Shipped</a></li>
+                                            <li><a class="dropdown-item" href="#">Delivered</a></li>
                                         </ul>
                                 </div>
                             </div>
