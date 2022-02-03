@@ -5,6 +5,7 @@
     $templateParams["title"] = "Home";
     $templateParams["main-content"] = "main-orders.php";
     $cssArray[0]="./assets/css/orders-style.css";
+    $jsArray[0]="./assets/js/dropdownStatus.js";
     $manager= new ManagerOrders();
     $manager->createOrdersByUser("Nick987");
     $orders= $manager->getAllOrders();
