@@ -1,9 +1,5 @@
 $(document).ready(function(){
-    /* 
-
-    */
     switchSelectedItem(); 
-    //disableSpecificItem();
 
 });
 

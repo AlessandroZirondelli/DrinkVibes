@@ -19,8 +19,13 @@
                     <p>No orders </p>
                 <?php endif;?>
 
-                <?php foreach($orders as $tmp): ?>
-
+                <?php 
+                $accordionFlushID=1;
+                $flushHeading=1;
+                $flushCollapse=1;
+                foreach($orders as $tmp): 
+                ?>
+                    
                     <div class="container">
                         <div class="row">
                             <div class="col-4 col-md-4 p-0">
@@ -56,15 +61,15 @@
                         </div>
                         
 
-                        <div class="accordion accordion-flush" id="accordionFlush1">
+                        <div class="accordion accordion-flush" id="<?php echo 'accordionFlush'.$accordionFlushID ?>">
                             <div class="accordion-item">
-                                <h2 class="accordion-header" id="flush-headingOne">
-                                    <button class="accordion-button collapsed px-0" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                <h2 class="accordion-header" id="<?php echo 'flush-heading'.$flushHeading ?>">
+                                    <button class="accordion-button collapsed px-0" type="button" data-bs-toggle="collapse" data-bs-target="#<?php echo 'flush-collapse'.$flushCollapse ?>" aria-expanded="false" aria-controls="<?php echo 'flush-collapse'.$flushCollapse ?>">
                                         More info
                                     </button>
                                 </h2>
                                 
-                                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlush1">
+                                <div id="<?php echo 'flush-collapse'.$flushCollapse ?>" class="accordion-collapse collapse" aria-labelledby="<?php echo 'flush-heading'.$flushHeading ?>" data-bs-parent="#<?php echo 'accordionFlush'.$accordionFlushID ?>">
                                     <div class="accordion-body p-0">
                                     <div>
                                         Total: <?php echo $tmp->getTotal(); ?>
@@ -82,7 +87,15 @@
                         
                     </div>
 
-                <?php endforeach; ?>
+                    <?php 
+                        $accordionFlushID=$accordionFlushID+1;
+                        $flushHeading=$flushHeading+1;
+                        $flushCollapse=$flushCollapse+1;
+                    ?>
+
+                <?php 
+                    //echo $accordionFlushID;
+                endforeach; ?>
                     
 
                     
