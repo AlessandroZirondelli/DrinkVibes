@@ -78,6 +78,13 @@ class DatabaseHelper{
         $res = $result->fetch_all(MYSQLI_ASSOC);
         return $res[0]["subtotal"];
     }
+
+    public function insertOrderState($state,$orderID){
+        $query = "UPDATE totalorders SET state=? WHERE orderID=? ";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('si',$titoloarticolo, $orderID);
+        $stmt->execute();
+    }
     
     /*
     private function getUnitIngredientPrice(){

@@ -46,6 +46,7 @@
                                         </button>
                                         <ul class="dropdown-menu" aria-labelledby="dropdownStatus">
                                             <li><a class="dropdown-item active" href="#">To prepare</a></li> <!-- Per rendere selezionato un elemento devo aggiungere active -->
+                                             <!-- Qui bisogna fare il controllo che se l'utente è un fattorino ha solo queste 3 opzioni sotto -->
                                             <li><a class="dropdown-item" href="#">Ready to delivery</a></li> <!--Per disabilitarlo aggiungere disabled come classe al tag <a> -->
                                             <li><a class="dropdown-item" href="#">Shipped</a></li>
                                             <li><a class="dropdown-item" href="#">Delivered</a></li>

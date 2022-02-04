@@ -3,6 +3,7 @@ $(document).ready(function(){
 
     */
     switchSelectedItem(); 
+    //disableSpecificItem();
 
 });
 
@@ -11,21 +12,12 @@ $(document).ready(function(){
 
 function switchSelectedItem(){
     $("ul.dropdown-menu>li>a").click(
-        function(){
-            //$("ul.dropdown-menu>li>a.active").removeClass("active");//prendo l'elemento che era selezionato prima e deseleziono
-            //Quello sopra è sbagliato perchè vado a deselezionare anche lo stato di un altro ordine
+        function(){        
+            $(this).parent().parent().find(".active").removeClass("active"); //prendo l'elemento che era selezionato prima e deseleziono
+            $(this).addClass("active"); //evidenzio l'item appena selezionato
+            //solo se utente fattorino disabilita(Lo gestsisco dal PHP, non facendo proprio mostrare  le opzioni)
+            //$(this).parent().parent().children().eq(0).children().addClass("disabled");
             
-            
-            $(this).parent().parent().find(".active").removeClass("active");
-            $(this).addClass("active");
         }
     );
-    //prendo il nuovo elemento appena clickato e lo seleziono
-}
-
-function enableOnlyDeliveryButton(){
-
-}
-function insertStatus(){
-//deve inserire nel DB tramite ajax il nuovo stato dell'ordine
 }
