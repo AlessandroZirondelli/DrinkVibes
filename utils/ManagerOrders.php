@@ -11,22 +11,40 @@ require_once("./assets/db/database.php");
 
     class ManagerOrders{
         private $dbh;
-        private $orders;
+        private $ordersTab1;
+        private $ordersTab2;
 
         public function __construct() {
             $this->dbh = new DatabaseHelper("localhost","root","", "drinkdb",3306);
-            $this-> orders = array();
+            $this-> ordersTab1 = array();
+            $this-> ordersTab2 = array();
         }
 
-        public function addNewOrder($order){
-            array_push($this-> orders, $order );
+        public function addNewOrderTab1($order){
+            array_push($this-> ordersTab1, $order );
+        }
+        public function addNewOrderTab2($order){
+            array_push($this-> ordersTab2, $order );
         }
 
-        public function createOrdersByUser($userID){
-            $allOrders=$this-> dbh-> getOrdersByUser($userID);
-            /* questo ciclo serve per creare un oggetto Ordine per ogni singolo ordine sul DB fatto 
-            da uno specifico user*/
-            foreach ($allOrders as $tmp){
+        public function createOrdersTab($userID,$type){ // gestisce entrambi gli array ordersTab1 e ordersTab2
+            
+            if($type == "Admin"){
+                $ordersTabTmp1=$this-> dbh-> getAllOrdersFromAllUsers();
+                $ordersTabTmp2=$this-> dbh-> getNotDeliveredOrders();
+            }
+            if($type == "Express"){
+                $ordersTabTmp1=$this-> dbh -> getExpressOrders();
+            }
+
+            if($type == "User"){
+                $ordersTabTmp1=$this-> dbh-> getOrdersByUser($userID);
+                $ordersTabTmp2=$this-> dbh-> getNotDeliveredOrdersByUser($userID);
+            }
+            
+        
+            //qui avrò un ciclo1 e un ciclo2 per i due array
+            foreach ($ordersTabTmp1 as $tmp){
 
                 //Informazioni di base
                 $orderID = $tmp["orderID"];
@@ -53,13 +71,50 @@ require_once("./assets/db/database.php");
                     
                 }
 
-                $this->addNewOrder($newOrder);
+                $this->addNewOrderTab1($newOrder);
                 
             }
 
-            /*foreach($this->orders as $tmp){
-                $tmp->toString();
-            }*/
+            if($type!="Express"){
+                foreach ($ordersTabTmp2 as $tmp){
+
+                    //Informazioni di base
+                    $orderID = $tmp["orderID"];
+                    $date = $tmp["date"];
+                    $time = $tmp["time"];
+                    $state = $tmp["state"];
+                    $user = $tmp["userID"]; //$user = $userID 
+                    $total = $tmp["total"];
+    
+                    $newOrder = new Order($user,$orderID,$date,$time,$state,$total);
+                    //$newOrder->toString();
+    
+                    //Ora devo aggiungere le informazioni relative ai vari dettagli ordine
+                    $orderDetails = $this-> dbh -> getOrderDetails($orderID); 
+                    foreach ($orderDetails as $detail){ //aggiungo tutti i dettagli di quell'ordine
+                        $articID = $detail["articID"];
+                        $qty = $detail["qty"];
+                        $subtotal = $detail["subtotal"];
+                        $articName = $this->dbh->getArticleName($articID);
+    
+                        $newDetail = new OrderDetail($orderID,$articName,$articID,$qty,$subtotal);
+                        //$newDetail->toString();
+                        $newOrder-> addOrderDetail($newDetail); //aggiungo il dettaglio ordine
+                        
+                    }
+    
+                    $this->addNewOrderTab2($newOrder);
+                    
+                }
+    
+
+            }
+
+            
+
+
+
+
         }
 
        
@@ -68,8 +123,12 @@ require_once("./assets/db/database.php");
         /*
             DATO ELABORATO. Questa funzione dovrà restituire lo storico di  tutti gli ordini che il cliente ha effettuato 
         */
-        public function getAllOrders(){
-             return $this->orders;   
+        public function getOrdersTab1(){
+            return $this->ordersTab1;   
+        }
+        public function getOrdersTab2(){
+            return $this->ordersTab2;   
+            
         }
         
     }

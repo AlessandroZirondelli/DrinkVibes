@@ -85,34 +85,42 @@ class DatabaseHelper{
         $stmt->bind_param('si',$state, $orderID);
         $stmt->execute();
     }
-    
-    /*
-    private function getUnitIngredientPrice(){
-        $stmt = $this->conn->prepare("SELECT price FROM unitingredient  WHERE productID=?");
-        $stmt-> bind_param("i",$articleID);
+
+    public function getAllOrdersFromAllUsers(){
+        $stmt = $this->conn->prepare("SELECT * FROM totalorders");
         $stmt->execute();
         $result = $stmt->get_result();
-        $res = $result->fetch_all(MYSQLI_ASSOC);
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    private function getLiquidIngredientPrice(){
-        $stmt = $this->conn->prepare("SELECT price FROM liquidingredient  WHERE productID=?");
-        $stmt-> bind_param("i",$articleID);
+    public function getNotDeliveredOrders(){
+        $stmt = $this->conn->prepare("SELECT * FROM totalorders WHERE state!='Delivered' ");
         $stmt->execute();
         $result = $stmt->get_result();
-        $res = $result->fetch_all(MYSQLI_ASSOC);
+        return $result->fetch_all(MYSQLI_ASSOC); 
     }
-*/
-    /*DATO ELABORATO. Restituisce il subtotal */
+
+    public function getExpressOrders(){
+        $stmt = $this->conn->prepare("SELECT * FROM totalorders WHERE state!='Delivered' AND state!='To prepare' ");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC); 
+    }    
+
+    public function getNotDeliveredOrdersByUser($userID){
+        $stmt = $this->conn->prepare("SELECT * FROM totalorders WHERE state!='Delivered' AND userID=?");
+        $stmt-> bind_param("s",$userID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 
 }
 
 /*
 $dbhelper = new DatabaseHelper("localhost","root","", "drinkdb",3306);
-
-$resQuery = $dbhelper->getSubtotalPrice(1,2);
-echo "$resQuery";
-*/
+$res = $dbhelper->getNotDeliveredOrdersByUser("Franci31");
+echo var_dump($res);*/
 
 ?>
 
