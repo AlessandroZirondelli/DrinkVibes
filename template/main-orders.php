@@ -22,12 +22,12 @@
                     <?php if(count($ordersTab1)==0): ?>
                         <p>No orders </p>
                     <?php else: ?>   
-                        <?php if($type=="Fattorino"): ?>
+                        <?php if($type=="Express"): ?>
                             <?php 
                                 $accordionFlushID=1;
                                 $flushHeading=1;
                                 $flushCollapse=1;
-                                foreach($orders as $tmp): 
+                                foreach($ordersTab1 as $tmp): 
                             ?>
                                     <div class="container">
                                         <div class="row"> <!--  INIZZIA LA ROW-->
@@ -49,39 +49,23 @@
                                             </div>
                                 
                                             <!-- qui devo fare il controllo del type user. Se amin o fattorino faccio uscire drop down -->
-                                            <?php if($type=="User"):
-                                            ?>
+                                            
                                 
-                                                <div class="col-3 col-md-4 p-0">
-                                                    <div> <?php echo $tmp->getState(); ?> </div>
+                                            <div class="col-3 col-md-4 p-0">
+                                                <div class="dropdown">
+                                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownStatus" data-bs-toggle="dropdown" aria-expanded="false">
+                                                         Status <!-- Questo si aggiornerà in base al valore selezionato ed attuale dello stato -->
+                                                    </button>
+                                                    <ul class="dropdown-menu" id="<?php echo $tmp->getOrderID(); ?>" aria-labelledby="dropdownStatus">
+                                                        <!-- Il fattorino ha solo 3 opzioni. NON ha "To prepare"-->
+                                                        <li><a class="dropdown-item <?php if($tmp->getState()=='Ready to delivery'){echo 'active';} ?>" href="#">Ready to delivery</a></li> <!--Per disabilitarlo aggiungere disabled come classe al tag <a> -->
+                                                        <li><a class="dropdown-item <?php if($tmp->getState()=='Shipped'){echo 'active';} ?>" href="#">Shipped</a></li>
+                                                        <li><a class="dropdown-item <?php if($tmp->getState()=='Delivered'){echo 'active';} ?>" href="#">Delivered</a></li>
+                                                    </ul>
                                                 </div>
-                                
-                                            <?php  else: //if not user
-                                            ?>
-                                
-                                                <div class="col-3 col-md-4 p-0">
-                                                    <div class="dropdown">
-                                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownStatus" data-bs-toggle="dropdown" aria-expanded="false">
-                                                            Status <!-- Questo si aggiornerà in base al valore selezionato ed attuale dello stato -->
-                                                        </button>
-                                                        <ul class="dropdown-menu" id="<?php echo $tmp->getOrderID(); ?>" aria-labelledby="dropdownStatus">
-                                                            <?php if($type=="Admin"):?><li><a class="dropdown-item <?php if($tmp->getState()=='To prepare'){echo 'active';}?>" href="#">To prepare</a></li> <!-- Per rendere selezionato un elemento devo aggiungere active -->
-                                                                <!-- Qui bisogna fare il controllo che se l'utente è un fattorino ha solo queste 3 opzioni sotto -->
-                                                            <?php endif;
-                                                            ?>
-                                                            <li><a class="dropdown-item <?php if($tmp->getState()=='Ready to delivery'){echo 'active';} ?>" href="#">Ready to delivery</a></li> <!--Per disabilitarlo aggiungere disabled come classe al tag <a> -->
-                                                             <li><a class="dropdown-item <?php if($tmp->getState()=='Shipped'){echo 'active';} ?>" href="#">Shipped</a></li>
-                                                            <li><a class="dropdown-item <?php if($tmp->getState()=='Delivered'){echo 'active';} ?>" href="#">Delivered</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-
-                                            <?php
-                                                endif;
-                                            ?>
+                                            </div>
                                         </div> <!-- CHIUDE LA ROW -->
                             
-
                                         <div class="accordion accordion-flush" id="<?php echo 'accordionFlush'.$accordionFlushID ?>">
                                             <div class="accordion-item">
                                                 <h2 class="accordion-header" id="<?php echo 'flush-heading'.$flushHeading ?>">
@@ -116,13 +100,12 @@
                             <?php                           
                                 endforeach; 
                             ?>
-                        <?php endif: //endif del type se è fattorino?>
+                        <?php endif; //endif del type se è fattorino?>
 
 
 
 
-
-                            
+        
                     <?php endif; //endif del controllo se ci sono ordino o meno?>
                 
                       

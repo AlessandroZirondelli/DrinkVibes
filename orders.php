@@ -10,8 +10,8 @@
     $manager= new ManagerOrders();
     //$manager->createOrdersByUser($_SESSION["userID"]);
 
-    $type="User";
-    $userID="Nick987";//$userID = $_SESSION["user"];
+    $type="Express";
+    $userID="Express";//$userID = $_SESSION["user"];
 
     $manager->createOrdersTab($userID,$type);
     $ordersTab1=$manager->getOrdersTab1();
