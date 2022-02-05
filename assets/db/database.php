@@ -79,6 +79,27 @@ class DatabaseHelper{
         return $res[0]["subtotal"];
     }
     
+    public function checkLogin($userID, $password){
+        $query = "SELECT userID, name, surname, email, type FROM user WHERE  userID = ? AND password = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param('ss',$userID, $password);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }   
+    
+    public function checkDuplication($userID, $email){
+        $query = "SELECT * FROM user WHERE userID = ? OR email = ? ";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param('ss',$userID, $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    
+    }
+
     /*
     private function getUnitIngredientPrice(){
         $stmt = $this->conn->prepare("SELECT price FROM unitingredient  WHERE productID=?");
@@ -87,7 +108,6 @@ class DatabaseHelper{
         $result = $stmt->get_result();
         $res = $result->fetch_all(MYSQLI_ASSOC);
     }
-
     private function getLiquidIngredientPrice(){
         $stmt = $this->conn->prepare("SELECT price FROM liquidingredient  WHERE productID=?");
         $stmt-> bind_param("i",$articleID);
@@ -102,10 +122,8 @@ class DatabaseHelper{
 
 /*
 $dbhelper = new DatabaseHelper("localhost","root","", "drinkdb",3306);
-
 $resQuery = $dbhelper->getSubtotalPrice(1,2);
 echo "$resQuery";
 */
 
 ?>
-

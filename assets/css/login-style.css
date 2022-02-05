@@ -1,0 +1,6 @@
+@media screen and (min-width:768px) {
+    main {
+        width: 50%;
+        margin: 20px 5% 0 10%;
+    }
+}

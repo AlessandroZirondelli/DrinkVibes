@@ -31,7 +31,7 @@
               <div class="input-group-prepend">
                 <span class="input-group-text" ><i class="fas fa-user"></i></span>
               </div>
-              <input name="username" type="text" class="input form-control" id="username" placeholder="Username" />
+              <input name="userID" type="text" class="input form-control" id="userID" placeholder="Username" />
             </div>
           </div>
 
@@ -60,23 +60,54 @@
                 <span class="input-group-text" ><i class="fas fa-lock"></i></span>
               </div>
                 <input name="password" type="password" class="input form-control" id="password" placeholder="Password" />
-              
             </div>
-        
-
-
           </div>
           
-          <div class="col-sm-12 pt-3 text-left">
-            <p>Already registered <a href="registration.php">Register</a></p> 
+          <div class="col-12">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" ><i class="fas fa-lock"></i></span>
+              </div>
+                <input name="pwd" type="password" class="input form-control" id="pwd" placeholder="Reapet Password" />
+            </div>
           </div>
+          
+
           <div class="col-12 text-right">
-          <input type="submit" name="submit" value="Login" />
+          <input type="submit" name="login" value="Login" />
                
           </div>
-          <?php if(isset($templateParams["errorelogin"])): ?>
-            <p><?php echo $templateParams["errorelogin"]; ?></p>
-            <?php endif; ?>
+          <?php if(isset($templateParams["errorevuoto"])): ?>
+            <p><br><?php echo $templateParams["errorevuoto"]; ?></br></p>
+          <?php endif; ?>
+          <?php if(isset($templateParams["erroreusata"])): ?>
+            <p><br><?php echo $templateParams["erroreusata"]; ?></br></p>
+          <?php endif; ?>
+
+          <?php if(isset($templateParams["lettere"])): ?>
+            <p><br><?php echo $templateParams["lettere"]; ?></br></p>
+          <?php endif; ?>
+
+          <?php if(isset($templateParams["data"])): ?>
+            <p><br><?php echo $templateParams["data"]; ?></br></p>
+          <?php endif; ?>
+
+          <?php if(isset($templateParams["email"])): ?>
+            <p><br><?php echo $templateParams["email"]; ?></br></p>
+          <?php endif; ?>
+
+          <?php if(isset($templateParams["vino"])): ?>
+            <p><br><?php echo $templateParams["vino"]; ?></br></p>
+          <?php endif; ?>
+
+          <?php if(isset($templateParams["acqua"])): ?>
+            <p><br><?php echo $templateParams["acqua"]; ?></br></p>
+          <?php endif; ?>
+
+          <?php if(isset($templateParams["pwd"])): ?>
+            <p><br><?php echo $templateParams["pwd"]; ?></br></p>
+          <?php endif; ?>
+
         </div>
       </form>
     </div>

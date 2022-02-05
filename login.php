@@ -1,42 +1,29 @@
 <?php
 require_once 'bootstrap.php';
+$cssArray[0]="./assets/css/login-style.css";
+// va in base per le icone <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
-//1 non sono loggato, visito pagina per la prima volta (cookie o session aka dati sensibili)
-//2 invio dati per autenticarmi. tento di fare login
-//3 sono loggato, vedo home admin
-
-//2
-//controllo login in POST e non require perchè contiene anche GET che non ci interessa
 //controlliamo username e password
 if(isset($_POST["username"]) && isset($_POST["password"])){
-    //controllo se ci sono nel db
     $login_result = $dbh->checkLogin($_POST["username"], $_POST["password"]);
-    
     if(count($login_result)==0){
-        //login fallito
+        //Login fallito
         $templateParams["errorelogin"] = "Username o password errata! Riprova.";
-    }else{
-        //login con successo
-        registerLoggedUser($login_result[0]); //recupero l'utente
-
+    }
+    else{
+        registerLoggedUser($login_result[0]);
     }
 }
-//utente loggato o meno
+
 if(isUserLoggedIn()){
-    //pagina admin
-    $templateParams["titolo"] = "Blog TW - Admin";
-    $templateParams["nome"] = "login-home.php";
-
-}else{
-    $templateParams["titolo"] = "Blog TW - Login";
-    $templateParams["nome"] = "login-form.php";
-
+    $templateParams["title"] = "Login - Accesso";
+    $templateParams["main-content"] = "login-home.php";
+    
 }
-
-/*
-$templateParams["categorie"] = $dbh->getCategories();
-$templateParams["articolicasuali"] = $dbh->getRandomPosts(2);
-*/
+else{
+    $templateParams["title"] = "Login";
+    $templateParams["main-content"] = "login-form.php";
+}
 
 require 'template/base.php';
 ?>
