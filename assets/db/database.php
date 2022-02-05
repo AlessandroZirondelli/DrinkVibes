@@ -81,8 +81,8 @@ class DatabaseHelper{
 
     public function insertOrderState($state,$orderID){
         $query = "UPDATE totalorders SET state=? WHERE orderID=? ";
-        $stmt = $this->db->prepare($query);
-        $stmt->bind_param('si',$titoloarticolo, $orderID);
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param('si',$state, $orderID);
         $stmt->execute();
     }
     
