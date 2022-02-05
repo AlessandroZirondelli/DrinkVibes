@@ -1,5 +1,16 @@
 
-<h1 class="p-3">Make your drink</h1>
+<h1 class="p-3" id = "hint">Make your drink</h1>
+<table>
+  <caption>Ingredients choosen</caption>
+  <thead>
+    <th>Ingredient</th>
+    <th>Quantity</th>
+    <th>Price</th>
+  </thead>
+
+  <tbody>
+  </tbody>
+</table>
 <h2 class="p-3">Choose your ingredients</h2>
 <div class="accordion accordion-flush px-3 pb-3" id="accordionFlushExample">
         <div class="accordion-item">
@@ -40,8 +51,10 @@
                                         </div>
                                     <div class="d-flex align-items-center justify-content-between py-3 px-6">
                                         <div class="h4"><span>&#8364;</span><?php echo $liquidingredient["price"]; ?>/L</div>
-                                        <div> <button class="btn btn-dark text-uppercase">Add</button> </div>
+                                        <input type="text" class="form-control form-rounded" id="qtn<?php echo $liquidingredient["ingredientID"]; ?>" placeholder="Quantity">
+                                        <div> <button class="btn btn-dark text-uppercase" onclick="submitQuantity(<?php echo $liquidingredient["ingredientID"]; ?>)" >Add</button> </div>
                                     </div>
+                                    
                             </div>
                         </div>
                       </div>  

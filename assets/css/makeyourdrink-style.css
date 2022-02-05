@@ -32,8 +32,9 @@ img {
   justify-content: center
 }
 
-p.h4 {
-  font-family: 'Roboto Slab', serif
+.h4 {
+  font-family: 'Roboto Slab', serif;
+  margin: 0px;
 }
 
 p {
@@ -50,14 +51,16 @@ p.h3.text-decoration-none {
   margin-bottom: 0;
   margin-right: 0;
 }
-
+.text-muted{
+  color:red;
+}
 
 
 .btn {
   border-radius: 20px;
   font-size: 0.8rem;
   font-weight: 600;
-  padding: 1px 10px
+  padding: 4px 10px !important; 
 }
 
 
@@ -75,7 +78,8 @@ p.h3.text-decoration-none {
   background-clip: border-box;
   border-width: 1px;
   border-style: solid;
-  border-color: rgba(0, 0, 0, 0.125);
+  border-color: black;
+  border-width: 3px;
   border-image: initia
 }
 
@@ -102,7 +106,17 @@ p.h3.text-decoration-none {
   padding-left: 0;
 }
 
-
+.form-rounded {
+  border-radius: 1rem !important;
+  margin-left: 5px;
+  margin-right: 5px;
+  border-color: black;
+  border-width: 3px !important;
+  border-radius: 1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 1px 10px
+}
 .row>* {
   max-width: 100%;
   padding-right: calc(var(--bs-gutter-x)/ 2);
@@ -138,29 +152,3 @@ div {
   --bs-gutter-y: 0;
 }
 
-@media(max-width:800px) {
-  .wrapper {
-      margin: 20px 10px
-  }
-  p.h4 {
-      font-size: 1.35rem;
-      padding-top: 10px
-  }
-}
-
-@media(max-width:767px) {
-  .wrapper {
-      max-width: 500px;
-      margin: 20px auto
-  }
-}
-
-@media(max-width:424px) {
-  .wrapper {
-      width: 100%;
-      margin: auto
-  }
-  div.text-muted {
-      font-size: 0.75rem
-  }
-}

@@ -1,7 +1,6 @@
 <?php
 
 require_once("assets/db/database.php");
-
     class ManagerIngredients{
         private $dbh;
 
@@ -14,7 +13,10 @@ require_once("assets/db/database.php");
         public function getAllLiquidIngredients(){
             return $this->dbh -> getLiquidIngredient();
         }
+        public function getIngredientById($id){
+            return $this->dbh -> getIngredientById($id);
+        }
+        
         
     }
-
 ?>

@@ -28,6 +28,18 @@ class DatabaseHelper{
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+    public function getIngredientById($ingredientID){
+        $query = "SELECT * FROM liquidingredient WHERE ingredientID=?";
+        if($stmt = $this->conn->prepare($query)){
+            $stmt->bind_param('i',$ingredientID);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }else{
+            return NULL;
+        }
+        
+    }
     public function getUnityIngredient(){
         $query = "SELECT * FROM unitingredient";
         $stmt = $this->conn->prepare($query);
