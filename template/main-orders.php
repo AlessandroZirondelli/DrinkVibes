@@ -45,20 +45,39 @@
                                 </div>
                             </div>
                             
+                            <!-- qui devo fare il controllo del type user. Se amin o fattorino faccio uscire drop down -->
+                            <?php $type="Express";
+
+                            if($type=="User"):
+                            ?>
+                            
+                            <div class="col-3 col-md-4 p-0">
+                                <div> <?php echo $tmp->getState(); ?> </div>
+                            </div>
+                            
+                            <?php  else: 
+                            ?>
+                            
                             <div class="col-3 col-md-4 p-0">
                                 <div class="dropdown">
                                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownStatus" data-bs-toggle="dropdown" aria-expanded="false">
                                             Status <!-- Questo si aggiornerà in base al valore selezionato ed attuale dello stato -->
                                         </button>
                                         <ul class="dropdown-menu" id="<?php echo $tmp->getOrderID(); ?>" aria-labelledby="dropdownStatus">
-                                            <li><a class="dropdown-item <?php if($tmp->getState()=='To prepare'){echo 'active';}?>" href="#">To prepare</a></li> <!-- Per rendere selezionato un elemento devo aggiungere active -->
+                                            <?php if($type=="Admin"):?><li><a class="dropdown-item <?php if($tmp->getState()=='To prepare'){echo 'active';}?>" href="#">To prepare</a></li> <!-- Per rendere selezionato un elemento devo aggiungere active -->
                                              <!-- Qui bisogna fare il controllo che se l'utente è un fattorino ha solo queste 3 opzioni sotto -->
+                                            <?php endif;
+                                            ?>
                                             <li><a class="dropdown-item <?php if($tmp->getState()=='Ready to delivery'){echo 'active';} ?>" href="#">Ready to delivery</a></li> <!--Per disabilitarlo aggiungere disabled come classe al tag <a> -->
                                             <li><a class="dropdown-item <?php if($tmp->getState()=='Shipped'){echo 'active';} ?>" href="#">Shipped</a></li>
                                             <li><a class="dropdown-item <?php if($tmp->getState()=='Delivered'){echo 'active';} ?>" href="#">Delivered</a></li>
                                         </ul>
                                 </div>
                             </div>
+
+                            <?php
+                            endif;
+                            ?>
                         </div>
                         
 
