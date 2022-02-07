@@ -11,7 +11,9 @@ function switchSelectedItem(){
         function(){        
             $(this).parent().parent().find(".active").removeClass("active"); //prendo l'elemento che era selezionato prima e deseleziono
             $(this).addClass("active");//evidenzio l'item appena selezionato
-            $orderID=$(this).parent().parent().attr('id');
+            
+
+            $orderID=$(this).parent().parent().attr('id').match(/\d+/);;
             $state=$(this).text().replace(/\s+/g, '+');
             
             const xhttp = new XMLHttpRequest();

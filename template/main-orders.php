@@ -56,7 +56,7 @@
                                                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownStatus" data-bs-toggle="dropdown" aria-expanded="false">
                                                             Status <!-- Questo si aggiornerà in base al valore selezionato ed attuale dello stato -->
                                                         </button>
-                                                        <ul class="dropdown-menu" id="<?php echo $tmp->getOrderID(); ?>" aria-labelledby="dropdownStatus">
+                                                        <ul class="dropdown-menu" id="tabOne<?php echo $tmp->getOrderID(); ?>" aria-labelledby="dropdownStatus">
                                                             <?php if($type=="Admin"): ?> <li><a class="dropdown-item <?php if($tmp->getState()=='To prepare'){echo 'active';} ?>" href="#">To prepare</a></li> <?php endif; ?>
                                                             <!-- Il fattorino ha solo 3 opzioni. NON ha "To prepare"-->
                                                             <li><a class="dropdown-item <?php if($tmp->getState()=='Ready to delivery'){echo 'active';} ?>" href="#">Ready to delivery</a></li> <!--Per disabilitarlo aggiungere disabled come classe al tag <a> -->
@@ -175,7 +175,7 @@
                                                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownStatus" data-bs-toggle="dropdown" aria-expanded="false">
                                                             Status <!-- Questo si aggiornerà in base al valore selezionato ed attuale dello stato -->
                                                         </button>
-                                                        <ul class="dropdown-menu" id="<?php echo $tmp->getOrderID(); ?>" aria-labelledby="dropdownStatus">
+                                                        <ul class="dropdown-menu" id="tabTwo<?php echo $tmp->getOrderID(); ?>" aria-labelledby="dropdownStatus">
                                                             <?php if($type=="Admin"): ?> <li><a class="dropdown-item <?php if($tmp->getState()=='To prepare'){echo 'active';} ?>" href="#">To prepare</a></li> <?php endif; ?>
                                                             <!-- Il fattorino ha solo 3 opzioni. NON ha "To prepare"-->
                                                             <li><a class="dropdown-item <?php if($tmp->getState()=='Ready to delivery'){echo 'active';} ?>" href="#">Ready to delivery</a></li> <!--Per disabilitarlo aggiungere disabled come classe al tag <a> -->
