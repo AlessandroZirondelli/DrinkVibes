@@ -31,16 +31,19 @@ function switchSelectedItem(){
             dropDownSelectedID= $(this).parent().parent();
             
             //$containerToDelete= $dropDownSelectedID.closest(".container").remove();
+            
+            selectedTab=dropDownSelectedID.attr('id');
+            number=selectedTab.match(/\d+/);
+            state=$(this).text();
+
 
             if($('#tab2').length!=0){ // controllo se sono amministratore
                 if($(this).text()=="Delivered"){ 
                     //elimino solo il container dell'ordine seleziomato nel tab2
                     
                     containerToRemove= dropDownSelectedID.closest(".container");
-                    selectedTab=dropDownSelectedID.attr('id');
-                    number=selectedTab.match(/\d+/);
-                    state=$(this).text();
-                    console.log(state);
+                    
+                    //console.log(state);
                     if(selectedTab.includes("tabTwo")){ //se ho selezionato il secondo tab
                         containerToRemove.remove();
                         dropdownToChange="tabOne".concat(number);
@@ -58,10 +61,27 @@ function switchSelectedItem(){
                     }
                     
                     
-                }   
+                }
+                else{ // se lo stato non è delivered 
+                    if(selectedTab.includes("tabTwo")){ //se ho selezionato il secondo tab
+                        dropdownToChange="tabOne".concat(number);
+                        $("#"+dropdownToChange).find(".active").removeClass("active");
+                        $('#'+dropdownToChange+' li:contains('+state+') a').addClass("active");
+                    }
+                    else{//se ho selezionato il primo tab
+                        dropdownToChange="tabTwo".concat(number);
+                        $("#"+dropdownToChange).find(".active").removeClass("active");
+                        $('#'+dropdownToChange+' li:contains('+state+') a').addClass("active");
+                    }
+
+                }
+
             }
             else{//se sono fattorino
-
+                if($(this).text()=="Delivered"){
+                   containerToRemove= dropDownSelectedID.closest(".container");
+                   containerToRemove.remove(); 
+                }
 
             }
             
