@@ -110,11 +110,6 @@ require_once("./assets/db/database.php");
 
             }
 
-            
-
-
-
-
         }
 
        
@@ -129,6 +124,13 @@ require_once("./assets/db/database.php");
         public function getOrdersTab2(){
             return $this->ordersTab2;   
             
+        }
+
+        public function getRecipientName($orderID){
+            $userID= $this->dbh->getUserIDByOrderID($orderID);
+            $name= $this->dbh->getNameByUser($userID);
+            $surname = $this->dbh->getSurnameByUser($userID);
+            return $name." ".$surname;
         }
         
     }

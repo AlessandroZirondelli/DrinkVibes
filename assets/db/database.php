@@ -115,6 +115,32 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function getNameByUser($userID){
+        $stmt = $this->conn->prepare("SELECT name FROM user WHERE userID=?");
+        $stmt-> bind_param("s",$userID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $res= $result->fetch_all(MYSQLI_ASSOC);
+        return $res[0]["name"];
+    }
+    public function getSurnameByUser($userID){
+        $stmt = $this->conn->prepare("SELECT surname FROM user WHERE userID=?");
+        $stmt-> bind_param("s",$userID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $res= $result->fetch_all(MYSQLI_ASSOC);
+        return $res[0]["surname"];
+    }
+
+    public function getUserIDByOrderID($orderID){
+        $stmt = $this->conn->prepare("SELECT userID FROM totalorders WHERE orderID=?");
+        $stmt-> bind_param("i",$orderID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $res= $result->fetch_all(MYSQLI_ASSOC);
+        return $res[0]["userID"];
+    }
+
 }
 
 /*

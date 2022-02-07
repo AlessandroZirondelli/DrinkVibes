@@ -22,7 +22,7 @@
                     <?php if(count($ordersTab1)==0): ?>
                         <p>No orders </p>
                     <?php else: ?>   
-                        <?php if($type=="Express"): ?>
+                        <!--  Qui c'era il PHP del controllo type express  -->
                             <?php 
                                 $accordionFlushID=1;
                                 $flushHeading=1;
@@ -50,20 +50,33 @@
                                 
                                             <!-- qui devo fare il controllo del type user. Se amin o fattorino faccio uscire drop down -->
                                             
-                                
-                                            <div class="col-3 col-md-4 p-0">
-                                                <div class="dropdown">
-                                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownStatus" data-bs-toggle="dropdown" aria-expanded="false">
-                                                         Status <!-- Questo si aggiornerà in base al valore selezionato ed attuale dello stato -->
-                                                    </button>
-                                                    <ul class="dropdown-menu" id="<?php echo $tmp->getOrderID(); ?>" aria-labelledby="dropdownStatus">
-                                                        <!-- Il fattorino ha solo 3 opzioni. NON ha "To prepare"-->
-                                                        <li><a class="dropdown-item <?php if($tmp->getState()=='Ready to delivery'){echo 'active';} ?>" href="#">Ready to delivery</a></li> <!--Per disabilitarlo aggiungere disabled come classe al tag <a> -->
-                                                        <li><a class="dropdown-item <?php if($tmp->getState()=='Shipped'){echo 'active';} ?>" href="#">Shipped</a></li>
-                                                        <li><a class="dropdown-item <?php if($tmp->getState()=='Delivered'){echo 'active';} ?>" href="#">Delivered</a></li>
-                                                    </ul>
+                                            <?php if ($type!="User"): ?>
+                                                <div class="col-3 col-md-4 p-0">
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownStatus" data-bs-toggle="dropdown" aria-expanded="false">
+                                                            Status <!-- Questo si aggiornerà in base al valore selezionato ed attuale dello stato -->
+                                                        </button>
+                                                        <ul class="dropdown-menu" id="<?php echo $tmp->getOrderID(); ?>" aria-labelledby="dropdownStatus">
+                                                            <?php if($type=="Admin"): ?> <li><a class="dropdown-item <?php if($tmp->getState()=='To prepare'){echo 'active';} ?>" href="#">To prepare</a></li> <?php endif; ?>
+                                                            <!-- Il fattorino ha solo 3 opzioni. NON ha "To prepare"-->
+                                                            <li><a class="dropdown-item <?php if($tmp->getState()=='Ready to delivery'){echo 'active';} ?>" href="#">Ready to delivery</a></li> <!--Per disabilitarlo aggiungere disabled come classe al tag <a> -->
+                                                            <li><a class="dropdown-item <?php if($tmp->getState()=='Shipped'){echo 'active';} ?>" href="#">Shipped</a></li>
+                                                            <li><a class="dropdown-item <?php if($tmp->getState()=='Delivered'){echo 'active';} ?>" href="#">Delivered</a></li>
+                                                        </ul>
+                                                    </div>
                                                 </div>
-                                            </div>
+
+                                            <?php else: ?> <!-- Se è un utente di tipo User -->
+                                                <div class="col-3 col-md-4 p-0">
+                                                    <div>
+                                                        State:
+                                                    </div>
+                                                    <div> 
+                                                        <?php echo $tmp->getState(); ?> 
+                                                    </div>
+                                                </div>  
+                                            <?php endif; ?>                   
+
                                         </div> <!-- CHIUDE LA ROW -->
                             
                                         <div class="accordion accordion-flush" id="<?php echo 'accordionFlush'.$accordionFlushID ?>">
@@ -76,8 +89,13 @@
                                     
                                                 <div id="<?php echo 'flush-collapse'.$flushCollapse ?>" class="accordion-collapse collapse" aria-labelledby="<?php echo 'flush-heading'.$flushHeading ?>" data-bs-parent="#<?php echo 'accordionFlush'.$accordionFlushID ?>">
                                                     <div class="accordion-body p-0">
+                                                        <?php if($type=="Express"): ?>
+                                                            <div>
+                                                                Recipient: <?php echo $manager->getRecipientName($tmp->getOrderID()); ?> 
+                                                            </div>
+                                                        <?php endif;?>
                                                         <div>
-                                                            Total: <?php echo $tmp->getTotal(); ?>
+                                                            Total: <?php echo $tmp->getTotal(); ?> $
                                                         </div>
                                                         <?php foreach($tmp->getOrderDetails() as $detail): ?>
                                                             <div>
@@ -100,7 +118,7 @@
                             <?php                           
                                 endforeach; 
                             ?>
-                        <?php endif; //endif del type se è fattorino?>
+                        <!-- Qui c'era il php del controllo typr fattorino -->
 
 
 
