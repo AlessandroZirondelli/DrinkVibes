@@ -39,7 +39,7 @@ class OrderDetail{
     public function setSubtotal($subtotal){ // subtotal must be calculate
         $this->subtotal = $subtotal;
     }
-    public function getsubtotal(){
+    public function getSubtotal(){
         return $this->subtotal;
     } 
 
