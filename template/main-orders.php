@@ -6,12 +6,12 @@
             <h2 class="h2 text-black ">Orders</h2>
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="all-orders-tab" data-bs-toggle="tab" data-bs-target="#tab1" type="button" role="tab" aria-controls="home" aria-selected="true">All orders</button>
+                    <button class="nav-link active" id="all-orders-tab" data-bs-toggle="tab" data-bs-target="#tab1" type="button" role="tab" aria-controls="tab1" aria-selected="true">All orders</button>
                 </li>
                 
                 <?php if($type!="Express"): ?>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="pending-orders-tab" data-bs-toggle="tab" data-bs-target="#tab2" type="button" role="tab" aria-controls="profile" aria-selected="false">Orders being processed</button>
+                    <button class="nav-link" id="pending-orders-tab" data-bs-toggle="tab" data-bs-target="#tab2" type="button" role="tab" aria-controls="tab2" aria-selected="false">Orders being processed</button>
                 </li>  
                 <?php  endif;?> 
             </ul>
@@ -53,10 +53,10 @@
                                             <?php if ($type!="User"): ?>
                                                 <div class="col-3 col-md-4 p-0">
                                                     <div class="dropdown">
-                                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownStatus" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownStatusTabOne<?php echo $tmp->getOrderID();?>" data-bs-toggle="dropdown" aria-expanded="false">
                                                             Status <!-- Questo si aggiornerà in base al valore selezionato ed attuale dello stato -->
                                                         </button>
-                                                        <ul class="dropdown-menu" id="tabOne<?php echo $tmp->getOrderID(); ?>" aria-labelledby="dropdownStatus">
+                                                        <ul class="dropdown-menu" id="tabOne<?php echo $tmp->getOrderID(); ?>" aria-labelledby="dropdownStatusTabOne<?php echo $tmp->getOrderID();?>">
                                                             <?php if($type=="Admin"): ?> <li><a class="dropdown-item <?php if($tmp->getState()=='To prepare'){echo 'active';} ?>" href="#">To prepare</a></li> <?php endif; ?>
                                                             <!-- Il fattorino ha solo 3 opzioni. NON ha "To prepare"-->
                                                             <li><a class="dropdown-item <?php if($tmp->getState()=='Ready to delivery'){echo 'active';} ?>" href="#">Ready to delivery</a></li> <!--Per disabilitarlo aggiungere disabled come classe al tag <a> -->
@@ -143,9 +143,9 @@
                         <?php else: ?>   
                         <!--  Qui c'era il PHP del controllo type express  -->
                             <?php 
-                                $accordionFlushID=1;
-                                $flushHeading=1;
-                                $flushCollapse=1;
+                                //$accordionFlushID=1;
+                                //$flushHeading=1;
+                                //$flushCollapse=1;
                                 foreach($ordersTab2 as $tmp): 
                             ?>
                                     <div class="container">
@@ -172,10 +172,10 @@
                                             <?php if ($type!="User"): ?>
                                                 <div class="col-3 col-md-4 p-0">
                                                     <div class="dropdown">
-                                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownStatus" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownStatusTabTwo<?php echo $tmp->getOrderID();?>" data-bs-toggle="dropdown" aria-expanded="false">
                                                             Status <!-- Questo si aggiornerà in base al valore selezionato ed attuale dello stato -->
                                                         </button>
-                                                        <ul class="dropdown-menu" id="tabTwo<?php echo $tmp->getOrderID(); ?>" aria-labelledby="dropdownStatus">
+                                                        <ul class="dropdown-menu" id="tabTwo<?php echo $tmp->getOrderID(); ?>" aria-labelledby="dropdownStatusTabTwo<?php echo $tmp->getOrderID();?>">
                                                             <?php if($type=="Admin"): ?> <li><a class="dropdown-item <?php if($tmp->getState()=='To prepare'){echo 'active';} ?>" href="#">To prepare</a></li> <?php endif; ?>
                                                             <!-- Il fattorino ha solo 3 opzioni. NON ha "To prepare"-->
                                                             <li><a class="dropdown-item <?php if($tmp->getState()=='Ready to delivery'){echo 'active';} ?>" href="#">Ready to delivery</a></li> <!--Per disabilitarlo aggiungere disabled come classe al tag <a> -->
