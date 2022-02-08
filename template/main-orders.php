@@ -24,9 +24,9 @@
                     <?php else: ?>   
                         <!--  Qui c'era il PHP del controllo type express  -->
                             <?php 
-                                $accordionFlushID=1;
-                                $flushHeading=1;
-                                $flushCollapse=1;
+                                //$accordionFlushID=1;
+                                //$flushHeading=1;
+                                //$flushCollapse=1;
                                 foreach($ordersTab1 as $tmp): 
                             ?>
                                     <div class="container">
@@ -79,15 +79,15 @@
 
                                         </div> <!-- CHIUDE LA ROW -->
                             
-                                        <div class="accordion accordion-flush" id="<?php echo 'accordionFlush'.$accordionFlushID ?>">
+                                        <div class="accordion accordion-flush" id="<?php echo 'accordionFlushTabOne'.$tmp->getOrderID(); ?>">
                                             <div class="accordion-item">
-                                                <h2 class="accordion-header" id="<?php echo 'flush-heading'.$flushHeading ?>">
-                                                    <button class="accordion-button collapsed px-0" type="button" data-bs-toggle="collapse" data-bs-target="#<?php echo 'flush-collapse'.$flushCollapse ?>" aria-expanded="false" aria-controls="<?php echo 'flush-collapse'.$flushCollapse ?>">
+                                                <h2 class="accordion-header" id="<?php echo 'flush-headingTabOne'.$tmp->getOrderID();?>">
+                                                    <button class="accordion-button collapsed px-0" type="button" data-bs-toggle="collapse" data-bs-target="#<?php echo 'flush-collapseTabOne'.$tmp->getOrderID(); ?>" aria-expanded="false" aria-controls="<?php echo 'flush-collapseTabOne'.$tmp->getOrderID(); ?>">
                                                         More info
                                                     </button>
                                                 </h2>
                                     
-                                                <div id="<?php echo 'flush-collapse'.$flushCollapse ?>" class="accordion-collapse collapse" aria-labelledby="<?php echo 'flush-heading'.$flushHeading ?>" data-bs-parent="#<?php echo 'accordionFlush'.$accordionFlushID ?>">
+                                                <div id="<?php echo 'flush-collapseTabOne'.$tmp->getOrderID(); ?>" class="accordion-collapse collapse" aria-labelledby="<?php echo 'flush-headingTabOne'.$tmp->getOrderID(); ?>" data-bs-parent="#<?php echo 'accordionFlushTabOne'.$tmp->getOrderID(); ?>">
                                                     <div class="accordion-body p-0">
                                                         <?php if($type=="Express"): ?>
                                                             <div>
@@ -110,9 +110,9 @@
                                     </div> <!-- FINE DEL CONTAINER -->
 
                                     <?php 
-                                        $accordionFlushID=$accordionFlushID+1;
-                                        $flushHeading=$flushHeading+1;
-                                        $flushCollapse=$flushCollapse+1;
+                                        //$accordionFlushID=$accordionFlushID+1;
+                                        //$flushHeading=$flushHeading+1;
+                                        //$flushCollapse=$flushCollapse+1;
                                     ?>
 
                             <?php                           
@@ -143,9 +143,7 @@
                         <?php else: ?>   
                         <!--  Qui c'era il PHP del controllo type express  -->
                             <?php 
-                                //$accordionFlushID=1;
-                                //$flushHeading=1;
-                                //$flushCollapse=1;
+                                
                                 foreach($ordersTab2 as $tmp): 
                             ?>
                                     <div class="container">
@@ -198,15 +196,15 @@
 
                                         </div> <!-- CHIUDE LA ROW -->
                             
-                                        <div class="accordion accordion-flush" id="<?php echo 'accordionFlush'.$accordionFlushID ?>">
+                                        <div class="accordion accordion-flush" id="<?php echo 'accordionFlushTabTwo'.$tmp->getOrderID(); ?>">
                                             <div class="accordion-item">
-                                                <h2 class="accordion-header" id="<?php echo 'flush-heading'.$flushHeading ?>">
-                                                    <button class="accordion-button collapsed px-0" type="button" data-bs-toggle="collapse" data-bs-target="#<?php echo 'flush-collapse'.$flushCollapse ?>" aria-expanded="false" aria-controls="<?php echo 'flush-collapse'.$flushCollapse ?>">
+                                                <h2 class="accordion-header" id="<?php echo 'flush-headingTabTwo'.$tmp->getOrderID(); ?>">
+                                                    <button class="accordion-button collapsed px-0" type="button" data-bs-toggle="collapse" data-bs-target="#<?php echo 'flush-collapseTabTwo'.$tmp->getOrderID(); ?>" aria-expanded="false" aria-controls="<?php echo 'flush-collapseTabTwo'.$tmp->getOrderID(); ?>">
                                                         More info
                                                     </button>
                                                 </h2>
                                     
-                                                <div id="<?php echo 'flush-collapse'.$flushCollapse ?>" class="accordion-collapse collapse" aria-labelledby="<?php echo 'flush-heading'.$flushHeading ?>" data-bs-parent="#<?php echo 'accordionFlush'.$accordionFlushID ?>">
+                                                <div id="<?php echo 'flush-collapseTabTwo'.$tmp->getOrderID(); ?>" class="accordion-collapse collapse" aria-labelledby="<?php echo 'flush-headingTabTwo'.$tmp->getOrderID(); ?>" data-bs-parent=" <?php echo '#accordionFlushTabTwo'.$tmp->getOrderID(); ?>">
                                                     <div class="accordion-body p-0">
                                                         <?php if($type=="Express"): ?>
                                                             <div>
@@ -229,9 +227,9 @@
                                     </div> <!-- FINE DEL CONTAINER -->
 
                                     <?php 
-                                        $accordionFlushID=$accordionFlushID+1;
-                                        $flushHeading=$flushHeading+1;
-                                        $flushCollapse=$flushCollapse+1;
+                                        //$accordionFlushID=$accordionFlushID+1;
+                                        //$flushHeading=$flushHeading+1;
+                                        //$flushCollapse=$flushCollapse+1;
                                     ?>
 
                             <?php                           

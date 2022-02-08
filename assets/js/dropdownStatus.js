@@ -33,7 +33,7 @@ function switchSelectedItem(){
             //$containerToDelete= $dropDownSelectedID.closest(".container").remove();
             
             selectedTab=dropDownSelectedID.attr('id');
-            number=selectedTab.match(/\d+/);
+            number=selectedTab.match(/\d+/); //numero dell'ordine
             state=$(this).text();
 
 
@@ -80,73 +80,39 @@ function switchSelectedItem(){
                                 /* Devo copiare queste cose dall'ordine del tab1:
                                     -stato 
                                     -order number
-                                
-                                
+                                    - id="dropdownStatusTabOne2" id del button dropdown-toggle
+                                    - aria-labelledby="dropdownStatusTabOne2"
                                 */
-                                /* 
-                                <div class="container">
-                                        <div class="row"> <!--  INIZZIA LA ROW-->
-                                            <div class="col-4 col-md-4 p-0">
-                                                <div>
-                                                    Ordered on: 
-                                                </div>
-                                                <div>
-                                                    2021-12-07                                                </div>
-                                            </div>
-                                            <div class="col-5 col-md-4 p-0">
-                                                <div>
-                                                     Order number: 
-                                                </div>
-                                                <div>
-                                                    3                                                </div>
-                                            </div>
-                                
-                                            <!-- qui devo fare il controllo del type user. Se amin o fattorino faccio uscire drop down -->
-                                            
-                                                                                            <div class="col-3 col-md-4 p-0">
-                                                    <div class="dropdown">
-                                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownStatus" data-bs-toggle="dropdown" aria-expanded="false">
-                                                            Status <!-- Questo si aggiornerà in base al valore selezionato ed attuale dello stato -->
-                                                        </button>
-                                                        <ul class="dropdown-menu" id="tabOne3" aria-labelledby="dropdownStatus">
-                                                             <li><a class="dropdown-item " href="#">To prepare</a></li>                                                             <!-- Il fattorino ha solo 3 opzioni. NON ha "To prepare"-->
-                                                            <li><a class="dropdown-item " href="#">Ready to delivery</a></li> <!--Per disabilitarlo aggiungere disabled come classe al tag <a> -->
-                                                            <li><a class="dropdown-item " href="#">Shipped</a></li>
-                                                            <li><a class="dropdown-item active" href="#">Delivered</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-
-                                                               
-
-                                        </div> <!-- CHIUDE LA ROW -->
-                            
-                                        <div class="accordion accordion-flush" id="accordionFlush3">
-                                            <div class="accordion-item">
-                                                <h2 class="accordion-header" id="flush-heading3">
-                                                    <button class="accordion-button collapsed px-0" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse3" aria-expanded="false" aria-controls="flush-collapse3">
-                                                        More info
-                                                    </button>
-                                                </h2>
+                                    lastContainer=$("#tab2 .container:last"); //dopo questo container devo aggiungerge un altro
                                     
-                                                <div id="flush-collapse3" class="accordion-collapse collapse" aria-labelledby="flush-heading3" data-bs-parent="#accordionFlush3">
-                                                    <div class="accordion-body p-0">
-                                                                                                                <div>
-                                                            Total: 6665 $
-                                                        </div>
-                                                                                                                    <div>
-                                                                7 Fanta 715 $    
-                                                            </div>
-                                                                                                            </div>
-                                                </div>
-                                            </div>
-                                        </div>  <!-- FINE DELL'ACCORDION -->   
-                            
-                                    </div> <!-- FINE DEL CONTAINER -->                                
-                                */
+                                    idDropdownToggle="dropdownStatusTabTwo".concat(number);
+                                    arialabelled=idDropdownToggle;
+                                    
+                                    //devo cercare nel tab 1 quale container ha un 
+                                    selectedContainerTabOne= dropDownSelectedID.closest(".container");
+                                    code = '<div class="container">'+selectedContainerTabOne.html()+'</div>';
+                                    lastContainer.after(code);
+                                    //dopo aver aggiuinto questo container, devo modificare :
+                                    //dropdownStatusTabOne1 in dropdownStatusTabTwo1
 
+                                    lastContainer=$("#tab2 .container:last"); // aggiorno il last container con il nuovo container da cambiare
+                                    //$("#dropdownStatusTabOne"+number).prop("id","dropdownStatusTabTwo"+number);
+                                    
+                                    $("#tab2 .container:last .dropdown-toggle").prop("id","dropdownStatusTabTwo"+number);//button#dropDownStatus
+                                    $("#tab2 .container:last .dropdown ul").attr("aria-labelledby","dropdownStatusTabTwo"+number);
+                                    $("#tab2 .container:last .dropdown ul").attr("id","tabTwo"+number);
 
-                            }
+                                    $("#tab2 .container:last .accordion-flush").attr("id","accordionFlushTabTwo"+number);
+                                    $("#tab2 .container:last .accordion-flush div.accordion-collapse").attr("data-bs-parent","#accordionFlushTabTwo"+number);
+
+                                    $("#tab2 .container:last .accordion-flush div.accordion-collapse").attr("aria-labelledby","flush-headingTabTwo"+number);
+                                    $("#tab2 .container:last .accordion-flush h2.accordion-header").attr("id","flush-headingTabTwo"+number);
+                                
+                                    $("#tab2 .container:last .accordion-flush h2.accordion-header button").attr("data-bs-target","#flush-collapseTabTwo"+number);
+                                    $("#tab2 .container:last .accordion-flush h2.accordion-header button").attr("aria-controls","flush-collapseTabTwo"+number);
+                                    $("#tab2 .container:last .accordion-flush div.accordion-collapse").attr("id","flush-collapseTabTwo"+number);
+                                   
+                                }
                     }
 
                 }
