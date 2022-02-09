@@ -68,7 +68,7 @@
 
                                             <?php else: ?> <!-- Se è un utente di tipo User -->
                                                 <div class="col-3 col-md-4 p-0">
-                                                    <div>
+                                                    <div class="state">
                                                         State:
                                                     </div>
                                                     <div> 
