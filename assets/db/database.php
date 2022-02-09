@@ -100,6 +100,45 @@ class DatabaseHelper{
     
     }
 
+    public function getProductsById($productID){
+        $query = "SELECT * FROM product WHERE productID = ?";
+        if($stmt = $this->conn->prepare($query)){
+            $stmt->bind_param('i', $productID);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
+        
+    }
+    
+    public function getWineProducts(){
+        $query = "SELECT * FROM product WHERE type = 'Wine' ";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getSpiritsProducts() {
+        $query = "SELECT * FROM product WHERE type = 'Spirits' ";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getBeverageProducts() {
+        $query = "SELECT * FROM product WHERE type = 'Beverage' ";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    
+
     /*
     private function getUnitIngredientPrice(){
         $stmt = $this->conn->prepare("SELECT price FROM unitingredient  WHERE productID=?");

@@ -1,80 +1,42 @@
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box
+div.accordion-header {
+    border: medium solid black;
 }
 
-
-/*barra all - a to z per ricerca*/
-
-select {
-    border-radius: 20px;
-    outline: none;
-    border: 1px solid #ddd;
-    color: #555;
-    text-align: left;
+h3 {
+    color: black;
 }
 
-form ul li input[type="submit"] {
-    padding: 5px 10px;
-    background-color: rgb(221, 221, 221);
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    color: #000;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+.accordion-button:hover {
+    background-color: rgb(96, 100, 88) !important;
+    color: black !important;
 }
 
-form {
-    padding: 20px 5%;
+.accordion-button:not(.collapsed) {
+    color: inherit;
+    background-color: inherit !important;
 }
 
-form h2,
-main>section>h2 {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    margin: 0 0 20px;
+.accordion-button:focus {
+    box-shadow: inherit !important;
 }
 
-form ul {
-    list-style: none;
-    width: 80%;
-    margin: 0 10%;
-}
-
-form ul li {
-    margin-bottom: 20px;
-}
-
-form ul li:last-child {
-    text-align: right;
-}
-
-form ul li label {
-    display: inline-block;
-    width: 50%;
-}
-
-form ul li input:not([type="submit"]) {
-    width: 50%;
-    box-sizing: border-box;
-}
-
-form ul li input[type="submit"]:hover {
-    cursor: pointer;
-    color: rgb(219, 69, 83);
+[class="accordion-button"] {
+    background-color: rgb(185, 40, 40) !important;
 }
 
 img {
     object-fit: contain;
-    width: 150px;
-    height: 200px;
+    /*width: 150px;
+  height: 200px;*/
+    width: 1%;
     display: flex;
     align-items: center;
     justify-content: center
 }
 
-p.h4 {
-    font-family: 'Roboto Slab', serif
+.h4 {
+    font-family: 'Roboto Slab', serif;
+    margin: 0px;
 }
 
 p {
@@ -92,28 +54,21 @@ p.h3.text-decoration-none {
     margin-right: 0;
 }
 
-div.h4 {
-    font-size: 0.9rem;
-    color: #000000;
-    font-family: 'Lora', serif;
-    margin: 0
+.text-muted {
+    color: red;
 }
 
 .btn {
     border-radius: 20px;
     font-size: 0.8rem;
     font-weight: 600;
-    padding: 1px 10px
-}
-
-a:hover {
-    text-decoration: none
+    padding: 4px 10px !important;
 }
 
 .card {
     background-color: transparent;
-    width: 200px;
-    height: 200px;
+    /*width: 200px;
+  height: 200px;*/
     perspective: 1000px;
     position: relative;
     display: flex;
@@ -123,8 +78,10 @@ a:hover {
     background-clip: border-box;
     border-width: 1px;
     border-style: solid;
-    border-color: rgba(0, 0, 0, 0.125);
-    border-image: initia
+    border-color: black;
+    border-width: 3px;
+    border-image: initia;
+    margin: 23
 }
 
 .card-inner {
@@ -132,33 +89,31 @@ a:hover {
     width: 100%;
     height: 100%;
     text-align: center;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
 }
 
-.card:hover .card-inner {
-    transform: rotateY(180deg);
-    border: 1px solid rgb(255, 255, 255);
-    box-shadow: 3px 3px 30px #000000;
-}
-
-.card img,
-.card-img-overlay {
-    position: absolute;
+.card img {
     width: 100%;
-    height: 100%;
+    height: 1%;
     backface-visibility: hidden;
     top: 0;
     left: 0;
     right: 0;
 }
 
+.accordion-button {
+    padding-left: 0;
+}
 
-/*???????*/
-
-.card-img-overlay {
-    transform: rotateY(180deg);
-    background: transparent;
+.form-rounded {
+    border-radius: 1rem !important;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-color: black;
+    border-width: 3px !important;
+    border-radius: 1rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 1px 10px
 }
 
 .row>* {
@@ -182,8 +137,8 @@ div {
 }
 
 *,
- ::after,
- ::before {
+::after,
+::before {
     box-sizing: border-box;
 }
 
@@ -194,31 +149,4 @@ div {
 .row {
     --bs-gutter-x: 1.5rem;
     --bs-gutter-y: 0;
-}
-
-@media(max-width:800px) {
-    .wrapper {
-        margin: 20px 10px
-    }
-    p.h4 {
-        font-size: 1.35rem;
-        padding-top: 10px
-    }
-}
-
-@media(max-width:767px) {
-    .wrapper {
-        max-width: 500px;
-        margin: 20px auto
-    }
-}
-
-@media(max-width:424px) {
-    .wrapper {
-        width: 100%;
-        margin: auto
-    }
-    div.text-muted {
-        font-size: 0.75rem
-    }
 }

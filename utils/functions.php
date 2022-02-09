@@ -12,7 +12,7 @@ function registerLoggedUser($user){
     $_SESSION["surname"] = $user["surname"];
     $_SESSION["email"] = $user["email"];
     $_SESSION["type"] = $user["type"];
-    $_SESSION["birthdate"] = $user["birthdate"];
+    //$_SESSION["birthdate"] = $user["birthdate"];
     //posso aggiungere altri dati, ma ricorda di aggiungerli alla query
 }
 
