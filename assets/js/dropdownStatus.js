@@ -7,11 +7,10 @@ $(document).ready(function(){
 
 
 function switchSelectedItem(){
-    $("ul.dropdown-menu>li>a").click(
-        
-        function(){  
-            console.log("click");   
-               
+    $("ul.dropdown-menu>li>a").click(     
+        function(e){  
+            //console.log("click");   
+            e.preventDefault();//serve per evitare che la pagina mi torni su quando cambio gli stati, quindi quando clicco sui link
             $(this).parent().parent().find(".active").removeClass("active"); //prendo l'elemento che era selezionato prima e deseleziono
             $(this).addClass("active");//evidenzio l'item appena selezionato
             //localion.reload();

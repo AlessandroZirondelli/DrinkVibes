@@ -32,7 +32,7 @@
                                     <div class="container">
                                         <div class="row"> <!--  INIZZIA LA ROW-->
                                             <div class="col-4 col-md-4 p-0">
-                                                <div>
+                                                <div class="ordered-on">
                                                     Ordered on: 
                                                 </div>
                                                 <div>
@@ -40,7 +40,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-5 col-md-4 p-0">
-                                                <div>
+                                                <div class="ordered-number">
                                                      Order number: 
                                                 </div>
                                                 <div>
@@ -53,7 +53,7 @@
                                             <?php if ($type!="User"): ?>
                                                 <div class="col-3 col-md-4 p-0">
                                                     <div class="dropdown">
-                                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownStatusTabOne<?php echo $tmp->getOrderID();?>" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <button class="btn btn-secondary dropdown-toggle mt-1" type="button" id="dropdownStatusTabOne<?php echo $tmp->getOrderID();?>" data-bs-toggle="dropdown" aria-expanded="false">
                                                             Status <!-- Questo si aggiornerà in base al valore selezionato ed attuale dello stato -->
                                                         </button>
                                                         <ul class="dropdown-menu" id="tabOne<?php echo $tmp->getOrderID(); ?>" aria-labelledby="dropdownStatusTabOne<?php echo $tmp->getOrderID();?>">
@@ -82,7 +82,7 @@
                                         <div class="accordion accordion-flush" id="<?php echo 'accordionFlushTabOne'.$tmp->getOrderID(); ?>">
                                             <div class="accordion-item">
                                                 <h2 class="accordion-header" id="<?php echo 'flush-headingTabOne'.$tmp->getOrderID();?>">
-                                                    <button class="accordion-button collapsed px-0" type="button" data-bs-toggle="collapse" data-bs-target="#<?php echo 'flush-collapseTabOne'.$tmp->getOrderID(); ?>" aria-expanded="false" aria-controls="<?php echo 'flush-collapseTabOne'.$tmp->getOrderID(); ?>">
+                                                    <button class="accordion-button collapsed px-0 " type="button" data-bs-toggle="collapse" data-bs-target="#<?php echo 'flush-collapseTabOne'.$tmp->getOrderID(); ?>" aria-expanded="false" aria-controls="<?php echo 'flush-collapseTabOne'.$tmp->getOrderID(); ?>">
                                                         More info
                                                     </button>
                                                 </h2>
@@ -91,7 +91,7 @@
                                                     <div class="accordion-body p-0">
                                                         <?php if($type!="User"): ?>
                                                             <div>
-                                                                Recipient: <?php echo $manager->getRecipientName($tmp->getOrderID()); ?> 
+                                                                Recipient: <?php echo $manager->getRecipientName($tmp->getOrderID()); ?>   <?php if($type=="Admin"){ echo "(".$tmp->getUserID().")";} ?>
                                                             </div>
                                                         <?php endif;?>
                                                         <div>
@@ -149,7 +149,7 @@
                                     <div class="container">
                                         <div class="row"> <!--  INIZZIA LA ROW-->
                                             <div class="col-4 col-md-4 p-0">
-                                                <div>
+                                                <div class="ordered-on">
                                                     Ordered on: 
                                                 </div>
                                                 <div>
@@ -157,7 +157,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-5 col-md-4 p-0">
-                                                <div>
+                                                <div class="ordered-number">
                                                      Order number: 
                                                 </div>
                                                 <div>
@@ -170,7 +170,7 @@
                                             <?php if ($type!="User"): ?>
                                                 <div class="col-3 col-md-4 p-0">
                                                     <div class="dropdown">
-                                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownStatusTabTwo<?php echo $tmp->getOrderID();?>" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <button class="btn btn-secondary dropdown-toggle mt-1" type="button" id="dropdownStatusTabTwo<?php echo $tmp->getOrderID();?>" data-bs-toggle="dropdown" aria-expanded="false">
                                                             Status <!-- Questo si aggiornerà in base al valore selezionato ed attuale dello stato -->
                                                         </button>
                                                         <ul class="dropdown-menu" id="tabTwo<?php echo $tmp->getOrderID(); ?>" aria-labelledby="dropdownStatusTabTwo<?php echo $tmp->getOrderID();?>">
