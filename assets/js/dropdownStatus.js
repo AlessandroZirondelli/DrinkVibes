@@ -8,11 +8,14 @@ $(document).ready(function(){
 
 function switchSelectedItem(){
     $("ul.dropdown-menu>li>a").click(
-        function(){        
+        
+        function(){  
+            console.log("click");   
+               
             $(this).parent().parent().find(".active").removeClass("active"); //prendo l'elemento che era selezionato prima e deseleziono
             $(this).addClass("active");//evidenzio l'item appena selezionato
+            //localion.reload();
             
-
             $orderID=$(this).parent().parent().attr('id').match(/\d+/);//serve per prendere solo la parte numerica dell'ID che corrisponde all'ID dell'ordine
             $state=$(this).text().replace(/\s+/g, '+');
             
@@ -76,13 +79,16 @@ function switchSelectedItem(){
                                 $("#"+dropdownToChange).find(".active").removeClass("active");
                                 $('#'+dropdownToChange+' li:contains('+state+') a').addClass("active");
                             }
-                            else{ //se l'elemento non c'era già in tab 2 , devo creare un nuovo Order
+                            else{ 
+                                location.reload();
+                                //se l'elemento non c'era già in tab 2 , devo creare un nuovo Order
                                 /* Devo copiare queste cose dall'ordine del tab1:
                                     -stato 
                                     -order number
                                     - id="dropdownStatusTabOne2" id del button dropdown-toggle
                                     - aria-labelledby="dropdownStatusTabOne2"
                                 */
+                               /*
                                     lastContainer=$("#tab2 .container:last"); //dopo questo container devo aggiungerge un altro
                                     
                                     idDropdownToggle="dropdownStatusTabTwo".concat(number);
@@ -111,7 +117,7 @@ function switchSelectedItem(){
                                     $("#tab2 .container:last .accordion-flush h2.accordion-header button").attr("data-bs-target","#flush-collapseTabTwo"+number);
                                     $("#tab2 .container:last .accordion-flush h2.accordion-header button").attr("aria-controls","flush-collapseTabTwo"+number);
                                     $("#tab2 .container:last .accordion-flush div.accordion-collapse").attr("id","flush-collapseTabTwo"+number);
-                                   
+                                   */
                                 }
                     }
 
@@ -129,3 +135,4 @@ function switchSelectedItem(){
         }
     );
 }
+
