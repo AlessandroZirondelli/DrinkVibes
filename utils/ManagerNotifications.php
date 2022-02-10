@@ -7,11 +7,11 @@ require_once("./Order.php"); // include anche OrderDetails.php
 require_once("./../assets/db/database.php");*/
 
 
-//require_once("./utils/NotificationStateChanges.php");
-//require_once("./assets/db/database.php");
+require_once("./utils/NotificationStateChanges.php");
+require_once("./assets/db/database.php");
 
-require_once("./NotificationStateChanges.php");
-require_once("./../assets/db/database.php");
+//require_once("./NotificationStateChanges.php");
+//require_once("./../assets/db/database.php");
 
     class ManagerNotifications{
         private $dbh;
@@ -53,6 +53,8 @@ require_once("./../assets/db/database.php");
                 $notif = new NotificationStateChanges($orderRef, $userRef, $changedState,0);
                 $this->addNewNotificationTypeOne($notif);
             }
+
+            //qui deve essere aggiunta anche l'altra tipologia di notifica
         }
 
         public function getNotificationsTypeOne(){
@@ -61,6 +63,18 @@ require_once("./../assets/db/database.php");
 
         public function getNotificationsTypeTwo(){
             return $this->notificationsTypeTwo;
+        }
+
+        public function createNotifications($type,$loggedUserID){
+            if($type=="User"){ //se l'utente loggatto è uno user
+                $this->createNotificationsForUser($loggedUserID);
+            }
+            if($type=="Admin"){ //se l'utente loggatto è uno user
+                //$this->createNotificationsForAdmin($loggedUserID);
+            }
+            if($type=="Express"){ //se l'utente loggatto è uno user
+                //$this->createNotificationsForExpress($loggedUserID);
+            }
         }
 
 
