@@ -50,7 +50,8 @@ require_once("./assets/db/database.php");
             foreach($res as $tmp){
                 $orderRef=$tmp["orderRef"];
                 $changedState=$tmp["changedState"];
-                $notif = new NotificationStateChanges($orderRef, $userRef, $changedState,0);
+                $notifID=$tmp["notifID"];
+                $notif = new NotificationStateChanges($orderRef, $userRef, $changedState,0,$notifID);
                 $this->addNewNotificationTypeOne($notif);
             }
 
