@@ -68,16 +68,6 @@ class DatabaseHelper{
         }
         return $res[0]["name"];
     }
-    /*
-    public function getSubtotalPrice($orderID,$articleID){ 
-        $stmt = $this->conn->prepare("SELECT subtotal FROM orderdetails  WHERE orderID=? AND articID=?");
-        $stmt-> bind_param("ii",$orderID,$articleID); //probabile cambio con d al posto 
-        $stmt->execute();
-        $result = $stmt->get_result();
-        echo "Query article price fatta";
-        $res = $result->fetch_all(MYSQLI_ASSOC);
-        return $res[0]["subtotal"];
-    }*/
 
     public function insertOrderState($state,$orderID){
         $query = "UPDATE totalorders SET state=? WHERE orderID=? ";
@@ -140,6 +130,15 @@ class DatabaseHelper{
         $res= $result->fetch_all(MYSQLI_ASSOC);
         return $res[0]["userID"];
     }
+
+    /*
+    public function insertNotification(){
+        $query = "UPDATE totalorders SET state=? WHERE orderID=? ";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param('si',$state, $orderID);
+        $stmt->execute();
+    }
+    */
 
 }
 
