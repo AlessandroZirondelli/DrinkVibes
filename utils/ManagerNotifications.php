@@ -6,8 +6,12 @@ Ma non vanno bene , dal file "Ordrs.php" in cui faccio il require_once.
 require_once("./Order.php"); // include anche OrderDetails.php
 require_once("./../assets/db/database.php");*/
 
-require_once("./utils/Notification.php");
-require_once("./assets/db/database.php");
+
+//require_once("./utils/NotificationStateChanges.php");
+//require_once("./assets/db/database.php");
+
+require_once("./NotificationStateChanges.php");
+require_once("./../assets/db/database.php");
 
     class ManagerNotifications{
         private $dbh;
@@ -41,14 +45,26 @@ require_once("./assets/db/database.php");
 
         }
 
-        public function createNotificationsForExpress(){ //crea tutte le notifiche DA FAR VISUALIZZARE relative allo User
-
+        public function createNotificationsForUser($userRef){ //crea tutte le notifiche DA FAR VISUALIZZARE relative allo User
+            $res=$this->dbh->getAllNotificationsStateChangedByUser("Nick987");
+            foreach($res as $tmp){
+                $orderRef=$tmp["orderRef"];
+                $changedState=$tmp["changedState"];
+                $notif = new NotificationStateChanges($orderRef, $userRef, $changedState,0);
+                $this->addNewNotificationTypeOne($notif);
+            }
         }
 
-        public function insertNewOrderNotification(){
-
-
+        public function getNotificationsTypeOne(){
+            return $this->notificationsTypeOne;
         }
+
+        public function getNotificationsTypeTwo(){
+            return $this->notificationsTypeTwo;
+        }
+
+
+
         /* Se sono amministratore :
             -sold out ---> mi serve l'id e il norme dell'articolo soldout
             articlereference,nome artcoolo
@@ -67,8 +83,15 @@ require_once("./assets/db/database.php");
            */
 
     }
+/*
+    $manager = new ManagerNotifications();
+    $manager -> createNotificationsForUser("Nick987");
+    $not =  $manager->getNotificationsTypeOne();
+    foreach($not as $tmp){
+        $tmp->toString();
 
+    }
 
-
+*/
 
 ?>

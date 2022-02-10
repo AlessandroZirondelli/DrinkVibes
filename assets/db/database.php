@@ -147,13 +147,22 @@ class DatabaseHelper{
         $stmt->execute();
     }
 
+    public function getAllNotificationsStateChangedByUser($userID){
+        $stmt = $this->conn->prepare("SELECT orderRef,changedState,notifID  FROM notiforderstate WHERE userRef=? AND readed=0");
+        $stmt-> bind_param("s",$userID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
     
 
 }
 
 /*
 $dbhelper = new DatabaseHelper("localhost","root","", "drinkdb",3306);
-$dbhelper->insertNotifOrderState("1","Nick987","Delivery");
+$ris = $dbhelper->getAllNotificationsStateChangedByUser("Nick987");
+var_dump($ris);
 */
 
 ?>

@@ -5,9 +5,9 @@ require_once("./OrderDetail.php");
 
 class NotificationStateChanges{
 
-    private $orderRef; // referenced order (optional)
+    private $orderRef; // referenced order 
     private $userRef; //userID of customer
-    private $changedState; //state of order (optional)
+    private $changedState; //changed state 
     private $readed; // indicates if user have already read this notification
 
     public function __construct($orderRef, $userRef, $changedState, $readed){
@@ -43,9 +43,6 @@ class NotificationStateChanges{
     }
 
 }
-
-$notif = new NotificationStateChanges(12,"Nick987","Shipped",0);
-$notif->toString();
 
 
 
