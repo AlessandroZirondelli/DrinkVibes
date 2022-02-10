@@ -11,15 +11,14 @@ function sendNotificationByChangeStateOrder(orderRef){
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
     //document.getElementById("hint").innerHTML = this.responseText;         
+    console.log("sto mandando notifica")
     }
-    xhttp.open("GET", "utils/sendNotifications.php?notifType="+"stateChanged"+"&orderRef="+orderRef);
+    xhttp.open("GET", "utils/sendNotifications.php?notifType="+"stateChanged"+"&orderRef="+orderRef,false);
     xhttp.send();
-
+   ;
 }  
 
-function hello(){
-    console.log("hello");
-}
+
 
 function sendNotificationByNewOrder(){
 

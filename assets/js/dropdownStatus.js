@@ -20,10 +20,11 @@ function switchSelectedItem(){
             const xhttp = new XMLHttpRequest();
             xhttp.onload = function() {
             //document.getElementById("hint").innerHTML = this.responseText;
-                
+            console.log("sto cambiando stato");    
             }
-            xhttp.open("GET", "utils/updateOrderState.php?id="+$orderID+"&state="+$state);
+            xhttp.open("GET", "utils/updateOrderState.php?id="+$orderID+"&state="+$state, false);
             xhttp.send();
+            
 
 
 
