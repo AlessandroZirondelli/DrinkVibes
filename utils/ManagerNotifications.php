@@ -6,7 +6,7 @@ Ma non vanno bene , dal file "Ordrs.php" in cui faccio il require_once.
 require_once("./Order.php"); // include anche OrderDetails.php
 require_once("./../assets/db/database.php");*/
 
-require_once("./utils/Order.php");
+require_once("./utils/Notification.php");
 require_once("./assets/db/database.php");
 
     class ManagerNotifications{
@@ -20,11 +20,16 @@ require_once("./assets/db/database.php");
         */
         public function __construct() {
             $this->dbh = new DatabaseHelper("localhost","root","", "drinkdb",3306);
-            $this-> notifications = array();
+            $this-> notificationsTypeOne = array();
+            $this-> notificationsTypeTwo = array();
         }
 
-        public function addNewNotification($notification){
-            array_push($this-> notifications, $notification );
+        public function addNewNotificationTypeOne($notification){
+            array_push($this-> notificationsTypeOne, $notification );
+        }
+
+        public function addNewNotificationTypeTwo($notification){
+            array_push($this-> notificationsTypeTwo, $notification );
         }
 
         //questa funzione verrà usata in main-notification per scaricare tutte le notifiche
@@ -63,7 +68,7 @@ require_once("./assets/db/database.php");
 
     }
 
-   /* $man = new ManagerOrders();
-    $man->createOrdersByUser("Nick987");
-*/
+
+
+
 ?>
