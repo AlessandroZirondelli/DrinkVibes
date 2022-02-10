@@ -17,7 +17,6 @@ function switchSelectedItem(){
             
             $orderID=$(this).parent().parent().attr('id').match(/\d+/);//serve per prendere solo la parte numerica dell'ID che corrisponde all'ID dell'ordine
             $state=$(this).text().replace(/\s+/g, '+');
-            
             const xhttp = new XMLHttpRequest();
             xhttp.onload = function() {
             //document.getElementById("hint").innerHTML = this.responseText;
@@ -129,7 +128,13 @@ function switchSelectedItem(){
                    containerToRemove.remove(); 
                 }
 
-            }            
+            }   
+            
+            
+
+            // ora posso gestire le notifiche
+
+            
             
         }
     );
