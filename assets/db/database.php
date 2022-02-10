@@ -131,21 +131,30 @@ class DatabaseHelper{
         return $res[0]["userID"];
     }
 
-    /*
-    public function insertNotification(){
-        $query = "UPDATE totalorders SET state=? WHERE orderID=? ";
+    public function getStateByOrderID($orderID){
+        $stmt = $this->conn->prepare("SELECT state FROM totalorders WHERE orderID=?");
+        $stmt-> bind_param("i",$orderID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $res= $result->fetch_all(MYSQLI_ASSOC);
+        return $res[0]["state"];
+    }
+
+    public function insertNotifOrderState($orderRef,$userRef,$changedState){
+        $query = "INSERT INTO notiforderstate (orderRef, userRef, changedState,readed) VALUES (?, ?, ?, 0)";
         $stmt = $this->conn->prepare($query);
-        $stmt->bind_param('si',$state, $orderID);
+        $stmt->bind_param('iss',$orderRef, $userRef, $changedState);
         $stmt->execute();
     }
-    */
+
+    
 
 }
 
 /*
 $dbhelper = new DatabaseHelper("localhost","root","", "drinkdb",3306);
-$res = $dbhelper->getNotDeliveredOrdersByUser("Franci31");
-echo var_dump($res);*/
+$dbhelper->insertNotifOrderState("1","Nick987","Delivery");
+*/
 
 ?>
 

@@ -133,8 +133,7 @@ function switchSelectedItem(){
             
 
             // ora posso gestire le notifiche
-
-            
+            sendNotificationByChangeStateOrder($orderID);
             
         }
     );
