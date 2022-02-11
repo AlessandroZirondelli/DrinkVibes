@@ -61,7 +61,7 @@ function switchSelectedItem(){
                         $("#"+dropdownToChange).closest(".container").remove();
                         // NON devo aggiornare tab2, in quanto lo ho già rimoss
                     }
-                    
+                    sendNotificationByChangeStateOrder($orderID);  
                     
                 }
                 else{ // se lo stato non è delivered 
@@ -77,8 +77,10 @@ function switchSelectedItem(){
                                 //console.log("NON vuoto");
                                 $("#"+dropdownToChange).find(".active").removeClass("active");
                                 $('#'+dropdownToChange+' li:contains('+state+') a').addClass("active");
+                                sendNotificationByChangeStateOrder($orderID);
                             }
                             else{ 
+                                sendNotificationByChangeStateOrder($orderID);
                                 location.reload();
                                 //se l'elemento non c'era già in tab 2 , devo creare un nuovo Order
                                 /* Devo copiare queste cose dall'ordine del tab1:
@@ -128,13 +130,13 @@ function switchSelectedItem(){
                    containerToRemove= dropDownSelectedID.closest(".container");
                    containerToRemove.remove(); 
                 }
-
+                sendNotificationByChangeStateOrder($orderID);
             }   
             
             
 
             // ora posso gestire le notifiche
-            sendNotificationByChangeStateOrder($orderID);
+            //sendNotificationByChangeStateOrder($orderID);
             
         }
     );
