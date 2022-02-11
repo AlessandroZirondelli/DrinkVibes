@@ -8,6 +8,7 @@ require_once("./../assets/db/database.php");*/
 
 
 require_once("./utils/NotificationStateChanges.php");
+require_once("./utils/NotificationOrderReady.php");
 require_once("./assets/db/database.php");
 
 //require_once("./NotificationStateChanges.php");
@@ -41,12 +42,19 @@ require_once("./assets/db/database.php");
 
         }
 
-        public function createNotificationsForExpress(){ //crea tutte le notifiche DA FAR VISUALIZZARE relative all'Express
-
+        public function createNotificationsForExpress($userRef){ //crea tutte le notifiche DA FAR VISUALIZZARE relative all'Express
+            $res=$this->dbh->getAllNotificationsStateReady($userRef);
+            foreach($res as $tmp){
+                $orderRef=$tmp["orderRef"];
+                $notifID=$tmp["notifID"];
+                $notif= new NotificationOrderReady($orderRef,"Express",0, $notifID);
+                $this->addNewNotificationTypeOne($notif);
+                
+            }
         }
 
         public function createNotificationsForUser($userRef){ //crea tutte le notifiche DA FAR VISUALIZZARE relative allo User
-            $res=$this->dbh->getAllNotificationsStateChangedByUser("Nick987");
+            $res=$this->dbh->getAllNotificationsStateChangedByUser($userRef);
             foreach($res as $tmp){
                 $orderRef=$tmp["orderRef"];
                 $changedState=$tmp["changedState"];
@@ -74,7 +82,7 @@ require_once("./assets/db/database.php");
                 //$this->createNotificationsForAdmin($loggedUserID);
             }
             if($type=="Express"){ //se l'utente loggatto è uno user
-                //$this->createNotificationsForExpress($loggedUserID);
+                $this->createNotificationsForExpress($loggedUserID);
             }
         }
 

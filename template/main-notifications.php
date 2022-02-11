@@ -12,9 +12,14 @@
                     <div class="accordion-body p-0">
                         <?php if($type=="User"): //l'utente che entra nelle notifiche è User ?>
                             <p>
-                                Order number <?php echo $notif->getOrderRef(); ?> has changed state in : <?php echo $notif->getChangedState(); ?>
+                                Order number: <?php echo $notif->getOrderRef(); ?> has changed state in : <?php echo $notif->getChangedState(); ?>
                             </p>
                         <?php endif; ?>
+                        <?php if($type=="Express"): ?>
+                            <p>
+                                Order number: <?php echo $notif->getOrderRef(); ?> is ready to delivery. We are waiting you !
+                            </p>
+                        <?php endif;?>
                     </div>
                 </div>
             </div>

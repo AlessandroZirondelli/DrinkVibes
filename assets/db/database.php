@@ -162,7 +162,14 @@ class DatabaseHelper{
         $stmt->execute();
     }
 
-    
+    public function getAllNotificationsStateReady($userID){
+        $stmt = $this->conn->prepare("SELECT orderRef,notifID  FROM notiforderready WHERE userRef=? AND readed=0");
+        $stmt-> bind_param("s",$userID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
 
 }
 
