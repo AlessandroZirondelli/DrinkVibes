@@ -155,14 +155,20 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function insertNotifOrderReady($orderRef,$userRef){
+        $query = "INSERT INTO notiforderready (orderRef, userRef, readed) VALUES (?, ?, 0)";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param('is',$orderRef, $userRef);
+        $stmt->execute();
+    }
+
     
 
 }
 
 /*
 $dbhelper = new DatabaseHelper("localhost","root","", "drinkdb",3306);
-$ris = $dbhelper->getAllNotificationsStateChangedByUser("Nick987");
-var_dump($ris);
+$ris = $dbhelper->insertNotifOrderReady("2","Express");
 */
 
 ?>

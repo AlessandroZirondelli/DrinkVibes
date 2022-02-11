@@ -34,7 +34,7 @@ function switchSelectedItem(){
             number=selectedTab.match(/\d+/); //numero dell'ordine
             state=$(this).text();
 
-
+            console.log("state:"+state);
             if($('#tab2').length!=0){ // controllo se sono amministratore
                 if($(this).text()=="Delivered"){ 
                     //elimino solo il container dell'ordine seleziomato nel tab2
@@ -64,6 +64,7 @@ function switchSelectedItem(){
                         dropdownToChange="tabOne".concat(number);
                         $("#"+dropdownToChange).find(".active").removeClass("active");
                         $('#'+dropdownToChange+' li:contains('+state+') a').addClass("active");
+                        sendNotificationByChangeStateOrder($orderID);
                         if(state=="Ready to delivery"){sendNotificationByOrderReady(number);}
                     }
                     else{//se ho selezionato il primo tab

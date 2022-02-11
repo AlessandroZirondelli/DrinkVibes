@@ -26,7 +26,7 @@ if($notifType=="stateChanged"){ //se è una notifica di cambio di stato
 }
 elseif($notifType=="orderReady"){
     $orderRef=$_REQUEST["orderRef"];
-    $userRef = $dbh->getUserIDByOrderID($orderRef);
+    $dbh->insertNotifOrderReady($orderRef,"Express"); //l'utente che deve leggere le notifiche è Express
 }
 
 /*$id = $_REQUEST["id"];

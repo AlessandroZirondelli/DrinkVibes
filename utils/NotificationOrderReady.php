@@ -6,7 +6,7 @@ require_once("./OrderDetail.php");
 class NotificationOrderReady{
 
     private $orderRef; // referenced order 
-    private $userRef; //userID of customerWW 
+    private $userRef; //userID of Express 
     private $readed; // indicates if user have already read this notification
     private $notifID;
 
