@@ -5,7 +5,7 @@
 */
 
 
-//questa fuzione verrà chiamata all'interno del dropdownstatus.js oppure di un altro
+//questa fuzione verrà chiamata all'interno del dropdownstatus.js
 function sendNotificationByChangeStateOrder(orderRef){
 
     const xhttp = new XMLHttpRequest();
@@ -15,15 +15,22 @@ function sendNotificationByChangeStateOrder(orderRef){
     }
     xhttp.open("GET", "utils/sendNotifications.php?notifType="+"stateChanged"+"&orderRef="+orderRef,false);
     xhttp.send();
-   ;
+   
 }  
 
 
-
-function sendNotificationByNewOrder(){
-
+function sendNotificationByOrderReady(orderRef){
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function() {
+    //document.getElementById("hint").innerHTML = this.responseText;         
+    console.log("sto mandando notifica ordine pronto")
+    }
+    xhttp.open("GET", "utils/sendNotifications.php?notifType="+"orderReady"+"&orderRef="+orderRef,false);
+    xhttp.send();
+   
 }
 
-function sendNotificationByOrderReady(){
+function sendNotificationByNewOrder(){
+    
 
 }

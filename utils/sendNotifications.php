@@ -24,6 +24,10 @@ if($notifType=="stateChanged"){ //se è una notifica di cambio di stato
     //Quando vado a scaricare i dati per far vedere le notofioche:
     //faccio il filtro delle notifiche con forWho:User con specifico userRef
 }
+elseif($notifType=="orderReady"){
+    $orderRef=$_REQUEST["orderRef"];
+    $userRef = $dbh->getUserIDByOrderID($orderRef);
+}
 
 /*$id = $_REQUEST["id"];
 $state = $_REQUEST["state"];

@@ -25,10 +25,6 @@ function switchSelectedItem(){
             xhttp.open("GET", "utils/updateOrderState.php?id="+$orderID+"&state="+$state, false);
             xhttp.send();
             
-
-
-
-
             //controllo se il tag div con class "dropdown" contiene tabOne nell'id o tabTwo
             dropDownSelectedID= $(this).parent().parent();
             
@@ -62,13 +58,13 @@ function switchSelectedItem(){
                         // NON devo aggiornare tab2, in quanto lo ho già rimoss
                     }
                     sendNotificationByChangeStateOrder($orderID);  
-                    
                 }
                 else{ // se lo stato non è delivered 
                     if(selectedTab.includes("tabTwo")){ //se ho selezionato il secondo tab
                         dropdownToChange="tabOne".concat(number);
                         $("#"+dropdownToChange).find(".active").removeClass("active");
                         $('#'+dropdownToChange+' li:contains('+state+') a').addClass("active");
+                        if(state=="Ready to delivery"){sendNotificationByOrderReady(number);}
                     }
                     else{//se ho selezionato il primo tab
                         dropdownToChange="tabTwo".concat(number);
@@ -78,9 +74,11 @@ function switchSelectedItem(){
                                 $("#"+dropdownToChange).find(".active").removeClass("active");
                                 $('#'+dropdownToChange+' li:contains('+state+') a').addClass("active");
                                 sendNotificationByChangeStateOrder($orderID);
+                                if(state=="Ready to delivery"){sendNotificationByOrderReady(number);}
                             }
                             else{ 
                                 sendNotificationByChangeStateOrder($orderID);
+                                if(state=="Ready to delivery"){sendNotificationByOrderReady(number);}
                                 location.reload();
                                 //se l'elemento non c'era già in tab 2 , devo creare un nuovo Order
                                 /* Devo copiare queste cose dall'ordine del tab1:

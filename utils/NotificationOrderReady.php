@@ -3,18 +3,16 @@
 require_once("./OrderDetail.php");
 */
 
-class NotificationStateChanges{
+class NotificationOrderReady{
 
     private $orderRef; // referenced order 
-    private $userRef; //userID of customer
-    private $changedState; //changed state 
+    private $userRef; //userID of customerWW 
     private $readed; // indicates if user have already read this notification
     private $notifID;
 
-    public function __construct($orderRef, $userRef, $changedState, $readed, $notifID){
+    public function __construct($orderRef, $userRef, $readed, $notifID){
          $this-> orderRef = $orderRef;
          $this-> userRef = $userRef;
-         $this-> changedState = $changedState;
          $this-> readed = $readed;
          $this-> notifID = $notifID;
     }
@@ -33,13 +31,6 @@ class NotificationStateChanges{
         return $this->userRef;
     }
 
-    public function setChangedState($changedState){
-        $this->changedState = $changedState;
-    }
-    public function getChangedState(){
-        return $this->changedState;
-    }
-
     public function setReaded($readed){
         $this->readed = $readed;
     }
@@ -55,7 +46,7 @@ class NotificationStateChanges{
     }
 
     public function toString(){
-        echo "orderRef: $this->orderRef "."userRef: $this->userRef "."changedState: $this->changedState "."readed: $this->readed"."notifID: ".$this->notifID;
+        echo "orderRef: $this->orderRef "."userRef: $this->userRef "."readed: $this->readed"."notifID: ".$this->notifID;
     }
 
 }
