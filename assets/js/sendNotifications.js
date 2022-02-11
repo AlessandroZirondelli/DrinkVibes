@@ -11,7 +11,7 @@ function sendNotificationByChangeStateOrder(orderRef){
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
     //document.getElementById("hint").innerHTML = this.responseText;         
-    console.log("sto mandando notifica")
+    //console.log("sto mandando notifica")
     }
     xhttp.open("GET", "utils/sendNotifications.php?notifType="+"stateChanged"+"&orderRef="+orderRef,false);
     xhttp.send();
@@ -23,14 +23,19 @@ function sendNotificationByOrderReady(orderRef){
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
     //document.getElementById("hint").innerHTML = this.responseText;         
-    console.log("sto mandando notifica ordine pronto")
+    //console.log("sto mandando notifica ordine pronto")
     }
     xhttp.open("GET", "utils/sendNotifications.php?notifType="+"orderReady"+"&orderRef="+orderRef,false);
     xhttp.send();
    
 }
 
-function sendNotificationByNewOrder(){
-    
-
+function sendNotificationByNewOrder(orderRef,description){
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function() {
+    //document.getElementById("hint").innerHTML = this.responseText;         
+    console.log("sto mandando notifica nuovo ordine")
+    }
+    xhttp.open("GET", "utils/sendNotifications.php?notifType="+"newOrder"+"&orderRef="+orderRef+"&description="+description,false);
+    xhttp.send();
 }

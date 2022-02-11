@@ -9,6 +9,7 @@ require_once("./../assets/db/database.php");*/
 
 require_once("./utils/NotificationStateChanges.php");
 require_once("./utils/NotificationOrderReady.php");
+require_once("./utils/NotificationNewOrder.php");
 require_once("./assets/db/database.php");
 
 //require_once("./NotificationStateChanges.php");
@@ -38,7 +39,18 @@ require_once("./assets/db/database.php");
         }
 
         //questa funzione verrà usata in main-notification per scaricare tutte le notifiche
-        public function createNotificationsForAdmin(){ //crea tutte le notifiche DA FAR VISUALIZZARE relative all'Admin
+        public function createNotificationsForAdmin($userRef){ //crea tutte le notifiche DA FAR VISUALIZZARE relative all'Admin
+            $res=$this->dbh->getAllNotificationsNewOrder($userRef,"Admin");
+            foreach($res as $tmp){ //tmp is a new order notification
+                $orderRef=$tmp["orderRef"];
+                $notifID=$tmp["notifID"];
+                $userRef=$tmp["userRef"];
+                $description=$tmp["description"];
+                $notif= new NotificationNewOrder($orderRef,$userRef,$description,0,$notifID);
+                $this->addNewNotificationTypeOne($notif);
+            }
+
+            //qui ci sarà il secondo ciclo che scorrerà le notifiche di soldout
 
         }
 
@@ -79,7 +91,7 @@ require_once("./assets/db/database.php");
                 $this->createNotificationsForUser($loggedUserID);
             }
             if($type=="Admin"){ //se l'utente loggatto è uno user
-                //$this->createNotificationsForAdmin($loggedUserID);
+                $this->createNotificationsForAdmin($loggedUserID);
             }
             if($type=="Express"){ //se l'utente loggatto è uno user
                 $this->createNotificationsForExpress($loggedUserID);

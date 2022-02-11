@@ -170,13 +170,33 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function insertNotifNewOrder($orderRef,$userRef,$description){
+        $query = "INSERT INTO notifneworder (orderRef, userRef,description, readed) VALUES (?, ?, ?, 0)";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param('iss',$orderRef, $userRef,$description);
+        $stmt->execute();
+    }
+
+    public function getAllNotificationsNewOrder($userID,$type){
+        if($type=="Admin"){ //if it's Admin then take all new orders of all users
+            $stmt = $this->conn->prepare("SELECT orderRef,userRef,notifID,description FROM notifneworder WHERE readed=0");  
+        }
+        else if($type=="User"){
+            $stmt = $this->conn->prepare("SELECT orderRef,notifID,description FROM notifneworder WHERE readed=0 AND userRef=?");  
+            $stmt-> bind_param("s",$userID);
+        }
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
 
 }
 
 /*
 $dbhelper = new DatabaseHelper("localhost","root","", "drinkdb",3306);
-$ris = $dbhelper->insertNotifOrderReady("2","Express");
+$ris = $dbhelper->getAllNotificationsNewOrder("Admin12","Admin");
+var_dump($ris);
 */
-
 ?>
 

@@ -20,6 +20,11 @@
                                 Order number: <?php echo $notif->getOrderRef(); ?> is ready to delivery. We are waiting you !
                             </p>
                         <?php endif;?>
+                        <?php if($type=="Admin"):?>
+                            <p>
+                                New order number: <?php echo $notif->getOrderRef(); ?> by <?php echo $notif->getUserRef(); ?>  received ! You need to prepare: <?php echo $notif->getDescription(); ?> 
+                            </p>
+                        <?php endif;?>
                     </div>
                 </div>
             </div>

@@ -28,6 +28,13 @@ elseif($notifType=="orderReady"){
     $orderRef=$_REQUEST["orderRef"];
     $dbh->insertNotifOrderReady($orderRef,"Express"); //l'utente che deve leggere le notifiche è Express
 }
+elseif($notifType=="newOrder"){
+    $orderRef=$_REQUEST["orderRef"];
+    $description=$_REQUEST["description"];
+    //$userRef =$_SESSIONE[""] 
+    $userRef="Nick987";
+    $dbh->insertNotifNewOrder($orderRef,$userRef,$description); 
+}
 
 /*$id = $_REQUEST["id"];
 $state = $_REQUEST["state"];
