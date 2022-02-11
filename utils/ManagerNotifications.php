@@ -10,6 +10,7 @@ require_once("./../assets/db/database.php");*/
 require_once("./utils/NotificationStateChanges.php");
 require_once("./utils/NotificationOrderReady.php");
 require_once("./utils/NotificationNewOrder.php");
+require_once("./utils/NotificationSoldOut.php");
 require_once("./assets/db/database.php");
 
 //require_once("./NotificationStateChanges.php");
@@ -48,6 +49,15 @@ require_once("./assets/db/database.php");
                 $description=$tmp["description"];
                 $notif= new NotificationNewOrder($orderRef,$userRef,$description,0,$notifID);
                 $this->addNewNotificationTypeOne($notif);
+            }
+
+            $res=$this->dbh->getAllNotificationsSoldout();
+            foreach($res as $tmp){ //tmp is a new order notification
+                $articleIDRef=$tmp["articleIDRef"];
+                $articleNameRef=$tmp["articleNameRef"];
+                $notifID=$tmp["notifID"];
+                $notif= new NotificationSoldOut($articleIDRef, $articleNameRef, 0, $notifID);
+                $this->addNewNotificationTypeTwo($notif);
             }
 
             //qui ci sarà il secondo ciclo che scorrerà le notifiche di soldout

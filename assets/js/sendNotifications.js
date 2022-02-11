@@ -34,8 +34,19 @@ function sendNotificationByNewOrder(orderRef,description){
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
     //document.getElementById("hint").innerHTML = this.responseText;         
-    console.log("sto mandando notifica nuovo ordine")
+    //console.log("sto mandando notifica nuovo ordine")
     }
     xhttp.open("GET", "utils/sendNotifications.php?notifType="+"newOrder"+"&orderRef="+orderRef+"&description="+description,false);
+    xhttp.send();
+}
+
+
+function sendNotificartionBySoldout(articleIDRef,articleNameRef){
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function() {
+    //document.getElementById("hint").innerHTML = this.responseText;         
+    //console.log("sto mandando notifica nuovo ordine")
+    }
+    xhttp.open("GET", "utils/sendNotifications.php?notifType="+"soldout"+"&articleIDRef="+articleIDRef+"&articleNameRef="+articleNameRef,false);
     xhttp.send();
 }

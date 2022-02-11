@@ -35,6 +35,11 @@ elseif($notifType=="newOrder"){
     $userRef="Nick987";
     $dbh->insertNotifNewOrder($orderRef,$userRef,$description); 
 }
+elseif($notifType=="soldout"){
+    $articleIDRef=$_REQUEST["articleIDRef"];
+    $articleNameRef=$_REQUEST["articleNameRef"];
+    $dbh->insertiNotifSoldout($articleIDRef,$articleNameRef);
+}
 
 /*$id = $_REQUEST["id"];
 $state = $_REQUEST["state"];

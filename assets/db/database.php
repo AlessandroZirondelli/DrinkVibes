@@ -190,13 +190,27 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function insertiNotifSoldout($articleIDRef,$articleNameRef){
+        $query = "INSERT INTO notifsoldout (articleIDRef, articleNameRef, readed) VALUES (?, ?, 0)";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param('is',$articleIDRef, $articleNameRef);
+        $stmt->execute();
+    }
+
+    public function getAllNotificationsSoldout(){
+        $stmt = $this->conn->prepare("SELECT articleIDRef,articleNameRef,notifID  FROM notifsoldout WHERE readed=0");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
 
 }
 
 /*
 $dbhelper = new DatabaseHelper("localhost","root","", "drinkdb",3306);
-$ris = $dbhelper->getAllNotificationsNewOrder("Admin12","Admin");
-var_dump($ris);
+$ris = $dbhelper->insertiNotifSoldout(5,"Vodka");
 */
+
 ?>
 

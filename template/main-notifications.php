@@ -58,6 +58,11 @@
                                     You have ordered ! Order number: <?php echo $notif->getOrderRef(); ?>  Description: <?php echo $notif->getDescription(); ?>
                                 </p>
                             <?php endif; ?>
+                            <?php if($type=="Admin"): ?>
+                                <p>
+                                    Article number:  <?php echo $notif->getArticleIDRef(); ?>  with name: <?php echo $notif->getArticleNameRef(); ?>
+                                </p>
+                            <?php endif;?>
                         </div>
                     </div>
                 </div>
