@@ -74,6 +74,16 @@ require_once("./assets/db/database.php");
                 $notif = new NotificationStateChanges($orderRef, $userRef, $changedState,0,$notifID);
                 $this->addNewNotificationTypeOne($notif);
             }
+            
+            $res=$this->dbh->getAllNotificationsNewOrder($userRef,"User");
+            foreach($res as $tmp){ //tmp is a new order notification
+                $orderRef=$tmp["orderRef"];
+                $notifID=$tmp["notifID"];
+                //$userRef=$tmp["userRef"];
+                $description=$tmp["description"];
+                $notif= new NotificationNewOrder($orderRef,$userRef,$description,0,$notifID);
+                $this->addNewNotificationTypeTwo($notif);
+            }
 
             //qui deve essere aggiunta anche l'altra tipologia di notifica
         }
