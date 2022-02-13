@@ -21,6 +21,10 @@
     box-shadow: inherit !important;
 }
 
+div.col-1{
+    padding-top: 12px;
+}
+
 /*
 div.tab-content .container {
     border: 2px solid grey;
