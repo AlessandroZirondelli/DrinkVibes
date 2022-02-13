@@ -7,15 +7,15 @@
                         <h2 class="accordion-header" id="flush-headingNotifTypeOne<?php echo $notif->getNotifID() ?>">
                             <button class="accordion-button collapsed px-0 " type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseNotifTypeOne<?php echo $notif->getNotifID() ?>" aria-expanded="false" aria-controls="flush-collapseNotifTypeOne<?php echo $notif->getNotifID() ?>">
                             <?php if($type=="User"): ?>
-                                <div class="order-type">
+                                <div class="notif-type">
                                     Change of state
                                 </div>
                             <?php elseif($type=="Express"):?>
-                                <div class="order-type">
+                                <div class="notif-type">
                                     Order ready to dealivery 
                                 </div>   
                             <?php elseif($type=="Admin"):?>
-                                <div class="order-type">
+                                <div class="notif-type">
                                     New order
                                 </div>
                             <?php endif; ?>
@@ -59,11 +59,11 @@
                             <h2 class="accordion-header" id="flush-headingNotifTypeTwo<?php echo $notif->getNotifID() ?>">
                                 <button class="accordion-button collapsed px-0 " type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseNotifTypeTwo<?php echo $notif->getNotifID() ?>" aria-expanded="false" aria-controls="flush-collapseNotifTypeTwo<?php echo $notif->getNotifID() ?>">
                                     <?php if($type=="User"): ?>
-                                        <div class="order-type">
+                                        <div class="notif-type">
                                             New order
                                         </div>
                                     <?php elseif($type=="Admin"):?>
-                                        <div class="order-type">
+                                        <div class="notif-type">
                                             Article sold-out
                                         </div>
                                     <?php endif; ?>
