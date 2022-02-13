@@ -9,27 +9,10 @@ class DatabaseHelper{
         if ($this->conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         } 
-        echo "Connessione OK" ;      
+       
     }
-    public function getLiquidIngredientByType($idcategory){
-        $query = "SELECT * FROM liquidingredient";
-        $stmt = $this->conn->prepare($query);
-        $stmt->bind_param('i',$idcategory);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }
-    public function getLiquidIngredient(){
-        $query = "SELECT * FROM liquidingredient";
-        $stmt = $this->conn->prepare($query);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }
-    public function getIngredientById($ingredientID){
-        $query = "SELECT * FROM liquidingredient WHERE ingredientID=?";
+   public function getIngredientById($ingredientID){
+        $query = "SELECT * FROM ingredient WHERE ingredientID=?";
         if($stmt = $this->conn->prepare($query)){
             $stmt->bind_param('i',$ingredientID);
             $stmt->execute();
@@ -40,13 +23,53 @@ class DatabaseHelper{
         }
         
     }
-    public function getUnityIngredient(){
-        $query = "SELECT * FROM unitingredient";
-        $stmt = $this->conn->prepare($query);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        return $result->fetch_all(MYSQLI_ASSOC);
+    public function getIngredientByCategory($category){
+        $query = "SELECT * FROM ingredient WHERE category=?";
+        if($stmt = $this->conn->prepare($query)){
+            $stmt->bind_param('s',$category);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }else{
+            return NULL;
+        }
+        
     }
+    public function getIngredientByTypology($typology){
+        $query = "SELECT * FROM ingredient WHERE typology=?";
+        if($stmt = $this->conn->prepare($query)){
+            $stmt->bind_param('s',$typology);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }else{
+            return NULL;
+        }
+        
+    }
+    public function getAlcoholIngredient(){
+        $query = "SELECT * FROM ingredient WHERE typology='Spirit' OR typology='Wine' ";
+        if($stmt = $this->conn->prepare($query)){
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }else{
+            return NULL;
+        }
+        
+    }
+    public function getNewIngredientId(){
+        $query = "SELECT MAX(ingredientID) as max_id FROM ingredient; ";
+        if($stmt = $this->conn->prepare($query)){
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }else{
+            return NULL;
+        }
+        
+    }
+
 
 
     /* FETCH ALL Devo fare una funzione che mi faccia un query e mi restituisca tutti gli ordini di un utente */
@@ -90,7 +113,13 @@ class DatabaseHelper{
         $res = $result->fetch_all(MYSQLI_ASSOC);
         return $res[0]["subtotal"];
     }
-    
+    public function updateIngredient($id,$quantity){
+        $query = "UPDATE ingredient SET qtystock = ? WHERE ingredientID = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt-> bind_param("ii",$quantity,$id);
+        $stmt->execute();
+    }
+
     /*
     private function getUnitIngredientPrice(){
         $stmt = $this->conn->prepare("SELECT price FROM unitingredient  WHERE productID=?");

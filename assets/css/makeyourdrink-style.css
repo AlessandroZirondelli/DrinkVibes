@@ -37,13 +37,17 @@ img {
   margin: 0px;
 }
 
-p {
+div.card-body {
+  padding-right: 3px !important;
+}
+
+/*p {
   align-self: left;
   color: rgb(0, 0, 0);
   font-size: 1pz;
   font-family: 'Roboto Slab', serif;
   margin-left: 10px;
-}
+}*/
 
 p.h3.text-decoration-none {
   margin-left: 0;
@@ -69,7 +73,7 @@ p.h3.text-decoration-none {
   background-color: transparent;
   /*width: 200px;
   height: 200px;*/
-  perspective: 1000px;
+  /*perspective: 1000px;*/
   position: relative;
   display: flex;
   flex-direction: column;
@@ -91,16 +95,14 @@ p.h3.text-decoration-none {
 
 }
 
-
-.card img {
-  
+/*.card img {
   width: 100%;
   height: 1%;
   backface-visibility: hidden;
   top: 0;
   left: 0;
   right: 0;
-}
+}*/
 
 .accordion-button{
   padding-left: 0;
