@@ -46,5 +46,10 @@ require_once("assets/db/database.php");
                 return false;
             }
         }
+        public function getDisponibility($id,$qtn){
+            $ingredient = $this -> getIngredientById($id);
+            return $ingredient[0]["qtystock"];
+            
+        }
     }
 ?>

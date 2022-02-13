@@ -7,7 +7,8 @@
     $templateParams["main-content"] = "main-makeyourdrink.php";
     $cssArray[0]="./assets/css/makeyourdrink-style.css";
     $jsArray[0]="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js";
-    $jsArray[1]="./assets/js/tablemakeyourdrinks.js";
+    $jsArray[1]="./assets/js/sendNotifications.js";
+    $jsArray[2]="./assets/js/tablemakeyourdrinks.js";
     $mngIngredients = new ManagerIngredients();
     $_SESSION["shopping_cart"] = array();
     $_SESSION["shopping_cart_temp"] = serialize(new HandMadeDrink());

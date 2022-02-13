@@ -1,5 +1,6 @@
+
 function changeCheckbox($id){
-   
+ 
    
     if($("#cb"+$id).attr('checked') === "checked"){
         console.log("No");
@@ -27,15 +28,21 @@ function submitQuantity(id){
         xhttp.open("GET", "submitIngredient.php?qtn="+quantity+"&id="+id,false );
         xhttp.send();
 
-        console.log(isDisponibility);
-        if(parseInt(isDisponibility) == 1 ){
+       // console.log(jQuery.type(isDisponibility));
+       // console.log(jQuery.type(quantity));
+        
+        if(parseInt(isDisponibility) > 0 ){
             const xhttp = new XMLHttpRequest();
             xhttp.onload = function() {
                 document.getElementById("ingredientTable").innerHTML = this.responseText;            
             }
-        
+            
             xhttp.open("GET", "gettable.php?action="+ action + "&qtn="+quantity+"&id="+id );
             xhttp.send();
+            console.log("ciao");
+            if(parseInt(isDisponibility) == parseInt(quantity)){   
+                sendNotificartionBySoldout(id,$("#name"+id).text());
+            }
         }else{
             $(inputSelected).css("border-color","red")
             .css("border-width","3px");

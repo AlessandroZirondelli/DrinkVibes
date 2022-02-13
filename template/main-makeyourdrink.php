@@ -45,7 +45,9 @@
                                 <img class="card-img rounded-0" src="assets/img/i.png">       
                             </div>
                             <div class="card-body pb-0 px-2">
-                                <p class="h3 text-decoration-none pb-3"><?php echo $ingredient["name"]; echo $ingredient["qtystock"] == "0" ? " - Sold out" : ""?></a>
+                                
+                                <div class="h3 text-decoration-none pb-2" id="name<?php echo $ingredient["ingredientID"]; ?>"><?php echo $ingredient["name"]; echo $ingredient["qtystock"] == "0" ? " - Sold out" : ""?></div>
+                                
                                 <div class="mx-1">
                                   <hr class="line my-0">
                                 </div>
