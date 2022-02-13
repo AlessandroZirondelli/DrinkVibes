@@ -1,11 +1,6 @@
-.nav-tabs button{
-    color: black !important; /* text color of tabs*/
-}
-
 .container{
     border-style: dashed;
 }
-
 
 .accordion-button:hover{
     background-color:inherit !important;
@@ -23,6 +18,10 @@
 
 div.col-1{
     padding-top: 12px;
+}
+
+div.order-type{
+    font-weight: bold;
 }
 
 /*
