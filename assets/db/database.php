@@ -11,7 +11,13 @@ class DatabaseHelper{
         } 
         //echo "Connessione OK" ;      
     }
-     public function getIngredientById($ingredientID){
+    public function updateIngredient($id,$quantity){
+        $query = "UPDATE ingredient SET qtystock = ? WHERE ingredientID = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt-> bind_param("ii",$quantity,$id);
+        $stmt->execute();
+    }
+    public function getIngredientById($ingredientID){
         $query = "SELECT * FROM ingredient WHERE ingredientID=?";
         if($stmt = $this->conn->prepare($query)){
             $stmt->bind_param('i',$ingredientID);
