@@ -11,29 +11,63 @@ class DatabaseHelper{
         } 
         //echo "Connessione OK" ;      
     }
-    public function getLiquindIngredientByType($idcategory){
-        $query = "SELECT * FROM liquidingredient";
-        $stmt = $this->conn->prepare($query);
-        $stmt->bind_param('i',$idcategory);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        return $result->fetch_all(MYSQLI_ASSOC);
+     public function getIngredientById($ingredientID){
+        $query = "SELECT * FROM ingredient WHERE ingredientID=?";
+        if($stmt = $this->conn->prepare($query)){
+            $stmt->bind_param('i',$ingredientID);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }else{
+            return NULL;
+        }
+        
     }
-    public function getLiquindIngredient(){
-        $query = "SELECT * FROM liquidingredient";
-        $stmt = $this->conn->prepare($query);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        return $result->fetch_all(MYSQLI_ASSOC);
+    public function getIngredientByCategory($category){
+        $query = "SELECT * FROM ingredient WHERE category=?";
+        if($stmt = $this->conn->prepare($query)){
+            $stmt->bind_param('s',$category);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }else{
+            return NULL;
+        }
+        
     }
-    public function getUnityIngredient(){
-        $query = "SELECT * FROM unitingredient";
-        $stmt = $this->conn->prepare($query);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        return $result->fetch_all(MYSQLI_ASSOC);
+    public function getIngredientByTypology($typology){
+        $query = "SELECT * FROM ingredient WHERE typology=?";
+        if($stmt = $this->conn->prepare($query)){
+            $stmt->bind_param('s',$typology);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }else{
+            return NULL;
+        }
+        
+    }
+    public function getAlcoholIngredient(){
+        $query = "SELECT * FROM ingredient WHERE typology='Spirit' OR typology='Wine' ";
+        if($stmt = $this->conn->prepare($query)){
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }else{
+            return NULL;
+        }
+        
+    }
+    public function getNewIngredientId(){
+        $query = "SELECT MAX(ingredientID) as max_id FROM ingredient; ";
+        if($stmt = $this->conn->prepare($query)){
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }else{
+            return NULL;
+        }
+        
     }
 
 
