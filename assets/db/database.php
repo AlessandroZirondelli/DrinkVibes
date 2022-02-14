@@ -244,6 +244,43 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }    
 
+    public function readNotificationNewOrderByUser($notifID){
+        $query = "UPDATE notifneworder SET readedUser=1 WHERE notifID=? ";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param('i', $notifID);
+        $stmt->execute();
+    }
+
+    public function readNotificationNewOrderByAdmin($notifID){
+        $query = "UPDATE notifneworder SET readedAmm=1 WHERE notifID=? ";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param('i', $notifID);
+        $stmt->execute();
+    }
+
+    public function readNotificationStateChangedByUser($notifID){
+        $query = "UPDATE notiforderstate SET readed=1 WHERE notifID=? ";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param('i', $notifID);
+        $stmt->execute();
+    }
+
+    public function readNotificationOrderReadyByExpress($notifID){
+        $query = "UPDATE notiforderready SET readed=1 WHERE notifID=? ";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param('i', $notifID);
+        $stmt->execute();
+    }
+
+    public function readNotificationSoldOutByAdmin($notifID){
+        $query = "UPDATE notifsoldout SET readed=1 WHERE notifID=? ";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param('i', $notifID);
+        $stmt->execute();
+    }
+
+
+    
 
 }
 
