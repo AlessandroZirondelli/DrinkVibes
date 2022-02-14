@@ -211,7 +211,7 @@ class DatabaseHelper{
     }
 
     public function insertNotifNewOrder($orderRef,$userRef,$description){
-        $query = "INSERT INTO notifneworder (orderRef, userRef,description, readed) VALUES (?, ?, ?, 0)";
+        $query = "INSERT INTO notifneworder (orderRef, userRef,description, readedUser, readedAmm) VALUES (?, ?, ?, 0,0)";
         $stmt = $this->conn->prepare($query);
         $stmt->bind_param('iss',$orderRef, $userRef,$description);
         $stmt->execute();
@@ -219,10 +219,10 @@ class DatabaseHelper{
 
     public function getAllNotificationsNewOrder($userID,$type){
         if($type=="Admin"){ //if it's Admin then take all new orders of all users
-            $stmt = $this->conn->prepare("SELECT orderRef,userRef,notifID,description FROM notifneworder WHERE readed=0");  
+            $stmt = $this->conn->prepare("SELECT orderRef,userRef,notifID,description FROM notifneworder WHERE readedAmm=0");  
         }
         else if($type=="User"){
-            $stmt = $this->conn->prepare("SELECT orderRef,notifID,description FROM notifneworder WHERE readed=0 AND userRef=?");  
+            $stmt = $this->conn->prepare("SELECT orderRef,notifID,description FROM notifneworder WHERE readedUser=0 AND userRef=?");  
             $stmt-> bind_param("s",$userID);
         }
         $stmt->execute();

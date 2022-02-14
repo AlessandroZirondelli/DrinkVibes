@@ -8,14 +8,16 @@ class NotificationNewOrder{
     private $orderRef; // referenced order 
     private $userRef; //userID of customer
     private $description; //changed state 
-    private $readed; // indicates if user have already read this notification
+    private $readedUser; // indicates if user have already read this notification
+    private $readedAmm;
     private $notifID;
 
-    public function __construct($orderRef, $userRef, $description, $readed, $notifID){
+    public function __construct($orderRef, $userRef, $description, $readedUser, $readedAmm, $notifID){
          $this-> orderRef = $orderRef;
          $this-> userRef = $userRef;
          $this-> description = $description;
-         $this-> readed = $readed;
+         $this-> readedUser = $readedUser;
+         $this-> readedAmm = $readedAmm;
          $this-> notifID = $notifID;
     }
 
@@ -40,11 +42,18 @@ class NotificationNewOrder{
         return $this->description;
     }
 
-    public function setReaded($readed){
-        $this->readed = $readed;
+    public function setReadedUser($readedUser){
+        $this->readedUser = $readedUser;
     }
-    public function getReaded(){
-        return $this->readed;
+    public function getReadedUser(){
+        return $this->readedUser;
+    }
+
+    public function setReadedAmm($readedAmm){
+        $this->readedAmm = $readedAmm;
+    }
+    public function getReadedAmm(){
+        return $this->readedAmm;
     }
 
     public function setNotifID($notifID){
