@@ -1,4 +1,4 @@
-<div class="container p-5 my-5">
+<div class="container box-notifications p-5">
     <?php
         if((count($notificationsTypeOne)==0) && (count($notificationsTypeTwo)==0)):
     ?>
