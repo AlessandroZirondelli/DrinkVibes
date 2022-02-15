@@ -30,5 +30,10 @@ li.icons-link li{
     ul.navbar-nav>li.col-lg-2>a.nav-link.text-white {
         text-align: center !important;
     }
+    /*
+        li.icons-link li{
+        display: inline-block !important;
+    }
+    */
 
 }
