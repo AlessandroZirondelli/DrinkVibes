@@ -12,19 +12,13 @@
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="flush-headingNotifTypeOne<?php echo $notif->getNotifID() ?>">
                                 <button class="accordion-button collapsed px-0 " type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseNotifTypeOne<?php echo $notif->getNotifID() ?>" aria-expanded="false" aria-controls="flush-collapseNotifTypeOne<?php echo $notif->getNotifID() ?>">
-                                <?php if($type=="User"): ?>
-                                    <div class="notif-type">
-                                        Change of state
-                                    </div>
-                                <?php elseif($type=="Express"):?>
-                                    <div class="notif-type">
-                                        Order ready to dealivery 
-                                    </div>   
-                                <?php elseif($type=="Admin"):?>
-                                    <div class="notif-type">
-                                        New order
-                                    </div>
-                                <?php endif; ?>
+                                    <?php if($type=="User"): ?>
+                                            Change of state
+                                    <?php elseif($type=="Express"):?>
+                                            Order ready to dealivery    
+                                    <?php elseif($type=="Admin"):?>
+                                            New order
+                                    <?php endif; ?>
                                 </button>
                             </h2>
                                                     

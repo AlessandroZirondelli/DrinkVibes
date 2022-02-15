@@ -22,8 +22,8 @@ div.col-1{
     padding-top: 12px;
 }
 
-div.notif-type{
-    font-weight: bold;
+button.accordion-button{
+    font-weight: bold !important;
 }
 
 @media screen and (max-width: 768px) {
