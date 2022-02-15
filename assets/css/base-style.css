@@ -22,14 +22,12 @@ li.icons-link li{
 }
 
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 992px) {
 
-    .navbar-collapse ul li:nth-child(2) > a{
-        padding-right: 0px !important;
-        padding-left: 0px !important;
+    ul.navbar-nav>li.col-lg-2>a.nav-link.text-start.text-white {
+        text-align: center !important;
     }
-
-    .navbar-collapse ul li:nth-child(7) > a , .navbar-collapse ul li:nth-child(6) > a{
+    ul.navbar-nav>li.col-lg-2>a.nav-link.text-white {
         text-align: center !important;
     }
 

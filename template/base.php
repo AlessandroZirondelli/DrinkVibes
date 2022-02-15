@@ -57,24 +57,24 @@
           <div class="collapse navbar-collapse col-lg-10" id="toggleMobileMenu">
             <div class="col-12">
               <ul class="navbar-nav ">
-                <li class="col-md-2">
+                <li class="col-lg-2">
                   <a class="nav-link text-start text-white" href="#">Home</a>
                 </li>
-                <li class="col-md-2">
+                <li class="col-lg-2">
                   <a class="nav-link text-white text-start" href="#">Products</a>
                 </li>
-                <li class="col-md-2">
+                <li class="col-lg-2">
                   <a class="nav-link text-white" href="#">Make drinks</a>
                 </li>
-                <li class="col-md-2">
+                <li class="col-lg-2">
                   <a class="nav-link text-white" href="#">Orders</a>
                 </li>
-                <li class="col-md-2">
+                <li class="col-lg-2">
                   <a class="nav-link text-white" href="#">Contacts</a>
                 </li>
                 
-                <li class="icons-link col-md-2">
-                  <ul class="p-0">
+                <li class="icons-link col-lg-2">
+                  <ul class="p-0 text-center">
                     <li>
                     <a class="nav-link  text-white" href="#" title="Link icon cart"> <span class="bi bi-cart"></span> </a>
                     </li>
