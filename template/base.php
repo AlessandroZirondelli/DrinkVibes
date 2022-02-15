@@ -48,36 +48,45 @@
     <header>
       <div class="row">
 
-        <nav class="navbar navbar-expand-md navbar-light bg-dark py-4">
-          <a class="navbar-brand text-white me-0 col-3 col-md-2 ps-3" href="#">Drink Vibes</a>  <!-- Agisce sempre, quando è grande e piccolo-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark py-4">
+          <a class="navbar-brand text-white me-0 col-3 col-lg-2 ps-3" href="#">Drink Vibes</a>  <!-- Agisce sempre, quando è grande e piccolo-->
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#toggleMobileMenu"   
             aria-controls="toggleMobileMenu" aria-expanded="false" aria-label="Toggle navigation"> <!-- Agisce quando e piccolo-->
             <span class="navbar-toggler-icon text-white"></span>
           </button>
-          <div class="collapse navbar-collapse col-md-10" id="toggleMobileMenu">
+          <div class="collapse navbar-collapse col-lg-10" id="toggleMobileMenu">
             <div class="col-12">
               <ul class="navbar-nav ">
-                <li class="col-md-1">
-                  <a class="nav-link text-center text-white" href="#">Home</a>
+                <li class="col-md-2">
+                  <a class="nav-link text-start text-white" href="#">Home</a>
                 </li>
                 <li class="col-md-2">
-                  <a class="nav-link text-center text-white ps-5" href="#">Products</a>
-                </li>
-                <li class="col-md-3">
-                  <a class="nav-link text-center text-white" href="#">Make your drink</a>
+                  <a class="nav-link text-white text-start" href="#">Products</a>
                 </li>
                 <li class="col-md-2">
-                  <a class="nav-link text-center text-white" href="#">About us</a>
+                  <a class="nav-link text-white" href="#">Make drinks</a>
                 </li>
                 <li class="col-md-2">
-                  <a class="nav-link text-center text-white" href="#">Contacts</a>
+                  <a class="nav-link text-white" href="#">Orders</a>
                 </li>
-                <li class="col-md-1">
-                  <a class="nav-link text-end text-white" href="#" title="Link icon cart"> <span class="bi bi-cart"></span> </a>
+                <li class="col-md-2">
+                  <a class="nav-link text-white" href="#">Contacts</a>
                 </li>
-                <li class="col-md-1">
-                  <a class="nav-link text-start text-white" href="#" title="Link icon user "><span class="bi bi-person-circle"></span> </a>
+                
+                <li class="icons-link col-md-2">
+                  <ul class="p-0">
+                    <li>
+                    <a class="nav-link  text-white" href="#" title="Link icon cart"> <span class="bi bi-cart"></span> </a>
+                    </li>
+                    <li >
+                      <a class="nav-link  text-white" href="#" title="Link icon user "><span class="bi bi-person-circle"></span> </a>
+                    </li>
+                    <li>
+                      <a class="nav-link  text-white" href="#" title="Link icon user "><span class="bi bi-bell"></span> </a>
+                    </li>
+                  </ul>
                 </li>
+
               </ul>
             </div>
           </div>
