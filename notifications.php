@@ -7,7 +7,7 @@
     $cssArray[0]="./assets/css/notifications-style.css";
     
     $manager=new ManagerNotifications();
-    $type="Express";
+    $type="User";
     $userID="Express";//$userID = $_SESSION["user"];
 
     $manager->createNotifications($type,$userID);

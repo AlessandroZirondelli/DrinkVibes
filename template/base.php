@@ -29,7 +29,7 @@
    <?php 
    if(isset($jsArray)){
     foreach($jsArray as $tmpJs){
-      echo '<script type="text/javascript" src="'.$tmpJs.'"></script>';
+      echo '<script src="'.$tmpJs.'"></script>';
     }
    } 
   ?>
