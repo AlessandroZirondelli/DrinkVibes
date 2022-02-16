@@ -20,8 +20,8 @@
                 <div class="tab-pane fade show active" id="tab1" role="tabpanel" aria-labelledby="all-orders-tab"> 
                     
                     <?php if(count($ordersTab1)==0): ?>
-                        <p class="text-center">No orders! </p>
-                        <p class="text-center">You've delivered all orders, no orders to process.  </p>
+                        <p class="text-center lead">No orders! </p>
+                        <p class="text-center lead">You've delivered all orders, no orders to process.  </p>
                     <?php else: ?>   
                         <!--  Qui c'era il PHP del controllo type express  -->
                             <?php 
@@ -140,7 +140,8 @@
                     <!-- TAB2 -->
                     <div class="tab-pane fade" id="tab2" role="tabpanel" aria-labelledby="pending-orders-tab">  
                         <?php if(count($ordersTab2)==0): ?>
-                            <p>No orders </p>
+                            <p class="text-center lead">No orders! </p>
+                            <p class="text-center lead">All orders has already shipped! </p>
                         <?php else: ?>   
                         <!--  Qui c'era il PHP del controllo type express  -->
                             <?php 
