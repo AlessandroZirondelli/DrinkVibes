@@ -1,13 +1,16 @@
-<div class="container box-notifications p-5">
+<h2 class="mb-0 text-center mt-4">Notifications </h2>
+<div class="container box-notifications py-2 mt-3">
     <?php
         if((count($notificationsTypeOne)==0) && (count($notificationsTypeTwo)==0)):
     ?>
-        <p> No notification ! You have already read all the notifications and delete them </p>
+        <p class="text-center lead"> No notification ! </p>
+        <p class="text-center lead"> You've read all the notifications and delete them </p>
     <?php else: ?>
 
         <?php foreach($notificationsTypeOne as $notif):?>
             <div class="row">
-                <div class="col-11">    
+                <div class="col-1"> </div>
+                <div class="col-10">    
                     <div class="accordion accordion-flush" id="accordionFlushNotifTypeOne<?php echo $notif->getNotifID() ?>">
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="flush-headingNotifTypeOne<?php echo $notif->getNotifID() ?>">
@@ -67,19 +70,16 @@
         <?php if($type!="Express"):?>
             <?php foreach($notificationsTypeTwo as $notif):?>
                 <div class="row">
-                    <div class="col-11">
+                    <div class="col-1"> </div>
+                    <div class="col-10">
                         <div class="accordion accordion-flush" id="accordionFlushNotifTypeTwo<?php echo $notif->getNotifID() ?>">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="flush-headingNotifTypeTwo<?php echo $notif->getNotifID() ?>">
                                     <button class="accordion-button collapsed px-0 " type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseNotifTypeTwo<?php echo $notif->getNotifID() ?>" aria-expanded="false" aria-controls="flush-collapseNotifTypeTwo<?php echo $notif->getNotifID() ?>">
                                         <?php if($type=="User"): ?>
-                                            <div class="notif-type">
                                                 New order
-                                            </div>
                                         <?php elseif($type=="Admin"):?>
-                                            <div class="notif-type">
                                                 Article sold-out
-                                            </div>
                                         <?php endif; ?>
                                     </button>
                                 </h2>

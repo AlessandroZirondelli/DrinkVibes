@@ -1,7 +1,8 @@
 .container.box-notifications{
     border-style: dashed;
-    margin-top: 100px;
-    margin-bottom: 100px ;
+    margin-bottom: 150px ;
+    
+    
 }
 
 .accordion-button:hover{
@@ -26,11 +27,12 @@ button.accordion-button{
     font-weight: bold !important;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 992px) {
     .container.box-notifications{
         border-style: dashed;
         margin-top: 100px;
         margin-bottom: 150px ;
+        
     }
 
 }
