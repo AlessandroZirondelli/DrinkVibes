@@ -27,6 +27,16 @@ button.accordion-button{
     font-weight: bold !important;
 }
 
+.flex-wrapper {
+    display: flex;
+    min-height: 65vh;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  
+  
+
+
 @media screen and (max-width: 992px) {
     .container.box-notifications{
         border-style: dashed;
