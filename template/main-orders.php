@@ -20,7 +20,8 @@
                 <div class="tab-pane fade show active" id="tab1" role="tabpanel" aria-labelledby="all-orders-tab"> 
                     
                     <?php if(count($ordersTab1)==0): ?>
-                        <p>No orders </p>
+                        <p class="text-center">No orders! </p>
+                        <p class="text-center">You've delivered all orders, no orders to process.  </p>
                     <?php else: ?>   
                         <!--  Qui c'era il PHP del controllo type express  -->
                             <?php 

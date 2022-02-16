@@ -20,7 +20,7 @@ function switchSelectedItem(){
             const xhttp = new XMLHttpRequest();
             xhttp.onload = function() {
             //document.getElementById("hint").innerHTML = this.responseText;
-            console.log("sto cambiando stato");    
+            //console.log("sto cambiando stato");    
             }
             xhttp.open("GET", "utils/updateOrderState.php?id="+$orderID+"&state="+$state, false);
             xhttp.send();
@@ -128,6 +128,13 @@ function switchSelectedItem(){
                 if($(this).text()=="Delivered"){
                    containerToRemove= dropDownSelectedID.closest(".container");
                    containerToRemove.remove(); 
+                   if ( $("#tab1").children().length == 0 ) { //controllo se ho appena tolto l'ultimo ordine
+                    $("#tab1").html(' \
+                        <p class="text-center">No orders! </p>\
+                        <p class="text-center">You\'ve delivered all orders, no orders to process.  </p>\
+                    ');
+                    
+                   }
                 }
                 sendNotificationByChangeStateOrder($orderID);
             }   
