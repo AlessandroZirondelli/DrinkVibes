@@ -11,16 +11,15 @@
 
             <?php foreach($notificationsTypeOne as $notif):?>
                 <div class="row">
-                    <div class="col-1"> </div>
-                    <div class="col-10">    
+                    <div class="col-11">    
                         <div class="accordion accordion-flush" id="accordionFlushNotifTypeOne<?php echo $notif->getNotifID() ?>">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="flush-headingNotifTypeOne<?php echo $notif->getNotifID() ?>">
-                                    <button class="accordion-button collapsed px-0 " type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseNotifTypeOne<?php echo $notif->getNotifID() ?>" aria-expanded="false" aria-controls="flush-collapseNotifTypeOne<?php echo $notif->getNotifID() ?>">
+                                    <button class="accordion-button collapsed  " type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseNotifTypeOne<?php echo $notif->getNotifID() ?>" aria-expanded="false" aria-controls="flush-collapseNotifTypeOne<?php echo $notif->getNotifID() ?>">
                                         <?php if($type=="User"): ?>
                                                 Change of state
                                         <?php elseif($type=="Express"):?>
-                                                Order ready to dealivery    
+                                                Order ready to delivery    
                                         <?php elseif($type=="Admin"):?>
                                                 New order
                                         <?php endif; ?>
@@ -28,7 +27,7 @@
                                 </h2>
                                                         
                                 <div id="flush-collapseNotifTypeOne<?php echo $notif->getNotifID() ?>" class="accordion-collapse collapse" aria-labelledby="flush-headingNotifTypeOne<?php echo $notif->getNotifID() ?>" data-bs-parent="#accordionFlushNotifTypeOne<?php echo $notif->getNotifID() ?>">
-                                    <div class="accordion-body p-0">
+                                    <div class="accordion-body p-0 ms-4">
                                         <?php if($type=="User"): //l'utente che entra nelle notifiche è User ?>
                                             <p>
                                                 Order number: <?php echo $notif->getOrderRef(); ?> has changed state in : <?php echo $notif->getChangedState(); ?>
@@ -49,7 +48,7 @@
                             </div>
                         </div>  <!-- FINE DELL'ACCORDION --> 
                     </div>
-                    <div class="col-1 trash ">
+                    <div class="col-1 trash ps-0 ">
                         <?php
                             $notifID =  $notif->getNotifID();
                             if($type=="User"){ //notifica cambio stato
@@ -64,7 +63,7 @@
                         
                         
                         ?>
-                        <a class="text-black" href="<?php echo $link;?>" title="Link icon cart"> <i class="bi bi-trash"></i> </a>   
+                        <a class="text-black" href="<?php echo $link;?>" title="Trash"> <i class="bi bi-trash"></i> </a>   
                     </div>
                 </div>
             <?php endforeach; ?>
@@ -72,12 +71,11 @@
             <?php if($type!="Express"):?>
                 <?php foreach($notificationsTypeTwo as $notif):?>
                     <div class="row">
-                        <div class="col-1"> </div>
-                        <div class="col-10">
+                        <div class="col-11">
                             <div class="accordion accordion-flush" id="accordionFlushNotifTypeTwo<?php echo $notif->getNotifID() ?>">
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="flush-headingNotifTypeTwo<?php echo $notif->getNotifID() ?>">
-                                        <button class="accordion-button collapsed px-0 " type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseNotifTypeTwo<?php echo $notif->getNotifID() ?>" aria-expanded="false" aria-controls="flush-collapseNotifTypeTwo<?php echo $notif->getNotifID() ?>">
+                                        <button class="accordion-button collapsed  " type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseNotifTypeTwo<?php echo $notif->getNotifID() ?>" aria-expanded="false" aria-controls="flush-collapseNotifTypeTwo<?php echo $notif->getNotifID() ?>">
                                             <?php if($type=="User"): ?>
                                                     New order
                                             <?php elseif($type=="Admin"):?>
@@ -87,7 +85,7 @@
                                     </h2>
                                                             
                                     <div id="flush-collapseNotifTypeTwo<?php echo $notif->getNotifID() ?>" class="accordion-collapse collapse" aria-labelledby="flush-headingNotifTypeTwo<?php echo $notif->getNotifID() ?>" data-bs-parent="#accordionFlushNotifTypeTwo<?php echo $notif->getNotifID() ?>">
-                                        <div class="accordion-body p-0">
+                                        <div class="accordion-body p-0 ms-4">
                                             <?php if($type=="User"): //l'utente che entra nelle notifiche è User ?>
                                                 <p>
                                                     You have ordered ! Order number: <?php echo $notif->getOrderRef(); ?>  Description: <?php echo $notif->getDescription(); ?>
@@ -103,7 +101,7 @@
                                 </div>
                             </div>  <!-- FINE DELL'ACCORDION --> 
                         </div>
-                        <div class="col-1 trash ">
+                        <div class="col-1 trash ps-0 ">
                         <?php
                             $notifID =  $notif->getNotifID();
                             if($type=="User"){ //notifica nuovo ordine per l'utente
@@ -113,7 +111,7 @@
                                 $link="/DrinkVibes/utils/updateNotifications.php?notifType=soldout&notifID=".$notifID;
                             }
                         ?>
-                            <a class="text-black" href="<?php echo $link;?>" title="Link icon cart"> <i class="bi bi-trash"></i> </a>   
+                            <a class="text-black" href="<?php echo $link;?>" title="Trash"> <i class="bi bi-trash"></i> </a>   
                         </div>
                     </div>
                 <?php endforeach; ?>
