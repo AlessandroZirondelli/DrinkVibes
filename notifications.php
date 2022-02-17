@@ -2,6 +2,13 @@
     /*questo file di boostrap si occupa do sistmare la connesione al database  */
     require_once("bootstrap.php"); //require once, se è gia incliso non lo reinclude. C'è anche require e basta.
     require_once("./utils/ManagerNotifications.php");
+    /*require_once("./utils/functions.php");
+    
+    if(!isUserLoggedIn()){
+        header("location: login.php");
+    }
+    */
+
     $templateParams["title"] = "Notifications";
     $templateParams["main-content"] = "main-notifications.php";
     $cssArray[0]="./assets/css/notifications-style.css";
