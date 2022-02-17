@@ -16,6 +16,11 @@
     $type="User";
     $userID="Nick987";//$userID = $_SESSION["user"];
 
+    /* 
+    $type=$_SESSION["type"];
+    $userID=$_SESSION["userID"];
+    */
+
     $manager->createNotifications($type,$userID);
     $notificationsTypeOne=$manager->getNotificationsTypeOne();
     $notificationsTypeTwo=$manager->getNotificationsTypeTwo();

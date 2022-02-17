@@ -6,6 +6,6 @@ $id = $_REQUEST["id"];
 $state = $_REQUEST["state"];
 $arrayOfReplacements = array('+' => ' ');
 $cleanState = strtr($state, $arrayOfReplacements);
-$dbh->insertOrderState($cleanState,$id);// bisogna passare il nuovo stato e l'id dell'ordine 
+$dbh->insertOrderState($cleanState,$id);// new state and refers order id 
 
 ?>

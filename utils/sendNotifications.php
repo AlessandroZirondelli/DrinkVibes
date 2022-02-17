@@ -22,7 +22,7 @@ elseif($notifType=="orderReady"){
 elseif($notifType=="newOrder"){
     $orderRef=$_REQUEST["orderRef"];
     $description=$_REQUEST["description"];
-    //$userRef =$_SESSIONE[""] 
+    //$userRef =$_SESSION["userID"] 
     $userRef="Nick987";
     $dbh->insertNotifNewOrder($orderRef,$userRef,$description); 
 }
