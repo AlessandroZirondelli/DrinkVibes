@@ -97,7 +97,7 @@
     if(isset($templateParams["aside-content"])){
       require($templateParams["aside-content"]); 
     }
-   ?> <!-- Qui bisogna fare il controllo se nell'array associativo la chiave di aside-content esiste o meno . Nel caso includere. -->
+   ?> <!-- Check if aside exists or not. -->
 
    <main>
     <?php require($templateParams["main-content"]); ?>
