@@ -46,7 +46,7 @@ require_once("assets/db/database.php");
                 return false;
             }
         }
-        public function getDisponibility($id,$qtn){
+        public function getDisponibility($id){
             $ingredient = $this -> getIngredientById($id);
             return $ingredient[0]["qtystock"];
             

@@ -1,7 +1,6 @@
 <?php
 require("utils/ManagerIngredients.php");
 $id = $_REQUEST["id"];
-$qtn = $_REQUEST["qtn"];
 $mngIngredients = new ManagerIngredients();
 //var_dump($id);
 //var_dump($qtn);
@@ -11,5 +10,5 @@ $mngIngredients = new ManagerIngredients();
 }else{
     echo "0";
 }*/
-echo $mngIngredients -> getDisponibility($id,$qtn);
+echo $mngIngredients -> getDisponibility($id);
 ?>
