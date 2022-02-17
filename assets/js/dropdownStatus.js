@@ -3,129 +3,81 @@ $(document).ready(function(){
 
 });
 
-/* */
-
-
 function switchSelectedItem(){
     $("ul.dropdown-menu>li>a").click(     
-        function(e){  
-            //console.log("click");   
-            e.preventDefault();//serve per evitare che la pagina mi torni su quando cambio gli stati, quindi quando clicco sui link
-            $(this).parent().parent().find(".active").removeClass("active"); //prendo l'elemento che era selezionato prima e deseleziono
-            $(this).addClass("active");//evidenzio l'item appena selezionato
+        function(e){     
+            e.preventDefault();//It use to avoid page up scrolling when someone change state
+            $(this).parent().parent().find(".active").removeClass("active"); //Select element that it selected before to deselect.
+            $(this).addClass("active");//Mark and select new element just cliccked
             //localion.reload();
             
             $orderID=$(this).parent().parent().attr('id').match(/\d+/);//serve per prendere solo la parte numerica dell'ID che corrisponde all'ID dell'ordine
             $state=$(this).text().replace(/\s+/g, '+');
             const xhttp = new XMLHttpRequest();
             xhttp.onload = function() {
-            //document.getElementById("hint").innerHTML = this.responseText;
-            //console.log("sto cambiando stato");    
+                //no code to do when server generate response
+                //here you must be insert what it must be done when server reply
             }
             xhttp.open("GET", "utils/updateOrderState.php?id="+$orderID+"&state="+$state, false);
             xhttp.send();
             
-            //controllo se il tag div con class "dropdown" contiene tabOne nell'id o tabTwo
+            // Check if dropdown belong to tab1 or tab2
             dropDownSelectedID= $(this).parent().parent();
             
             //$containerToDelete= $dropDownSelectedID.closest(".container").remove();
             
             selectedTab=dropDownSelectedID.attr('id');
-            number=selectedTab.match(/\d+/); //numero dell'ordine
-            state=$(this).text();
+            number=selectedTab.match(/\d+/); //Order number. Match is used to remove every caracter
+            state=$(this).text(); //State of order
 
-            console.log("state:"+state);
-            if($('#tab2').length!=0){ // controllo se sono amministratore
+            //console.log("state:"+state);
+            if($('#tab2').length!=0){ // Check if logged user is Admin
                 if($(this).text()=="Delivered"){ 
-                    //elimino solo il container dell'ordine seleziomato nel tab2
-                    
+                    //Delete only container that contains selected order
                     containerToRemove= dropDownSelectedID.closest(".container");
                     
                     //console.log(state);
-                    if(selectedTab.includes("tabTwo")){ //se ho selezionato il secondo tab
+                    if(selectedTab.includes("tabTwo")){ //f user has select tab2
                         containerToRemove.remove();
                         dropdownToChange="tabOne".concat(number);
-                        // devo aggiornare tab1
+                        // Tab1 must be update
                         $("#"+dropdownToChange).find(".active").removeClass("active");
-                        //devo attivare la classe a che ha text = state
-                        //console.log($('#'+dropdownToChange+);
-                        //$("#"+dropdownToChange+">li a:contains()")
+                        // Selected state must be activate
                         $('#'+dropdownToChange+' li:contains('+state+') a').addClass("active");
                     }
-                    else{//selectedTab.includes("tabOne")) //se ho selezionato il primo tab     
+                    else{//selectedTab.includes("tabOne")) //If user select tab1     
                         dropdownToChange="tabTwo".concat(number);  
                         $("#"+dropdownToChange).closest(".container").remove();
-                        // NON devo aggiornare tab2, in quanto lo ho già rimoss
+                        // Tab2 must't be update because it has already removed
                     }
                     sendNotificationByChangeStateOrder($orderID);  
                 }
-                else{ // se lo stato non è delivered 
-                    if(selectedTab.includes("tabTwo")){ //se ho selezionato il secondo tab
+                else{ // If state isn't delivered
+                    if(selectedTab.includes("tabTwo")){ //If is select tab2
                         dropdownToChange="tabOne".concat(number);
                         $("#"+dropdownToChange).find(".active").removeClass("active");
                         $('#'+dropdownToChange+' li:contains('+state+') a').addClass("active");
                         sendNotificationByChangeStateOrder($orderID);
                         if(state=="Ready to delivery"){sendNotificationByOrderReady(number);}
                     }
-                    else{//se ho selezionato il primo tab
+                    else{//If is select tab1
                         dropdownToChange="tabTwo".concat(number);
-                         //se non trova nulla
-                            if(($("#"+dropdownToChange).find(".active")).length){ // se l'elemento c'è già in tab2
-                                //console.log("NON vuoto");
+                         //If nothing has found
+                            if(($("#"+dropdownToChange).find(".active")).length){ // If element is already present in tab2
                                 $("#"+dropdownToChange).find(".active").removeClass("active");
                                 $('#'+dropdownToChange+' li:contains('+state+') a').addClass("active");
                                 sendNotificationByChangeStateOrder($orderID);
                                 if(state=="Ready to delivery"){sendNotificationByOrderReady(number);}
                             }
-                            else{ 
+                            else{ //If element isn't present in tab2 --> location.reload()
                                 sendNotificationByChangeStateOrder($orderID);
                                 if(state=="Ready to delivery"){sendNotificationByOrderReady(number);}
-                                location.reload();
-                                //se l'elemento non c'era già in tab 2 , devo creare un nuovo Order
-                                /* Devo copiare queste cose dall'ordine del tab1:
-                                    -stato 
-                                    -order number
-                                    - id="dropdownStatusTabOne2" id del button dropdown-toggle
-                                    - aria-labelledby="dropdownStatusTabOne2"
-                                */
-                               /*
-                                    lastContainer=$("#tab2 .container:last"); //dopo questo container devo aggiungerge un altro
-                                    
-                                    idDropdownToggle="dropdownStatusTabTwo".concat(number);
-                                    arialabelled=idDropdownToggle;
-                                    
-                                    //devo cercare nel tab 1 quale container ha un 
-                                    selectedContainerTabOne= dropDownSelectedID.closest(".container");
-                                    code = '<div class="container">'+selectedContainerTabOne.html()+'</div>';
-                                    lastContainer.after(code);
-                                    //dopo aver aggiuinto questo container, devo modificare :
-                                    //dropdownStatusTabOne1 in dropdownStatusTabTwo1
-
-                                    lastContainer=$("#tab2 .container:last"); // aggiorno il last container con il nuovo container da cambiare
-                                    //$("#dropdownStatusTabOne"+number).prop("id","dropdownStatusTabTwo"+number);
-                                    
-                                    $("#tab2 .container:last .dropdown-toggle").prop("id","dropdownStatusTabTwo"+number);//button#dropDownStatus
-                                    $("#tab2 .container:last .dropdown ul").attr("aria-labelledby","dropdownStatusTabTwo"+number);
-                                    $("#tab2 .container:last .dropdown ul").attr("id","tabTwo"+number);
-
-                                    $("#tab2 .container:last .accordion-flush").attr("id","accordionFlushTabTwo"+number);
-                                    $("#tab2 .container:last .accordion-flush div.accordion-collapse").attr("data-bs-parent","#accordionFlushTabTwo"+number);
-
-                                    $("#tab2 .container:last .accordion-flush div.accordion-collapse").attr("aria-labelledby","flush-headingTabTwo"+number);
-                                    $("#tab2 .container:last .accordion-flush h2.accordion-header").attr("id","flush-headingTabTwo"+number);
-                                
-                                    $("#tab2 .container:last .accordion-flush h2.accordion-header button").attr("data-bs-target","#flush-collapseTabTwo"+number);
-                                    $("#tab2 .container:last .accordion-flush h2.accordion-header button").attr("aria-controls","flush-collapseTabTwo"+number);
-                                    $("#tab2 .container:last .accordion-flush div.accordion-collapse").attr("id","flush-collapseTabTwo"+number);
-                                   */
-                                }
-
-                        
-
+                                location.reload(); //refresh page
+                            }
                     }
 
                 }
-                if ( $("#tab2").children().length == 0 ){
+                if ( $("#tab2").children().length == 0 ){ //if tab2 is empty 
                     $("#tab2").html(' \
                     <p class="text-center lead mt-5">No orders! </p>\
                     <p class="text-center lead">All orders has already delivered! </p>\
@@ -133,11 +85,11 @@ function switchSelectedItem(){
                 }
 
             }
-            else{//se sono fattorino
+            else{//if logged user is Express
                 if($(this).text()=="Delivered"){
                    containerToRemove= dropDownSelectedID.closest(".container");
                    containerToRemove.remove(); 
-                   if ( $("#tab1").children().length == 0 ) { //controllo se ho appena tolto l'ultimo ordine
+                   if ( $("#tab1").children().length == 0 ) { //check if user has just delte last order
                     $("#tab1").html(' \
                         <p class="text-center lead mt-5">No orders! </p>\
                         <p class="text-center lead">You\'ve delivered all orders, no orders to process.  </p>\
@@ -147,12 +99,7 @@ function switchSelectedItem(){
                 }
                 sendNotificationByChangeStateOrder($orderID);
             }   
-            
-            
-
-            // ora posso gestire le notifiche
-            //sendNotificationByChangeStateOrder($orderID);
-            
+                        
         }
     );
 }
