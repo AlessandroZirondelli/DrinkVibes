@@ -1,7 +1,4 @@
 <?php
-/* QUesto percorso va bene in riferimento ad Order, ma non in riferimento a orders.php dove cè il require once
-require_once("./OrderDetail.php");
-*/
 
 require_once("./utils/OrderDetail.php");
 class Order{
@@ -92,32 +89,5 @@ class Order{
 
    
 }
-
-/*
-$order = new Order("Nick987",12,"12-09-2000","23:54","Delivered");
-$orderDetailFirst = new OrderDetail(12,"Vodka",99,3,78);
-$orderDetailSecond = new OrderDetail(12,"Gin",100,7,68);
-$order->addOrderDetail($orderDetailFirst);
-$order->addOrderDetail($orderDetailSecond);
-
-$order->toString();*/
-/*
-$order->setDate("22/03/2012");
-echo $order->getDate();
-
-$order = new Order(0,0,0,0,0);
-$det = new OrderDetail(10,"water",40);
-$order->addOrderDetails($det);
-
-foreach($order->getOrderDetails() as $order){
-    
-}
-
-*/
-
-
-
-
-
 
 ?>
