@@ -31,13 +31,10 @@
                             <p class="text-center lead">You haven't ordered yet  </p> 
                         <?php else: ?>   
                                 <?php 
-                                    //$accordionFlushID=1;
-                                    //$flushHeading=1;
-                                    //$flushCollapse=1;
                                     foreach($ordersTab1 as $tmp): 
                                 ?>
-                                        <div class="container">
-                                            <div class="row"> <!--  INIZZIA LA ROW-->
+                                        <div class="container"> <!-- CONTAINER STARTS -->
+                                            <div class="row"> <!-- ROW START-->
                                                 <div class="col-4 col-md-4 p-0">
                                                     <div class="ordered-on">
                                                         Ordered on: 
@@ -54,18 +51,16 @@
                                                         <?php echo $tmp->getOrderID(); ?>
                                                     </div>
                                                 </div>
-                                    
-                                                <!-- qui devo fare il controllo del type user. Se amin o fattorino faccio uscire drop down -->
-                                                
+                                                                              
                                                 <?php if ($type!="User"): ?>
                                                     <div class="col-3 col-md-4 p-0">
                                                         <div class="dropdown">
                                                             <button class="btn btn-secondary dropdown-toggle mt-1" type="button" id="dropdownStatusTabOne<?php echo $tmp->getOrderID();?>" data-bs-toggle="dropdown" aria-expanded="false">
-                                                                Status <!-- Questo si aggiornerà in base al valore selezionato ed attuale dello stato -->
+                                                                Status 
                                                             </button>
                                                             <ul class="dropdown-menu" id="tabOne<?php echo $tmp->getOrderID(); ?>" aria-labelledby="dropdownStatusTabOne<?php echo $tmp->getOrderID();?>">
                                                                 <?php if($type=="Admin"): ?> <li><a class="dropdown-item <?php if($tmp->getState()=='To prepare'){echo 'active';} ?>" href="#">To prepare</a></li> <?php endif; ?>
-                                                                <!-- Il fattorino ha solo 3 opzioni. NON ha "To prepare"-->
+                                                                <!-- Express has only  3 options. It hasn't got "To prepare"-->
                                                                 <li><a class="dropdown-item <?php if($tmp->getState()=='Ready to delivery'){echo 'active';} ?>" href="#">Ready to delivery</a></li> <!--Per disabilitarlo aggiungere disabled come classe al tag <a> -->
                                                                 <li><a class="dropdown-item <?php if($tmp->getState()=='Shipped'){echo 'active';} ?>" href="#">Shipped</a></li>
                                                                 <li><a class="dropdown-item <?php if($tmp->getState()=='Delivered'){echo 'active';} ?>" href="#">Delivered</a></li>
@@ -73,7 +68,7 @@
                                                         </div>
                                                     </div>
 
-                                                <?php else: ?> <!-- Se è un utente di tipo User -->
+                                                <?php else: ?> <!-- If it's a User -->
                                                     <div class="col-3 col-md-4 p-0">
                                                         <div class="state">
                                                             State:
@@ -84,9 +79,9 @@
                                                     </div>  
                                                 <?php endif; ?>                   
 
-                                            </div> <!-- CHIUDE LA ROW -->
+                                            </div> <!-- ROW ENDS -->
                                 
-                                            <div class="accordion accordion-flush" id="<?php echo 'accordionFlushTabOne'.$tmp->getOrderID(); ?>">
+                                            <div class="accordion accordion-flush" id="<?php echo 'accordionFlushTabOne'.$tmp->getOrderID(); ?>"> <!-- ACCORDION STARTS -->
                                                 <div class="accordion-item">
                                                     <h2 class="accordion-header" id="<?php echo 'flush-headingTabOne'.$tmp->getOrderID();?>">
                                                         <button class="accordion-button collapsed px-0 " type="button" data-bs-toggle="collapse" data-bs-target="#<?php echo 'flush-collapseTabOne'.$tmp->getOrderID(); ?>" aria-expanded="false" aria-controls="<?php echo 'flush-collapseTabOne'.$tmp->getOrderID(); ?>">
@@ -112,50 +107,27 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>  <!-- FINE DELL'ACCORDION -->   
+                                            </div>  <!-- ACCORDION ENDS -->   
                                 
-                                        </div> <!-- FINE DEL CONTAINER -->
-
-                                        <?php 
-                                            //$accordionFlushID=$accordionFlushID+1;
-                                            //$flushHeading=$flushHeading+1;
-                                            //$flushCollapse=$flushCollapse+1;
-                                        ?>
-
+                                        </div> <!-- CONTAINER ENDS -->
                                 <?php                           
                                     endforeach; 
-                                ?>
-                            <!-- Qui c'era il php del controllo typr fattorino -->
-
-
-
-
-            
-                        <?php endif; //endif del controllo se ci sono ordino o meno?>
+                                ?>            
+                        <?php endif; //endif of controls if there are orders?>
+                    </div> <!-- TAB PANE 1 ENDS -->
                     
-                        
-                        <!--  AGGIUNGI QUA SOTTO I NUOVI CONTAINER !!! RICORDA DI : 
-                        -aggiungere in modo dinamico dei nuovi container con nuove tabelle relative agli ordini
-                        - cambiare  in modo dinamico all'interno di AccordionFlush , l'id AccordionFlushExample 
-                        che deve diventare progressivo (AccordionFlush1 ecc.. ) e poi 
-                        in data-bs-target #flushCOllapseOne in #flush collpaseTwo- three-four ecc..-->
-
-                    </div>
-                    
-                    <?php if($type!="Express"): ?>
+                    <?php if($type!="Express"): ?> <!-- Check if it's a User or Admin -->
                         <!-- TAB2 -->
                         <div class="tab-pane fade" id="tab2" role="tabpanel" aria-labelledby="pending-orders-tab">  
                             <?php if(count($ordersTab2)==0): ?>
                                 <p class="text-center lead mt-5">No orders! </p>
                                 <p class="text-center lead">All orders has already delivered! </p>
                             <?php else: ?>   
-                            <!--  Qui c'era il PHP del controllo type express  -->
                                 <?php 
-                                    
                                     foreach($ordersTab2 as $tmp): 
                                 ?>
                                         <div class="container">
-                                            <div class="row"> <!--  INIZZIA LA ROW-->
+                                            <div class="row"> <!--  ROW STARTS-->
                                                 <div class="col-4 col-md-4 p-0">
                                                     <div class="ordered-on">
                                                         Ordered on: 
@@ -172,18 +144,16 @@
                                                         <?php echo $tmp->getOrderID(); ?>
                                                     </div>
                                                 </div>
-                                    
-                                                <!-- qui devo fare il controllo del type user. Se amin o fattorino faccio uscire drop down -->
-                                                
+                                                                                    
                                                 <?php if ($type!="User"): ?>
                                                     <div class="col-3 col-md-4 p-0">
                                                         <div class="dropdown">
                                                             <button class="btn btn-secondary dropdown-toggle mt-1" type="button" id="dropdownStatusTabTwo<?php echo $tmp->getOrderID();?>" data-bs-toggle="dropdown" aria-expanded="false">
-                                                                Status <!-- Questo si aggiornerà in base al valore selezionato ed attuale dello stato -->
+                                                                Status
                                                             </button>
                                                             <ul class="dropdown-menu" id="tabTwo<?php echo $tmp->getOrderID(); ?>" aria-labelledby="dropdownStatusTabTwo<?php echo $tmp->getOrderID();?>">
                                                                 <?php if($type=="Admin"): ?> <li><a class="dropdown-item <?php if($tmp->getState()=='To prepare'){echo 'active';} ?>" href="#">To prepare</a></li> <?php endif; ?>
-                                                                <!-- Il fattorino ha solo 3 opzioni. NON ha "To prepare"-->
+                                                                <!-- Express has only 3 options. It hasn't got "To prepare"-->
                                                                 <li><a class="dropdown-item <?php if($tmp->getState()=='Ready to delivery'){echo 'active';} ?>" href="#">Ready to delivery</a></li> <!--Per disabilitarlo aggiungere disabled come classe al tag <a> -->
                                                                 <li><a class="dropdown-item <?php if($tmp->getState()=='Shipped'){echo 'active';} ?>" href="#">Shipped</a></li>
                                                                 <li><a class="dropdown-item <?php if($tmp->getState()=='Delivered'){echo 'active';} ?>" href="#">Delivered</a></li>
@@ -191,7 +161,7 @@
                                                         </div>
                                                     </div>
 
-                                                <?php else: ?> <!-- Se è un utente di tipo User -->
+                                                <?php else: ?> <!-- If it's a user -->
                                                     <div class="col-3 col-md-4 p-0">
                                                         <div>
                                                             State:
@@ -202,7 +172,7 @@
                                                     </div>  
                                                 <?php endif; ?>                   
 
-                                            </div> <!-- CHIUDE LA ROW -->
+                                            </div> <!-- ROW ENDS -->
                                 
                                             <div class="accordion accordion-flush" id="<?php echo 'accordionFlushTabTwo'.$tmp->getOrderID(); ?>">
                                                 <div class="accordion-item">
@@ -230,21 +200,14 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>  <!-- FINE DELL'ACCORDION -->   
+                                            </div>  <!-- ACCORDION STARTS -->   
                                 
-                                        </div> <!-- FINE DEL CONTAINER -->
-
-                                        <?php 
-                                            //$accordionFlushID=$accordionFlushID+1;
-                                            //$flushHeading=$flushHeading+1;
-                                            //$flushCollapse=$flushCollapse+1;
-                                        ?>
-
+                                        </div> <!-- CONTAINER ENDS -->
                                 <?php                           
                                     endforeach; 
                                 ?>
 
-                            <?php endif; //endif del controllo se ci sono ordino o meno?>
+                            <?php endif; //endif of control if there are orders or not?>
                         </div>
                     <?php  endif; //endif del controllo se è fattorino o meno?> 
                 

@@ -11,8 +11,8 @@
     $manager= new ManagerOrders();
     //$manager->createOrdersByUser($_SESSION["userID"]);
 
-    $type="Admin";
-    $userID="Admin12";//$userID = $_SESSION["user"];
+    $type="User";
+    $userID="Nick987";//$userID = $_SESSION["user"];
 
     $manager->createOrdersTab($userID,$type);
     $ordersTab1=$manager->getOrdersTab1();
