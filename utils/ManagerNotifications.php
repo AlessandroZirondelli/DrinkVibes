@@ -1,9 +1,9 @@
 <?php
 /*
-Questi percorsi vanno bene in riferimento a questo file "ManagerOrders.php
-Ma non vanno bene , dal file "Ordrs.php" in cui faccio il require_once.
 
-require_once("./Order.php"); // include anche OrderDetails.php
+These paths are correct if they refers to this files
+But these are wrong  refers to file "Orders.php" where there is require_once.
+require_once("./Order.php"); // includes also OrderDetails.php
 require_once("./../assets/db/database.php");*/
 
 
@@ -21,9 +21,9 @@ require_once("./assets/db/database.php");
         private $notificationsTypeOne;
         private $notificationsTypeTwo;
         /* 
-            Admin ---> typeOne : nuovi ordini     typeTwo : scorta terminata
-            Express ---> typeOne : nuove spedizioni da fare     typeTwo : vuoto
-            User ---> typeOne: nuovi ordini fatti   typeTwo : aggiornamento ordine
+            Admin ---> typeOne : new orders don by users    typeTwo : sold out
+            Express ---> typeOne : new deliviries to do     typeTwo : empty
+            User ---> typeOne: new order done               typeTwo : update order
         */
         public function __construct() {
             $this->dbh = new DatabaseHelper("localhost","root","", "drinkdb",3306);
@@ -39,8 +39,8 @@ require_once("./assets/db/database.php");
             array_push($this-> notificationsTypeTwo, $notification );
         }
 
-        //questa funzione verrà usata in main-notification per scaricare tutte le notifiche
-        public function createNotificationsForAdmin($userRef){ //crea tutte le notifiche DA FAR VISUALIZZARE relative all'Admin
+        //This funtion is used in  main-notification to download all new notifications
+        public function createNotificationsForAdmin($userRef){ //Creates all notifications to view for Admin
             $res=$this->dbh->getAllNotificationsNewOrder($userRef,"Admin");
             foreach($res as $tmp){ //tmp is a new order notification
                 $orderRef=$tmp["orderRef"];
@@ -50,7 +50,7 @@ require_once("./assets/db/database.php");
                 $notif= new NotificationNewOrder($orderRef,$userRef,$description,0,0,$notifID);
                 $this->addNewNotificationTypeOne($notif);
             }
-
+            //soldout notifications
             $res=$this->dbh->getAllNotificationsSoldout();
             foreach($res as $tmp){ //tmp is a new order notification
                 $articleIDRef=$tmp["articleIDRef"];
@@ -60,11 +60,9 @@ require_once("./assets/db/database.php");
                 $this->addNewNotificationTypeTwo($notif);
             }
 
-            //qui ci sarà il secondo ciclo che scorrerà le notifiche di soldout
-
         }
 
-        public function createNotificationsForExpress($userRef){ //crea tutte le notifiche DA FAR VISUALIZZARE relative all'Express
+        public function createNotificationsForExpress($userRef){ //Creates all notifications to view for Express
             $res=$this->dbh->getAllNotificationsStateReady($userRef);
             foreach($res as $tmp){
                 $orderRef=$tmp["orderRef"];
@@ -75,7 +73,7 @@ require_once("./assets/db/database.php");
             }
         }
 
-        public function createNotificationsForUser($userRef){ //crea tutte le notifiche DA FAR VISUALIZZARE relative allo User
+        public function createNotificationsForUser($userRef){ //Creates all notifications to view for User
             $res=$this->dbh->getAllNotificationsStateChangedByUser($userRef);
             foreach($res as $tmp){
                 $orderRef=$tmp["orderRef"];
@@ -94,8 +92,6 @@ require_once("./assets/db/database.php");
                 $notif= new NotificationNewOrder($orderRef,$userRef,$description,0,0,$notifID);
                 $this->addNewNotificationTypeTwo($notif);
             }
-
-            //qui deve essere aggiunta anche l'altra tipologia di notifica
         }
 
         public function getNotificationsTypeOne(){
@@ -107,46 +103,17 @@ require_once("./assets/db/database.php");
         }
 
         public function createNotifications($type,$loggedUserID){
-            if($type=="User"){ //se l'utente loggatto è uno user
+            if($type=="User"){ //if logged user is user
                 $this->createNotificationsForUser($loggedUserID);
             }
-            if($type=="Admin"){ //se l'utente loggatto è uno user
+            if($type=="Admin"){ //if logged user is Admin
                 $this->createNotificationsForAdmin($loggedUserID);
             }
-            if($type=="Express"){ //se l'utente loggatto è uno user
+            if($type=="Express"){ //if logged user is Express
                 $this->createNotificationsForExpress($loggedUserID);
             }
         }
 
-
-
-        /* Se sono amministratore :
-            -sold out ---> mi serve l'id e il norme dell'articolo soldout
-            articlereference,nome artcoolo
-            L'articolo numero 56626 Vodka pè terminato.
-            -ordini nuovi ---> mi serve l'ìd dell'ordine , il cliente
-            username, nome cognome, id ordie data
-            "L'utente Pippo Rossi, Pippo345 ha effettuato un nuovo ordine: 1532 in data 17/08/2021 "
-
-           Se sono fattorino :
-           "L'utente Pippo345 ha effettuato un nuovo ordine: 1532  I prodotti sono pronti per la spedizione!"
-            -nuovi ordini che sono in ready to delivery, quindi sono da spedire  -->  id ordine, data ordine, destinatario
-
-           Se sono utente :
-           "Lo stato dell'ordine numero 5362762 , effettuato in data 16/07/2021 ha cambiato stato in: Ready to prepare "
-            "Hai effettuato l'ordine numero 5362762 , effettuato in data 16/07/2021 ha cambiato stato in: Ready to prepare "
-           */
-
     }
-/*
-    $manager = new ManagerNotifications();
-    $manager -> createNotificationsForUser("Nick987");
-    $not =  $manager->getNotificationsTypeOne();
-    foreach($not as $tmp){
-        $tmp->toString();
-
-    }
-
-*/
 
 ?>
