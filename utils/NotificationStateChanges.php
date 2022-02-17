@@ -1,7 +1,5 @@
 <?php
-/* QUesto percorso va bene in riferimento ad Order, ma non in riferimento a orders.php dove cè il require once
-require_once("./OrderDetail.php");
-*/
+
 
 class NotificationStateChanges{
 
