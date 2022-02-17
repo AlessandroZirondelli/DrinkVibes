@@ -127,7 +127,7 @@ function switchSelectedItem(){
                 }
                 if ( $("#tab2").children().length == 0 ){
                     $("#tab2").html(' \
-                    <p class="text-center lead">No orders! </p>\
+                    <p class="text-center lead mt-5">No orders! </p>\
                     <p class="text-center lead">All orders has already shipped! </p>\
                     ');
                 }
@@ -139,7 +139,7 @@ function switchSelectedItem(){
                    containerToRemove.remove(); 
                    if ( $("#tab1").children().length == 0 ) { //controllo se ho appena tolto l'ultimo ordine
                     $("#tab1").html(' \
-                        <p class="text-center lead">No orders! </p>\
+                        <p class="text-center lead mt-5">No orders! </p>\
                         <p class="text-center lead">You\'ve delivered all orders, no orders to process.  </p>\
                     ');
                     
