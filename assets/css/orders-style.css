@@ -1,11 +1,6 @@
 .nav-tabs button{
     color: black !important; /* text color of tabs*/
 }
-/*
-div.tab-pane>div div {
-    border-style: solid;
-    margin-bottom: 10px;
-}*/
 
 div.tab-content .container {
     border: 2px solid grey;
@@ -62,12 +57,3 @@ h2.h2.text-black{
     flex-direction: column;
     justify-content: flex-start;
   }
-
-/*
-div.tab-content{
-    background-color: red !important;
-}*/
-/*
-body.bg-white{
-    background-color: red !important;
-}*/
