@@ -1,10 +1,13 @@
 <?php
 /*
-Questi percorsi vanno bene in riferimento a questo file "ManagerOrders.php
-Ma non vanno bene , dal file "Ordrs.php" in cui faccio il require_once.
+These paths are correct if they refers to this files
+But these are wrong  refers to file "Orders.php" where there is require_once.
+require_once("./Order.php"); // includes also Order.php
+require_once("./../assets/db/database.php");
 
 require_once("./Order.php"); // include anche OrderDetails.php
 require_once("./../assets/db/database.php");*/
+
 
 require_once("./utils/Order.php");
 require_once("./assets/db/database.php");
@@ -27,7 +30,7 @@ require_once("./assets/db/database.php");
             array_push($this-> ordersTab2, $order );
         }
 
-        public function createOrdersTab($userID,$type){ // gestisce entrambi gli array ordersTab1 e ordersTab2
+        public function createOrdersTab($userID,$type){ // manage all  arrays ordersTab1 and ordersTab2
             
             if($type == "Admin"){
                 $ordersTabTmp1=$this-> dbh-> getAllOrdersFromAllUsers();
@@ -42,11 +45,9 @@ require_once("./assets/db/database.php");
                 $ordersTabTmp2=$this-> dbh-> getNotDeliveredOrdersByUser($userID);
             }
             
-        
-            //qui avrò un ciclo1 e un ciclo2 per i due array
             foreach ($ordersTabTmp1 as $tmp){
 
-                //Informazioni di base
+                //Base information
                 $orderID = $tmp["orderID"];
                 $date = $tmp["date"];
                 $time = $tmp["time"];
@@ -57,17 +58,15 @@ require_once("./assets/db/database.php");
                 $newOrder = new Order($user,$orderID,$date,$time,$state,$total);
                 //$newOrder->toString();
 
-                //Ora devo aggiungere le informazioni relative ai vari dettagli ordine
+                //Add information about order details
                 $orderDetails = $this-> dbh -> getOrderDetails($orderID); 
-                foreach ($orderDetails as $detail){ //aggiungo tutti i dettagli di quell'ordine
+                foreach ($orderDetails as $detail){ 
                     $articID = $detail["articID"];
                     $qty = $detail["qty"];
                     $subtotal = $detail["subtotal"];
                     $articName = $this->dbh->getArticleName($articID);
-
                     $newDetail = new OrderDetail($orderID,$articName,$articID,$qty,$subtotal);
-                    //$newDetail->toString();
-                    $newOrder-> addOrderDetail($newDetail); //aggiungo il dettaglio ordine
+                    $newOrder-> addOrderDetail($newDetail);
                     
                 }
 
@@ -78,18 +77,16 @@ require_once("./assets/db/database.php");
             if($type!="Express"){
                 foreach ($ordersTabTmp2 as $tmp){
 
-                    //Informazioni di base
+                    //Base information
                     $orderID = $tmp["orderID"];
                     $date = $tmp["date"];
                     $time = $tmp["time"];
                     $state = $tmp["state"];
-                    $user = $tmp["userID"]; //$user = $userID 
+                    $user = $tmp["userID"];  
                     $total = $tmp["total"];
     
                     $newOrder = new Order($user,$orderID,$date,$time,$state,$total);
-                    //$newOrder->toString();
     
-                    //Ora devo aggiungere le informazioni relative ai vari dettagli ordine
                     $orderDetails = $this-> dbh -> getOrderDetails($orderID); 
                     foreach ($orderDetails as $detail){ //aggiungo tutti i dettagli di quell'ordine
                         $articID = $detail["articID"];
@@ -98,25 +95,20 @@ require_once("./assets/db/database.php");
                         $articName = $this->dbh->getArticleName($articID);
     
                         $newDetail = new OrderDetail($orderID,$articName,$articID,$qty,$subtotal);
-                        //$newDetail->toString();
-                        $newOrder-> addOrderDetail($newDetail); //aggiungo il dettaglio ordine
+                        $newOrder-> addOrderDetail($newDetail);
                         
                     }
     
-                    $this->addNewOrderTab2($newOrder);
-                    
+                    $this->addNewOrderTab2($newOrder);  
                 }
-    
-
             }
-
         }
 
        
 
 
         /*
-            DATO ELABORATO. Questa funzione dovrà restituire lo storico di  tutti gli ordini che il cliente ha effettuato 
+            ELABORATED DATA. This function returns all orders 
         */
         public function getOrdersTab1(){
             return $this->ordersTab1;   
@@ -134,9 +126,4 @@ require_once("./assets/db/database.php");
         }
         
     }
-
-
-   /* $man = new ManagerOrders();
-    $man->createOrdersByUser("Nick987");
-*/
 ?>
