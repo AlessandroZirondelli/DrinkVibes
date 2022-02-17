@@ -1,7 +1,6 @@
 <?php
-    /*questo file di boostrap si occupa do sistmare la connesione al database  */
     require_once("./utils/ManagerOrders.php");
-    require_once("bootstrap.php"); //require once, se è gia incliso non lo reinclude. C'è anche require e basta.
+    require_once("bootstrap.php");
     /*require_once("./utils/functions.php");
     
     if(!isUserLoggedIn()){
@@ -24,6 +23,6 @@
     $ordersTab1=$manager->getOrdersTab1();
     $ordersTab2=$manager->getOrdersTab2();
 
-    require_once("template/base.php"); //base.php vede la roba definita dentro  e dentro questo file index.php
+    require_once("template/base.php");
 ?>
 

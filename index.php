@@ -1,7 +1,4 @@
-
-
 <?php
-    /*questo file di boostrap si occupa do sistmare la connesione al database  */
     require_once("bootstrap.php"); //require once, se è gia incliso non lo reinclude. C'è anche require e basta.
     $templateParams["title"] = "Home";
     $templateParams["main-content"] = "main-index.php";

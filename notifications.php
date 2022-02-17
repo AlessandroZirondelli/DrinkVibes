@@ -1,6 +1,5 @@
 <?php
-    /*questo file di boostrap si occupa do sistmare la connesione al database  */
-    require_once("bootstrap.php"); //require once, se è gia incliso non lo reinclude. C'è anche require e basta.
+    require_once("bootstrap.php"); //require once, if it's already include , it doesn't reinclude another time. 
     require_once("./utils/ManagerNotifications.php");
     /*require_once("./utils/functions.php");
     
@@ -21,6 +20,6 @@
     $notificationsTypeOne=$manager->getNotificationsTypeOne();
     $notificationsTypeTwo=$manager->getNotificationsTypeTwo();
     
-    require_once("template/base.php"); //base.php vede la roba definita dentro  e dentro questo file index.php
+    require_once("template/base.php");
 ?>
 
