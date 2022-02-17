@@ -147,7 +147,7 @@
                         <div class="tab-pane fade" id="tab2" role="tabpanel" aria-labelledby="pending-orders-tab">  
                             <?php if(count($ordersTab2)==0): ?>
                                 <p class="text-center lead mt-5">No orders! </p>
-                                <p class="text-center lead">All orders has already shipped! </p>
+                                <p class="text-center lead">All orders has already delivered! </p>
                             <?php else: ?>   
                             <!--  Qui c'era il PHP del controllo type express  -->
                                 <?php 

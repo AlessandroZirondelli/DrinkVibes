@@ -128,7 +128,7 @@ function switchSelectedItem(){
                 if ( $("#tab2").children().length == 0 ){
                     $("#tab2").html(' \
                     <p class="text-center lead mt-5">No orders! </p>\
-                    <p class="text-center lead">All orders has already shipped! </p>\
+                    <p class="text-center lead">All orders has already delivered! </p>\
                     ');
                 }
 
