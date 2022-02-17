@@ -8,7 +8,6 @@
             <p class="text-center lead"> No notification ! </p>
             <p class="text-center lead"> You've read all the notifications and delete them </p>
         <?php else: ?>
-
             <?php foreach($notificationsTypeOne as $notif):?>
                 <div class="row">
                     <div class="col-11">    
@@ -46,22 +45,20 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>  <!-- FINE DELL'ACCORDION --> 
+                        </div>  <!-- ACCORDION ENDS --> 
                     </div>
                     <div class="col-1 trash ps-0 ">
                         <?php
                             $notifID =  $notif->getNotifID();
-                            if($type=="User"){ //notifica cambio stato
+                            if($type=="User"){ //NOTIFICATION CHANGE STATE OF ORDER
                                 $link="/DrinkVibes/utils/updateNotifications.php?notifType=stateChanged&notifID=".$notifID;
                             }
-                            elseif($type=="Express"){ //notifica ordine ready
+                            elseif($type=="Express"){ //NOTIFICATION ORDER READY TO DELIVERY
                                 $link="/DrinkVibes/utils/updateNotifications.php?notifType=orderReady&notifID=".$notifID;
                             }
-                            elseif($type=="Admin"){ //notifica nuovo ordine
+                            elseif($type=="Admin"){ //NOTIFICATION NEW ORDER FOR ADMIN
                                 $link="/DrinkVibes/utils/updateNotifications.php?notifType=newOrder&whois=Admin&notifID=".$notifID;
                             }
-                        
-                        
                         ?>
                         <a class="text-black" href="<?php echo $link;?>" title="Trash"> <i class="bi bi-trash"></i> </a>   
                     </div>
@@ -86,7 +83,7 @@
                                                             
                                     <div id="flush-collapseNotifTypeTwo<?php echo $notif->getNotifID() ?>" class="accordion-collapse collapse" aria-labelledby="flush-headingNotifTypeTwo<?php echo $notif->getNotifID() ?>" data-bs-parent="#accordionFlushNotifTypeTwo<?php echo $notif->getNotifID() ?>">
                                         <div class="accordion-body p-0 ms-4">
-                                            <?php if($type=="User"): //l'utente che entra nelle notifiche è User ?>
+                                            <?php if($type=="User"): //Who enters in notification are is User ?>
                                                 <p>
                                                     You have ordered ! Order number: <?php echo $notif->getOrderRef(); ?>  Description: <?php echo $notif->getDescription(); ?>
                                                 </p>
@@ -99,15 +96,15 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>  <!-- FINE DELL'ACCORDION --> 
+                            </div>  <!-- ACCORDION ENDS --> 
                         </div>
                         <div class="col-1 trash ps-0 ">
                         <?php
                             $notifID =  $notif->getNotifID();
-                            if($type=="User"){ //notifica nuovo ordine per l'utente
+                            if($type=="User"){ //NOTIFICATION NEW ORDER FOR USER
                                 $link="/DrinkVibes/utils/updateNotifications.php?notifType=newOrder&whois=User&notifID=".$notifID;
                             }
-                            elseif($type=="Admin"){ //notifica soldout admin
+                            elseif($type=="Admin"){ //NOTIFICATION SOLDOUT FOR ADMIN
                                 $link="/DrinkVibes/utils/updateNotifications.php?notifType=soldout&notifID=".$notifID;
                             }
                         ?>
@@ -119,5 +116,5 @@
         <?php endif;?>
         
 
-    </div> <!-- FINE DEL CONTAINER -->
+    </div> <!-- CONTAINER ENDS -->
 </div>
