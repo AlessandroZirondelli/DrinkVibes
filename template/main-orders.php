@@ -20,11 +20,16 @@
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="tab1" role="tabpanel" aria-labelledby="all-orders-tab"> 
                         
-                        <?php if(count($ordersTab1)==0): ?>
+                        <?php if((count($ordersTab1)==0)&&($type=="Express")): ?>
                             <p class="text-center lead mt-5">No orders! </p>
                             <p class="text-center lead">You've delivered all orders, no orders to process.  </p>
+                        <?php elseif((count($ordersTab1)==0)&&($type=="Admin")): ?>
+                            <p class="text-center lead mt-5">No orders! </p>
+                            <p class="text-center lead">Customers haven't ordered yet  </p>
+                        <?php elseif((count($ordersTab1)==0)&&($type=="User")): ?>
+                            <p class="text-center lead mt-5">No orders! </p>
+                            <p class="text-center lead">You haven't ordered yet  </p> 
                         <?php else: ?>   
-                            <!--  Qui c'era il PHP del controllo type express  -->
                                 <?php 
                                     //$accordionFlushID=1;
                                     //$flushHeading=1;
