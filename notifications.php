@@ -7,7 +7,6 @@
         header("location: login.php");
     }
     */
-
     $templateParams["title"] = "Notifications";
     $templateParams["main-content"] = "main-notifications.php";
     $cssArray[0]="./assets/css/notifications-style.css";
@@ -27,4 +26,3 @@
     
     require_once("template/base.php");
 ?>
-
