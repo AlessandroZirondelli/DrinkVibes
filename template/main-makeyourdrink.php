@@ -22,6 +22,9 @@
     <input type="text" class="form-control form-rounded" id="qtnShoppingCart" placeholder="Quantity">
     <button class="btn btn-dark text-uppercase col-8" onclick="addShoppingCart()">Add to shopping cart</button>
 </div>
+<div>
+  <p id = "textShoppingCart"></p>
+</div>
 <h2 class="p-3">Choose your ingredients</h2>
 <div class="accordion accordion-flush px-3 pb-3" id="accordionFlushExample">
       <?php foreach($templateParams["categories"] as $category): ?>

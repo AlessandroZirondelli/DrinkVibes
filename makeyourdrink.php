@@ -10,7 +10,7 @@
     $jsArray[1]="./assets/js/sendNotifications.js";
     $jsArray[2]="./assets/js/tablemakeyourdrinks.js";
     $mngIngredients = new ManagerIngredients();
-    $_SESSION["shopping_cart"] = array();
+    $_SESSION["shopping_cart_hmd"] = array();
     $_SESSION["shopping_cart_temp"] = serialize(new HandMadeDrink());
 
     $templateParams["categories"] = ["Alcohol", "Beverages","Decoration"];

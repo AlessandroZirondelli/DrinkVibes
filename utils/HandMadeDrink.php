@@ -21,11 +21,22 @@ class HandMadeDrink{
     public function setId($id){
         return $this -> id = $id;
     }
+    public function isEqualIngredient(Ingredient $ingredient){
+        foreach($this -> ingredients as $ing){
+            if($ing->getIngredientID() == $ingredient-> getIngredientID() && 
+            $ing->getQty() == $ingredient-> getQty()){
+                return true;
+            }
+        }
+        return false;
+    }
+    
+
     public function addIngredient(Ingredient $ingredient){
         $isPresent = false;
         foreach($this -> ingredients as $ing){
-            if($ing->getingredientID() == $ingredient-> getIngredientID()){
-                $ing->setQtyStock($ing->getQtyStock()+$ingredient->getQtyStock());
+            if($ing->getIngredientID() == $ingredient-> getIngredientID()){
+                $ing->setQty($ing->getQty()+$ingredient->getQty());
                 $isPresent= true;
             }
         }
@@ -35,8 +46,8 @@ class HandMadeDrink{
     }
     public function getQtyIngredient($id){
         foreach($this -> ingredients as $ing){
-            if($ing->getingredientID() == $id){
-               return $ing->getQtyStock();
+            if($ing->getIngredientID() == $id){
+               return $ing->getQty();
             }
         }
     }
@@ -44,7 +55,7 @@ class HandMadeDrink{
         $index = 0;
         foreach($this -> ingredients as $ing){
 
-            if($ing->getingredientID() == $id){
+            if($ing->getIngredientID() == $id){
                unset($this -> ingredients[$index]);
             }
             $index = $index + 1;

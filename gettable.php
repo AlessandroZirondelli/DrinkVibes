@@ -48,11 +48,11 @@ $totalPrice=0;
 foreach($ingredientOnTable as $ing){
     echo "<tr>";
     echo "<td>".$ing->getName()."</td>";
-    echo "<td>".$ing->getQtyStock()."</td>";
-    echo "<td>".$ing->getPrice() * $ing->getQtyStock() ."</td>";    
-    echo '<td><div class="form-check"><input class="form-check-input" type="checkbox" id="cb'.$ing->getingredientID().'" value="'.$ing->getingredientID().'" aria-label="..." onclick = changeCheckbox('.$ing->getingredientID().')></div></td>';
+    echo "<td>".$ing->getQty()."</td>";
+    echo "<td>".$ing->getPrice() * $ing->getQty() ."</td>";    
+    echo '<td><div class="form-check"><input class="form-check-input" type="checkbox" id="cb'.$ing->getIngredientID().'" value="'.$ing->getIngredientID().'" aria-label="..." onclick = changeCheckbox('.$ing->getIngredientID().')></div></td>';
     echo "</tr>"; 
-    $totalPrice = $totalPrice + $ing->getPrice() * $ing->getQtyStock();
+    $totalPrice = $totalPrice + $ing->getPrice() * $ing->getQty();
 }
 echo "</tbody>";
 echo "<tfoot>";

@@ -21,7 +21,7 @@ function submitQuantity(id){
     if($.isNumeric($(inputSelected).val()) && $(inputSelected).val()>0){
         $(inputSelected).css("border-color","black");
         var quantity = $(inputSelected).val();
-        
+        var action = 1;
         var disponibility;
         const xhttp = new XMLHttpRequest();
         xhttp.onload = function() {
@@ -29,10 +29,10 @@ function submitQuantity(id){
             disponibility = this.responseText;          
             console.log(disponibility);  
         } 
-        xhttp.open("GET", "submitIngredient.php?id="+id,false );
+        xhttp.open("GET", "submit.php?action=" + action + "&id=" + id,false );
         xhttp.send();
 
-       // console.log(jQuery.type(isDisponibility));
+       // console.log(jQuery.type(isDisponibility)); 
        // console.log(jQuery.type(quantity));
         
         if(parseInt(disponibility) > 0 ){
@@ -42,7 +42,7 @@ function submitQuantity(id){
             }
             xhttp.open("GET", "gettable.php?action="+ action + "&qtn="+quantity+"&id="+id );
             xhttp.send();
-            console.log("ciao");
+          
             if(parseInt(disponibility) == parseInt(quantity)){   
                 sendNotificartionBySoldout(id,$(nameSelected).text()); // metterlo solo quando hai comprato
                 $(nameSelected).text($(nameSelected).text() +" - Sold out");
@@ -87,19 +87,58 @@ function deleteRow() {
         xhttp.open("GET", "gettable.php?action="+ action + "&id="+ JSON.stringify(arrayDeleteId) );
         xhttp.send();
     }
-    
 }
 function addShoppingCart(){
     const xhttp = new XMLHttpRequest();
+    var inputSelected = "#qtnShoppingCart"; 
     var type = "handmadedrink";
-    var qtn = $("#qtnShoppingCart").val();
-    if($.isNumeric(qtn) && $(inputSelected).val()>0){
+    var qtn = $(inputSelected).val();
+    var action = 2;
+    if($.isNumeric(qtn) && qtn>0){
+        $(inputSelected).css("border-color","black");
+        xhttp.onload = function() {
+            //document.getElementById("textShoppingCart").innerHTML = this.responseText;
+            console.log(this.responseText);
+            console.log("Aggiunto al carrello" == this.responseText);
+            console.log("Aggiunto al carrello".localeCompare(this.responseText));
+            //console.log(localCompare("Aggiunto al carrello" , this.responseText));
+            console.log("Aggiunto al carrello" == "Aggiunto al carrello");
+            console.log(jQuery.type( this.responseText ));
+            //if("Aggiunto al carrello" == this.responseText){
+            if("Aggiunto al carrello".localeCompare( this.responseText)){
+                document.getElementById("textShoppingCart").innerHTML = this.responseText;
+                console.log("hello1");
+                $("#textShoppingCart").fadeIn();
+                setTimeout(fade_out, 2000);
+
+                xhttp.onload = function() {
+                    //document.getElementById("ingredientTable").innerHTML = this.responseText;            
+                }
+                
+                xhttp.open("GET", "shoppingcart.php?type="+ type+ "&qtn="+ qtn);
+                xhttp.send();
+            }else{
+                document.getElementById("textShoppingCart").innerHTML = this.responseText;
+            }         
+            
+
+
+        }
+         
+        xhttp.open("GET", "submit.php?action="+ action + "&qtn="+ qtn);
+        xhttp.send();
+    }else{
+        $(inputSelected).css("border-color","red")
+                        .css("border-width","3px");
 
     }
-    xhttp.onload = function() {
+    /*xhttp.onload = function() {
            //document.getElementById("ingredientTable").innerHTML = this.responseText;            
     }
         
     xhttp.open("GET", "shoppingcart.php?type="+ type+ "&qtn="+ qtn);
-    xhttp.send();
+    xhttp.send();*/
 }
+function fade_out() {
+    $("#textShoppingCart").fadeOut(1000, "linear");
+} 
