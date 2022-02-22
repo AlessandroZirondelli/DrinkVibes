@@ -68,7 +68,7 @@
                   <a class="nav-link text-white" href="./orders.php">Orders</a>
                 </li>
                 <li class="col-lg-2">
-                  <a class="nav-link text-white" href="./contacts.php">Contacts</a>
+                  <a class="nav-link text-white" href="./aboutus.php">About us</a>
                 </li>
                 
                 <li class="icons-link col-lg-2">
@@ -116,7 +116,7 @@
                         <a class="text-decoration-none" href="tel:000-000-000">000-000-000</a>
                     </li>
                     <li>
-                        <a class="text-decoration-none" href="mailto:drinkshop@baggiani.com">drinkshop@baggiani.com</a>
+                        <a class="text-decoration-none" href="mailto:baggianisrl@gmail.com">baggianisrl@gmail.com</a>
                     </li>
                 </ul>
             </div>
@@ -138,7 +138,7 @@
                     <li><a class="text-decoration-none" href="./products.php">Products</a></li>
                     <li><a class="text-decoration-none" href="./makeyourdrink.php">Make drinks</a></li>
                     <li><a class="text-decoration-none" href="./orders.php">Orders</a></li>
-                    <li><a class="text-decoration-none" href="./contacts.php">Contacts</a></li>
+                    <li><a class="text-decoration-none" href="./aboutus.php">About us</a></li>
                 </ul>
             </div>
         </div>
