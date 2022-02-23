@@ -21,7 +21,7 @@
       <section>
         <h2 class="text-center"> Contact us </h2>
         <p>
-          You can contact us for any information through telefon or mail: <br \>
+          You can contact us for any information through telefon or mail:
         </p>
         <ul class="list-unstyled">
            <li>
