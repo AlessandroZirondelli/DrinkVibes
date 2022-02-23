@@ -32,10 +32,7 @@ function submitQuantity(id){
         xhttp.open("GET", "submit.php?action=" + action + "&id=" + id,false );
         xhttp.send();
 
-       // console.log(jQuery.type(isDisponibility)); 
-       // console.log(jQuery.type(quantity));
-        
-        if(parseInt(disponibility) > 0 ){
+        if(parseInt(disponibility) > 0 && $(inputSelected).val() <=  parseInt(disponibility) ){
             const xhttp = new XMLHttpRequest();
             xhttp.onload = function() {
                 document.getElementById("ingredientTable").innerHTML = this.responseText;            
@@ -90,6 +87,7 @@ function deleteRow() {
 }
 function addShoppingCart(){
     const xhttp = new XMLHttpRequest();
+    const xhttp1 = new XMLHttpRequest();
     var inputSelected = "#qtnShoppingCart"; 
     var type = "handmadedrink";
     var qtn = $(inputSelected).val();
@@ -97,47 +95,35 @@ function addShoppingCart(){
     if($.isNumeric(qtn) && qtn>0){
         $(inputSelected).css("border-color","black");
         xhttp.onload = function() {
-            //document.getElementById("textShoppingCart").innerHTML = this.responseText;
-            console.log(this.responseText);
-            console.log("Aggiunto al carrello" == this.responseText);
-            console.log("Aggiunto al carrello".localeCompare(this.responseText));
-            //console.log(localCompare("Aggiunto al carrello" , this.responseText));
-            console.log("Aggiunto al carrello" == "Aggiunto al carrello");
-            console.log(jQuery.type( this.responseText ));
-            //if("Aggiunto al carrello" == this.responseText){
-            if("Aggiunto al carrello".localeCompare( this.responseText)){
-                document.getElementById("textShoppingCart").innerHTML = this.responseText;
-                console.log("hello1");
+            var returnString = this.responseText.replace(/(\r\n|\n|\r)/gm,"");
+            console.log(returnString);
+            if("Added to shopping cart" == returnString ){
+                //document.getElementById("textShoppingCart").innerHTML = this.responseText;
+                $("#textShoppingCart").text(this.responseText).css("color","green");
                 $("#textShoppingCart").fadeIn();
                 setTimeout(fade_out, 2000);
-
-                xhttp.onload = function() {
-                    //document.getElementById("ingredientTable").innerHTML = this.responseText;            
-                }
-                
-                xhttp.open("GET", "shoppingcart.php?type="+ type+ "&qtn="+ qtn);
-                xhttp.send();
+               
             }else{
-                document.getElementById("textShoppingCart").innerHTML = this.responseText;
-            }         
-            
-
-
+                setTimeout(fade_out, 2000);
+                console.log("red");
+                $("#textShoppingCart").text(this.responseText).css("color","red");
+            }
         }
-         
-        xhttp.open("GET", "submit.php?action="+ action + "&qtn="+ qtn);
+        console.log("entro");
+        xhttp.open("GET", "submit.php?action="+ action + "&qtn="+ qtn,false);
         xhttp.send();
     }else{
         $(inputSelected).css("border-color","red")
                         .css("border-width","3px");
 
     }
-    /*xhttp.onload = function() {
-           //document.getElementById("ingredientTable").innerHTML = this.responseText;            
+
+    xhttp.onload = function() {
+           document.getElementById("sessionTable").innerHTML = this.responseText;            
     }
         
-    xhttp.open("GET", "shoppingcart.php?type="+ type+ "&qtn="+ qtn);
-    xhttp.send();*/
+    xhttp.open("GET", "shoppingcart.php?",false);
+    xhttp.send();
 }
 function fade_out() {
     $("#textShoppingCart").fadeOut(1000, "linear");

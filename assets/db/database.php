@@ -64,7 +64,7 @@ class DatabaseHelper{
         }
         
     }
-    public function getNewIngredientId(){
+    public function getMaxIngredientId(){
         $query = "SELECT MAX(ingredientID) as max_id FROM ingredient; ";
         if($stmt = $this->conn->prepare($query)){
             $stmt->execute();

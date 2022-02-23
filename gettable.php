@@ -45,10 +45,16 @@ echo "<th>Price</th>";
 echo "</thead>";
 echo "<tbody>";
 $totalPrice=0;
+$cat = "";
 foreach($ingredientOnTable as $ing){
+    if(strcmp($ing->getCategory(),"Liquid") == 0){
+        $cat = "mL" ;
+    }else{
+        $cat = "unit";
+    }
     echo "<tr>";
     echo "<td>".$ing->getName()."</td>";
-    echo "<td>".$ing->getQty()."</td>";
+    echo "<td>".$ing->getQty()." ".$cat."</td>";
     echo "<td>".$ing->getPrice() * $ing->getQty() ."</td>";    
     echo '<td><div class="form-check"><input class="form-check-input" type="checkbox" id="cb'.$ing->getIngredientID().'" value="'.$ing->getIngredientID().'" aria-label="..." onclick = changeCheckbox('.$ing->getIngredientID().')></div></td>';
     echo "</tr>"; 

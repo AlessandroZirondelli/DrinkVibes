@@ -9,7 +9,8 @@ class Ingredient{
     private $typology;
     private $category;
 
-
+    
+    
     public function __construct($ingredientID, $name, $qtystock, $price,$description, $typology,$category){
          $this-> ingredientID = $ingredientID;
          $this-> name = $name;
