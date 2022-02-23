@@ -65,7 +65,8 @@ require_once("./assets/db/database.php");
                     $qty = $detail["qty"];
                     $subtotal = $detail["subtotal"];
                     $articName = $this->dbh->getArticleName($articID);
-                    $newDetail = new OrderDetail($orderID,$articName,$articID,$qty,$subtotal);
+                    $description = $detail["description"];
+                    $newDetail = new OrderDetail($orderID,$articName,$articID,$qty,$subtotal,$description);
                     $newOrder-> addOrderDetail($newDetail);
                     
                 }
@@ -93,8 +94,8 @@ require_once("./assets/db/database.php");
                         $qty = $detail["qty"];
                         $subtotal = $detail["subtotal"];
                         $articName = $this->dbh->getArticleName($articID);
-    
-                        $newDetail = new OrderDetail($orderID,$articName,$articID,$qty,$subtotal);
+                        $description = $detail["description"];
+                        $newDetail = new OrderDetail($orderID,$articName,$articID,$qty,$subtotal,$description);
                         $newOrder-> addOrderDetail($newDetail);
                         
                     }

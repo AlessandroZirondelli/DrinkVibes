@@ -6,13 +6,15 @@ class OrderDetail{
     private $articleID;
     private $quantity; // ordered quantity of article
     private $subtotal;
+    private $description;
 
-    public function __construct($orderID, $articleName, $articleID, $quantity,$subtotal){
+    public function __construct($orderID, $articleName, $articleID, $quantity,$subtotal,$description){
          $this-> orderID = $orderID;
          $this-> articleName = $articleName;
          $this-> quantity = $quantity;
          $this-> articleID = $articleID;
          $this-> subtotal = $subtotal;
+         $this-> description = $description;
     }
 
     public function setOrderID($orderID){
@@ -50,8 +52,15 @@ class OrderDetail{
         return $this->articleID;
     }
 
+    public function setDescription($description){ // subtotal must be calculate
+        $this->description = $description;
+    }
+    public function getDescription(){
+        return $this->description;
+    }
+
     public function toString(){
-        echo "orderID:$this->orderID "."articleName: $this->articleName "."articleID: $this->articleID "."quantity: $this->quantity "."subtotal: $this->subtotal ";
+        echo "orderID:$this->orderID "."articleName: $this->articleName "."articleID: $this->articleID "."quantity: $this->quantity "."subtotal: $this->subtotal "."description:".$this->description;
     }
 
 }
