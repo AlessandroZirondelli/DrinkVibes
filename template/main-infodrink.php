@@ -5,7 +5,7 @@
         <div class="col-8 col-md-6">
             <div class="card mb-4 product-wap rounded-0">
                 <div class="card-inner">
-                    <img class="card-img rounded-0" src="assets/img/images.png">       
+                    <img class="card-img rounded-0" src="assets/img/mysteryDrink2.png">       
                 </div>
                 <div class="card-body pb-0 px-2">                          
                     <h2 class="card-title">Ingredients</h2>                              
