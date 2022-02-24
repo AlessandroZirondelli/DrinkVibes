@@ -296,6 +296,15 @@ class DatabaseHelper{
         return $res[0]["name"];
     }
 
+    public function getCategoryOfIngredient($ingredientID){
+        $stmt = $this->conn->prepare("SELECT category FROM ingredient WHERE ingredientID=?");
+        $stmt-> bind_param("i",$ingredientID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $res = $result->fetch_all(MYSQLI_ASSOC);
+        return $res[0]["category"];
+    }
+
 
     
 

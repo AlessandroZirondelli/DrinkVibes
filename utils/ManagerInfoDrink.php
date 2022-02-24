@@ -20,7 +20,8 @@ require_once("./utils/InfoIngredient.php");
             foreach($allIngredients as $tmp){
                 $name = $this->dbh-> getIngredientName($tmp["ingredientID"]);
                 $qty = $tmp["qty"];
-                $singleIngredient = new InfoIngredient($name, $qty);
+                $category = $this->dbh-> getCategoryOfIngredient($tmp["ingredientID"]);
+                $singleIngredient = new InfoIngredient($name, $qty, $category);
                 $this->addIngredient($singleIngredient);
             }
         }
