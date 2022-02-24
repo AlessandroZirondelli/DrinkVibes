@@ -11,7 +11,7 @@
 
     $templateParams["title"] = "Info drinks";
     $templateParams["main-content"] = "main-infodrink.php";
-    //$cssArray[0]="./assets/css/orders-style.css";
+    
     $articID = $_REQUEST["articID"];
     $orderID = $_REQUEST["orderID"];
 
