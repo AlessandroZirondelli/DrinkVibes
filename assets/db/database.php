@@ -279,6 +279,23 @@ class DatabaseHelper{
         $stmt->execute();
     }
 
+    public function getIngredientsCustomDrink($drinkID){
+        $stmt = $this->conn->prepare("SELECT ingredientID,qty FROM drinkhandmade WHERE drinkID=?");
+        $stmt-> bind_param("i",$drinkID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getIngredientName($ingredientID){
+        $stmt = $this->conn->prepare("SELECT name FROM ingredient WHERE ingredientID=?");
+        $stmt-> bind_param("i",$ingredientID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $res = $result->fetch_all(MYSQLI_ASSOC);
+        return $res[0]["name"];
+    }
+
 
     
 
