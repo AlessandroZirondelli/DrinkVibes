@@ -23,7 +23,7 @@ foreach($list_shopping_cart_hdm as $hdm){
     
     echo "<tr>";
     echo "<td>".$hdm[0] -> getId()."</td>";
-    echo "<td>".$hdm[1]."</td>";
+    echo "<td>"."Quantità: ".$hdm[1]."</td>";
     echo "<td></td>";    
     echo '<td></td>';
     echo "</tr>"; 

@@ -18,6 +18,7 @@ if($action == 1){
 
     //Prendo il temp ingredient nella SESSION
     if($qtn<= $ingredients[0]["qtystock"]){
+
         $mngIngredients -> updateIngredient($ingredients[0]["ingredientID"], $ingredients[0]["qtystock"] - $qtn);
         //Aggiungo l'ingredient al temp ingredient
         $handMadeDrink -> addIngredient(new Ingredient($ingredients[0]["ingredientID"],$ingredients[0]["name"],$qtn,$ingredients[0]["price"],$ingredients[0]["description"],$ingredients[0]["typology"],$ingredients[0]["category"]));
@@ -27,16 +28,20 @@ if($action == 1){
 }
 if($action == 2){
     $arrayId = json_decode($_REQUEST["id"]);
-    $handMadeDrink = unserialize($_SESSION["shopping_cart_temp"]);
+    $upgradeDatabase = $_REQUEST["upDb"];   
+    var_dump($upgradeDatabase);
     foreach($arrayId as $id){
         $ingredients = $mngIngredients -> getIngredientById($id);
-        $mngIngredients -> updateIngredient($ingredients[0]["ingredientID"], $ingredients[0]["qtystock"] + $handMadeDrink ->getQtyIngredient($id));  
+        if(strcmp($upgradeDatabase,"true") == 0){
+            $mngIngredients -> updateIngredient($ingredients[0]["ingredientID"], $ingredients[0]["qtystock"] + $handMadeDrink ->getQtyIngredient($id));  
+        }
         $handMadeDrink -> removeIngredient($id);
     }
     $_SESSION["shopping_cart_temp"] = serialize($handMadeDrink);
 }
-
 $ingredientOnTable = $handMadeDrink -> getIngredient();
+
+
 echo "<caption>Ingredients choosen</caption>";
 echo "<thead>";
 echo "<th>Ingredient</th>";

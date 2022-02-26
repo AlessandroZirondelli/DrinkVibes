@@ -52,14 +52,13 @@ class HandMadeDrink{
         }
     }
     public function removeIngredient($id){
-        $index = 0;
+        $temp = array();
         foreach($this -> ingredients as $ing){
-
-            if($ing->getIngredientID() == $id){
-               unset($this -> ingredients[$index]);
+            if(!($ing->getIngredientID() == $id)){
+                array_push($temp,$ing);
             }
-            $index = $index + 1;
         }
+        $this->ingredients = $temp;
     }
     public function toString(){
         echo "ingredientID:$this->id "."name: $this->name "."qtystock: $this->qtystock "."price: $this->price "."description: $this->description"."typology: $this->typology"."category: $this->category" ;

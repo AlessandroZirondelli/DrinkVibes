@@ -79,6 +79,7 @@
                                         <input type="text" class="form-control form-rounded" id="qtn<?php echo $ingredient["ingredientID"]; ?>" <?php echo $ingredient["qtystock"] == "0" ? 'disabled = "disabled";' : ""?> placeholder="Quantity(mL)">
                                         <div> <button class="btn btn-dark text-uppercase" id ="btn<?php echo $ingredient["ingredientID"]; ?>"onclick="submitQuantity(<?php echo $ingredient["ingredientID"]; ?>)" <?php echo $ingredient["qtystock"] == "0" ? 'disabled = "disabled"' : ""?>>Add</button> </div>
                                     </div>
+                                    <div id = "warningsLabel<?php echo $ingredient["ingredientID"]; ?>"></div>
                             </div>
                         </div>
                       </div>  
