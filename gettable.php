@@ -29,7 +29,7 @@ if($action == 1){
 if($action == 2){
     $arrayId = json_decode($_REQUEST["id"]);
     $upgradeDatabase = $_REQUEST["upDb"];   
-    var_dump($upgradeDatabase);
+ 
     foreach($arrayId as $id){
         $ingredients = $mngIngredients -> getIngredientById($id);
         if(strcmp($upgradeDatabase,"true") == 0){
