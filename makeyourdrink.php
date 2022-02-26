@@ -13,25 +13,7 @@
     $mngIngredients = new ManagerIngredients();
     $_SESSION["shopping_cart_hmd"] = array();
     $_SESSION["shopping_cart_temp"] = serialize(new HandMadeDrink());
-    /*$ing = new Ingredient("","","","","","","");
-    $ing = $mngIngredients -> getIngredientById(1);
-    
-    $ing1 = new Ingredient($ing[0]["ingredientID"],$ing[0]["name"],$ing[0]["qtystock"],$ing[0]["price"],$ing[0]["description"],$ing[0]["typology"],$ing[0]["category"]);
-    $ing2 = new Ingredient(2,$ing[0]["name"],400,$ing[0]["price"],$ing[0]["description"],$ing[0]["typology"],$ing[0]["category"]);
-    $handMadeDrink1 = new HandMadeDrink();
-    $handMadeDrink1 -> addIngredient($ing1);
-    $isEqual = true;
-    $handMadeDrink = new HandMadeDrink();
-    $handMadeDrink -> addIngredient($ing2);
-    $hdm = array();
-    array_push($hdm, array($handMadeDrink1,4));
-    var_dump($hdm[0][0]);
-    foreach($handMadeDrink -> getIngredient() as $ingr){
-        if(!$hdm[0][0] -> isEqualIngredient($ingr)){
-            $isEqual = false;
-        }
-    }
-    var_dump($isEqual);*/
+   
     $templateParams["categories"] = ["Alcohol", "Beverages","Decoration"];
     
     $templateParams["Alcohol"] = $mngIngredients -> getAlcoholIngredient();

@@ -1,5 +1,5 @@
 <h1 class="p-3">Make your drink</h1>
-<div>
+<div class="px-3 pb-1">
 <table class="table table-bordered " id = "ingredientTable">
   <caption>Ingredients choosen</caption>
   <thead>
@@ -17,10 +17,12 @@
   </tfoot>
 </table>
 </div>
-
-<div class="d-flex form-group align-items-center justify-content-between py-3 px-6 col-md-4">
-    <input type="text" class="form-control form-rounded" id="qtnShoppingCart" placeholder="Quantity">
-    <button class="btn btn-dark text-uppercase col-8" onclick="addShoppingCart()">Add to shopping cart</button>
+<div class= "pl-4">
+  <div class="d-flex form-group align-items-center justify-content-between py-3 px-6 col-md-6">
+      <input type="text" class="form-control form-rounded" id="qtnShoppingCart" placeholder="Quantity">
+      <button class="btn btn-dark text-uppercase col-6 mx-1" onclick="addShoppingCart()">Add to shopping cart</button>
+      <button class="btn btn-dark text-uppercase col-auto mx-1" onclick="reset()">Reset</button>
+  </div>
 </div>
 <div>
   <p id = "textShoppingCart"></p>
