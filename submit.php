@@ -59,6 +59,7 @@ if($action == 2){
             echo "Added to shopping cart";
             if($firstAdd){  
                 array_push($list_shopping_cart_hdm_temp,array($handMadeDrink,$qtn));
+                
             }else{
                 array_push($list_shopping_cart_hdm_temp,array($hdm[0],$hdm[1] + $qtn));
             }

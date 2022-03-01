@@ -129,9 +129,10 @@ function addShoppingCart(){
 
     //Debug dati
     xhttp.onload = function() {
-           document.getElementById("sessionTable").innerHTML = this.responseText;            
+           document.getElementById("sessionTable").innerHTML = this.responseText;       
+           console.log(this.responseText);     
     }   
-    xhttp.open("GET", "shoppingcart.php?",false);
+    xhttp.open("GET", "cart.php?",false);
     xhttp.send();
 
     reset();
