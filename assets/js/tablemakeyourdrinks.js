@@ -130,22 +130,25 @@ function addShoppingCart(){
     //Debug dati
     xhttp.onload = function() {
            document.getElementById("sessionTable").innerHTML = this.responseText;       
-           console.log(this.responseText);     
+           
     }   
     xhttp.open("GET", "cart.php?",false);
     xhttp.send();
 
-    reset();
+    reset(false);
 }
-function reset(){
-    var upgradeDatabase = false;
+function reset(upDataBase){
+    var upgradeDatabase = upDataBase;
     const xhttp = new XMLHttpRequest();
     var action = 2;
     const arrayDeleteId = [];
-    $("#ingredientTable tbody").children().last().children().children().children().attr('checked', 'checked')
     
-   
-
+    $("#ingredientTable tbody tr").each(
+        function(){
+            $(this).children().last().children().children().attr('checked', 'checked');
+        }
+    )
+       
     $('[checked="checked"]').each(function() {
         arrayDeleteId.push($(this).val());
     });    

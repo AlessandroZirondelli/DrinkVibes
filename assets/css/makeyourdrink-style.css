@@ -21,7 +21,9 @@ h3{
 [class="accordion-button"]{
     background-color:rgb(185, 40, 40) !important;
 }
-
+ label {
+  display:none !important;
+}
 img {
   object-fit: contain;
   /*width: 150px;

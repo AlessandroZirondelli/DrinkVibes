@@ -1,7 +1,7 @@
 <?php
-require("utils/ManagerIngredients.php");
-require("utils/HandMadeDrink.php");
-require("utils/Ingredient.php");
+require_once("utils/ManagerIngredients.php");
+require_once("utils/HandMadeDrink.php");
+require_once("utils/Ingredient.php");
 session_start();
 $action = $_REQUEST["action"];
 
@@ -17,7 +17,7 @@ if($action == 1){
 if($action == 2){  
     $id = $mngIngredients -> maxId()[0]["max_id"] + 1 ;
     if($handMadeDrink -> getNumberTypeIng() > 0){
-        $list_shopping_cart_hdm = $_SESSION["shopping_cart_hmd"];
+        $list_shopping_cart_hdm = unserialize( $_SESSION["shopping_cart_hmd"]);
         $list_shopping_cart_hdm_temp = array();
         $isEqual = true;
         $qtn = $_REQUEST["qtn"];
@@ -42,7 +42,7 @@ if($action == 2){
  
         $ingredients = $handMadeDrink -> getIngredient();
         foreach($ingredients as $ing){
-            $firstQtn = $firstAdd ?  $ing->getQty() : 0;
+            //$firstQtn = $firstAdd ?  $ing->getQty() : 0;
             $firstQtn = $ing->getQty();
             if( ($ing->getQty() * $qtn - $firstQtn )> $mngIngredients -> getDisponibility($ing -> getIngredientId()) ){
                 $insuffIng =  $insuffIng . $ing -> getName() . ", ";
@@ -51,13 +51,20 @@ if($action == 2){
     
         if(strcmp($insuffIng,"") == 0){
             foreach($ingredients as $ing){
-                $firstQtn = $firstAdd ? $ing->getQty() : 0;    
+                //$firstQtn = $firstAdd ? $ing->getQty() : 0;    
                 $firstQtn = $ing->getQty();
                 $mngIngredients -> updateIngredient($ing -> getIngredientId(), $mngIngredients -> getDisponibility($ing -> getIngredientId()) - ($ing->getQty() * $qtn - $firstQtn ));
                 
             }
             echo "Added to shopping cart";
             if($firstAdd){  
+                $id_max=0;
+                foreach($list_shopping_cart_hdm_temp as $drink){
+                    if($drink[0]->getId()>$id_max){
+                        $id_max = $drink[0]->getId();
+                    }
+                }
+                $handMadeDrink -> setId($id_max + 1);
                 array_push($list_shopping_cart_hdm_temp,array($handMadeDrink,$qtn));
                 
             }else{
@@ -66,7 +73,8 @@ if($action == 2){
         }else{
             echo "I seguenti prodotti non sono sufficienti nelle quantità selezionate ".$insuffIng;
         }
-        $_SESSION["shopping_cart_hmd"] = $list_shopping_cart_hdm_temp;
+        $_SESSION["shopping_cart_hmd"] = serialize($list_shopping_cart_hdm_temp);
+       
     }else{
         echo "Select ingredients before add to shopping cart";
     }

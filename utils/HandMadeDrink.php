@@ -21,6 +21,13 @@ class HandMadeDrink{
     public function setId($id){
         return $this -> id = $id;
     }
+    public function getTotalPrice(){
+        $sum = 0;
+        foreach($this -> ingredients as $ing){
+            $sum = $sum + ($ing->getPrice() * $ing->getQty());
+        }
+        return $sum;
+    }
     public function isEqualIngredient(Ingredient $ingredient){
         foreach($this -> ingredients as $ing){
             if($ing->getIngredientID() == $ingredient-> getIngredientID() && 

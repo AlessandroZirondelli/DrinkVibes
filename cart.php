@@ -4,7 +4,7 @@ require("utils/HandMadeDrink.php");
 require("utils/Ingredient.php");
 
 session_start();
-;
+
 echo "<thead>";
 echo "<th></th>";
 echo "<th></th>";
@@ -12,7 +12,8 @@ echo "<th></th>";
 echo "</thead>";
 echo "<tbody>";
 $list_shopping_cart_hdm = array();
-$list_shopping_cart_hdm=$_SESSION["shopping_cart_hmd"];
+$list_shopping_cart_hdm= unserialize($_SESSION["shopping_cart_hmd"]);
+
     echo "<tr>";
     echo "<td>carrello</td>";
     echo "<td></td>";
