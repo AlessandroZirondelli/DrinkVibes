@@ -20,7 +20,7 @@
 <div class= "pl-4">
   <div class="d-flex form-group align-items-center justify-content-between py-3 px-6 col-md-6">
     <div>    
-      <label for="qtnShoppingCart">Quantity</label>
+      <label class="visually-hidden" for="qtnShoppingCart">Quantity</label>
       <input name = "qtnShoppingCart" type="text" class="form-control form-rounded" id="qtnShoppingCart" placeholder="Quantity">
     </div>
       <button class="btn btn-dark text-uppercase col-6 mx-1" onclick="addShoppingCart()">Add to shopping cart</button>
@@ -85,7 +85,7 @@
                                           <div class="" style=""><span>&#8364;</span><?php echo $ingredient["price"]; ?>/<?php echo $ingredient["category"] == "Liquid" ? "mL" : "u";?></div>
                                         
                                         <div>
-                                          <label for="qtn<?php echo $ingredient["ingredientID"]; ?>">Quantity</label>
+                                          <label class="visually-hidden" for="qtn<?php echo $ingredient["ingredientID"]; ?>">Quantity</label>
                                           <input name="qtn<?php echo $ingredient["ingredientID"]; ?>" type="text" class="form-control form-rounded" id="qtn<?php echo $ingredient["ingredientID"]; ?>" <?php echo $ingredient["qtystock"] == "0" ? 'disabled = "disabled";' : ""?> placeholder="Quantity(<?php echo $ingredient["category"] == "Liquid" ? "mL" : "unity";?>)">
                                         </div>
                                         

@@ -11,7 +11,9 @@
     $jsArray[1]="./assets/js/shoppingcart.js";
     $templateParams["hmd"] = array(array());
     $templateParams["hmd"] = unserialize( $_SESSION["shopping_cart_hmd"]);
- 
+    $sep = "__";
+    var_dump($sep);
+    var_dump($templateParams["hmd"]);
    // $templateParams["product"] = unserialize( $_SESSION["shopping_cart_product"]);
 
     require_once("template/base.php"); //base.php vede la roba definita dentro  e dentro questo file index.php

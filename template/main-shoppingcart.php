@@ -1,11 +1,13 @@
 
 
 <section class="h-100 h-custom">
+
   <div class="container h-100 py-5">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col">
 
         <div class="table-responsive">
+          
           <table class="table">
             <thead>
               <tr>
@@ -15,7 +17,9 @@
                 <th></th>
               </tr>
             </thead>
+            
             <tbody>
+            
                 <?php foreach($templateParams["hmd"] as $hmd): ?>
                     <tr id = "row<?php echo $hmd[0] ->getId();?>">
                         <th scope="row<?php echo $hmd[0] ->getId();?>">
