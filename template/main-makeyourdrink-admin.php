@@ -5,51 +5,53 @@
                                     <img id = "imgIngredient" class="card-img rounded-0" src="assets/img/i.png" alt = "photo ingredient">       
                                 </div>
                                 <div class="card-body pb-0 px-2">
-                                    
-                                    <div class="text-decoration-none pb-2 mr-4" id="nameDiv">
-                                        <label for="name">Name:</label>
-                                        <input class="form-control form-rounded mr-3" name="name" type="text"  id="name" placeholder="Name">
-                                    </div>
-                                    
-                                    <div class="mx-1">
-                                      <hr class="line my-0">
-                                    </div>
+                                  <form action='uploadIngredient.php' method='POST' enctype="multipart/form-data">
+                                      <div class="text-decoration-none pb-2 mr-4" id="nameDiv">
+                                          <label for="name">Name:</label>
+                                          <input class="form-control form-rounded mr-3" name="name" type="text"  id="name" placeholder="Name">
+                                      </div>
+                                      
+                                      <div class="mx-1">
+                                        <hr class="line my-0">
+                                      </div>
 
-                                    <div class="image-upload pb-2">
-                                      <label for="Image">Ingredient's Image:</label>
-                                      <input type="file" id="Image" name="imageToSave" accept="image/png , image/jpeg" value="" />
-                                    </div>
+                                      <div class="image-upload pb-2">
+                                        <label for="Image">Ingredient's Image:</label>
+                                        <input type="file" id="Image" name="imageToSave" accept="image/png , image/jpeg" value="" />
+                                      </div>
 
-                                    <div class="mx-1">
-                                      <hr class="line my-0">
-                                    </div>
+                                      <div class="mx-1">
+                                        <hr class="line my-0">
+                                      </div>
 
-                                    <div class="form-group pb-2">
-                                      <label for="exampleFormControlTextarea1">Description:</label>
-                                      <textarea class="form-control form-rounded" id="exampleFormControlTextarea1" rows="3"></textarea>
-                                    </div>
-                                    
-                                    <div class="mx-1">
-                                      <hr class="line my-0">
-                                    </div>
-                                    
-                                    <div class="pb-2">
-                                      <label  for="qtn">Quantity</label>
-                                      <input  name="qtn" type="text" class="form-control form-rounded" id="qtn" placeholder="Quantity()">
-                                    </div>        
+                                      <div class="form-group pb-2">
+                                        <label for="exampleFormControlTextarea1">Description:</label>
+                                        <textarea class="form-control form-rounded" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                      </div>
+                                      
+                                      <div class="mx-1">
+                                        <hr class="line my-0">
+                                      </div>
+                                      
+                                      <div class="pb-2">
+                                        <label  for="qtn">Quantity</label>
+                                        <input  name="qtn" type="text" class="form-control form-rounded" id="qtn" placeholder="Quantity()">
+                                      </div>        
 
-                                    <div class="mx-1">
-                                      <hr class="line my-0">
-                                    </div>
-                                    
-                                    <div class="pb-2">
-                                      <label  for="price">Price</label>
-                                      <input name="price" type="text" class="form-control form-rounded" id="price" placeholder="Quantity()">
-                                    </div>  
-                                    
-                                    
-                                    <div> <button class="btn btn-dark text-uppercase " id ="btn" onclick="addIngredient()">Add</button> </div>
-
+                                      <div class="mx-1">
+                                        <hr class="line my-0">
+                                      </div>
+                                      
+                                      <div class="pb-2">
+                                        <label  for="price">Price</label>
+                                        <input name="price" type="text" class="form-control form-rounded" id="price" placeholder="Quantity()">
+                                      </div>  
+                                      
+                                      
+                                      
+                                      <div> <button  id="insert" name="insert" value="Insert" class="btn btn-dark text-uppercase " onclick="">Add</button> </div>
+                                     
+                                    </form>
                                 </div>
                             </div>
                         </div>  
