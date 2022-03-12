@@ -17,7 +17,7 @@
 
                                     <div class="image-upload pb-2">
                                       <label for="Image">Ingredient's Image:</label>
-                                      <input type="file" id="Image" name="Immagine" accept="image/png , image/jpeg" value="" />
+                                      <input type="file" id="Image" name="imageToSave" accept="image/png , image/jpeg" value="" />
                                     </div>
 
                                     <div class="mx-1">
@@ -48,7 +48,7 @@
                                     </div>  
                                     
                                     
-                                    <div> <button class="btn btn-dark text-uppercase " id ="btn" onclick="read()">Add</button> </div>
+                                    <div> <button class="btn btn-dark text-uppercase " id ="btn" onclick="addIngredient()">Add</button> </div>
 
                                 </div>
                             </div>

@@ -1,6 +1,14 @@
-function read(){
-    console.log("letto");
-    console.log($("#file-input").val());
+function addIngredient(){
+    var action = 1;
+    const xhttp = new XMLHttpRequest();
+    
+    xhttp.onload = function() {
+
+    }
+    xhttp.open("GET", "uploadIngredient.php?action="+ action);
+    xhttp.send();
+    console.log("add");
+   // console.log($("#file-input").val());
 }
 $(document).ready(function(){
     $("#Image").change(function () {
