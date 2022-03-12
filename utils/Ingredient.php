@@ -9,7 +9,8 @@ class Ingredient{
     private $typology;
     private $category;
 
-
+    
+    
     public function __construct($ingredientID, $name, $qtystock, $price,$description, $typology,$category){
          $this-> ingredientID = $ingredientID;
          $this-> name = $name;
@@ -20,10 +21,10 @@ class Ingredient{
          $this-> category = $category;
     }
 
-    public function setingredientID($ingredientID){
+    public function setIngredientID($ingredientID){
         $this->ingredientID = $ingredientID;
     }
-    public function getingredientID(){
+    public function getIngredientID(){
         return $this->ingredientID;
     } 
 
@@ -34,10 +35,10 @@ class Ingredient{
         return $this->name;
     } 
 
-    public function setQtyStock($qtystock){
+    public function setQty($qtystock){
         $this->qtystock = $qtystock;
     }
-    public function getQtyStock(){
+    public function getQty(){
         return $this->qtystock;
     } 
 

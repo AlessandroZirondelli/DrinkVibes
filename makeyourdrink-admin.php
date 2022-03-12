@@ -5,11 +5,12 @@
     require_once("utils/HandMadeDrink.php");
     require_once("utils/Ingredient.php");
     $templateParams["title"] = "Make your drink";
-    $templateParams["main-content"] = "main-makeyourdrink.php";
-    $cssArray[0]="./assets/css/makeyourdrink-style.css";
+    $templateParams["main-content"] = "main-makeyourdrink-admin.php";
+    $cssArray[0]="./assets/css/makeyourdrinkadmin-style.css";
     $jsArray[0]="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js";
     $jsArray[1]="./assets/js/sendNotifications.js";
     $jsArray[2]="./assets/js/tablemakeyourdrinks.js";
+    $jsArray[3]="./assets/js/makeyourdrinkadmin.js";
     $mngIngredients = new ManagerIngredients();
     $_SESSION["shopping_cart_hmd"] = serialize(array());
     $_SESSION["shopping_cart_temp"] = serialize(new HandMadeDrink());

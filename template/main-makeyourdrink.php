@@ -1,5 +1,5 @@
 <h1 class="p-3">Make your drink</h1>
-<div>
+<div class="px-3 pb-1">
 <table class="table table-bordered " id = "ingredientTable">
   <caption>Ingredients choosen</caption>
   <thead>
@@ -17,14 +17,27 @@
   </tfoot>
 </table>
 </div>
-
-<div class="d-flex form-group align-items-center justify-content-between py-3 px-6 col-md-4">
-  <div class="d-flex flex-column">
-    <label for="name" class="control-label">Line Height</label>
-    <input type="text" class="form-control form-rounded" id="qtnShoppingCart" placeholder="Quantity">
+<div class= "pl-4">
+  <div class="d-flex form-group align-items-center justify-content-between py-3 px-6 col-md-6">
+    <div>    
+      <label class="visually-hidden" for="qtnShoppingCart">Quantity</label>
+      <input name = "qtnShoppingCart" type="text" class="form-control form-rounded" id="qtnShoppingCart" placeholder="Quantity">
+    </div>
+      <button class="btn btn-dark text-uppercase col-6 mx-1" onclick="addShoppingCart()">Add to shopping cart</button>
+      <button class="btn btn-dark text-uppercase col-auto mx-1" onclick="reset(true)">Reset</button>
   </div>
-  <button class="btn btn-dark text-uppercase col-md-8" onclick="addShoppingCart()">Add to shopping cart</button>
 </div>
+<div>
+  <p id = "textShoppingCart"></p>
+</div>
+
+<div>
+<table class="table table-bordered " id = "sessionTable">
+ 
+
+</table>
+</div>
+
 <h2 class="p-3">Choose your ingredients</h2>
 <div class="accordion accordion-flush px-3 pb-3" id="accordionFlushExample">
       <?php foreach($templateParams["categories"] as $category): ?>
@@ -42,11 +55,11 @@
                       <div class="col-md-4">
                         <div class="card mb-4 product-wap rounded-0">
                             <div class="card-inner">
-                                <img class="card-img rounded-0" src="assets/img/i.png">       
+                                <img class="card-img rounded-0" src="assets/img/i.png" alt = "photo ingredient">       
                             </div>
                             <div class="card-body pb-0 px-2">
                                 
-                                <div class="h3 text-decoration-none pb-2" id="name<?php echo $ingredient["ingredientID"]; ?>"><?php echo $ingredient["name"]; echo $ingredient["qtystock"] == "0" ? " - Sold out" : ""?></div>
+                                <div class="text-decoration-none pb-2" id="name<?php echo $ingredient["ingredientID"]; ?>"><?php echo $ingredient["name"]; echo $ingredient["qtystock"] == "0" ? " - Sold out" : ""?></div>
                                 
                                 <div class="mx-1">
                                   <hr class="line my-0">
@@ -55,7 +68,7 @@
                                           <div class="accordion-item">
                                             <div class="accordion-header<?php echo $ingredient["ingredientID"]; ?>" id="flush-heading<?php echo $ingredient["ingredientID"]; ?>">
                                               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse<?php echo $ingredient["ingredientID"]; ?>" aria-expanded="false" aria-controls="flush-collapse<?php echo $ingredient["ingredientID"]; ?>">
-                                                <h5>Dettagli</h5>
+                                              <div class="text-decoration-none">Dettagli </div>
                                               </button>
                                             </div>
                                             <div id="flush-collapse<?php echo $ingredient["ingredientID"]; ?>" class="accordion-collapse collapse" aria-labelledby="flush-heading<?php echo $ingredient["ingredientID"]; ?>" data-bs-parent="#accordionFlush<?php echo $ingredient["ingredientID"]; ?>">
@@ -67,10 +80,19 @@
                                           <hr class="line my-0">
                                         </div>
                                     <div class="d-flex align-items-center justify-content-between py-3 px-6">
-                                        <div class="h4"><span>&#8364;</span><?php echo $ingredient["price"]; ?>/<?php echo $ingredient["category"] == "Liquid" ? "mL" : "u";?></div>
-                                        <input type="text" class="form-control form-rounded" id="qtn<?php echo $ingredient["ingredientID"]; ?>" placeholder="Quantity(mL)">
-                                        <div> <button class="btn btn-dark text-uppercase" onclick="submitQuantity(<?php echo $ingredient["ingredientID"]; ?>)" >Add</button> </div>
+                                        
+                                          
+                                          <div class="" style=""><span>&#8364;</span><?php echo $ingredient["price"]; ?>/<?php echo $ingredient["category"] == "Liquid" ? "mL" : "u";?></div>
+                                        
+                                        <div>
+                                          <label class="visually-hidden" for="qtn<?php echo $ingredient["ingredientID"]; ?>">Quantity</label>
+                                          <input name="qtn<?php echo $ingredient["ingredientID"]; ?>" type="text" class="form-control form-rounded" id="qtn<?php echo $ingredient["ingredientID"]; ?>" <?php echo $ingredient["qtystock"] == "0" ? 'disabled = "disabled";' : ""?> placeholder="Quantity(<?php echo $ingredient["category"] == "Liquid" ? "mL" : "unity";?>)">
+                                        </div>
+                                        
+                                          <div> <button class="btn btn-dark text-uppercase " id ="btn<?php echo $ingredient["ingredientID"]; ?>"onclick="submitQuantity(<?php echo $ingredient["ingredientID"]; ?>)" <?php echo $ingredient["qtystock"] == "0" ? 'disabled = "disabled"' : ""?>>Add</button> </div>
+                                        
                                     </div>
+                                    <div id = "warningsLabel<?php echo $ingredient["ingredientID"]; ?>"></div>
                             </div>
                         </div>
                       </div>  
