@@ -100,6 +100,13 @@ class DatabaseHelper{
     
     }
 
+    public function updateProduct($id,$quantity){
+        $query = "UPDATE product SET qtystock = ? WHERE productID = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt-> bind_param("ii",$quantity,$id);
+        $stmt->execute();
+    }
+
     public function getProductsById($productID){
         $query = "SELECT * FROM product WHERE productID = ?";
         if($stmt = $this->conn->prepare($query)){
@@ -107,37 +114,67 @@ class DatabaseHelper{
             $stmt->execute();
             $result = $stmt->get_result();
             return $result->fetch_all(MYSQLI_ASSOC);
+        } else {
+            return NULL;
         }
         
     }
+
+    public function searchProduct(){
+        if(isset($_GET["search"])) {
+            $search = $_GET["query"];
+            $query = "SELECT * FROM product WHERE name LIKE '%".$search."%' OR description LIKE '%".$search."%' OR type LIKE '%".$search."%' OR price LIKE '%".$search."%' ";
+            if($stmt = $this->conn->prepare($query)){
+                $stmt->execute();
+                $result = $stmt->get_result();
+                return $result->fetch_all(MYSQLI_ASSOC);
+                
+                if(mysqli_num_rows($result) > 0){
+                    return $result;
+                } else {
+                    echo "Nessun prodotto corrispondente";
+                }
+            }
     
-    public function getWineProducts(){
-        $query = "SELECT * FROM product WHERE type = 'Wine' ";
-        $stmt = $this->conn->prepare($query);
-        $stmt->execute();
-        $result = $stmt->get_result();
+        }
 
-        return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function getSpiritsProducts() {
-        $query = "SELECT * FROM product WHERE type = 'Spirits' ";
-        $stmt = $this->conn->prepare($query);
-        $stmt->execute();
-        $result = $stmt->get_result();
 
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }
-
-    public function getBeverageProducts() {
-        $query = "SELECT * FROM product WHERE type = 'Beverage' ";
-        $stmt = $this->conn->prepare($query);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        return $result->fetch_all(MYSQLI_ASSOC);
+    public function getProduct() {
+        $query = "SELECT * FROM product ORDER BY productID ASC";
+        if($stmt = $this->conn->prepare($query)){
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }else{
+            return NULL;
+        }
     }
     
+    public function getProductByType($type){
+        $query = "SELECT * FROM product WHERE type=?";
+        if($stmt = $this->conn->prepare($query)){
+            $stmt->bind_param('s',$type);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }else{
+            return NULL;
+        }
+    }
+
+    public function getNewProductId(){
+        $query = "SELECT MAX(productID) as max_id FROM product; ";
+        if($stmt = $this->conn->prepare($query)){
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }else{
+            return NULL;
+        }
+        
+    }
 
     /*
     private function getUnitIngredientPrice(){

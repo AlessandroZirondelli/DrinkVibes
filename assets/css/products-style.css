@@ -1,3 +1,28 @@
+.scroll-to-top {
+    position: fixed;
+    bottom: 48px;
+    right: 32px;
+    background: #e24b0f;
+    border-radius: 40%;
+    box-shadow: 0 apx 16px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: 400ms;
+}
+
+.scroll-to-top.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.scroll-to-top i {
+    color: #fff;
+    font-size: 24px;
+    padding: 14px;
+}
+
 div.accordion-header {
     border: medium solid black;
 }

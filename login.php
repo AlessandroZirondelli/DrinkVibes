@@ -16,8 +16,12 @@ if(isset($_POST["username"]) && isset($_POST["password"])){
 }
 
 if(isUserLoggedIn()){
-    $templateParams["title"] = "Login - Accesso";
-    $templateParams["main-content"] = "login-home.php";
+    $templateParams["title"] = "Login - Access";
+    if($_SESSION["type"] == "Admin") { 
+        $templateParams["main-content"] = "main-admin.php";
+    }else{
+        $templateParams["main-content"] = "login-home.php";
+    }
     
 }
 else{

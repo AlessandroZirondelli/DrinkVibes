@@ -72,6 +72,22 @@
             </div>
           </div>
           
+          <?php if(isset($_SESSION["type"])=="Admin"): ?> 
+          <div class="col-12">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" ><i class="fas fa-user"></i></span>
+              </div>
+              Type: <input type="radio" name="type" <?php if (isset($_SESSION["type"]) && $_SESSION["type"]=="Admin") ;?> value="Admin">Admin
+              <input type="radio" name="type" <?php if (isset($_SESSION["type"]) && $_SESSION["type"]=="User") ;?> value="User">User
+              <input type="radio" name="type" <?php if (isset($_SESSION["type"]) && $_SESSION["type"]=="Express") ;?> value="Express">Express
+  
+            </div>
+          </div>
+          <?php  endif;?> 
+
+
+
 
           <div class="col-12 text-right">
           <input type="submit" name="login" value="Login" />

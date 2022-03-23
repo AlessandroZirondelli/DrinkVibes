@@ -1,31 +1,14 @@
-
-
 <h1 class="p-3">Shop Products</h1>
 <div class="container mb-5 p-0">
-
-    <div class="wrapped">
-        <div id="search-container">
-            <input type="text" name="search" id="search-input" placeholder="Search product name.." value="<?php if(isset($_GET["search"])) { echo $_GET["search"];} ?>" />
-            <button class="btn btn-dark text-uppercase " id="search">Search</button>
-        
-            <?php foreach($templateParams["categories"] as $category): ?> 
-                <button class="btn btn-outline-dark text-uppercase" onclick="load_data()"><?php echo $category; ?> </button>
-            <?php endforeach; ?>
-
-        </div>
-    </div>
-
-
     <div class="row">
-        <div id="result">
-        <?php if(isset($templateParams["Search"]))  foreach($templateParams["Search"] as $products): ?>
-            <div class="col-md-4">
+        
+    <div class="col-md-4">
             <div class="card mb-4 product-wap rounded-0">
                 <div class="card-inner">
                     <img class="card-img rounded-0" src="assets/img/i.png">       
                 </div>
                 <div class="card-body pb-0 px-2">
-
+                <input type="text" class="form-control form-rounded" id="name<?php echo $products["productID"]; ?>" placeholder="Quantity(mL)">
                     <div class="h3 text-decoration-none pb-3" id="name<?php echo $products["productID"]; ?>"><?php echo $products["name"]; echo $products["qtystock"] == "0" ? " [Sold out]" : ""?></div>
                                
                     <div class="mx-1">
@@ -56,10 +39,17 @@
             </div>
             </div>
         </div>  
-        <?php endforeach; ?>
-        </div>
-        
-        <?php if(!isset($templateParams["Search"]));?>
+
+
+
+
+
+
+
+
+
+
+
         <?php foreach($templateParams["All"] as $products): ?> 
         <div class="col-md-4">
             <div class="card mb-4 product-wap rounded-0">
@@ -99,8 +89,5 @@
             </div>
         </div>  
         <?php endforeach; ?>
-        <div class="scroll-to-top">
-            <i class="fa fa-chevron-up"></i>
-        </div>  
     </div>
 </div>

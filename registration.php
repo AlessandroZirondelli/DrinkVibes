@@ -12,6 +12,7 @@ if (isset($_POST["login"])) {
     $birthdate="";
     $password="";
     $pwd="";
+    $type="";
     
     //controllo campi vuoti
     if (empty($_POST["name"])) {
@@ -53,6 +54,12 @@ if (isset($_POST["login"])) {
         $templateParams["errorevuoto"] = "Errore! Sono presenti alcuni campi vuoti";
     } else {
         $pwd = $_POST["pwd"];
+    }
+
+    if (empty($_POST["type"])) {
+        $templateParams["errorevuoto"] = "Errore! Sono presenti alcuni campi vuoti";
+    } else {
+        $type = $_POST["type"];
     }
 
     /* DATA COMPLEANNO
@@ -110,7 +117,11 @@ if (isset($_POST["login"])) {
 if(isUserLoggedIn()){
     //pagina admin
     $templateParams["title"] = "Registration";
-    $templateParams["main-content"] = "registration-home.php";
+    if($_SESSION["type"] == "Admin") { //sarebbe admin
+        $templateParams["main-content"] = "registration-form.php";
+    } else {
+        $templateParams["main-content"] = "registration-home.php";
+    }
 
 }else{
     $templateParams["title"] = "Registration";
