@@ -1,29 +1,4 @@
-<h1 class="m-3">Make your drink</h1>
-<div>
-  <a href= "./insertIngredient.php" class="btn btn-dark text-uppercase col-6 mx-1" onclick="addIngredient()">Add ingredient</a>
-
-
-</div>
-<h2 class="p-3">Modify your ingredients</h2>
-<div class="accordion accordion-flush px-3 pb-3" id="accordionFlushExample">
-      <?php foreach($templateParams["categories"] as $category): ?>
-        <div class="accordion-item">
-          <div class="accordion-header" id="flush-heading<?php echo $category ?>">
-            <button class="accordion-button collapsed p-2" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse<?php echo $category ?>" aria-expanded="false" aria-controls="flush-collapse<?php echo $category ?>">
-              <h3><?php echo $category ?></h3>
-            </button>
-          </div>
-          <div id="flush-collapse<?php echo $category ?>" class="accordion-collapse collapse" aria-labelledby="flush-heading<?php echo $category ?>" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body ">
-              <div class="container mt-5 mb-5 p-0">
-                <div class="row g-1">
-                    <?php foreach($templateParams[$category] as $ingredient): ?>
-                      <div class="col-md-4" id = "card<?php echo $ingredient["ingredientID"]; ?>">
-                        <div class="card mb-4 product-wap rounded-0">
-                            <div class="card-inner">
-                                <img class="card-img rounded-0" src="assets/img/i.png" alt = "photo ingredient">       
-                            </div>
-                            <div class="card-body pb-0 px-2">
+<div class="card-body pb-0 px-2">
                                 
                                 <div class="text-decoration-none pb-2" id="name<?php echo $ingredient["ingredientID"]; ?>"><?php echo $ingredient["name"]; ?></div>
                                 
@@ -55,7 +30,7 @@
                                         <form class="form-inline">
                                           <label for="rg-from">Quantity: </label>
                                           <div class="form-group me-1">
-                                            <input class="form-control form-rounded" type="text" id="qtn<?php echo $ingredient["ingredientID"]; ?>" name="rg-from" value="<?php echo  $ingredient["qtystock"];?>" >
+                                            <input class="form-control form-rounded" type="text" id="rg-from" name="rg-from" value="<?php echo  $ingredient["qtystock"]?>" >
                                           </div>
                                           
                                         </form>
@@ -67,20 +42,10 @@
                                       <hr class="line my-0">
                                     </div>
                                     <div class= "mb-2 mt-2"> 
-                                      <button class="btn btn-dark text-uppercase " id ="savebtn<?php echo $ingredient["ingredientID"]; ?>"onclick="uploadIngredient(<?php echo $ingredient["ingredientID"]; ?>)">Save</button> 
-                                      <button class="btn btn-dark text-uppercase " id ="deletebtn<?php echo $ingredient["ingredientID"]; ?>"onclick="deleteIngredient(<?php echo $ingredient["ingredientID"]; ?>)">Delete</button> 
+                                      <button class="btn btn-dark text-uppercase " id ="savebtn<?php echo $ingredient["ingredientID"]; ?>"onclick="">Save</button> 
+                                      <button class="btn btn-dark text-uppercase " id ="deletebtn<?php echo $ingredient["ingredientID"]; ?>"onclick="">Delete</button> 
 
                                     </div>
 
                                     <div id = "warningsLabel<?php echo $ingredient["ingredientID"]; ?>"></div>
-                            </div>
-                        </div>
-                      </div>  
-                    <?php endforeach; ?>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      <?php endforeach; ?>        
 </div>

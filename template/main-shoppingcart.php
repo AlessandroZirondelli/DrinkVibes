@@ -1,17 +1,17 @@
 
-
+<h1 class= "m-3">Shopping cart</h1>
 <section class="h-100 h-custom">
 
   <div class="container h-100 py-5">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col">
 
-        <div class="table-responsive">
+        <div id = "tableproduct" class="table-responsive">
           
           <table class="table">
             <thead>
               <tr>
-                <th scope="col" class="h5">Shopping Bag</th>
+                <th scope="col" class="h5">Product</th>
                 <th scope="col">Quantity</th>
                 <th scope="col">Price</th>
                 <th></th>
@@ -21,11 +21,13 @@
             <tbody>
             
                 <?php foreach($templateParams["hmd"] as $hmd): ?>
-                    <tr id = "row<?php echo $hmd[0] ->getId();?>">
-                        <th scope="row<?php echo $hmd[0] ->getId();?>">
+                    <tr id = "rowDrink<?php echo $hmd[0] ->getId();?>">
+                        <th scope="rowDrink<?php echo $hmd[0] ->getId();?>">
                         <div class="d-flex align-items-center">
                             <img src="assets/img/i.png" class="img-fluid rounded-3" style="width: 120px;" alt="Drink">
+                            <div class = "mx-1">HandMadeDrink<?php echo $hmd[0] ->getId();?></div>
                         </div>
+                        
                         </th>
                         
                         <td class="align-middle">
@@ -36,7 +38,7 @@
                             <i class="fas fa-minus"></i>
                             </button>
 
-                            <input id="form<?php echo $hmd[0] ->getId();?>" min="1" name="quantity" value="<?php echo $hmd[1];?>" type="number"
+                            <input id="formDrink<?php echo $hmd[0] ->getId();?>" min="1" name="quantity" value="<?php echo $hmd[1];?>" type="number"
                             class="form-control form-control-sm" style="width: 50px;" onChange="check_qty(this.value,<?php echo $hmd[0]->getId();?>);" />
 
                             <button class="btn btn-link px-2"
@@ -57,11 +59,55 @@
                     </tr>
                    
                 <?php endforeach; ?>
+                <?php foreach($templateParams["prod"] as $prod): ?>
+                    <tr id = "rowProd<?php echo $prod[0] ->getProductID();?>">
+                        <th scope="rowProd<?php echo $prod[0] ->getProductID();?>">
+                        <div class="d-flex align-items-center">
+                            <img src="assets/img/i.png" class="img-fluid rounded-3" style="width: 120px;" alt="Drink">
+                            <div class = "mx-1"><?php echo $prod[0] ->getName();?></div>
+                        </div>
+                        
+                        </th>
+                        
+                        <td class="align-middle">
+                        <div class="d-flex flex-row">
+                            
+                            <button class="btn btn-link px-2 "
+                            onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                            <i class="fas fa-minus"></i>
+                            </button>
+
+                            <input id="formProd<?php echo $prod[0] ->getProductID();?>" min="1" name="quantity" value="<?php echo $prod[1];?>" type="number"
+                            class="form-control form-control-sm" style="width: 50px;" onChange="check_qty_prod(this.value,<?php echo $prod[0] ->getProductID();?>);" />
+
+                            <button class="btn btn-link px-2"
+                            onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                            <i class="fas fa-plus"></i>
+                            </button>
+                            
+                           
+                        </div>
+                        </td>
+                        <td class="align-middle">
+                        <p class="mb-0" style="font-weight: 500;"><?php echo $prod[0]->getPrice(); ?></p>
+                        </td>
+                        <td  class="align-middle">
+                            <button onclick="deleteProduct(<?php echo $prod[0] ->getProductID();?>)" > <i class="bi bi-trash"></i> </button>
+                        </td>
+                        
+                    </tr>
+                   
+                <?php endforeach; ?>
             </tbody>
           </table>
         </div>
-
-        <div class="card shadow-2-strong mb-5 mb-lg-0" style="border-radius: 16px;">
+        <div id = "cardempty" class="card-body cart">
+          <div class="col-sm-12 empty-cart-cls text-center"> <img src="https://i.imgur.com/dCdflKN.png" width="130" height="130" class="img-fluid mb-4 mr-3">
+            <h3><strong>Your Cart is Empty</strong></h3>
+            <h4>Add something to make me happy :)</h4> <a href="#" class="btn btn-dark text-uppercase " data-abc="true">continue shopping</a>
+          </div>
+        </div>
+        <div id = "paycard" class="card shadow-2-strong mb-5 mb-lg-0" style="border-radius: 16px;">
           <div class="card-body p-4">
 
             <div class="row">

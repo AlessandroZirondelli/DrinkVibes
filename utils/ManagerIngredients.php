@@ -34,9 +34,16 @@ require_once("assets/db/database.php");
         public function updateIngredient($id,$quantity){
             return $this->dbh ->updateIngredient($id,$quantity);
         }
+        public function insertIngredient($id,$name,$image,$description,$quantity,$category,$tipology,$price){
+            return $this->dbh ->insertIngredient($id,$name,$image,$description,$quantity,$category,$tipology,$price);
+        }
+        public function deleteIngredient($id){
+            return $this->dbh ->deleteIngredient($id);
+        }
         public function maxId(){
             return $this->dbh ->getMaxIngredientId();
         }
+        
         public function isDisponibility($id,$qtn){
             $ingredient = $this -> getIngredientById($id);
             

@@ -2,6 +2,9 @@
 require_once("utils/ManagerIngredients.php");
 require_once("utils/HandMadeDrink.php");
 require_once("utils/Ingredient.php");
+require_once("utils/Product.php");
+require_once("utils/ManagerProducts.php");
+
 session_start();
 
 $action = $_REQUEST["action"];
@@ -46,34 +49,15 @@ if($action == 2){
             array_push($list_drink_temp, array($drink[0],$drink[1]));
         }
     }
-    $sep = "_______";
-    //var_dump($sep);
-    //var_dump( $drinkSelected);
-    //var_dump( $valueStored);
-    //var_dump( $valueRead);
-    //var_dump($sep);
+ 
     if($valueRead>$valueStored){
         $insuffIng = "";
         $val =  $valueRead - $valueStored;
-        $sep = "val___";
-        //var_dump($sep);
-        //var_dump($val);
-        $sep1 = "valueRead___";
-        //var_dump($sep1);
-        //var_dump($valueRead);
-        
-        $sep2= "valueStored____";
-        //var_dump($sep2);
-        //var_dump($valueStored);
-        
-
+       
         $ingredients = $drinkSelected -> getIngredient();
         foreach($ingredients as $ing){
             if( ($ing->getQty() * $val )> $mngIngredients -> getDisponibility($ing -> getIngredientId()) ){
                 $insuffIng =  $insuffIng . $ing -> getName() . ", ";
-                $s = "_____";
-                //var_dump($s);
-                //var_dump($insuffIng);
             }
         }
 
@@ -93,8 +77,7 @@ if($action == 2){
             array_push($list_drink_temp,array($drinkSelected, $valueStored));
             echo $valueStored;
         }
-       // $min = "minore";
-       // var_dump($min);
+      
     }
     if($valueRead<$valueStored){
         $max = "maggiore";
@@ -121,18 +104,130 @@ if($action == 2){
 }
 if($action == 5){
     $total = 0;
-    $list_drink = unserialize( $_SESSION["shopping_cart_hmd"]);
-    foreach( $list_drink as $drink){
-        $total = $total + ($drink[0]->getTotalPrice() * $drink[1]);
-
+    
+    if(isset( $_SESSION["shopping_cart_hmd"]) && !empty( $_SESSION["shopping_cart_hmd"])) {
+        $list_drink = unserialize( $_SESSION["shopping_cart_hmd"]);
+        foreach( $list_drink as $drink){
+            $total = $total + ($drink[0]->getTotalPrice() * $drink[1]);
+    
+        }
+    
     }
+    if(isset( $_SESSION["shopping_cart_prod"]) && !empty( $_SESSION["shopping_cart_prod"])) {
+        $list_prod = unserialize( $_SESSION["shopping_cart_prod"]);
+        foreach( $list_prod as $prod){
+            $total = $total + ($prod[0]->getPrice() * $prod[1]);
+    
+        }
+    
+    }
+   
 
     echo $total;
 }
 if($action == 6){
-    $list_drink = unserialize( $_SESSION["shopping_cart_hmd"]);
+    $tot = 0;
+    if(isset( $_SESSION["shopping_cart_hmd"]) && !empty( $_SESSION["shopping_cart_hmd"])) {
+        $list_drink = unserialize( $_SESSION["shopping_cart_hmd"]);
+        $tot = $tot +  count($list_drink);
+    
+    }
+    if(isset( $_SESSION["shopping_cart_prod"]) && !empty( $_SESSION["shopping_cart_prod"])) {
+        $list_prod = unserialize( $_SESSION["shopping_cart_prod"]);
+        $tot = $tot +  count($list_prod);
+    
+    }
+    echo $tot;
    
 }
+if($action == 7){
+    $id = $_REQUEST["id"];
+    
+    $list_prod = unserialize( $_SESSION["shopping_cart_prod"]);
+    $list_prod_temp = array();
+    $mngProducts = new ManagerProducts();
+    
 
+    foreach($list_prod as $prod){
+        if(!($prod[0] -> getProductID() == $id)){
+            array_push($list_prod_temp, array($prod[0],$prod[1]));
+        }else{
+            $mngProducts ->updateProducts($prod[0] -> getProductID(), $prod[1] + $mngProducts -> getProductDisponibility($prod[0] -> getProductID(),0));
+        }
+    }
+    $_SESSION["shopping_cart_prod"] = serialize( $list_prod_temp );
 
+   
+}
+if($action == 8){
+    $id = $_REQUEST["id"];
+    $valueRead = $_REQUEST["value"];
+    $valueStored = 0;
+    $prodSelected ="";
+    $mngProducts = new ManagerProducts();
+    $insuffIng = "";
+    $list_prod_temp = array();
+    $list_prod = unserialize( $_SESSION["shopping_cart_prod"]);
+    $sep = "__";
+    $num = $mngProducts ->getProductDisponibility(1,0);
+    
+    
+    foreach($list_prod as $prod){
+        if($prod[0] -> getProductID() == $id){
+            $prodSelected = $prod[0];
+            $valueStored = $prod[1];
+        }else{
+            array_push($list_prod_temp, array($prod[0],$prod[1]));
+        }
+    }
+ 
+    if($valueRead>$valueStored){
+        $ins ="insuff";
+        $suf  = "suff";
+        $sepo ="_c_ ";
+        $valsep = "val";
+        $db = "DB:";
+        $sep = "___";
+        $val =  $valueRead - $valueStored;
+
+        $valDb = intval($mngProducts ->getProductDisponibility($id,0));
+       // var_dump($valsep);
+        //var_dump($val);
+        //var_dump($valDb);
+        //var_dump($sep);
+        if($val >$valDb){
+            
+            $insuffIng = "insuff";
+            
+        }
+
+   
+        if(strcmp($insuffIng,"") == 0){
+            $mngProducts -> updateProducts($prodSelected -> getProductID(), $mngProducts -> getProductDisponibility($prodSelected -> getProductID(),0) - $val);
+            //var_dump($db);
+            $v = $mngProducts -> getProductDisponibility($prodSelected -> getProductID(),0) - $val;
+           // var_dump($v);
+           // var_dump($mngProducts -> getProductDisponibility($prodSelected -> getProductID(),0) - $val);
+            //var_dump($sep);
+            //echo "Added to shopping cart";
+            
+            array_push($list_prod_temp,array($prodSelected, $valueRead));
+            echo "Added";
+        }else{
+           // var_dump($suff);
+            array_push($list_prod_temp,array($prodSelected, $valueStored));
+            echo $valueStored;
+        }
+      
+    }
+    if($valueRead<$valueStored){
+       
+        $val = $valueStored - $valueRead;
+        $mngProducts -> updateProducts($prodSelected -> getProductID(), $mngProducts -> getProductDisponibility($prodSelected -> getProductID(),0) + $val);
+        
+        array_push($list_prod_temp, array($prodSelected, $valueRead));
+        
+    }
+    $_SESSION["shopping_cart_prod"] = serialize($list_prod_temp) ;
+}
 ?>

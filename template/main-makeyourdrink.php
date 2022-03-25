@@ -1,4 +1,4 @@
-<h1 class="p-3">Make your drink</h1>
+<h1 class="m-3">Make your drink</h1>
 <div class="px-3 pb-1">
 <table class="table table-bordered " id = "ingredientTable">
   <caption>Ingredients choosen</caption>

@@ -11,6 +11,19 @@ class DatabaseHelper{
         } 
         //echo "Connessione OK" ;      
     }
+    public function insertIngredient($id,$name,$quantity,$price,$description,$typology,$category,$imageUrl){
+        $query = "INSERT INTO ingredient (name, qtystock, price, description, typology, category,imageURL ) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param('sidssss',$name,$quantity,$price,$description,$typology,$category,$imageUrl);
+        $stmt->execute();
+    }
+    public function deleteIngredient($id){
+        $query = " DELETE FROM Ingredient WHERE ingredientID= ? ";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param('i',$id);
+        $stmt->execute();
+    }
+    
     public function updateIngredient($id,$quantity){
         $query = "UPDATE ingredient SET qtystock = ? WHERE ingredientID = ?";
         $stmt = $this->conn->prepare($query);
@@ -75,6 +88,28 @@ class DatabaseHelper{
         }
         
     }
+
+    public function updateProduct($id,$quantity){
+        $query = "UPDATE product SET qtystock = ? WHERE productID = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt-> bind_param("ii",$quantity,$id);
+        $stmt->execute();
+    }
+
+    public function getProductsById($productID){
+        $query = "SELECT * FROM product WHERE productID = ?";
+        if($stmt = $this->conn->prepare($query)){
+            $stmt->bind_param('i', $productID);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return $result->fetch_all(MYSQLI_ASSOC);
+        } else {
+            return NULL;
+        }
+        
+    }
+
+
 
 
     /* FETCH ALL Devo fare una funzione che mi faccia un query e mi restituisca tutti gli ordini di un utente */
