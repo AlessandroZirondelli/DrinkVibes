@@ -1,5 +1,5 @@
 <h1 class="m-3">Make your drink</h1>
-<div class="px-3 pb-1">
+<div class="mx-3 mb-1">
 <table class="table table-bordered " id = "ingredientTable">
   <caption>Ingredients choosen</caption>
   <thead>
@@ -19,12 +19,12 @@
 </div>
 <div class= "pl-4">
   <div class="d-flex form-group align-items-center justify-content-between py-3 px-6 col-md-6">
-    <div>    
-      <label class="visually-hidden" for="qtnShoppingCart">Quantity</label>
+    <div class = "ms-3">    
+      <label class="ms-1" for="qtnShoppingCart">Quantity drink handmade:</label>
       <input name = "qtnShoppingCart" type="text" class="form-control form-rounded" id="qtnShoppingCart" placeholder="Quantity">
     </div>
-      <button class="btn btn-dark text-uppercase col-6 mx-1" onclick="addShoppingCart()">Add to shopping cart</button>
-      <button class="btn btn-dark text-uppercase col-auto mx-1" onclick="reset(true)">Reset</button>
+      <button class="btn btn-dark text-uppercase col-6 mx-1 mt-4" onclick="addShoppingCart()">Add to shopping cart</button>
+      <button class="btn btn-dark text-uppercase col-auto mx-1 mt-4" onclick="reset(true)">Reset</button>
   </div>
 </div>
 <div>
@@ -92,7 +92,7 @@
                                           <div> <button class="btn btn-dark text-uppercase " id ="btn<?php echo $ingredient["ingredientID"]; ?>"onclick="submitQuantity(<?php echo $ingredient["ingredientID"]; ?>)" <?php echo $ingredient["qtystock"] == "0" ? 'disabled = "disabled"' : ""?>>Add</button> </div>
                                         
                                     </div>
-                                    <div id = "warningsLabel<?php echo $ingredient["ingredientID"]; ?>"></div>
+                                    <div  id = "warningsLabel<?php echo $ingredient["ingredientID"]; ?>"></div>
                             </div>
                         </div>
                       </div>  
