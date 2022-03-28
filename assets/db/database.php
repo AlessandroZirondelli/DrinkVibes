@@ -11,7 +11,8 @@ class DatabaseHelper{
         } 
         //echo "Connessione OK" ;      
     }
-    public function insertIngredient($id,$name,$quantity,$price,$description,$typology,$category,$imageUrl){
+                                    
+    public function insertIngredient($name,$imageUrl,$description,$quantity,$category,$typology,$price){
         $query = "INSERT INTO ingredient (name, qtystock, price, description, typology, category,imageURL ) VALUES (?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->conn->prepare($query);
         $stmt->bind_param('sidssss',$name,$quantity,$price,$description,$typology,$category,$imageUrl);
@@ -340,15 +341,9 @@ class DatabaseHelper{
         return $res[0]["category"];
     }
 
-
-    
-
 }
 
-/*
-$dbhelper = new DatabaseHelper("localhost","root","", "drinkdb",3306);
-$ris = $dbhelper->insertiNotifSoldout(5,"Vodka");
-*/
+
 
 ?>
 

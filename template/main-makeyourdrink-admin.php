@@ -21,7 +21,7 @@
                       <div class="col-md-4" id = "card<?php echo $ingredient["ingredientID"]; ?>">
                         <div class="card mb-4 product-wap rounded-0">
                             <div class="card-inner">
-                                <img class="card-img rounded-0" src="assets/img/i.png" alt = "photo ingredient">       
+                                <img class="card-img rounded-0" src="<?php echo $ingredient["imageURL"]; ?>" alt = "photo ingredient">       
                             </div>
                             <div class="card-body pb-0 px-2">
                                 

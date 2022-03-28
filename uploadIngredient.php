@@ -17,7 +17,7 @@ if($action == 2){
     $mngIngredients -> deleteIngredient($id);
 }
 if($action == 3){
-    $id = 1;
+    
     $name = $_REQUEST["name"];
     $image = $_REQUEST["imageurl"];
     $description = $_REQUEST["descr"];
@@ -32,7 +32,10 @@ if($action == 3){
     echo $category;
     echo $tipology;
     echo $price;
-    $mngIngredients -> insertIngredient($id,$name,$image,$description,$quantity,$category,$tipology,$price);
+                                         
+    $mngIngredients -> insertIngredient($name,$image,$description,$quantity,$category,$tipology,$price);
+
+
 }
 
 

@@ -23,11 +23,11 @@ function deleteIngredient(id){
 
     $(cardDelete).remove();
     
-   /* xhttp.onload = function() {
+    xhttp.onload = function() {
         console.log(this.responseText);
     }
      
     xhttp.open("GET", "uploadIngredient.php?action="+ action + "&id=" + id);
     xhttp.send();
-    */
+    
 }

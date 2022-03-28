@@ -1,8 +1,3 @@
-function addIngredient(){
-    
-  
-}
-
 
 function changeRadioButtonTipology(tipology){
     var radioButtonTipology = "#radioButton" + tipology;
@@ -79,13 +74,7 @@ function addIngredient(){
     xhttp.send();
     
 }
-function insertTipology(){
 
-}
-function deleteTipology(){
-
-
-}
 
 function printRadio(){
     var radioBtnLiquid ="#radioButtonLiquid" ;

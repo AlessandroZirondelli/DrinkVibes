@@ -34,8 +34,10 @@ require_once("assets/db/database.php");
         public function updateIngredient($id,$quantity){
             return $this->dbh ->updateIngredient($id,$quantity);
         }
-        public function insertIngredient($id,$name,$image,$description,$quantity,$category,$tipology,$price){
-            return $this->dbh ->insertIngredient($id,$name,$image,$description,$quantity,$category,$tipology,$price);
+
+        
+        public function insertIngredient($name,$image,$description,$quantity,$category,$tipology,$price){
+            return $this->dbh ->insertIngredient($name,$image,$description,$quantity,$category,$tipology,$price);
         }
         public function deleteIngredient($id){
             return $this->dbh ->deleteIngredient($id);
@@ -59,4 +61,6 @@ require_once("assets/db/database.php");
             
         }
     }
+    //$mng = new ManagerIngredients();
+    //$mng ->insertIngredient(1,"NuovoGabge",4,5.0,"DESCRIPTION OF GANG","tipo","cat","URLìì/image");
 ?>

@@ -1,7 +1,9 @@
 <?php
 
 require_once("bootstrap.php");
-    if($_FILES["imageToSave"]!= NULL){
+    var_dump($_FILES["imageToSave"]);
+    var_dump($_FILES["imageToSave"]["name"] );
+    if($_FILES["imageToSave"]["name"] != ""){
         list($result, $msg) = uploadImage(UPLOAD_DIR, $_FILES["imageToSave"]);
     }
     header("location:makeyourdrink-admin.php");

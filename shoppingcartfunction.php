@@ -168,7 +168,6 @@ if($action == 8){
     $insuffIng = "";
     $list_prod_temp = array();
     $list_prod = unserialize( $_SESSION["shopping_cart_prod"]);
-    $sep = "__";
     $num = $mngProducts ->getProductDisponibility(1,0);
     
     
@@ -182,19 +181,9 @@ if($action == 8){
     }
  
     if($valueRead>$valueStored){
-        $ins ="insuff";
-        $suf  = "suff";
-        $sepo ="_c_ ";
-        $valsep = "val";
-        $db = "DB:";
-        $sep = "___";
         $val =  $valueRead - $valueStored;
-
         $valDb = intval($mngProducts ->getProductDisponibility($id,0));
-       // var_dump($valsep);
-        //var_dump($val);
-        //var_dump($valDb);
-        //var_dump($sep);
+       
         if($val >$valDb){
             
             $insuffIng = "insuff";
@@ -229,5 +218,9 @@ if($action == 8){
         
     }
     $_SESSION["shopping_cart_prod"] = serialize($list_prod_temp) ;
+}
+
+if($action == 9){
+    
 }
 ?>
