@@ -1,47 +1,53 @@
 <?php
 
-//controllare se è loggato o meno con SESSION se ha già qualcosa o meno
-function isUserLoggedIn(){
-    return !empty($_SESSION['userID']);
-}
 
-//Registro l'utente
-function registerLoggedUser($user){
-    $_SESSION["userID"] = $user["userID"];
-    $_SESSION["name"] = $user["name"];
-    $_SESSION["surname"] = $user["surname"];
-    $_SESSION["email"] = $user["email"];
-    $_SESSION["type"] = $user["type"];
-    //$_SESSION["birthdate"] = $user["birthdate"];
-    //posso aggiungere altri dati, ma ricorda di aggiungerli alla query
-}
-
-/*
-function validateDate($birthdate){
-    $format = 'Y-m-d'; //"Y-n-j" senza zeri
-    $d = DateTime::createFromFormat($format, $birthdate);
-    return $d && $d->format($format) === $birthdate;
-}
-
-
-function maggiorenne($sData=null, $nSogliaAnni=18) {
-    $format = 'Y-m-d'; //"Y-n-j" senza zeri
-    
-    $it=false;
-
-    if($sData == null) {
-      $sData = DateTime::createFromFormat($format, $sData);
-      return $sData && $sData->format($format) === $sData;
+function uploadImage($path, $image){
+    $imageName = basename($image["name"]);
+    $fullPath = $path.$imageName;
+   
+    $maxKB = 500;
+    $acceptedExtensions = array("jpg", "jpeg", "png", "gif");
+    $result = 0;
+    $msg = "";
+    //Controllo se immagine è veramente un'immagine
+    $imageSize = getimagesize($image["tmp_name"]);
+    if($imageSize === false) {
+        $msg .= "File caricato non è un'immagine! ";
+    }
+    //Controllo dimensione dell'immagine < 500KB
+    if ($image["size"] > $maxKB * 1024) {
+        $msg .= "File caricato pesa troppo! Dimensione massima è $maxKB KB. ";
     }
 
-    $oDataNascita = new DateTime($sData);
-    $oDataAdesso = new DateTime();
-    $nAnni = $oDataNascita->diff($oDataAdesso)->y;
-    if ($nAnni >= $nSogliaAnni) {
-      return $it= true;
+    //Controllo estensione del file
+    $imageFileType = strtolower(pathinfo($fullPath,PATHINFO_EXTENSION));
+    if(!in_array($imageFileType, $acceptedExtensions)){
+        $msg .= "Accettate solo le seguenti estensioni: ".implode(",", $acceptedExtensions);
     }
-    return $it;
+
+    //Controllo se esiste file con stesso nome ed eventualmente lo rinomino
+    if (file_exists($fullPath)) {
+        $i = 1;
+        do{
+            $i++;
+            $imageName = pathinfo(basename($image["name"]), PATHINFO_FILENAME)."_$i.".$imageFileType;
+        }
+        while(file_exists($path.$imageName));
+        $fullPath = $path.$imageName;
+    }
+
+    //Se non ci sono errori, sposto il file dalla posizione temporanea alla cartella di destinazione
+    if(strlen($msg)==0){
+        if(!move_uploaded_file($image["tmp_name"], $fullPath)){
+            $msg.= "Errore nel caricamento dell'immagine.";
+        }
+        else{
+            $result = 1;
+            $msg = $imageName;
+        }
+    }
+    return array($result, $msg);
 }
 
-*/ 
+
 ?>

@@ -1,7 +1,12 @@
 <?php
 require_once 'bootstrap.php';
+require_once("utils/ManagerAccounts.php");
+require_once("utils/Account.php");  
+
 $cssArray[0]="./assets/css/login-style.css";
 // va in base per le icone <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+$manager = new ManagerAccounts();
 
 //controlliamo username e password
 if(isset($_POST["username"]) && isset($_POST["password"])){
@@ -11,22 +16,22 @@ if(isset($_POST["username"]) && isset($_POST["password"])){
         $templateParams["errorelogin"] = "Username o password errata! Riprova.";
     }
     else{
-        registerLoggedUser($login_result[0]);
+        $manager -> registerLoggedUser($login_result[0]);
     }
 }
 
-if(isUserLoggedIn()){
+if($manager -> isUserLoggedIn()){
     $templateParams["title"] = "Login - Access";
     if($_SESSION["type"] == "Admin") { 
-        $templateParams["main-content"] = "main-admin.php";
+        $templateParams["main-content"] = "main-loginadmin.php";
     }else{
-        $templateParams["main-content"] = "login-home.php";
+        $templateParams["main-content"] = "main-loginhome.php";
     }
     
 }
 else{
     $templateParams["title"] = "Login";
-    $templateParams["main-content"] = "login-form.php";
+    $templateParams["main-content"] = "main-loginform.php";
 }
 
 require 'template/base.php';

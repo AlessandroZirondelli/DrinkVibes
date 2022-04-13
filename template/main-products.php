@@ -3,20 +3,13 @@
 <h1 class="p-3">Shop Products</h1>
 <div class="container mb-5 p-0">
 
-    <div class="wrapped">
-        <div id="search-container">
-            <input type="text" name="search" id="search-input" placeholder="Search product name.." value="<?php if(isset($_GET["search"])) { echo $_GET["search"];} ?>" />
-            <button class="btn btn-dark text-uppercase " id="search">Search</button>
-        
-            <?php foreach($templateParams["categories"] as $category): ?> 
-                <button class="btn btn-outline-dark text-uppercase" onclick="load_data()"><?php echo $category; ?> </button>
-            <?php endforeach; ?>
-
-        </div>
-    </div>
+    
 
 
     <div class="row">
+
+
+    <!-- ZONA DI FILTRI E RICERCA -->
         <div id="result">
         <?php if(isset($templateParams["Search"]))  foreach($templateParams["Search"] as $products): ?>
             <div class="col-md-4">
@@ -60,6 +53,13 @@
         </div>
         
         <?php if(!isset($templateParams["Search"]));?>
+
+         <!-- FINE ZONA DI FILTRI E RICERCA -->
+
+
+
+
+
         <?php foreach($templateParams["All"] as $products): ?> 
         <div class="col-md-4">
             <div class="card mb-4 product-wap rounded-0">
@@ -93,7 +93,8 @@
                 </div>
                 <div class="d-flex align-items-center justify-content-between py-3 px-6">
                     <div class="h4"><span>&#8364;</span><?php echo $products["price"]; ?>/pz</div>
-                    <div> <button class="btn btn-dark text-uppercase"  >Add</button> </div> 
+
+                    <div> <button class="btn btn-dark text-uppercase" <?php echo $products["qtystock"] == "0" ? 'disabled = "disabled"' : ""?>>Add</button> </div> 
                 </div>
             </div>
             </div>

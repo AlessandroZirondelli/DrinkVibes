@@ -9,7 +9,7 @@ class DatabaseHelper{
         if ($this->conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         } 
-        echo "Connessione OK" ;      
+        //echo "Connessione OK" ;      
     }
     public function getLiquindIngredientByType($idcategory){
         $query = "SELECT * FROM liquidingredient";
@@ -99,13 +99,30 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     
     }
+    //elimina prodotto da lista prodotti admin (uploadProduct)
+    public function deleteProduct($id){
+        $query = " DELETE FROM product WHERE productID= ? ";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param('i',$id);
+        $stmt->execute();
+    }
 
+    //aggiorna prodotto da lista prodotti admin (uploadProduct)
     public function updateProduct($id,$quantity){
         $query = "UPDATE product SET qtystock = ? WHERE productID = ?";
         $stmt = $this->conn->prepare($query);
         $stmt-> bind_param("ii",$quantity,$id);
         $stmt->execute();
     }
+
+    
+    public function insertProduct($name,$imageUrl,$description,$quantity,$typology,$price){
+        $query = "INSERT INTO product (name, qtystock, price, description, type ,imageURL ) VALUES (?, ?, ?, ?, ?, ?)";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param('sidssss',$name,$quantity,$price,$description,$typology,$imageUrl);
+        $stmt->execute();
+    }
+
 
     public function getProductsById($productID){
         $query = "SELECT * FROM product WHERE productID = ?";
@@ -120,6 +137,14 @@ class DatabaseHelper{
         
     }
 
+    public function insertAccount($userID, $name, $surname, $email, $password, $type){
+        $query = "INSERT INTO user (userID, name, surname, type ,email, password ) VALUES ( ?, ?, ?, ?, ?, ?)";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param('ssssss',$userID, $name, $surname, $email, $password, $type);
+        $stmt->execute();
+    }
+
+    /*
     public function searchProduct(){
         if(isset($_GET["search"])) {
             $search = $_GET["query"];
@@ -139,7 +164,7 @@ class DatabaseHelper{
         }
 
     }
-
+*/
 
     public function getProduct() {
         $query = "SELECT * FROM product ORDER BY productID ASC";
