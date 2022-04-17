@@ -9,6 +9,7 @@ function submitQuantity(id){
     var inputSelected = "#qtn" + id;  
     var buttonSelected = "#btn" + id;
     var nameSelected = "#name" + id;
+    var qtnDescription = "#qtnDescription" + id;
     var warningSelected = "#warningsLabel" + id;
     var action = 1;
 
@@ -39,7 +40,8 @@ function submitQuantity(id){
             }
             xhttp.open("GET", "gettable.php?action="+ action + "&qtn="+quantity+"&id="+id );
             xhttp.send();
-          
+            console.log("modifica");
+            $(qtnDescription).text(parseInt(disponibility) - parseInt(quantity))
             //se è sold out
             if(parseInt(disponibility) == parseInt(quantity)){   
                 //sendNotificartionBySoldout(id,$(nameSelected).text()); // metterlo solo quando hai comprato
@@ -93,13 +95,13 @@ function deleteRow() {
 
 function addShoppingCart(){
     const xhttp = new XMLHttpRequest();
-    const xhttp1 = new XMLHttpRequest();
+    
     var inputSelected = "#qtnShoppingCart"; 
     var textShoppingCart = "#textShoppingCart";
     var type = "handmadedrink";
     var qtn = $(inputSelected).val();
     var action = 2;
-
+    console.log("AddToshoopingCart");
     if($.isNumeric(qtn) && qtn>0){ // Controllo se la quantità inserita è maggiore di zero ed è un numero
         $(inputSelected).css("border-color","black");
         $(textShoppingCart).text("").css("color","green"); // Reset testo shoppingCart
@@ -113,6 +115,7 @@ function addShoppingCart(){
                 $(textShoppingCart).text(this.responseText).css("color","green");
                 $(textShoppingCart).fadeIn();
                 setTimeout(function(){fade_out(textShoppingCart)}, 2000);
+                reset(false);
             }else{
                 setTimeout(function(){fade_out(textShoppingCart)}, 2000);
                 $(textShoppingCart).text(this.responseText).css("color","red");
@@ -135,10 +138,11 @@ function addShoppingCart(){
     xhttp.open("GET", "cart.php?",false);
     xhttp.send();
 
-    reset(false);
+    
 }
 function reset(upDataBase){
     var upgradeDatabase = upDataBase;
+    var qtnDescription = "#qtnDescription";
     const xhttp = new XMLHttpRequest();
     var action = 2;
     const arrayDeleteId = [];
@@ -152,7 +156,17 @@ function reset(upDataBase){
     $('[checked="checked"]').each(function() {
         arrayDeleteId.push($(this).val());
     });    
+   /* arrayDeleteId.forEach(idUpdate => {
+         
+        xhttp.onload = function() {  // Prende la quantità disponibile del prodotto
+            disponibility = this.responseText;
+        }
+        xhttp.open("GET", "submit.php?action=" + action + "&id=" + id,false );
+        xhttp.send();
+        qtnDescription = "#qtnDescription" + idUpdate;
+        $(qtnDescription).text(parseInt(disponibility) - parseInt(quantity))
 
+    });*/
     xhttp.onload = function() {
         document.getElementById("ingredientTable").innerHTML = this.responseText;            
     }

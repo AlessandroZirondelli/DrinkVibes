@@ -11,7 +11,12 @@ class DatabaseHelper{
         } 
         //echo "Connessione OK" ;      
     }
-                                    
+    public function insertOrder($idOrder,$idUser,$date,$time,$state,$total){
+        $query = "INSERT INTO totalorders (orderID, userID, date, time, state, total) VALUES (?, ?, ?, ?, ?, ?)";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param('issssd',$idOrder,$idUser,$date,$time,$state,$total);
+        $stmt->execute();
+    }                          
     public function insertIngredient($name,$imageUrl,$description,$quantity,$category,$typology,$price){
         $query = "INSERT INTO ingredient (name, qtystock, price, description, typology, category,imageURL ) VALUES (?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->conn->prepare($query);
@@ -89,6 +94,17 @@ class DatabaseHelper{
         }
         
     }
+    public function getMaxOrdertId(){
+        $query = "SELECT MAX(orderID) as max_id FROM totalorders; ";
+        if($stmt = $this->conn->prepare($query)){
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }else{
+            return NULL;
+        }
+        
+    }
 
     public function updateProduct($id,$quantity){
         $query = "UPDATE product SET qtystock = ? WHERE productID = ?";
@@ -143,8 +159,8 @@ class DatabaseHelper{
             return "Custom drink";
         }
         return $res[0]["name"];
-    }
-
+    } 
+    
     public function insertOrderState($state,$orderID){
         $query = "UPDATE totalorders SET state=? WHERE orderID=? ";
         $stmt = $this->conn->prepare($query);

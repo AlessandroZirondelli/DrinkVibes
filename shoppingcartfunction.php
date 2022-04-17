@@ -4,7 +4,9 @@ require_once("utils/HandMadeDrink.php");
 require_once("utils/Ingredient.php");
 require_once("utils/Product.php");
 require_once("utils/ManagerProducts.php");
-
+require_once("utils/ManagerInsertOrder.php");
+require_once("utils/Order.php");
+require_once("utils/OrderDetail.php");
 session_start();
 
 $action = $_REQUEST["action"];
@@ -221,6 +223,11 @@ if($action == 8){
 }
 
 if($action == 9){
-    
+    $mngOrders = new ManagerInsertOrder();
+    $newId = $mngOrders -> getMaxOrdertId()[0]["max_id"] + 1; 
+    $order = new Order();
+
+
+
 }
 ?>

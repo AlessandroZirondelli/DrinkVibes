@@ -114,15 +114,15 @@ function deleteDrink(id){
     $(rowId).remove();
 }
 function buyProduct(){
-   /* var action = 7;
+    var action = 9;
 
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
-        //document.getElementById("ingredientTable").innerHTML = this.responseText;            
+       console.log(this.response);         
     }
-    
+    console.log("VVVVV");
     xhttp.open("GET", "shoppingcartfunction.php?action="+ action, false );
-    xhttp.send();*/
+    xhttp.send();
 }
 function totalCost(){
     var action = 5;

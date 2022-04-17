@@ -72,7 +72,7 @@
                                               </button>
                                             </div>
                                             <div id="flush-collapse<?php echo $ingredient["ingredientID"]; ?>" class="accordion-collapse collapse" aria-labelledby="flush-heading<?php echo $ingredient["ingredientID"]; ?>" data-bs-parent="#accordionFlush<?php echo $ingredient["ingredientID"]; ?>">
-                                              <div class="accordion-body<?php echo $ingredient["ingredientID"]; ?>">Descrizione:<br><?php echo $ingredient["description"]; ?><br>Quantità totale: <?php echo $ingredient["category"] == "Liquid" ? $ingredient["qtystock"] . " mL" : $ingredient["qtystock"] . " unity";?></div>
+                                              <div class="accordion-body<?php echo $ingredient["ingredientID"]; ?>">Descrizione:<br><?php echo $ingredient["description"]; ?><br>Quantità totale: <div  class= "d-inline-block" id = "qtnDescription<?php echo $ingredient["ingredientID"]; ?>"> <?php echo $ingredient["qtystock"];?> </div><div class= "d-inline-block"> <?php echo $ingredient["category"] == "Liquid" ? " mL" : " unity";?></div></div>
                                             </div>
                                           </div>
                                         </div>
