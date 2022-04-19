@@ -120,7 +120,8 @@ function buyProduct(){
     xhttp.onload = function() {
        console.log(this.response);         
     }
-    console.log("VVVVV");
+    sendNotificationByNewOrder("1000","rum cubralibre");
+    sendNotificartionBySoldout("500","vokdaaciao");
     xhttp.open("GET", "shoppingcartfunction.php?action="+ action, false );
     xhttp.send();
 }

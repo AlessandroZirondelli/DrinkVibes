@@ -10,6 +10,7 @@
     $cssArray[0]="./assets/css/shoppingcart-style.css";
     $jsArray[0]="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js";
     $jsArray[1]="./assets/js/shoppingcart.js";
+    $jsArray[2]="./assets/js/sendNotifications.js";
     $templateParams["hmd"] = array();
     $templateParams["prod"] = array();
    
