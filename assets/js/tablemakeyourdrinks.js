@@ -13,6 +13,7 @@ function submitQuantity(id){
     var warningSelected = "#warningsLabel" + id;
     var action = 1;
 
+    console.log("primfjdfjfdjo ");
     if($.isNumeric($(inputSelected).val()) && $(inputSelected).val()>0){
         var quantity = $(inputSelected).val();
         var action = 1;
@@ -29,10 +30,9 @@ function submitQuantity(id){
         }
         xhttp.open("GET", "submit.php?action=" + action + "&id=" + id,false );
         xhttp.send();
-        
+       
         //controllo che la quantità richiesta sia minore o uguale a quella disponibile
-        if(parseInt(disponibility) > 0 && $(inputSelected).val() <=  parseInt(disponibility) ){
-            
+        if(parseInt(disponibility) > 0 && ($(inputSelected).val() <=  parseInt(disponibility) )){
             //prendo la tabella
             const xhttp = new XMLHttpRequest();
             xhttp.onload = function() {
@@ -40,16 +40,18 @@ function submitQuantity(id){
             }
             xhttp.open("GET", "gettable.php?action="+ action + "&qtn="+quantity+"&id="+id );
             xhttp.send();
-            console.log("modifica");
-            $(qtnDescription).text(parseInt(disponibility) - parseInt(quantity))
+           
+            //$(qtnDescription).text(parseInt(disponibility) - parseInt(quantity))
             //se è sold out
             if(parseInt(disponibility) == parseInt(quantity)){   
+
                 //sendNotificartionBySoldout(id,$(nameSelected).text()); // metterlo solo quando hai comprato
                 $(nameSelected).text($(nameSelected).text() +" - Sold out");
                 $(buttonSelected).attr("disabled","disabled");
                 $(inputSelected).attr("disabled","disabled");
             }
         }else{
+
             $(inputSelected).css("border-color","red").css("border-width","3px");
             if($(inputSelected).val() >  parseInt(disponibility) ){ // Se la quantità richiesta è maggiore di quella disponibile errore
                 $(warningSelected).text("Too many quantity required, max disponibility" + disponibility).css("border-color","red");

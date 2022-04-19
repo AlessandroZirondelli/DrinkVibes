@@ -25,16 +25,17 @@ if($action == 3){
     $category = $_REQUEST["category"];
     $tipology = $_REQUEST["tipology"];
     $price = $_REQUEST["price"];
-    echo $name;
+    /*echo $name;
     echo $image;
     echo $description;
     echo $quantity;
     echo $category;
     echo $tipology;
-    echo $price;
+    echo $price;*/
                                          
     $mngIngredients -> insertIngredient($name,$image,$description,$quantity,$category,$tipology,$price);
 
+    //header("location:makeyourdrink-admin.php"); //mettere da qualche altra parte
 
 }
 

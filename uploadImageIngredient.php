@@ -6,5 +6,6 @@ require_once("bootstrap.php");
     if($_FILES["imageToSave"]["name"] != ""){
         list($result, $msg) = uploadImage(UPLOAD_DIR, $_FILES["imageToSave"]);
     }
-    header("location:makeyourdrink-admin.php");
+    
+    header("location:makeyourdrink-admin.php"); //mettere da qualche altra parte
 ?>

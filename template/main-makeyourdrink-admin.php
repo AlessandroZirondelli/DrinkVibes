@@ -6,6 +6,7 @@
 </div>
 <h2 class="p-3">Modify your ingredients</h2>
 <div class="accordion accordion-flush px-3 pb-3" id="accordionFlushExample">
+<form action = "uploadImageIngredient.php" method = 'POST' enctype="multipart/form-data">
       <?php foreach($templateParams["categories"] as $category): ?>
         <div class="accordion-item">
           <div class="accordion-header" id="flush-heading<?php echo $category ?>">
@@ -71,7 +72,7 @@
                                       <button class="btn btn-dark text-uppercase " id ="deletebtn<?php echo $ingredient["ingredientID"]; ?>"onclick="deleteIngredient(<?php echo $ingredient["ingredientID"]; ?>)">Delete</button> 
 
                                     </div>
-
+                                  </form>
                                     <div id = "warningsLabel<?php echo $ingredient["ingredientID"]; ?>"></div>
                             </div>
                         </div>
