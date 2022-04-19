@@ -8,6 +8,7 @@
     $cssArray[0]="./assets/css/products-style.css"; 
     $jsArray[0]="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js";
     $jsArray[1]="./assets/js/products-admin.js";
+    $jsArray[2]="./assets/js/products.js";
 
     //$jsArray[1]="./assets/js/products-search.js";
     //$jsArray[1]="./assets/js/button-top.js"; //pulsante che va sopra
