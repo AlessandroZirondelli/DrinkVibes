@@ -74,7 +74,7 @@
                 <li class="icons-link col-lg-2">
                   <ul class="p-0 text-center">
                     <li>
-                    <a class="nav-link  text-white" href="#" title="Cart"> <i class="bi bi-cart"></i> </a>
+                    <a class="nav-link  text-white" href="./shoppingcart.php" title="Cart"> <i class="bi bi-cart"></i> </a>
                     </li>
                     <li >
                       <a class="nav-link  text-white" href="#" title="User profile"><i class="bi bi-person-circle"></i> </a>
