@@ -1,17 +1,23 @@
 <?php
+
+require_once("./utils/OrderDetail.php");
 class Order{
     private $userID;
     private $orderID;
     private $date;
     private $time;
     private $state;
+    private $orderDetails;
+    private $total;
 
-    public function __construct($userID, $orderID, $date, $time, $state){
+    public function __construct($userID, $orderID, $date, $time, $state, $total){
          $this-> userID = $userID;
          $this-> orderID = $orderID;
          $this-> date = $date;
          $this-> time = $time;
          $this-> state = $state;
+         $this-> orderDetails = array();
+         $this-> total = $total;
     }
 
     public function setUserID($userID){
@@ -53,14 +59,35 @@ class Order{
         return $this->state;
     }
 
+    public function setOrderDetails($arr){
+        $this-> orderDetails = $arr;
+    }
+
+    public function getOrderDetails(){
+        return $this->orderDetails;
+    }
+
+    public function setTotal($total){
+        $this-> total = $total;
+    }
+
+    public function getTotal(){
+        return $this->total;
+    }
+
+    public function addOrderDetail($detail){ // it takes OrderDetail object
+        array_push($this->orderDetails,$detail);
+    }
+
+    public function toString(){
+        echo "orderID:$this->orderID "."userID: $this->userID "."date: $this->date "."time: $this->time "."state: $this->state ";
+        foreach($this->orderDetails as $tmp){
+            $tmp->toString();
+        }
+    }
+
 
    
 }
-
-/*
-$order = new Order(12,45643,"12-09-2000","23:54","Delivered");
-
-$order->setDate("22/03/2012");
-echo $order->getDate();*/
 
 ?>

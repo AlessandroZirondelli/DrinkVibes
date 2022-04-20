@@ -1,11 +1,6 @@
 .nav-tabs button{
     color: black !important; /* text color of tabs*/
 }
-/*
-div.tab-pane>div div {
-    border-style: solid;
-    margin-bottom: 10px;
-}*/
 
 div.tab-content .container {
     border: 2px solid grey;
@@ -34,13 +29,31 @@ div.tab-content .container>.row:nth-child(1){
     box-shadow: inherit !important;
 }
 
+button[id^="dropdownStatusTab"].btn.btn-secondary.dropdown-toggle{
+    background-color:black;
+    border-color: black;
+}
+.btn-secondary:focus{
+    box-shadow: none;
+}
 
+.dropdown-item.active {
+    color: #fff;
+    text-decoration: none;
+    background-color: black;
+}
 
-/*
-div.tab-content{
-    background-color: red !important;
-}*/
-/*
-body.bg-white{
-    background-color: red !important;
-}*/
+h2.h2.text-black{
+    font-weight: bold !important;
+}
+
+.container>div.col-4.col-md-4.p-0 div:first-child,.ordered-number,.ordered-on,.state {
+    font-weight: bold !important; 
+}
+
+.flex-wrapper {
+    display: flex;
+    min-height: 65vh;
+    flex-direction: column;
+    justify-content: flex-start;
+  }

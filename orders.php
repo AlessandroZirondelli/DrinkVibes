@@ -1,9 +1,32 @@
 <?php
-    /*questo file di boostrap si occupa do sistmare la connesione al database  */
-    require_once("bootstrap.php"); //require once, se è gia incliso non lo reinclude. C'è anche require e basta.
+    require_once("./utils/ManagerOrders.php");
+    require_once("bootstrap.php");
+    /*require_once("./utils/functions.php");
+    
+    if(!isUserLoggedIn()){
+        header("location: login.php");
+    }
+    */
+
     $templateParams["title"] = "Home";
     $templateParams["main-content"] = "main-orders.php";
     $cssArray[0]="./assets/css/orders-style.css";
-    require_once("template/base.php"); //base.php vede la roba definita dentro  e dentro questo file index.php
+    $jsArray[0]="./assets/js/sendNotifications.js";
+    $jsArray[1]="./assets/js/dropdownStatus.js";
+    $manager= new ManagerOrders();
+    //$manager->createOrdersByUser($_SESSION["userID"]);
+
+    $type="Admin";
+    $userID="Admin12";
+    /* 
+    $type=$_SESSION["type"];
+    $userID=$_SESSION["userID"];
+    */
+
+    $manager->createOrdersTab($userID,$type);
+    $ordersTab1=$manager->getOrdersTab1();
+    $ordersTab2=$manager->getOrdersTab2();
+
+    require_once("template/base.php");
 ?>
 
