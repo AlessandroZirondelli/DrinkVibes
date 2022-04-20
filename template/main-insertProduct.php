@@ -1,13 +1,13 @@
 <h1 class="m-3">Add new product</h1>
 
 <div class="container d-flex justify-content-center">
-    <div class="col-md-12 ">
+
         <div class="card col-md-6 mb-2 product-wap rounded-0 d-flex justify-content-center">
             <div class="card-inner">
                 <img id="imgProduct" class="card-img rounded-0" src="assets/img/i.png" alt="photo product">
             </div>
             <div class="card-body pb-0 pt-0 ps-0 mx-2">
-                <form action="uploadImgProduct.php" method='POST' enctype="multipart/form-data">
+                <form id = "formIdProduct" action="uploadImgProduct.php" method='POST' enctype="multipart/form-data">
                     <div class="text-decoration-none mb-3 mt-3" id="nameDiv">
                         <label for="name">Name:</label>
                         <input class="form-control form-rounded " name="name" type="text" id="name" placeholder="Name" value="">
@@ -19,7 +19,7 @@
 
                     <div class="image-upload mb-3 mt-3">
                         <label for="Image">Product's Image:</label>
-                        <input type="file" id="Image" name="imageToSave" accept="image/png , image/jpeg" value="assets/img/i.png" />
+                        <input type="file" id="image" name="imageToSave" accept="image/png , image/jpeg" value="assets/img/i.png" />
                     </div>
 
                     <div class="mx-1">
@@ -81,9 +81,8 @@
                         <hr class="line my-0">
                     </div>
 
-                    <div> <button  id="insert" name="insert" value="Insert" class="btn btn-dark text-uppercase mb-3 mt-3" onclick="addProduct()">Add</button> </div>
+                    <div> <button  id="insert" name="insert" value="Insert" class="btn btn-dark text-uppercase mb-3 mt-3">Add</button> </div>
                 </form>
             </div>
         </div>
-</div>
     </div>

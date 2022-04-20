@@ -60,6 +60,6 @@ require_once("assets/db/database.php");
         }
 
     }
-    
+  
 ?>
 
