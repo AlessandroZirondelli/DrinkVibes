@@ -1,7 +1,5 @@
-<div class="container-fluid ">
-  <div class="row d-flex justify-content-center align-items-center m-0 p-1">
-    <div class="login_oueter justify-content-center">
-
+<div class="container d-flex align-items-center justify-content-center my-5 ">
+  <div class="row">
       <form action="#" method="POST" id="login" autocomplete="off" class="bg-light border p-3">
         <div class="form-row">
           <h4 class="title my-3">Registration</h4>
@@ -143,6 +141,5 @@
 
         </div>
       </form>
-    </div>
   </div>
 </div>
