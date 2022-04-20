@@ -19,18 +19,21 @@
     }
     
   ?>
+
+  <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous">
+  </script>
+
    <?php 
    if(isset($jsArray)){
     foreach($jsArray as $tmpJs){
-      echo '<script type="text/javascript" src="'.$tmpJs.'"></script>';
+      echo '<script src="'.$tmpJs.'"></script>';
     }
    } 
   ?>
-  <script
-		src="https://code.jquery.com/jquery-3.4.1.min.js"
-		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-		crossorigin="anonymous">
-  </script>
+  
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
     crossorigin="anonymous">
@@ -40,41 +43,48 @@
 
 <body class="bg-white">
   <div class="container-fluid p-0 overflow-hidden">
-    <!-- p-0 mette padding a 0  container fluid fa espandere il container per tutta la sua largezza  -->
-
     <header>
       <div class="row">
 
-        <nav class="navbar navbar-expand-md navbar-light bg-dark py-4">
-          <a class="navbar-brand text-white me-0 col-3 col-md-2 ps-3" href="#">Drink Vibes</a>  <!-- Agisce sempre, quando è grande e piccolo-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark py-4"> <!-- L'accessibilità viene garantita da bootstrap wrappando tutto con un nav -->
+          <a class="navbar-brand text-white me-0 col-3 col-lg-2 ps-3" href="#">Drink Vibes</a>  <!-- Agisce sempre, quando è grande e piccolo-->
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#toggleMobileMenu"   
             aria-controls="toggleMobileMenu" aria-expanded="false" aria-label="Toggle navigation"> <!-- Agisce quando e piccolo-->
             <span class="navbar-toggler-icon text-white"></span>
           </button>
-          <div class="collapse navbar-collapse col-md-10" id="toggleMobileMenu">
+          <div class="collapse navbar-collapse col-lg-10" id="toggleMobileMenu">
             <div class="col-12">
               <ul class="navbar-nav ">
-                <li class="col-md-1">
-                  <a class="nav-link text-center text-white" href="#">Home</a>
+                <li class="col-lg-2">
+                  <a class="nav-link text-start text-white" href="./index.php">Home</a>
                 </li>
-                <li class="col-md-2">
-                  <a class="nav-link text-center text-white ps-5" href="#">Products</a>
+                <li class="col-lg-2">
+                  <a class="nav-link text-white text-start" href="./products.php">Products</a>
                 </li>
-                <li class="col-md-3">
-                  <a class="nav-link text-center text-white" href="#">Make your drink</a>
+                <li class="col-lg-2">
+                  <a class="nav-link text-white" href="./makeyourdrink.php">Make drinks</a>
                 </li>
-                <li class="col-md-2">
-                  <a class="nav-link text-center text-white" href="#">About us</a>
+                <li class="col-lg-2">
+                  <a class="nav-link text-white" href="./orders.php">Orders</a>
                 </li>
-                <li class="col-md-2">
-                  <a class="nav-link text-center text-white" href="#">Contacts</a>
+                <li class="col-lg-2">
+                  <a class="nav-link text-white" href="./aboutus.php">About us</a>
                 </li>
-                <li class="col-md-1">
-                  <a class="nav-link text-end text-white" href="#" title="Link icon cart"> <span class="bi bi-cart"></span> </a>
+                
+                <li class="icons-link col-lg-2">
+                  <ul class="p-0 text-center">
+                    <li>
+                    <a class="nav-link  text-white" href="./shoppingcart.php" title="Cart"> <i class="bi bi-cart"></i> </a>
+                    </li>
+                    <li >
+                      <a class="nav-link  text-white" href="#" title="User profile"><i class="bi bi-person-circle"></i> </a>
+                    </li>
+                    <li>
+                      <a class="nav-link  text-white" href="./notifications.php" title="Notifications "><i class="bi bi-bell"></i> </a>
+                    </li>
+                  </ul>
                 </li>
-                <li class="col-md-1">
-                  <a class="nav-link text-start text-white" href="#" title="Link icon user "><span class="bi bi-person-circle"></span> </a>
-                </li>
+
               </ul>
             </div>
           </div>
@@ -87,7 +97,7 @@
     if(isset($templateParams["aside-content"])){
       require($templateParams["aside-content"]); 
     }
-   ?> <!-- Qui bisogna fare il controllo se nell'array associativo la chiave di aside-content esiste o meno . Nel caso includere. -->
+   ?> <!-- Check if aside exists or not. -->
 
    <main>
     <?php require($templateParams["main-content"]); ?>
@@ -106,7 +116,7 @@
                         <a class="text-decoration-none" href="tel:000-000-000">000-000-000</a>
                     </li>
                     <li>
-                        <a class="text-decoration-none" href="mailto:drinkshop@baggiani.com">drinkshop@baggiani.com</a>
+                        <a class="text-decoration-none" href="mailto:baggianisrl@gmail.com">baggianisrl@gmail.com</a>
                     </li>
                 </ul>
             </div>
@@ -124,11 +134,11 @@
             <div class="col-md-4 pt-5">
                 <h2 class="h2 text-light border-bottom pb-3 border-light">Further Info</h2>
                 <ul class="list-unstyled text-light footer-link-list">
-                    <li><a class="text-decoration-none" href="#">Home</a></li>
-                    <li><a class="text-decoration-none" href="#">Products</a></li>
-                    <li><a class="text-decoration-none" href="#">Make your drink</a></li>
-                    <li><a class="text-decoration-none" href="#">About us</a></li>
-                    <li><a class="text-decoration-none" href="#">Contacts</a></li>
+                    <li><a class="text-decoration-none" href="./index.php">Home</a></li>
+                    <li><a class="text-decoration-none" href="./products.php">Products</a></li>
+                    <li><a class="text-decoration-none" href="./makeyourdrink.php">Make drinks</a></li>
+                    <li><a class="text-decoration-none" href="./orders.php">Orders</a></li>
+                    <li><a class="text-decoration-none" href="./aboutus.php">About us</a></li>
                 </ul>
             </div>
         </div>

@@ -1,6 +1,5 @@
 <?php
 
-
 function uploadImage($path, $image){
     $imageName = basename($image["name"]);
     $fullPath = $path.$imageName;
@@ -48,6 +47,5 @@ function uploadImage($path, $image){
     }
     return array($result, $msg);
 }
-
 
 ?>

@@ -11,30 +11,122 @@ class DatabaseHelper{
         } 
         //echo "Connessione OK" ;      
     }
-    public function getLiquindIngredientByType($idcategory){
-        $query = "SELECT * FROM liquidingredient";
+    public function insertOrder($idOrder,$idUser,$date,$time,$state,$total){
+        $query = "INSERT INTO totalorders (orderID, userID, date, time, state, total) VALUES (?, ?, ?, ?, ?, ?)";
         $stmt = $this->conn->prepare($query);
-        $stmt->bind_param('i',$idcategory);
+        $stmt->bind_param('issssd',$idOrder,$idUser,$date,$time,$state,$total);
         $stmt->execute();
-        $result = $stmt->get_result();
+    }                          
+    public function insertIngredient($name,$imageUrl,$description,$quantity,$category,$typology,$price){
+        $query = "INSERT INTO ingredient (name, qtystock, price, description, typology, category,imageURL ) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param('sidssss',$name,$quantity,$price,$description,$typology,$category,$imageUrl);
+        $stmt->execute();
+    }
+    public function deleteIngredient($id){
+        $query = " DELETE FROM Ingredient WHERE ingredientID= ? ";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param('i',$id);
+        $stmt->execute();
+    }
+    
+    public function updateIngredient($id,$quantity){
+        $query = "UPDATE ingredient SET qtystock = ? WHERE ingredientID = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt-> bind_param("ii",$quantity,$id);
+        $stmt->execute();
+    }
+    public function getIngredientById($ingredientID){
+        $query = "SELECT * FROM ingredient WHERE ingredientID=?";
+        if($stmt = $this->conn->prepare($query)){
+            $stmt->bind_param('i',$ingredientID);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }else{
+            return NULL;
+        }
+        
+    }
+    public function getIngredientByCategory($category){
+        $query = "SELECT * FROM ingredient WHERE category=?";
+        if($stmt = $this->conn->prepare($query)){
+            $stmt->bind_param('s',$category);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }else{
+            return NULL;
+        }
+        
+    }
+    public function getIngredientByTypology($typology){
+        $query = "SELECT * FROM ingredient WHERE typology=?";
+        if($stmt = $this->conn->prepare($query)){
+            $stmt->bind_param('s',$typology);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }else{
+            return NULL;
+        }
+        
+    }
+    public function getAlcoholIngredient(){
+        $query = "SELECT * FROM ingredient WHERE typology='Spirit' OR typology='Wine' ";
+        if($stmt = $this->conn->prepare($query)){
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }else{
+            return NULL;
+        }
+        
+    }
+    public function getMaxIngredientId(){
+        $query = "SELECT MAX(ingredientID) as max_id FROM ingredient; ";
+        if($stmt = $this->conn->prepare($query)){
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }else{
+            return NULL;
+        }
+        
+    }
+    public function getMaxOrdertId(){
+        $query = "SELECT MAX(orderID) as max_id FROM totalorders; ";
+        if($stmt = $this->conn->prepare($query)){
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }else{
+            return NULL;
+        }
+        
+    }
 
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }
-    public function getLiquindIngredient(){
-        $query = "SELECT * FROM liquidingredient";
+    public function updateProduct($id,$quantity){
+        $query = "UPDATE product SET qtystock = ? WHERE productID = ?";
         $stmt = $this->conn->prepare($query);
+        $stmt-> bind_param("ii",$quantity,$id);
         $stmt->execute();
-        $result = $stmt->get_result();
+    }
 
-        return $result->fetch_all(MYSQLI_ASSOC);
+    public function getProductsById($productID){
+        $query = "SELECT * FROM product WHERE productID = ?";
+        if($stmt = $this->conn->prepare($query)){
+            $stmt->bind_param('i', $productID);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return $result->fetch_all(MYSQLI_ASSOC);
+        } else {
+            return NULL;
+        }
+        
     }
-    public function getUnityIngredient(){
-        $query = "SELECT * FROM unitingredient";
-        $stmt = $this->conn->prepare($query);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }
+
+
 
 
     /* FETCH ALL Devo fare una funzione che mi faccia un query e mi restituisca tutti gli ordini di un utente */
@@ -52,7 +144,7 @@ class DatabaseHelper{
         $stmt-> bind_param("i",$orderID);
         $stmt->execute();
         $result = $stmt->get_result();
-        echo "Query order details fatta";
+        //echo "Query order details fatta";
         return $result->fetch_all(MYSQLI_ASSOC);
     }
         /* DATO ELBAORATO. Restituisce il nome di un prodotto, dato il suo ID. Oppure Custom drink. */ 
@@ -61,170 +153,213 @@ class DatabaseHelper{
         $stmt-> bind_param("i",$articleID);
         $stmt->execute();
         $result = $stmt->get_result();
-        echo "Query article name details fatta";
+        //echo "Query article name details fatta";
         $res = $result->fetch_all(MYSQLI_ASSOC);
         if (!$res){ //se non ho trovato alcuna corrispondenza allora cerco nella tabella drinkhandmade 
             return "Custom drink";
         }
         return $res[0]["name"];
-    }
+    } 
     
-    public function getSubtotalPrice($orderID,$articleID){ 
-        $stmt = $this->conn->prepare("SELECT subtotal FROM orderdetails  WHERE orderID=? AND articID=?");
-        $stmt-> bind_param("ii",$orderID,$articleID);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        echo "Query article price fatta";
-        $res = $result->fetch_all(MYSQLI_ASSOC);
-        return $res[0]["subtotal"];
-    }
-    
-    public function checkLogin($userID, $password){
-        $query = "SELECT userID, name, surname, email, type FROM user WHERE  userID = ? AND password = ?";
+    public function insertOrderState($state,$orderID){
+        $query = "UPDATE totalorders SET state=? WHERE orderID=? ";
         $stmt = $this->conn->prepare($query);
-        $stmt->bind_param('ss',$userID, $password);
+        $stmt->bind_param('si',$state, $orderID);
+        $stmt->execute();
+    }
+
+    public function getAllOrdersFromAllUsers(){
+        $stmt = $this->conn->prepare("SELECT * FROM totalorders");
         $stmt->execute();
         $result = $stmt->get_result();
-
         return $result->fetch_all(MYSQLI_ASSOC);
-    }   
-    
-    public function checkDuplication($userID, $email){
-        $query = "SELECT * FROM user WHERE userID = ? OR email = ? ";
-        $stmt = $this->conn->prepare($query);
-        $stmt->bind_param('ss',$userID, $email);
+    }
+
+    public function getNotDeliveredOrders(){
+        $stmt = $this->conn->prepare("SELECT * FROM totalorders WHERE state!='Delivered' ");
         $stmt->execute();
         $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC); 
+    }
 
+    public function getExpressOrders(){
+        $stmt = $this->conn->prepare("SELECT * FROM totalorders WHERE state!='Delivered' AND state!='To prepare' ");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC); 
+    }    
+
+    public function getNotDeliveredOrdersByUser($userID){
+        $stmt = $this->conn->prepare("SELECT * FROM totalorders WHERE state!='Delivered' AND userID=?");
+        $stmt-> bind_param("s",$userID);
+        $stmt->execute();
+        $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
-    
     }
-    //elimina prodotto da lista prodotti admin (uploadProduct)
-    public function deleteProduct($id){
-        $query = " DELETE FROM product WHERE productID= ? ";
+
+    public function getNameByUser($userID){
+        $stmt = $this->conn->prepare("SELECT name FROM user WHERE userID=?");
+        $stmt-> bind_param("s",$userID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $res= $result->fetch_all(MYSQLI_ASSOC);
+        return $res[0]["name"];
+    }
+    public function getSurnameByUser($userID){
+        $stmt = $this->conn->prepare("SELECT surname FROM user WHERE userID=?");
+        $stmt-> bind_param("s",$userID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $res= $result->fetch_all(MYSQLI_ASSOC);
+        return $res[0]["surname"];
+    }
+
+    public function getUserIDByOrderID($orderID){
+        $stmt = $this->conn->prepare("SELECT userID FROM totalorders WHERE orderID=?");
+        $stmt-> bind_param("i",$orderID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $res= $result->fetch_all(MYSQLI_ASSOC);
+        return $res[0]["userID"];
+    }
+
+    public function getStateByOrderID($orderID){
+        $stmt = $this->conn->prepare("SELECT state FROM totalorders WHERE orderID=?");
+        $stmt-> bind_param("i",$orderID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $res= $result->fetch_all(MYSQLI_ASSOC);
+        return $res[0]["state"];
+    }
+
+    public function insertNotifOrderState($orderRef,$userRef,$changedState){
+        $query = "INSERT INTO notiforderstate (orderRef, userRef, changedState,readed) VALUES (?, ?, ?, 0)";
         $stmt = $this->conn->prepare($query);
-        $stmt->bind_param('i',$id);
+        $stmt->bind_param('iss',$orderRef, $userRef, $changedState);
         $stmt->execute();
     }
 
-    //aggiorna prodotto da lista prodotti admin (uploadProduct)
-    public function updateProduct($id,$quantity){
-        $query = "UPDATE product SET qtystock = ? WHERE productID = ?";
+    public function getAllNotificationsStateChangedByUser($userID){
+        $stmt = $this->conn->prepare("SELECT orderRef,changedState,notifID  FROM notiforderstate WHERE userRef=? AND readed=0");
+        $stmt-> bind_param("s",$userID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function insertNotifOrderReady($orderRef,$userRef){
+        $query = "INSERT INTO notiforderready (orderRef, userRef, readed) VALUES (?, ?, 0)";
         $stmt = $this->conn->prepare($query);
-        $stmt-> bind_param("ii",$quantity,$id);
+        $stmt->bind_param('is',$orderRef, $userRef);
         $stmt->execute();
     }
 
-    
-    public function insertProduct($name,$imageUrl,$description,$quantity,$typology,$price){
-        $query = "INSERT INTO product (name, qtystock, price, description, type ,imageURL ) VALUES (?, ?, ?, ?, ?, ?)";
+    public function getAllNotificationsStateReady($userID){
+        $stmt = $this->conn->prepare("SELECT orderRef,notifID  FROM notiforderready WHERE userRef=? AND readed=0");
+        $stmt-> bind_param("s",$userID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function insertNotifNewOrder($orderRef,$userRef,$description){
+        $query = "INSERT INTO notifneworder (orderRef, userRef,description, readedUser, readedAmm) VALUES (?, ?, ?, 0,0)";
         $stmt = $this->conn->prepare($query);
-        $stmt->bind_param('sidssss',$name,$quantity,$price,$description,$typology,$imageUrl);
+        $stmt->bind_param('iss',$orderRef, $userRef,$description);
         $stmt->execute();
     }
 
-
-    public function getProductsById($productID){
-        $query = "SELECT * FROM product WHERE productID = ?";
-        if($stmt = $this->conn->prepare($query)){
-            $stmt->bind_param('i', $productID);
-            $stmt->execute();
-            $result = $stmt->get_result();
-            return $result->fetch_all(MYSQLI_ASSOC);
-        } else {
-            return NULL;
+    public function getAllNotificationsNewOrder($userID,$type){
+        if($type=="Admin"){ //if it's Admin then take all new orders of all users
+            $stmt = $this->conn->prepare("SELECT orderRef,userRef,notifID,description FROM notifneworder WHERE readedAmm=0");  
         }
-        
+        else if($type=="User"){
+            $stmt = $this->conn->prepare("SELECT orderRef,notifID,description FROM notifneworder WHERE readedUser=0 AND userRef=?");  
+            $stmt-> bind_param("s",$userID);
+        }
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function insertAccount($userID, $name, $surname, $email, $password, $type){
-        $query = "INSERT INTO user (userID, name, surname, type ,email, password ) VALUES ( ?, ?, ?, ?, ?, ?)";
+    public function insertiNotifSoldout($articleIDRef,$articleNameRef){
+        $query = "INSERT INTO notifsoldout (articleIDRef, articleNameRef, readed) VALUES (?, ?, 0)";
         $stmt = $this->conn->prepare($query);
-        $stmt->bind_param('ssssss',$userID, $name, $surname, $email, $password, $type);
+        $stmt->bind_param('is',$articleIDRef, $articleNameRef);
         $stmt->execute();
     }
 
-    /*
-    public function searchProduct(){
-        if(isset($_GET["search"])) {
-            $search = $_GET["query"];
-            $query = "SELECT * FROM product WHERE name LIKE '%".$search."%' OR description LIKE '%".$search."%' OR type LIKE '%".$search."%' OR price LIKE '%".$search."%' ";
-            if($stmt = $this->conn->prepare($query)){
-                $stmt->execute();
-                $result = $stmt->get_result();
-                return $result->fetch_all(MYSQLI_ASSOC);
-                
-                if(mysqli_num_rows($result) > 0){
-                    return $result;
-                } else {
-                    echo "Nessun prodotto corrispondente";
-                }
-            }
-    
-        }
+    public function getAllNotificationsSoldout(){
+        $stmt = $this->conn->prepare("SELECT articleIDRef,articleNameRef,notifID  FROM notifsoldout WHERE readed=0");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }    
 
-    }
-*/
-
-    public function getProduct() {
-        $query = "SELECT * FROM product ORDER BY productID ASC";
-        if($stmt = $this->conn->prepare($query)){
-            $stmt->execute();
-            $result = $stmt->get_result();
-            return $result->fetch_all(MYSQLI_ASSOC);
-        }else{
-            return NULL;
-        }
-    }
-    
-    public function getProductByType($type){
-        $query = "SELECT * FROM product WHERE type=?";
-        if($stmt = $this->conn->prepare($query)){
-            $stmt->bind_param('s',$type);
-            $stmt->execute();
-            $result = $stmt->get_result();
-            return $result->fetch_all(MYSQLI_ASSOC);
-        }else{
-            return NULL;
-        }
+    public function readNotificationNewOrderByUser($notifID){
+        $query = "UPDATE notifneworder SET readedUser=1 WHERE notifID=? ";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param('i', $notifID);
+        $stmt->execute();
     }
 
-    public function getNewProductId(){
-        $query = "SELECT MAX(productID) as max_id FROM product; ";
-        if($stmt = $this->conn->prepare($query)){
-            $stmt->execute();
-            $result = $stmt->get_result();
-            return $result->fetch_all(MYSQLI_ASSOC);
-        }else{
-            return NULL;
-        }
-        
+    public function readNotificationNewOrderByAdmin($notifID){
+        $query = "UPDATE notifneworder SET readedAmm=1 WHERE notifID=? ";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param('i', $notifID);
+        $stmt->execute();
     }
 
-    /*
-    private function getUnitIngredientPrice(){
-        $stmt = $this->conn->prepare("SELECT price FROM unitingredient  WHERE productID=?");
-        $stmt-> bind_param("i",$articleID);
+    public function readNotificationStateChangedByUser($notifID){
+        $query = "UPDATE notiforderstate SET readed=1 WHERE notifID=? ";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param('i', $notifID);
+        $stmt->execute();
+    }
+
+    public function readNotificationOrderReadyByExpress($notifID){
+        $query = "UPDATE notiforderready SET readed=1 WHERE notifID=? ";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param('i', $notifID);
+        $stmt->execute();
+    }
+
+    public function readNotificationSoldOutByAdmin($notifID){
+        $query = "UPDATE notifsoldout SET readed=1 WHERE notifID=? ";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param('i', $notifID);
+        $stmt->execute();
+    }
+
+    public function getIngredientsCustomDrink($drinkID){
+        $stmt = $this->conn->prepare("SELECT ingredientID,qty FROM drinkhandmade WHERE drinkID=?");
+        $stmt-> bind_param("i",$drinkID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getIngredientName($ingredientID){
+        $stmt = $this->conn->prepare("SELECT name FROM ingredient WHERE ingredientID=?");
+        $stmt-> bind_param("i",$ingredientID);
         $stmt->execute();
         $result = $stmt->get_result();
         $res = $result->fetch_all(MYSQLI_ASSOC);
+        return $res[0]["name"];
     }
-    private function getLiquidIngredientPrice(){
-        $stmt = $this->conn->prepare("SELECT price FROM liquidingredient  WHERE productID=?");
-        $stmt-> bind_param("i",$articleID);
+
+    public function getCategoryOfIngredient($ingredientID){
+        $stmt = $this->conn->prepare("SELECT category FROM ingredient WHERE ingredientID=?");
+        $stmt-> bind_param("i",$ingredientID);
         $stmt->execute();
         $result = $stmt->get_result();
         $res = $result->fetch_all(MYSQLI_ASSOC);
+        return $res[0]["category"];
     }
-*/
-    /*DATO ELABORATO. Restituisce il subtotal */
 
 }
 
-/*
-$dbhelper = new DatabaseHelper("localhost","root","", "drinkdb",3306);
-$resQuery = $dbhelper->getSubtotalPrice(1,2);
-echo "$resQuery";
-*/
+
 
 ?>
+

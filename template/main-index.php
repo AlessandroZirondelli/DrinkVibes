@@ -11,22 +11,22 @@
         <div class="row">
           <div class="col-12 col-md-4">
             <a href="#">
-              <img src="./assets/img/wine-icon.jpg" class="img-fluid rounded-circle" alt="Button image spirits" />
+              <img src="./assets/img/WineIcon.png" class="img-fluid rounded-circle" alt="Button image spirits" />
             </a>
           </div>
           <div class="col-12 col-md-4">
             <a href="#">
-              <img src="./assets/img/cocktail-icon.jpg" class="img-fluid rounded-circle" alt="Button image cocktail" />
+              <img src="./assets/img/BeveragesIcon2.png" class="img-fluid rounded-circle" alt="Button image cocktail" />
             </a>
           </div>
           <div class="col-12 col-md-4">
             <a href="#">
-              <img src="./assets/img/spirits-icon.png" class="img-fluid rounded-circle" alt="Button image spirits" />
+              <img src="./assets/img/DrinksIcon.png" class="img-fluid rounded-circle" alt="Button image spirits" />
             </a>
           </div>
         </div>
       </section>
-    </div>
+</div>
 
     <div class="row pt-2 mb-5">
       <section>
@@ -39,7 +39,7 @@
             </p>
             <img src="./assets/img/bartender.webp" class="img-fluid mt-2 " alt="Bartender image"/>
             <div class="text-center" >
-              <button class="px-5">Let\'s build</button>
+              <button class="px-5">Let's build</button>
             </div>
           </div>
           <div class="col-1 col-md-2"></div>

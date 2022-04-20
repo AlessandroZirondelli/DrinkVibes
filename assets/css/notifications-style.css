@@ -1,0 +1,48 @@
+.container.box-notifications{
+    border-style: dashed;
+    margin-bottom: 150px ;
+    
+    
+}
+
+.accordion-button:hover{
+    background-color:inherit !important;
+    color:black !important;
+}
+
+.accordion-button:not(.collapsed){
+    color:inherit;
+    background-color: inherit !important;
+}
+
+.accordion-button:focus{
+    box-shadow: inherit !important;
+}
+
+div.col-1{
+    padding-top: 12px;
+}
+
+button.accordion-button{
+    font-weight: bold !important;
+}
+
+.flex-wrapper {
+    display: flex;
+    min-height: 65vh;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  
+  
+
+
+@media screen and (max-width: 992px) {
+    .container.box-notifications{
+        border-style: dashed;
+        margin-top: 100px;
+        margin-bottom: 150px ;
+        
+    }
+
+}

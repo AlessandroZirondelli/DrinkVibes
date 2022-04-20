@@ -16,16 +16,24 @@ footer a, footer h3{
     color:white;
 }
 
+li.icons-link li{
+    display: inline-block !important;
+    
+}
 
-@media screen and (max-width: 768px) {
 
-    .navbar-collapse ul li:nth-child(2) > a{
-        padding-right: 0px !important;
-        padding-left: 0px !important;
-    }
+@media screen and (max-width: 992px) {
 
-    .navbar-collapse ul li:nth-child(7) > a , .navbar-collapse ul li:nth-child(6) > a{
+    ul.navbar-nav>li.col-lg-2>a.nav-link.text-start.text-white {
         text-align: center !important;
     }
+    ul.navbar-nav>li.col-lg-2>a.nav-link.text-white {
+        text-align: center !important;
+    }
+    /*
+        li.icons-link li{
+        display: inline-block !important;
+    }
+    */
 
 }
