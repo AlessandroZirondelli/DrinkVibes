@@ -1,6 +1,6 @@
 <div class="container d-flex align-items-center justify-content-center my-5 ">
   <div class="row">
-      <form name="registrationForm" action="./../utils/uploadAccount.php" onsubmit="return validateRegistrationForm() method="POST" autocomplete="off" class="bg-light border p-3">
+      <form name="registrationForm" action="./../DrinkVibes/utils/uploadAccount.php" onsubmit="return validateRegistrationForm() method="POST" autocomplete="off" class="bg-light border p-3">
         <div class="form-row">
           <h4 class="title my-3">Registration</h4>
 
@@ -99,7 +99,7 @@
             <?php endif; ?>
 
             <div class="col-12 text-right">
-              <input type="submit" name="insertButton" value="Submit" class="btn btn-dark text-uppercase mb-3 mt-3" >Add</button>
+              <input type="submit" name="insertButton" value="Submit" class="btn btn-dark text-uppercase mb-3 mt-3" ></button>
             </div>
 
         </div>

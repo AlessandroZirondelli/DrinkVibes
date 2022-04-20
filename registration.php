@@ -25,6 +25,6 @@ if($manager -> isUserLoggedIn()){
 }
 
 
-require 'template/base.php';
+require_once ("template/base.php");
 
 ?>

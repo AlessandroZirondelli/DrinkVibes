@@ -1,6 +1,6 @@
 <?php
 //chiamato dai file js
-    require_once("bootstrap.php");
+    require_once("../bootstrap.php");
     require_once("utils/ManagerAccounts.php");
     require_once("utils/Account.php");
 
