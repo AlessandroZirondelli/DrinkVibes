@@ -1,3 +1,9 @@
+function validateRegistrationForm(){
+
+
+
+}
+
 function changeRadioButtonTipology(tipology) {
     var radioButtonTipology = "#radioButton" + tipology;
 

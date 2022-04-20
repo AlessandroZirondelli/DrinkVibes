@@ -1,9 +1,8 @@
 <div class="container d-flex align-items-center justify-content-center my-5 ">
   <div class="row">
-      <form action="#" method="POST" id="login" autocomplete="off" class="bg-light border p-3">
+      <form name="registrationForm" action="./../utils/uploadAccount.php" onsubmit="return validateRegistrationForm() method="POST" autocomplete="off" class="bg-light border p-3">
         <div class="form-row">
           <h4 class="title my-3">Registration</h4>
-
 
           <div class="col-12">
             <div class="input-group mb-3">
@@ -99,45 +98,9 @@
               </div>
             <?php endif; ?>
 
-
-
-
             <div class="col-12 text-right">
-              <button id="insert" name="insert" value="Insert" class="btn btn-dark text-uppercase mb-3 mt-3" onclick="addProduct()">Add</button>
+              <input type="submit" name="insertButton" value="Submit" class="btn btn-dark text-uppercase mb-3 mt-3" >Add</button>
             </div>
-
-
-            </div>
-            <?php if (isset($templateParams["errorevuoto"])) : ?>
-              <p><br><?php echo $templateParams["errorevuoto"]; ?></br></p>
-            <?php endif; ?>
-            <?php if (isset($templateParams["erroreusata"])) : ?>
-              <p><br><?php echo $templateParams["erroreusata"]; ?></br></p>
-            <?php endif; ?>
-
-            <?php if (isset($templateParams["lettere"])) : ?>
-              <p><br><?php echo $templateParams["lettere"]; ?></br></p>
-            <?php endif; ?>
-
-            <?php if (isset($templateParams["data"])) : ?>
-              <p><br><?php echo $templateParams["data"]; ?></br></p>
-            <?php endif; ?>
-
-            <?php if (isset($templateParams["email"])) : ?>
-              <p><br><?php echo $templateParams["email"]; ?></br></p>
-            <?php endif; ?>
-
-            <?php if (isset($templateParams["vino"])) : ?>
-              <p><br><?php echo $templateParams["vino"]; ?></br></p>
-            <?php endif; ?>
-
-            <?php if (isset($templateParams["acqua"])) : ?>
-              <p><br><?php echo $templateParams["acqua"]; ?></br></p>
-            <?php endif; ?>
-
-            <?php if (isset($templateParams["pwd"])) : ?>
-              <p><br><?php echo $templateParams["pwd"]; ?></br></p>
-            <?php endif; ?>
 
         </div>
       </form>
