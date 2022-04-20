@@ -34,5 +34,6 @@ else{
     $templateParams["main-content"] = "main-loginform.php";
 }
 
-require 'template/base.php';
+require_once("template/base.php");
+
 ?>

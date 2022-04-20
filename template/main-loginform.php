@@ -1,7 +1,5 @@
-<div class="container-fluid ">
-  <div class="row d-flex justify-content-center align-items-center m-0" >
-    <div class="login_oueter justify-content-center">
-        
+<div class="container d-flex align-items-center justify-content-center my-5">
+  <div class="row" >
       <form action="#" method="POST" id="login" autocomplete="off" class="bg-light border p-3">
         <div class="form-row">
           <h4 class="title my-3">Login For Access</h4>
@@ -25,7 +23,7 @@
           </div>
           
           <div class="col-sm-12 pt-3 text-left">
-            <p>Already registered <a href="registration.php">Register</a></p> 
+            <p>Not registered <a href="registration.php">Register</a></p> 
           </div>
 
           <div class="col-12 text-right">
@@ -36,8 +34,7 @@
             <p><br><?php echo $templateParams["errorelogin"]; ?></br></p>
             <?php endif; ?>
         </div>
-      </form>
-    </div>
+      </form> 
   </div>
 </div>
 
