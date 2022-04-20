@@ -106,27 +106,6 @@ class DatabaseHelper{
         
     }
 
-    public function updateProduct($id,$quantity){
-        $query = "UPDATE product SET qtystock = ? WHERE productID = ?";
-        $stmt = $this->conn->prepare($query);
-        $stmt-> bind_param("ii",$quantity,$id);
-        $stmt->execute();
-    }
-
-    public function getProductsById($productID){
-        $query = "SELECT * FROM product WHERE productID = ?";
-        if($stmt = $this->conn->prepare($query)){
-            $stmt->bind_param('i', $productID);
-            $stmt->execute();
-            $result = $stmt->get_result();
-            return $result->fetch_all(MYSQLI_ASSOC);
-        } else {
-            return NULL;
-        }
-        
-    }
-
-
 
 
     /* FETCH ALL Devo fare una funzione che mi faccia un query e mi restituisca tutti gli ordini di un utente */
@@ -356,6 +335,105 @@ class DatabaseHelper{
         $res = $result->fetch_all(MYSQLI_ASSOC);
         return $res[0]["category"];
     }
+
+        
+    public function checkLogin($userID, $password){
+        $query = "SELECT userID, name, surname, email, type FROM user WHERE  userID = ? AND password = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param('ss',$userID, $password);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }   
+    
+    public function checkDuplication($userID, $email){
+        $query = "SELECT * FROM user WHERE userID = ? OR email = ? ";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param('ss',$userID, $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+
+    }
+    //elimina prodotto da lista prodotti admin (uploadProduct)
+    public function deleteProduct($id){
+        $query = " DELETE FROM product WHERE productID= ? ";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param('i',$id);
+        $stmt->execute();
+    }
+
+    //aggiorna prodotto da lista prodotti admin (uploadProduct)
+    public function updateProduct($id,$quantity){
+        $query = "UPDATE product SET qtystock = ? WHERE productID = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt-> bind_param("ii",$quantity,$id);
+        $stmt->execute();
+    }
+
+
+    public function insertProduct($name,$imageUrl,$description,$quantity,$typology,$price){
+        $query = "INSERT INTO product (name, qtystock, price, description, type ,imageURL ) VALUES (?, ?, ?, ?, ?, ?)";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param('sidssss',$name,$quantity,$price,$description,$typology,$imageUrl);
+        $stmt->execute();
+    }
+
+
+    public function getProductsById($productID){
+        $query = "SELECT * FROM product WHERE productID = ?";
+        if($stmt = $this->conn->prepare($query)){
+            $stmt->bind_param('i', $productID);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return $result->fetch_all(MYSQLI_ASSOC);
+        } else {
+            return NULL;
+        }
+
+    }
+
+    public function insertAccount($userID, $name, $surname, $email, $password, $type){
+        $query = "INSERT INTO user (userID, name, surname, type ,email, password ) VALUES ( ?, ?, ?, ?, ?, ?)";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param('ssssss',$userID, $name, $surname, $email, $password, $type);
+        $stmt->execute();
+    }
+
+    public function getProduct() {
+        $query = "SELECT * FROM product ORDER BY productID ASC";
+        if($stmt = $this->conn->prepare($query)){
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }else{
+            return NULL;
+        }
+    }
+    
+    public function getProductByType($type){
+        $query = "SELECT * FROM product WHERE type=?";
+        if($stmt = $this->conn->prepare($query)){
+            $stmt->bind_param('s',$type);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }else{
+            return NULL;
+        }
+    }
+    public function getNewProductId(){
+        $query = "SELECT MAX(productID) as max_id FROM product; ";
+        if($stmt = $this->conn->prepare($query)){
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }else{
+            return NULL;
+        }
+        
+    }
+
 
 }
 

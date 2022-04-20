@@ -32,14 +32,6 @@ require_once("assets/db/database.php");
         public function getAllProducts() {
             return $this->dbh->getProduct();
         }
-              
-        public function updateProducts($id,$quantity){
-            return $this->dbh ->updateProduct($id,$quantity);
-        }
-
-        public function newProductId(){
-            return $this->dbh ->getNewProductId();
-        }
 
         public function isProductDisponible($id,$qtn){
             $product = $this -> getProductsById($id);
@@ -51,15 +43,22 @@ require_once("assets/db/database.php");
             }
         }
         public function getProductDisponibility($id,$qtn){
-            $ingredient = $this -> getProductsById($id);
-            return $ingredient[0]["qtystock"];
+            $product = $this -> getProductsById($id);
+            return $product[0]["qtystock"];
             
         }
 
-        public function getSearchProduct() {
-                return $this->dbh->searchProduct();
-            
+        public function updateProduct($id,$quantity){
+            return $this->dbh ->updateProduct($id,$quantity);
         }
+
+        public function insertProduct($name,$image,$description,$quantity,$tipology,$price){
+            return $this->dbh ->insertProduct($name,$image,$description,$quantity,$tipology,$price);
+        }
+        public function deleteProduct($id){
+            return $this->dbh ->deleteProduct($id);
+        }
+
     }
     
 ?>
