@@ -23,9 +23,6 @@ if(isset($_POST["username"]) && isset($_POST["password"])){
 
 if($manager -> isUserLoggedIn()){ // se l'utente è già loggato
     if($_SESSION["type"] == "Admin") { 
-        echo "sono nella sessiono";
-        echo "".!empty($_SESSION['userID']);
-        echo "".$_SESSION['userID'];
         $templateParams["title"] = "Manage Account";
         $templateParams["main-content"] = "main-manageaccounts.php";
     }else{
