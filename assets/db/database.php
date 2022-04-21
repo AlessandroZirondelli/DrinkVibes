@@ -375,7 +375,7 @@ class DatabaseHelper{
     public function insertProduct($name,$imageUrl,$description,$quantity,$typology,$price){
         $query = "INSERT INTO product (name, qtystock, price, description, type ,imageURL ) VALUES (?, ?, ?, ?, ?, ?)";
         $stmt = $this->conn->prepare($query);
-        $stmt->bind_param('sidssss',$name,$quantity,$price,$description,$typology,$imageUrl);
+        $stmt->bind_param('sidsss',$name,$quantity,$price,$description,$typology,$imageUrl);
         $stmt->execute();
     }
 

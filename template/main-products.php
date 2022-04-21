@@ -63,7 +63,7 @@
             <div class="col-md-4">
                 <div class="card mb-4 product-wap rounded-0">
                     <div class="card-inner">
-                        <img class="card-img rounded-0" src="assets/img/i.png">
+                        <img class="card-img rounded-0" src ="<?php echo $products["imageURL"]; ?>" >
                     </div>
                     <div class="card-body pb-0 px-2">
 
