@@ -78,7 +78,7 @@
                     <a class="nav-link  text-white" href="./shoppingcart.php" title="Cart"> <i class="bi bi-cart"></i> </a>
                     </li>
                     <li >
-                      <a class="nav-link  text-white" href="#" title="User profile"><i class="bi bi-person-circle"></i> </a>
+                      <a class="nav-link  text-white" href="./login.php" title="User profile"><i class="bi bi-person-circle"></i> </a>
                     </li>
                     <li>
                       <a class="nav-link  text-white" href="./notifications.php" title="Notifications "><i class="bi bi-bell"></i> </a>

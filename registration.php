@@ -17,12 +17,11 @@ if($manager -> isUserLoggedIn()){
         $templateParams["main-content"] = "main-registrationhome.php";
     }
 
-}else{
+}else{ //Registrazione come utente
     $templateParams["title"] = "Registration";
     $templateParams["main-content"] = "main-registrationform.php";
 
 }
-
 
 require_once ("template/base.php");
 

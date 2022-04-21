@@ -338,7 +338,7 @@ class DatabaseHelper{
 
         
     public function checkLogin($userID, $password){
-        $query = "SELECT userID, name, surname, email, type FROM user WHERE  userID = ? AND password = ?";
+        $query = "SELECT userID, name, surname, email, type, birthdate FROM user WHERE  userID = ? AND password = ?";
         $stmt = $this->conn->prepare($query);
         $stmt->bind_param('ss',$userID, $password);
         $stmt->execute();

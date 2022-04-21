@@ -10,6 +10,7 @@ $manager = new ManagerAccounts();
 
 //controlliamo username e password
 if(isset($_POST["username"]) && isset($_POST["password"])){
+    echo "Sono nella post";
     $login_result = $dbh->checkLogin($_POST["username"], $_POST["password"]);
     if(count($login_result)==0){
         //Login fallito
@@ -20,19 +21,23 @@ if(isset($_POST["username"]) && isset($_POST["password"])){
     }
 }
 
-if($manager -> isUserLoggedIn()){
-    $templateParams["title"] = "Login - Access";
+if($manager -> isUserLoggedIn()){ // se l'utente è già loggato
     if($_SESSION["type"] == "Admin") { 
-        $templateParams["main-content"] = "main-loginadmin.php";
+        echo "sono nella sessiono";
+        echo "".!empty($_SESSION['userID']);
+        echo "".$_SESSION['userID'];
+        $templateParams["title"] = "Manage Account";
+        $templateParams["main-content"] = "main-manageaccounts.php";
     }else{
-        $templateParams["main-content"] = "main-loginhome.php";
-    }
-    
+        $templateParams["title"] = "Summary Account";
+        $templateParams["main-content"] = "main-summaryaccount.php";
+    } 
 }
-else{
+else{ // se l'utente non è loggato
     $templateParams["title"] = "Login";
     $templateParams["main-content"] = "main-loginform.php";
 }
+
 
 require_once("template/base.php");
 

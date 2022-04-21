@@ -10,7 +10,7 @@ $cssArray[0]="./assets/css/login-style.css";
 
 if($manager -> isUserLoggedIn()){
     $templateParams["title"] = "Login - Access";
-    $templateParams["main-content"] = "main-loginhome.php";
+    $templateParams["main-content"] = "./template/main-summaryaccount.php";
 }
 
 require 'template/base.php';
