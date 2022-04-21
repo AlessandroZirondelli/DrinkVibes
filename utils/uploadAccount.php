@@ -1,32 +1,32 @@
 <?php
 //chiamato dai file js
-    require_once("../bootstrap.php");
-    require_once("utils/ManagerAccounts.php");
-    require_once("utils/Account.php");
-
+    //$path = $_SERVER['DOCUMENT_ROOT']."/DrinkVibes"."/utils"."/ManagerAccounts.php";
+    //echo $path;
+    require_once($_SERVER['DOCUMENT_ROOT']."/DrinkVibes/utils/ManagerAccounts.php");
+    require_once("./Account.php"); 
     //come in login
     session_start();
 
     $manager = new ManagerAccounts();
-
-
     //if($manager -> checkErrorLogin()){
     
         $name = $_REQUEST["name"];
         $userID = $_REQUEST["userID"];
         $surname = $_REQUEST["surname"];
-        $tipology = $_REQUEST["tipology"];
         $email = $_REQUEST["email"];
-        $password =$_REQUEST["password"];
+        $password1 =$_REQUEST["password1"];
+        $password1 =$_REQUEST["password2"];
+        
+        $type = "User";
+
 
         echo $name;
         echo $userID;
-        echo $tipology;
         echo $surname;
         echo $email;
-                                             
-        $manager -> insertAccount($userID, $name, $surname, $email, $password, $type);
+        //($userID, $name, $surname, $email, $password, $type)                                 
+        $manager -> insertAccount($userID, $name, $surname, $email, $password1, $type);
     
-    
-    
+     //define (__DIR__ , "C:\xampp\htdocs\DrinkVibes");
+     //echo $_SERVER['DOCUMENT_ROOT'] ;
 ?>

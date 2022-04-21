@@ -1,6 +1,5 @@
 <?php
-
-require_once("assets/db/database.php");
+require_once($_SERVER['DOCUMENT_ROOT']."/DrinkVibes/assets/db/database.php");
     class ManagerAccounts{
         private $dbh;
 

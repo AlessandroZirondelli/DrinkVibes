@@ -1,13 +1,12 @@
 <?php
-require_once 'bootstrap.php';
-require_once("utils/ManagerAccounts.php");
-require_once("utils/Account.php");  
+
+require_once("bootstrap.php");
+require_once("./utils/ManagerAccounts.php");
+require_once("./utils/Account.php");  
 
 $cssArray[0]="./assets/css/login-style.css";
-//va in base per le icone <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 $jsArray[0]="./assets/js/insertAccount.js";
 $manager = new ManagerAccounts();
-
 
 if($manager -> isUserLoggedIn()){
     //pagina admin
@@ -26,5 +25,6 @@ if($manager -> isUserLoggedIn()){
 
 
 require_once ("template/base.php");
+
 
 ?>

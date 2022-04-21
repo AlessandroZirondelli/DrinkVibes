@@ -1,6 +1,6 @@
 <div class="container d-flex align-items-center justify-content-center my-5 ">
   <div class="row">
-      <form name="registrationForm" action="./../DrinkVibes/utils/uploadAccount.php" onsubmit="return validateRegistrationForm() method="POST" autocomplete="off" class="bg-light border p-3">
+      <form name="registrationForm" action="./utils/uploadAccount.php" onsubmit="return validateRegistrationForm()" method="POST" autocomplete="off" class="bg-light border p-3">
         <div class="form-row">
           <h4 class="title my-3">Registration</h4>
 
@@ -55,7 +55,7 @@
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-lock"></i></span>
               </div>
-              <input name="password" type="password" class="input form-control" id="password" placeholder="Password" />
+              <input name="password1" type="password" class="input form-control" id="password1" placeholder="Password" />
             </div>
           </div>
 
@@ -64,7 +64,7 @@
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-lock"></i></span>
               </div>
-              <input name="pwd" type="password" class="input form-control" id="pwd" placeholder="Reapet Password" />
+              <input name="password2" type="password" class="input form-control" id="password2" placeholder="Reapet Password" />
             </div>
           </div>
 
