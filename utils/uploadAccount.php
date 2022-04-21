@@ -11,11 +11,11 @@
     $password1 =$_REQUEST["password1"];
     $password1 =$_REQUEST["password2"];
       
-    $type = "User";
-
-    echo $name;
-    echo $userID;
-    echo $surname;
-    echo $email;                                 
+    if (isset($_SESSION["type"]) == "Admin"){
+        $type = $_REQUEST["tipology"];
+    }else{
+        $type = "User";
+    }
+                           
     $manager -> insertAccount($userID, $name, $surname, $email, $password1, $type);
 ?>

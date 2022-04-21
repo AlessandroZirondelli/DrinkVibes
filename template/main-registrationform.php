@@ -77,19 +77,19 @@
                 <div id="tipology" class="mb-3 mt-3">
                   <label>Type:</label>
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="optradiotipology" <?php if (isset($_SESSION["type"]) && $_SESSION["type"] == "Admin"); ?> id="radioButtonAdmin" value="Admin" onclick='changeRadioButton("Admin")' checked>
+                    <input class="form-check-input" type="radio" name="tipology" <?php if (isset($_SESSION["type"]) && $_SESSION["type"] == "Admin"); ?> id="radioButtonAdmin" value="Admin" onclick='changeRadioButton("Admin")' checked>
                     <label class="form-check-label" for="radioButtonAdmin">
                       Admin
                     </label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="optradiotipology" <?php if (isset($_SESSION["type"]) && $_SESSION["type"] == "Admin"); ?> id="radioButtonUser" value="User" onclick='changeRadioButton("User")' checked>
+                    <input class="form-check-input" type="radio" name="tipology" <?php if (isset($_SESSION["type"]) && $_SESSION["type"] == "Admin"); ?> id="radioButtonUser" value="User" onclick='changeRadioButton("User")' checked>
                     <label class="form-check-label" for="radioButtonUser">
                       User
                     </label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="optradiotipology" <?php if (isset($_SESSION["type"]) && $_SESSION["type"] == "Admin"); ?> id="radioButtonExpress" value="Express" onclick='changeRadioButton("Express")' checked>
+                    <input class="form-check-input" type="radio" name="tipology" <?php if (isset($_SESSION["type"]) && $_SESSION["type"] == "Admin"); ?> id="radioButtonExpress" value="Express" onclick='changeRadioButton("Express")' checked>
                     <label class="form-check-label" for="radioButtonExpress">
                       Express
                     </label>
@@ -101,8 +101,9 @@
             <div class="col-12 text-right">
               <input type="submit" name="insertButton" value="Submit" class="btn btn-dark text-uppercase mb-3 mt-3" ></button>
             </div>
-
+            <div id = "warningsLabel"></div>
         </div>
       </form>
+      
   </div>
 </div>
