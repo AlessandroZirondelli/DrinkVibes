@@ -1,7 +1,136 @@
 function validateRegistrationForm(){
+    var warningSelected = "#warningsLabel";
+    $(warningSelected).text("");
+    $(warningSelected).fadeIn();
+
+    var nameAcc = "";
+    var UserIDAcc = "";
+    var surnameAcc = "";
+    var emailAcc = "";
+    var passwordAcc1 = "";
+    var typeAcc = "";
+    var passwordAcc2= "";
+    var action = 3;
+    var errorEmpty = false;
+    var errorPassWord = false;
+    
+    $("#name").css("border-color","black");
+    $("#surname").css("border-color","black");
+    $("#email").css("border-color","black");
+    $("#userID").css("border-color","black");
+    $("#birthday").css("border-color","black");
+    $("#password1").css("border-color","black");
+    $("#password2").css("border-color","black");
+  
 
 
+    if ($("#name").val() !== "") {
+        nameAcc = $("#name").val();
+        if (!(validateLetters(nameAcc))) {
+            $(warningSelected).text("Errore! Formato nome non corretto").css("color", "red");
+            $(warningSelected).fadeIn();
+            $("#name").css("border-color","red");
+            setTimeout(function() { fade_out(warningSelected); }, 2000);
+        }
+    } else {
+        $("#name").css("border-color","red");
+        errorEmpty = true;
+    }
 
+    if ($("#surname").val() !== "") {
+        surnameAcc = $("#surname").val();
+        if (!(validateLetters(surnameAcc))) {
+            $("#surname").css("border-color","red");
+            $(warningSelected).text("Errore! Formato cognome non corretto").css("color", "red");
+            $(warningSelected).fadeIn();
+            setTimeout(function() { fade_out(warningSelected); }, 2000);
+        }
+    } else {
+        $("#surname").css("border-color","red");
+        errorEmpty = true;        
+    }
+
+    if ($("#email").val() !== "") {
+        emailAcc = $("#email").val();
+
+        if (!(validateEmail(emailAcc))) {
+            $("#email").css("border-color","red");
+            $(warningSelected).text("Errore! Formato email non corretto").css("color", "red");
+            $(warningSelected).fadeIn();
+            setTimeout(function() { fade_out(warningSelected); }, 2000);
+        }
+    } else {
+        $("#email").css("border-color","red");
+        errorEmpty = true;
+    }
+
+    if ($("#userID").val() !== "") {
+        UserIDAcc = $("#userID").val();
+
+    } else {
+        $("#userID").css("border-color","red");
+        errorEmpty = true;
+    }
+    
+    if ($("#birthday").val() !== "") {
+        UserIDAcc = $("#birthday").val();
+
+    } else {
+        $("#birthday").css("border-color","red");
+        errorEmpty = true;
+    }
+
+    if ($("#password1").val() !== "") {
+        passwordAcc1 = $("#password1").val();
+
+    } else {
+        $("#password1").css("border-color","red");
+        errorEmpty = true;
+    }
+
+    if ($("#password2").val() !== "") {
+        passwordAcc2 = $("#password2").val();
+
+    } else {
+        $("#password2").css("border-color","red");
+        errorEmpty = true;
+    }
+
+    typeAcc = $("#tipology").children('[checked]').val();
+
+    if(passwordAcc1 != passwordAcc2){
+        errorPassWord = true;
+        $(warningSelected).text("Errore! Password non corrispondenti").css("color", "red");
+        $(warningSelected).fadeIn();
+        setTimeout(function() { fade_out(warningSelected); }, 2000);
+        $("#password1").css("border-color","red");
+        $("#password2").css("border-color","red");
+    }
+    if(errorEmpty == true){
+        $(warningSelected).text("Errore! Sono presenti alcuni campi vuoti").css("color", "red");
+        $(warningSelected).fadeIn();
+        setTimeout(function() { fade_out(warningSelected); }, 2000);
+    }
+    
+/*
+
+    console.log("Name: " + nameAccount);
+    console.log("Surname: " + descProduct);
+    console.log("Email: " + qtnProduct);
+    console.log("UserID: " + priceProduct);
+    console.log("Tipology: " + typeProduct);
+
+
+    const xhttp = new XMLHttpRequest();
+
+    xhttp.onload = function() {
+
+        }
+        //carica le nuove modifiche dei prodotti o ne aggiunge di nuovi a seconda del caso in cui si trova
+    xhttp.open("GET", "uploadAccount.php?action=" + action + "&imageurl=" + imgProduct + "&name=" + nameProduct + "&descr=" + descProduct + "&qtn=" + qtnProduct + "&price=" + priceProduct + "&tipology=" + typeProduct);
+    xhttp.send();
+*/
+return !( errorPassWord || errorEmpty);
 }
 
 function changeRadioButtonTipology(tipology) {
@@ -21,7 +150,8 @@ function validateEmail($email) {
 }
 
 function validateLetters($name) {
-    var letters = /^[a-zA-Z]+ [a-zA-Z]+$/;
+    //var letters = /^[a-zA-Z]+ [a-zA-Z]+$/;
+    var letters = /^[a-zA-Z]/;
     if (letters.test($name)) {
         return true;
     }
@@ -31,8 +161,8 @@ function validateLetters($name) {
 
 //aggiunta in template
 function addAccount() {
-    var warningSelected = "#warningsLabel" + id;
-    $(warningSelected).text("");
+    var warningSelected = "#warningsLabel";
+    $(warningSelected).text("fadjfapoi");
     $(warningSelected).fadeIn();
 
     var nameAcc = "";
@@ -44,7 +174,8 @@ function addAccount() {
     var secondPwdAcc = "";
     var action = 3;
 
-
+    
+/*
     if ($("#name").val() !== "") {
         nameAcc = $("#name").val();
         if (!(validateLetters(nameAcc))) {
@@ -131,7 +262,7 @@ function addAccount() {
         //carica le nuove modifiche dei prodotti o ne aggiunge di nuovi a seconda del caso in cui si trova
     xhttp.open("GET", "uploadAccount.php?action=" + action + "&imageurl=" + imgProduct + "&name=" + nameProduct + "&descr=" + descProduct + "&qtn=" + qtnProduct + "&price=" + priceProduct + "&tipology=" + typeProduct);
     xhttp.send();
-
+*/
 }
 
 function fade_out(id) {
