@@ -8,7 +8,7 @@
 if($action == 1){
     $userId = $_REQUEST["userId"];
    
-    $mngAccounts -> checkUserId($userId);
+    echo $mngAccounts -> checkUserId($userId);
    
 }
 

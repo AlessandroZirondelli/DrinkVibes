@@ -396,7 +396,7 @@ class DatabaseHelper{
     public function insertAccount($userID, $name, $surname, $email, $password, $type){
         $query = "INSERT INTO user (userID, name, surname, type ,email, password ) VALUES ( ?, ?, ?, ?, ?, ?)";
         $stmt = $this->conn->prepare($query);
-        $stmt->bind_param('ssssss',$userID, $name, $surname, $email, $password, $type);
+        $stmt->bind_param('ssssss',$userID, $name, $surname, $type, $email, $password, );
         $stmt->execute();
     }
 
