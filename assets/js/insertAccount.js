@@ -69,8 +69,11 @@ function validateRegistrationForm(){
 
     if ($("#userID").val() !== "") {
         UserIDAcc = $("#userID").val();
-        if(isUnique()){
-            errorUserId = false;
+        if(!isUnique(UserIDAcc)){
+            errorUserId = true;
+            $("#userID").css("border-color","red");
+            $(warningSelected).text("Errore! UserId presente").css("color", "red");
+            $(warningSelected).fadeIn();
         }
     } else {
         $("#userID").css("border-color","red");
@@ -142,9 +145,28 @@ console.log(errorEmpty);
 console.log(errorEmail);
 console.log(!( errorPassWord || errorEmpty || errorEmail));
 console.log("_____");*/
+console.log(errorUserId);
 return !( errorPassWord || errorEmpty || errorEmail || errorUserId);
-}
 
+}
+function isUnique(userId){
+    var action = 1;
+    var res = "";
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function() {
+        res = this.responseText;
+        
+    }
+    //carica le nuove modifiche dei prodotti o ne aggiunge di nuovi a seconda del caso in cui si trova
+    xhttp.open("GET", "utils/functionAccount.php?action=" + action + "&userId=" + userId,false);
+    xhttp.send();
+    if (res == false){
+        return false;
+    }else{
+        return true;
+    }
+   
+}
 function changeRadioButtonTipology(tipology) {
     var radioButtonTipology = "#radioButton" + tipology;
 

@@ -48,6 +48,18 @@ class DatabaseHelper{
         }
         
     }
+    public function getUserByUserId($userId){
+        $query = "SELECT * FROM user WHERE userID=?";
+        if($stmt = $this->conn->prepare($query)){
+            $stmt->bind_param('s',$userId);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }else{
+            return NULL;
+        }
+        
+    }
     public function getIngredientByCategory($category){
         $query = "SELECT * FROM ingredient WHERE category=?";
         if($stmt = $this->conn->prepare($query)){
@@ -435,8 +447,6 @@ class DatabaseHelper{
         }
         
     }
-
-
 }
 
 

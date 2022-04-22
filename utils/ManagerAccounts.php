@@ -26,6 +26,13 @@ require_once($_SERVER['DOCUMENT_ROOT']."/DrinkVibes/assets/db/database.php");
             $_SESSION["birthdate"] = $user["birthdate"];
             //posso aggiungere altri dati, ma ricorda di aggiungerli alla query
         }
+        public function isAvailableUserId($userId){
+            if(count($this -> dbh ->getUserByUserId($userId)) == 0){
+                return true;
+            }else{
+                return false;
+            }
+        }
 
 /*
 function validateDate($birthdate){
