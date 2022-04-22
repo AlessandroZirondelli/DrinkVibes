@@ -8,9 +8,9 @@ $cssArray[0]="./assets/css/login-style.css";
 
 $manager = new ManagerAccounts();
 
+
 //controlliamo username e password
 if(isset($_POST["username"]) && isset($_POST["password"])){
-    echo "Sono nella post";
     $login_result = $dbh->checkLogin($_POST["username"], $_POST["password"]);
     if(count($login_result)==0){
         //Login fallito
@@ -18,8 +18,17 @@ if(isset($_POST["username"]) && isset($_POST["password"])){
     }
     else{
         $manager -> registerLoggedUser($login_result[0]);
+        //Serve per reindirizzamento nel momento in cui clicco su Order ma non sono loggato
+        //Quindi clicco su order, mi reindirizza al login, dopodichè ritorna in automatico su order
+        if(isset($_SESSION["redirect"]) && ($_SESSION["redirect"]=="orders")){
+            $_SESSION["redirect"]="empty"; // risetto la variabile ad empty in quanto altrimenti ogni volta che si carica la pagina di login mi si reindirizza in automativo alla pagina degli ordini
+            header("location:orders.php");
+        }
     }
 }
+
+
+
 
 if($manager -> isUserLoggedIn()){ // se l'utente è già loggato
     if($_SESSION["type"] == "Admin") { 
