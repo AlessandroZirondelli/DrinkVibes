@@ -13,7 +13,8 @@ function validateRegistrationForm(){
     var action = 3;
     var errorEmpty = false;
     var errorPassWord = false;
-    
+    var errorEmail = false;
+    var errorUserId = false;
     $("#name").css("border-color","black");
     $("#surname").css("border-color","black");
     $("#email").css("border-color","black");
@@ -54,6 +55,8 @@ function validateRegistrationForm(){
         emailAcc = $("#email").val();
 
         if (!(validateEmail(emailAcc))) {
+            errorEmail = true;
+
             $("#email").css("border-color","red");
             $(warningSelected).text("Errore! Formato email non corretto").css("color", "red");
             $(warningSelected).fadeIn();
@@ -66,7 +69,9 @@ function validateRegistrationForm(){
 
     if ($("#userID").val() !== "") {
         UserIDAcc = $("#userID").val();
-
+        if(isUnique()){
+            errorUserId = false;
+        }
     } else {
         $("#userID").css("border-color","red");
         errorEmpty = true;
@@ -130,7 +135,14 @@ function validateRegistrationForm(){
     xhttp.open("GET", "uploadAccount.php?action=" + action + "&imageurl=" + imgProduct + "&name=" + nameProduct + "&descr=" + descProduct + "&qtn=" + qtnProduct + "&price=" + priceProduct + "&tipology=" + typeProduct);
     xhttp.send();
 */
-return !( errorPassWord || errorEmpty);
+//return !( errorPassWord || errorEmpty);
+/*console.log("_____");
+console.log(errorPassWord);
+console.log(errorEmpty);
+console.log(errorEmail);
+console.log(!( errorPassWord || errorEmpty || errorEmail));
+console.log("_____");*/
+return !( errorPassWord || errorEmpty || errorEmail || errorUserId);
 }
 
 function changeRadioButtonTipology(tipology) {
