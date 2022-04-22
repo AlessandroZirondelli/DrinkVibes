@@ -7,8 +7,8 @@ require_once($_SERVER['DOCUMENT_ROOT']."/DrinkVibes/assets/db/database.php");
             $this->dbh = new DatabaseHelper("localhost","root","", "drinkdb",3306);
         }
 
-        public function insertAccount($userID, $name, $surname, $email, $password, $type){
-            return $this->dbh ->insertAccount($userID, $name, $surname, $email, $password, $type);
+        public function insertAccount($userID, $name, $surname, $email, $password, $type, $birthdate){
+            return $this->dbh ->insertAccount($userID, $name, $surname, $email, $password, $type, $birthdate);
         }
 
         //controllare se è loggato o meno con SESSION se ha già qualcosa o meno
