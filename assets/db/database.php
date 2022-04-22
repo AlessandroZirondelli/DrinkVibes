@@ -395,9 +395,10 @@ class DatabaseHelper{
 
     public function insertAccount($userID, $name, $surname, $email, $password, $type, $birthdate){
         //INSERT INTO user (userID, name, surname, type ,email, password, birthdate ) VALUES ( "PIPPOOOO", "vjguvgj", "jhvuhvj", "jhvjhvj", "vjhjhvjh", "hkbkbsbh", 2005-12-26)
-        $query = 'INSERT INTO user (userID, name, surname, type ,email, password, birthdate) VALUES ( '.$userID.','.$name.','.$surname.','.$type.','.$email.','.$password.','.$birthdate.')';
+        //$query = 'INSERT INTO user (userID, name, surname, type ,email, password, birthdate) VALUES ( '.$userID.','.$name.','.$surname.','.$type.','.$email.','.$password.','.$birthdate.')';
+        $query = "INSERT INTO user (userID, name, surname, type ,email, password, birthdate) VALUES (?,?,?,?,?,?,?)";
         $stmt = $this->conn->prepare($query);
-        //$stmt->bind_param('ssssss',$userID, $name, $surname, $type, $email, $password, );
+        $stmt->bind_param('sssssss',$userID, $name, $surname, $type, $email , $password, $birthdate );
         $stmt->execute();
     }
 
