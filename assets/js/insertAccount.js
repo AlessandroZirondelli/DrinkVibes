@@ -10,11 +10,13 @@ function validateRegistrationForm(){
     var passwordAcc1 = "";
     var typeAcc = "";
     var passwordAcc2= "";
+    var birthdayAcc ="";
     var action = 3;
     var errorEmpty = false;
     var errorPassWord = false;
     var errorEmail = false;
     var errorUserId = false;
+    var errorBirthday = false;
     $("#name").css("border-color","black");
     $("#surname").css("border-color","black");
     $("#email").css("border-color","black");
@@ -27,12 +29,7 @@ function validateRegistrationForm(){
 
     if ($("#name").val() !== "") {
         nameAcc = $("#name").val();
-        if (!(validateLetters(nameAcc))) {
-            $(warningSelected).text("Errore! Formato nome non corretto").css("color", "red");
-            $(warningSelected).fadeIn();
-            $("#name").css("border-color","red");
-            setTimeout(function() { fade_out(warningSelected); }, 2000);
-        }
+        
     } else {
         $("#name").css("border-color","red");
         errorEmpty = true;
@@ -40,12 +37,7 @@ function validateRegistrationForm(){
 
     if ($("#surname").val() !== "") {
         surnameAcc = $("#surname").val();
-        if (!(validateLetters(surnameAcc))) {
-            $("#surname").css("border-color","red");
-            $(warningSelected).text("Errore! Formato cognome non corretto").css("color", "red");
-            $(warningSelected).fadeIn();
-            setTimeout(function() { fade_out(warningSelected); }, 2000);
-        }
+     
     } else {
         $("#surname").css("border-color","red");
         errorEmpty = true;        
@@ -58,7 +50,7 @@ function validateRegistrationForm(){
             errorEmail = true;
 
             $("#email").css("border-color","red");
-            $(warningSelected).text("Errore! Formato email non corretto").css("color", "red");
+            $(warningSelected).text("Error! E-mail format incorrect").css("color", "red");
             $(warningSelected).fadeIn();
             setTimeout(function() { fade_out(warningSelected); }, 2000);
         }
@@ -72,7 +64,7 @@ function validateRegistrationForm(){
         if(!isUnique(UserIDAcc)){
             errorUserId = true;
             $("#userID").css("border-color","red");
-            $(warningSelected).text("Errore! UserId presente").css("color", "red");
+            $(warningSelected).text("Error! UserId is already present").css("color", "red");
             $(warningSelected).fadeIn();
         }
     } else {
@@ -81,7 +73,13 @@ function validateRegistrationForm(){
     }
     
     if ($("#birthday").val() !== "") {
-        UserIDAcc = $("#birthday").val();
+        birthdayAcc = $("#birthday").val();
+        if(!isValidDate(birthdayAcc)){
+            errorBirthday = true;
+            $("#birthday").css("border-color","red");
+            $(warningSelected).text("Error! Date birthday is incorrect").css("color", "red");
+            $(warningSelected).fadeIn();
+        }
 
     } else {
         $("#birthday").css("border-color","red");
@@ -145,9 +143,30 @@ console.log(errorEmpty);
 console.log(errorEmail);
 console.log(!( errorPassWord || errorEmpty || errorEmail));
 console.log("_____");*/
-console.log(errorUserId);
-return !( errorPassWord || errorEmpty || errorEmail || errorUserId);
 
+return !( errorPassWord || errorEmpty || errorEmail || errorUserId || errorBirthday);
+
+}
+
+function isValidDate(dateString) {
+   
+
+    if (dateString.match(/^\d{4}-\d{2}-\d{2}$/) === null) {
+        return false;
+    }
+    var date = dateString.split("-");
+    var month = date[1];
+    var day = date[2];
+    if(!( (month <= 12 && month > 0) && (day > 0 && day <=31))){
+        return false;
+    }
+    return true;
+    /*
+    var regEx = /^\d{4}-\d{2}-\d{2}$/;
+    if(!dateString.match(regEx)) return false;  // Invalid formatvar d = new Date(dateString);
+    var dNum = d.getTime();
+    if(!dNum && dNum !== 0) return false; // NaN value, Invalid date
+    return d.toISOString().slice(0,10) === dateString;*/
 }
 function isUnique(userId){
     var action = 1;

@@ -18,4 +18,5 @@
     }
                            
     $manager -> insertAccount($userID, $name, $surname, $email, $password1, $type, $birthday);
+    header("location:../index.php");
 ?>
