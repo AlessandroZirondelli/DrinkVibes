@@ -28,6 +28,10 @@ if(isset($_POST["username"]) && isset($_POST["password"])){
             $_SESSION["redirect"]="empty";
             header("location:insertProduct.php");
         }
+        elseif(isset($_SESSION["redirect"]) && ($_SESSION["redirect"]=="insertIngredient")){
+            $_SESSION["redirect"]="empty";
+            header("location:insertIngredient.php");
+        }
     }
 }
 
