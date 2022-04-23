@@ -24,6 +24,10 @@ if(isset($_POST["username"]) && isset($_POST["password"])){
             $_SESSION["redirect"]="empty"; // risetto la variabile ad empty in quanto altrimenti ogni volta che si carica la pagina di login mi si reindirizza in automativo alla pagina degli ordini
             header("location:orders.php");
         }
+        elseif(isset($_SESSION["redirect"]) && ($_SESSION["redirect"]=="insertProduct")){
+            $_SESSION["redirect"]="empty";
+            header("location:insertProduct.php");
+        }
     }
 }
 
