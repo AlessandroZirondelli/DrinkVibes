@@ -61,10 +61,10 @@ function printRadio(){
    
 }
 function addProduct() {
-   /* var warningSelected = "#warningsLabel" + id;
+    var warningSelected = "#warningsLabel";
     $(warningSelected).text("");
     $(warningSelected).fadeIn();
-*/
+
     const xhttp = new XMLHttpRequest();
     var imgProduct = "assets/img/i.png";
     var nameProduct = "";
@@ -72,11 +72,16 @@ function addProduct() {
     var qtnProduct = "";
     var priceProduct = "";
     var typeProduct = "";
-    var error = false;
+    var errorEmpty = false;
+    var errorNum = false;
     var action = 3;
+
+    var warningSelected = "#warningsLabel";
+    $(warningSelected).text("");
+    $(warningSelected).fadeIn();
+
     $("#name").css("border-color","black");
-    $("#qtn").css("border-color","black");
-    
+    $("#qtn").css("border-color","black"); 
     $("#price").css("border-color","black");
 
     if ($("#image").val() !== "") {
@@ -85,10 +90,7 @@ function addProduct() {
     if ($("#name").val() !== "") {
         nameProduct = $("#name").val();
     } else {
-      /*  $(warningSelected).text("Invalide Name").css("color", "red");
-        $(warningSelected).fadeIn();
-        setTimeout(function() { fade_out(warningSelected); }, 2000);*/
-        error = true;
+        errorEmpty = true;
         $("#name").css("border-color","red")
                 .css("border-width","3px");
     }
@@ -96,27 +98,25 @@ function addProduct() {
         descProduct = $("#textArea").val();
 
     }
-    if (($("#qtn").val() !== "") && $.isNumeric($("#qtn").val())) {
+    if ($("#qtn").val() !== "") {
         qtnProduct = $("#qtn").val();
+        if(!($.isNumeric($("#qtn").val()))){
+            errorNum = true;
+            $("#qtn").css("border-color","red").css("border-width","3px");
+        }
     } else {
-        error = true;
-        $("#qtn").css("border-color","red")
-        .css("border-width","3px");
-        /*
-        $(warningSelected).text("Invalide quantity").css("color", "red");
-        $(warningSelected).fadeIn();
-        setTimeout(function() { fade_out(warningSelected); }, 2000);*/
+        errorEmpty = true;
+        $("#qtn").css("border-color","red").css("border-width","3px");
     }
-    if (($("#price").val() !== "") && $.isNumeric($("#price").val())) {
+    if (($("#price").val() !== "")) {
         priceProduct = $("#price").val();
-
-    } else {/*
-        $(warningSelected).text("Invalide price").css("color", "red");
-        $(warningSelected).fadeIn();
-        setTimeout(function() { fade_out(warningSelected); }, 2000);*/
-        error = true;
-        $("#price").css("border-color","red")
-        .css("border-width","3px");
+        if(!($.isNumeric($("#price").val()))){
+            errorNum = true;
+            $("#price").css("border-color","red").css("border-width","3px");
+        }
+    } else {
+        errorEmpty = true;
+        $("#price").css("border-color","red").css("border-width","3px");
     }
 
     typeProduct = $("#tipology").children().children('[checked]').val();
@@ -127,12 +127,10 @@ function addProduct() {
     console.log("Quantity: " + qtnProduct);
     console.log("Price: " + priceProduct);
     console.log("Tipology: " + typeProduct);
+    console.log("errorNum" + errorNum);
+    console.log("errorEmpty" + errorEmpty);
 
-
-    console.log("Prima");
-
-    if(error == false){
-        console.log("ENtrato");
+    if(errorEmpty == false && errorNum == false){
         xhttp.onload = function() {
 
         }
@@ -141,7 +139,18 @@ function addProduct() {
         xhttp.send();
     }
     
-    return error ;
+    if(errorEmpty == true){
+        $(warningSelected).text("Error! Empty field").css("color", "red");
+        $(warningSelected).fadeIn();
+        setTimeout(function() { fade_out(warningSelected); }, 2000);
+    } else if(errorNum == true){
+        $(warningSelected).text("Error! Not a number").css("color", "red");
+        $(warningSelected).fadeIn();
+        setTimeout(function() { fade_out(warningSelected); }, 2000);
+    }
+    
+    return errorEmpty || errorNum ;
+    //return false;
 }
 
 

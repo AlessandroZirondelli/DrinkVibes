@@ -37,6 +37,9 @@ function changeRadioButtonCategory(category){
 }
 function addIngredient(){
     const xhttp = new XMLHttpRequest();
+    var warningSelected = "#warningsLabel";
+    $(warningSelected).text("");
+    $(warningSelected).fadeIn();
     var imageIng = "assets/img/i.png";
     var nameIng = "";
     var descIng = "";
@@ -44,7 +47,8 @@ function addIngredient(){
     var priceIng = "";
     var categoIng = "";
     var tipologIng = "";
-    var error = false;
+    var errorEmpty = false;
+    var errorNum = false;
     var action = 3;
     console.log("add");
 
@@ -61,26 +65,33 @@ function addIngredient(){
     if($("#name").val() !== ""){
         nameIng = $("#name").val();
     }else{
-        error = true;
+        errorEmpty = true;
         $("#name").css("border-color","red")
                 .css("border-width","3px");
     }
     if($("#textArea").val() !== ""){
         descIng =  $("#textArea").val();
     }
-    if(($("#qtn").val() !== "") && $.isNumeric($("#qtn").val())){
+    if($("#qtn").val() !== ""){
         qtnIng =  $("#qtn").val();
+        if(!($.isNumeric($("#qtn").val()))){
+            errorNum = true;
+            $("#qtn").css("border-color","red").css("border-width","3px");
+        }
     }else{
-        error = true;
+        errorEmpty = true;
         $("#qtn").css("border-color","red")
         .css("border-width","3px");
     }
-    if(($("#price").val() !== "") && $.isNumeric($("#price").val())){
+    if($("#price").val() !== ""){
         priceIng =  $("#price").val();
+        if( !($.isNumeric($("#price").val()))){
+            errorNum = true;
+            $("#price").css("border-color","red").css("border-width","3px");
+        }
     }else{
-        error = true;
-        $("#price").css("border-color","red")
-        .css("border-width","3px");
+        errorEmpty = true;
+        $("#price").css("border-color","red").css("border-width","3px");
     }
     
     categoIng = $("#category").children().children( '[checked]' ).val();
@@ -97,8 +108,8 @@ function addIngredient(){
     console.log("Category: " + categoIng);
     console.log("Tipology: " + tipologIng);
    */
-    console.log(error);
-    if(error != true){
+    
+    if(errorEmpty == false && errorNum == false){
         console.log("Entrato");
         xhttp.onload = function() {
        
@@ -107,11 +118,23 @@ function addIngredient(){
         xhttp.send();
         
     }
-    
+    if(errorEmpty == true){
+        $(warningSelected).text("Error! Empty field").css("color", "red");
+        $(warningSelected).fadeIn();
+        setTimeout(function() { fade_out(warningSelected); }, 2000);
+    } else if(errorNum == true){
+        $(warningSelected).text("Error! Not a number").css("color", "red");
+        $(warningSelected).fadeIn();
+        setTimeout(function() { fade_out(warningSelected); }, 2000);
+    }
         
-   return error;
+    
+    return errorEmpty || errorNum;
 }
 
+function fade_out(id) {
+    $(id).fadeOut(1000, "linear");
+}
 
 function printRadio(){
     var radioBtnLiquid ="#radioButtonLiquid" ;

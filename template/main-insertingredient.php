@@ -89,8 +89,8 @@
                                       
                                       <div> 
                                           <button  id="insert" name="insert" value="Insert" class="btn btn-dark text-uppercase mb-3 mt-3" >Add</button> 
-
-                                        </div>
+                                      </div>
+                                      <div id = "warningsLabel"></div>
                                     </form>
                                 </div>
                             </div>
