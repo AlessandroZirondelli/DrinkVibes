@@ -154,7 +154,7 @@ if($action == 7){
         if(!($prod[0] -> getProductID() == $id)){
             array_push($list_prod_temp, array($prod[0],$prod[1]));
         }else{
-            $mngProducts ->updateProducts($prod[0] -> getProductID(), $prod[1] + $mngProducts -> getProductDisponibility($prod[0] -> getProductID(),0));
+            $mngProducts ->updateProduct($prod[0] -> getProductID(), $prod[1] + $mngProducts -> getProductDisponibility($prod[0] -> getProductID(),0));
         }
     }
     $_SESSION["shopping_cart_prod"] = serialize( $list_prod_temp );
@@ -194,7 +194,7 @@ if($action == 8){
 
    
         if(strcmp($insuffIng,"") == 0){
-            $mngProducts -> updateProducts($prodSelected -> getProductID(), $mngProducts -> getProductDisponibility($prodSelected -> getProductID(),0) - $val);
+            $mngProducts -> updateProduct($prodSelected -> getProductID(), $mngProducts -> getProductDisponibility($prodSelected -> getProductID(),0) - $val);
             //var_dump($db);
             $v = $mngProducts -> getProductDisponibility($prodSelected -> getProductID(),0) - $val;
            // var_dump($v);
@@ -214,7 +214,7 @@ if($action == 8){
     if($valueRead<$valueStored){
        
         $val = $valueStored - $valueRead;
-        $mngProducts -> updateProducts($prodSelected -> getProductID(), $mngProducts -> getProductDisponibility($prodSelected -> getProductID(),0) + $val);
+        $mngProducts -> updateProduct($prodSelected -> getProductID(), $mngProducts -> getProductDisponibility($prodSelected -> getProductID(),0) + $val);
         
         array_push($list_prod_temp, array($prodSelected, $valueRead));
         

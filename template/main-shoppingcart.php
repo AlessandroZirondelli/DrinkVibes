@@ -35,7 +35,7 @@
                             
                             <button class="btn btn-link px-2 "
                             onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-                            <i class="fas fa-minus"></i>
+                           
                             </button>
 
                             <input id="formDrink<?php echo $hmd[0] ->getId();?>" min="1" name="quantity" value="<?php echo $hmd[1];?>" type="number"
@@ -43,7 +43,7 @@
 
                             <button class="btn btn-link px-2"
                             onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-                            <i class="fas fa-plus"></i>
+                          
                             </button>
                             
                            
@@ -74,7 +74,7 @@
                             
                             <button class="btn btn-link px-2 "
                             onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-                            <i class="fas fa-minus"></i>
+                           
                             </button>
 
                             <input id="formProd<?php echo $prod[0] ->getProductID();?>" min="1" name="quantity" value="<?php echo $prod[1];?>" type="number"
@@ -82,7 +82,7 @@
 
                             <button class="btn btn-link px-2"
                             onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-                            <i class="fas fa-plus"></i>
+                            
                             </button>
                             
                            
