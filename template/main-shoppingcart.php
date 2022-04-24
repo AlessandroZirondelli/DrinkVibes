@@ -216,14 +216,18 @@
                   <p class="mb-2">Total (tax included)</p>
                   <div id = "total"class="mb-2"><span>&#8364;</span><span  id = "total">302.99</span></div>
                 </div>
-
+                <!-- 
                 <button type="button" class="btn btn-primary btn-block btn-lg" onclick=buyProduct()>
                   <div class="d-flex justify-content-between">
                     <span>Checkout</span>
 
                   </div>
                 </button>
-
+                -->
+                <form action="../DrinkVibes/utils/sendOrder.php" method="GET">
+                  <input type="submit" value="Submit" name="insertButton">
+                </form>
+                
               </div>
             </div>
 

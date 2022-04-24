@@ -3,7 +3,7 @@ class Ingredient{
 
     private $ingredientID;
     private $name; 
-    private $qtystock;
+    private $qty;
     private $price; 
     private $description;
     private $typology;
@@ -11,10 +11,10 @@ class Ingredient{
 
     
     
-    public function __construct($ingredientID, $name, $qtystock, $price,$description, $typology,$category){
+    public function __construct($ingredientID, $name, $qty, $price,$description, $typology,$category){
          $this-> ingredientID = $ingredientID;
          $this-> name = $name;
-         $this-> qtystock = $qtystock;
+         $this-> qty = $qty;
          $this-> price = $price;
          $this-> description = $description;
          $this-> typology = $typology;
@@ -35,11 +35,11 @@ class Ingredient{
         return $this->name;
     } 
 
-    public function setQty($qtystock){
-        $this->qtystock = $qtystock;
+    public function setQty($qty){
+        $this->qty = $qty;
     }
     public function getQty(){
-        return $this->qtystock;
+        return $this->qty;
     } 
 
     public function setPrice($price){ // subtotal must be calculate
@@ -70,7 +70,7 @@ class Ingredient{
 
 
     public function toString(){
-        echo "ingredientID:$this->ingredientID "."name: $this->name "."qtystock: $this->qtystock "."price: $this->price "."description: $this->description"."typology: $this->typology"."category: $this->category" ;
+        echo "ingredientID:$this->ingredientID "."name: $this->name "."qty: $this->qty "."price: $this->price "."description: $this->description"."typology: $this->typology"."category: $this->category" ;
     }
 
 }
