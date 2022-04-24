@@ -139,15 +139,16 @@ require_once($_SERVER['DOCUMENT_ROOT']."/DrinkVibes/utils/ManagerHandMakeDrink.p
             $time = date("h:i:s");
             $state = "To prepare";
             $total = null;
+            $orderID = ($this->dbh->getLastOrderID())+1;
 
                                 //($userID, $orderID, $date, $time, $state, $total)
-            $newOrder = new Order($userID,null,$date,$time,$state,null);
+            $newOrder = new Order($userID,$orderID,$date,$time,$state,null);
             //($orderID, $articleName, $articleID, $quantity,$subtotal,$description)
 
             $list_drink = unserialize( $_SESSION["shopping_cart_hmd"]);
             //inserisco order details come drinkhandmade
             foreach( $list_drink as $handmadedrink){
-                $drinkID = 3456;
+
                 $newIdHandMadeDrink = $this -> dbh -> getMaxHandMadeDrinkId()[0]["max_id"] + 1 ;
                 $newIdProduct = $this -> dbh -> getMaxProductId()[0]["max_id"] + 1; 
                 if( $newIdHandMadeDrink > $newIdProduct){
@@ -161,9 +162,10 @@ require_once($_SERVER['DOCUMENT_ROOT']."/DrinkVibes/utils/ManagerHandMakeDrink.p
                     $idSingleIngredient  = $ingredient -> getIngredientID(); //($drinkID, $ingredientID, $qty)
                     $this->managerHandMakeDrink->addHandMadeDrink($drinkID,$idSingleIngredient,$qtySingleIngredient);
                 }
-
+                //$orderID, $articleName, $articleID, $quantity,$subtotal,$description)
+                $orderDetail = new OrderDetail($orderID,"",$drinkID,$handmadedrink[1],$handmadedrink[0]->getTotalPrice()*$handmadedrink[1],"");
                 //qty dell'order details  handmadedrink[1]
-                $newOrder->addOrderDetail();
+                
             }
             //inserisco order details come products
            

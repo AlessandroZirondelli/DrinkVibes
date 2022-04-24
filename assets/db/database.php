@@ -486,6 +486,13 @@ class DatabaseHelper{
             return $res[0]["max_id"];
         }
     }
+
+    public function addOrderDetail($orderID,$articID,$qty,$subtotal,$description){
+        $query = "INSERT INTO orderdetails (orderID, articID, qty, subtotal, description) VALUES (?, ?, ?, ?, ?)";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param('iiids',$orderID,$articID,$qty,$subtotal,$description);
+        $stmt->execute();
+    }
 }
 
 
