@@ -1,6 +1,7 @@
 <?php
     require_once("bootstrap.php"); //require once, if it's already include , it doesn't reinclude another time. 
     require_once("./utils/ManagerNotifications.php");
+    $_SESSION["redirect"] = "empty";
     /*require_once("./utils/functions.php");
     
     if(!isUserLoggedIn()){

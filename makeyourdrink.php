@@ -4,6 +4,9 @@
     require_once("utils/ManagerIngredients.php");
     require_once("utils/HandMadeDrink.php");
     require_once("utils/Ingredient.php");
+    session_start();
+    //Serve per evitare che se sono su login non mi reindirizzi a makeyourdrink, se non mi loggo 
+    $_SESSION["redirect"] = "empty";
     $templateParams["title"] = "Make your drink";
     $templateParams["main-content"] = "main-makeyourdrink.php";
     $cssArray[0]="./assets/css/makeyourdrink-style.css";

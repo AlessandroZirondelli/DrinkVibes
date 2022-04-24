@@ -12,12 +12,14 @@
 
     //$jsArray[1]="./assets/js/products-search.js";
     //$jsArray[1]="./assets/js/button-top.js"; //pulsante che va sopra
+   
+    $_SESSION["redirect"] = "empty";
 
     $manager = new ManagerProducts();
     $managerAcc = new ManagerAccounts();
     
     $templateParams["categories"] = ["Beverage", "Wine", "Spirits", "Default drink"];
-  
+    
     $templateParams["Wine"] = $manager -> getAllWineProducts();
     $templateParams["Spirits"] = $manager -> getAllSpiritsProducts();
     $templateParams["Beverage"] = $manager -> getAllBeverageProducts();
