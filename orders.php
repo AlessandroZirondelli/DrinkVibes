@@ -21,13 +21,13 @@
     $jsArray[1]="./assets/js/dropdownStatus.js";
     $manager= new ManagerOrders();
     //$manager->createOrdersByUser($_SESSION["userID"]);
-
+/*
     $type="Admin";
-    $userID="Admin12";
-    /* 
+    $userID="Admin12";*/
+    
     $type=$_SESSION["type"];
     $userID=$_SESSION["userID"];
-    */
+    
 
     $manager->createOrdersTab($userID,$type);
     $ordersTab1=$manager->getOrdersTab1();
