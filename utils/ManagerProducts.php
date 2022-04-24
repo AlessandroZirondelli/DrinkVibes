@@ -1,6 +1,7 @@
 <?php
 
 require_once("assets/db/database.php");
+require_once("ManagerIngredients.php");
     class ManagerProducts{
         private $dbh;
 
@@ -53,7 +54,17 @@ require_once("assets/db/database.php");
         }
 
         public function insertProduct($name,$image,$description,$quantity,$tipology,$price){
-            return $this->dbh ->insertProduct($name,$image,$description,$quantity,$tipology,$price);
+            $newIdHandMadeDrink = $this -> dbh -> getMaxHandMadeDrinkId()[0]["max_id"] + 1 ;
+            $newIdProduct = $this -> dbh -> getMaxProductId()[0]["max_id"] + 1;
+            $newId = 0;
+        
+            if( $newIdHandMadeDrink > $newIdProduct){
+                $newId = $newIdHandMadeDrink;
+            }else{
+                $newId = $newIdProduct;
+            }
+           
+            return $this->dbh ->insertProduct($newId,$name,$image,$description,$quantity,$tipology,$price);
         }
         public function deleteProduct($id){
             return $this->dbh ->deleteProduct($id);
@@ -61,5 +72,6 @@ require_once("assets/db/database.php");
 
     }
   
+    
 ?>
 

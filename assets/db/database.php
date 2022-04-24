@@ -106,6 +106,28 @@ class DatabaseHelper{
         }
         
     }
+    public function getMaxProductId(){
+        $query = "SELECT MAX(productID) as max_id FROM product; ";
+        if($stmt = $this->conn->prepare($query)){
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }else{
+            return NULL;
+        }
+        
+    }
+    public function getMaxHandMadeDrinkId(){
+        $query = "SELECT MAX(drinkID) as max_id FROM drinkhandmade; ";
+        if($stmt = $this->conn->prepare($query)){
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }else{
+            return NULL;
+        }
+        
+    }
     public function getMaxOrdertId(){
         $query = "SELECT MAX(orderID) as max_id FROM totalorders; ";
         if($stmt = $this->conn->prepare($query)){
@@ -384,10 +406,10 @@ class DatabaseHelper{
     }
 
 
-    public function insertProduct($name,$imageUrl,$description,$quantity,$typology,$price){
-        $query = "INSERT INTO product (name, qtystock, price, description, type ,imageURL ) VALUES (?, ?, ?, ?, ?, ?)";
+    public function insertProduct($id,$name,$imageUrl,$description,$quantity,$typology,$price){
+        $query = "INSERT INTO product (productID,name, qtystock, price, description, type ,imageURL ) VALUES (?,?, ?, ?, ?, ?, ?)";
         $stmt = $this->conn->prepare($query);
-        $stmt->bind_param('sidsss',$name,$quantity,$price,$description,$typology,$imageUrl);
+        $stmt->bind_param('isidsss',$id,$name,$quantity,$price,$description,$typology,$imageUrl);
         $stmt->execute();
     }
 
