@@ -1,6 +1,7 @@
 <?php
 
-require_once("./utils/OrderDetail.php");
+//require_once("./utils/OrderDetail.php");
+require_once($_SERVER['DOCUMENT_ROOT']."/DrinkVibes/utils/OrderDetail.php");
 class Order{
     private $userID;
     private $orderID;

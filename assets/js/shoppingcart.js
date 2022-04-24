@@ -113,6 +113,7 @@ function deleteDrink(id){
     checkCart();
     $(rowId).remove();
 }
+/*
 function buyProduct(){
     var action = 9;
 
@@ -124,7 +125,7 @@ function buyProduct(){
     sendNotificartionBySoldout("500","vokdaaciao");
     xhttp.open("GET", "shoppingcartfunction.php?action="+ action, false );
     xhttp.send();
-}
+}*/
 function totalCost(){
     var action = 5;
     var totalTag = "#total";

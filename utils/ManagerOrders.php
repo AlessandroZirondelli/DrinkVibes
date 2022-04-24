@@ -9,18 +9,24 @@ require_once("./Order.php"); // include anche OrderDetails.php
 require_once("./../assets/db/database.php");*/
 
 
-require_once("./utils/Order.php");
-require_once("./assets/db/database.php");
+//require_once("./utils/Order.php");
+require_once($_SERVER['DOCUMENT_ROOT']."/DrinkVibes/utils/Order.php");
+//require_once("./assets/db/database.php");
+require_once($_SERVER['DOCUMENT_ROOT']."/DrinkVibes/assets/db/database.php");
+require_once($_SERVER['DOCUMENT_ROOT']."/DrinkVibes/utils/ManagerHandMakeDrink.php");
+//require_once("./ManagerHandMakeDrink.php");
 
     class ManagerOrders{
         private $dbh;
         private $ordersTab1;
         private $ordersTab2;
+        private $managerHandMakeDrink;
 
         public function __construct() {
             $this->dbh = new DatabaseHelper("localhost","root","", "drinkdb",3306);
             $this-> ordersTab1 = array();
             $this-> ordersTab2 = array();
+            $this -> managerHandMakeDrink = new ManagerHandMakeDrink();
         }
 
         public function addNewOrderTab1($order){
@@ -124,6 +130,46 @@ require_once("./assets/db/database.php");
             $name= $this->dbh->getNameByUser($userID);
             $surname = $this->dbh->getSurnameByUser($userID);
             return $name." ".$surname;
+        }
+
+        public function insertOrder(){
+
+            $userID = $_SESSION["userID"];
+            $date = date("Y-m-d");
+            $time = date("h:i:s");
+            $state = "To prepare";
+            $total = null;
+
+                                //($userID, $orderID, $date, $time, $state, $total)
+            $newOrder = new Order($userID,null,$date,$time,$state,null);
+            //($orderID, $articleName, $articleID, $quantity,$subtotal,$description)
+
+            $list_drink = unserialize( $_SESSION["shopping_cart_hmd"]);
+            //inserisco order details come drinkhandmade
+            foreach( $list_drink as $handmadedrink){
+                $drinkID = 3456;
+                $newIdHandMadeDrink = $this -> dbh -> getMaxHandMadeDrinkId()[0]["max_id"] + 1 ;
+                $newIdProduct = $this -> dbh -> getMaxProductId()[0]["max_id"] + 1; 
+                if( $newIdHandMadeDrink > $newIdProduct){
+                    $drinkID = $newIdHandMadeDrink;
+                }else{
+                    $drinkID = $newIdProduct;
+                }
+                //guardo tutti gli ingredienti che ha il drink hand made
+                foreach($handmadedrink[0]->getIngredient() as $ingredient){
+                    $qtySingleIngredient = $ingredient->getQty();
+                    $idSingleIngredient  = $ingredient -> getIngredientID(); //($drinkID, $ingredientID, $qty)
+                    $this->managerHandMakeDrink->addHandMadeDrink($drinkID,$idSingleIngredient,$qtySingleIngredient);
+                }
+
+                //qty dell'order details  handmadedrink[1]
+                $newOrder->addOrderDetail();
+            }
+            //inserisco order details come products
+           
+           
+            
+            //devo settare il totale
         }
         
     }

@@ -469,6 +469,23 @@ class DatabaseHelper{
         }
         
     }
+
+    public function insertHandMadeDrink($drinkID,$ingredientID,$qty){
+        $query = "INSERT INTO drinkhandmade (drinkID, ingredientID, qty) VALUES (?, ?, ?)";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param('iii',$drinkID,$ingredientID,$qty);
+        $stmt->execute();
+    }
+
+    public function getLastOrderID(){
+        $query = "SELECT MAX(orderID) as max_id FROM totalorders; ";
+        if($stmt = $this->conn->prepare($query)){
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $res = $result->fetch_all(MYSQLI_ASSOC);
+            return $res[0]["max_id"];
+        }
+    }
 }
 
 
