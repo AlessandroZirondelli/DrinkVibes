@@ -4,9 +4,7 @@ function submitQuantity(id) {
     var nameSelected = "#name" + id;
     var warningSelected = "#warningsLabel" + id;
     var action = 1;
-   // console.log($(inputSelected).val());
-    //console.log($(inputSelected));
-    //console.log(id);
+   
     if ($.isNumeric($(inputSelected).val()) && $(inputSelected).val() > 0) {
         console.log("Entrato");
         var quantity = $(inputSelected).val();
@@ -27,8 +25,7 @@ function submitQuantity(id) {
         xhttp.send();
         //console.log("disponibility " + disponibility);
         //quantità richiesta minore o uguale a quella disponibile
-        console.log(parseInt(disponibility));
-        console.log($(inputSelected).val() <= parseInt(disponibility));
+       
         if (parseInt(disponibility) > 0 && $(inputSelected).val() <= parseInt(disponibility)) {
         
             const xhttp1 = new XMLHttpRequest();
