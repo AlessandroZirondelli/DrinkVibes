@@ -6,7 +6,7 @@
 </div>
 <h2 class="p-3">Modify your ingredients</h2>
 <div class="accordion accordion-flush px-3 pb-3" id="accordionFlushExample">
-<form action = "uploadImageIngredient.php" method = 'POST' enctype="multipart/form-data">
+
       <?php foreach($templateParams["categories"] as $category): ?>
         <div class="accordion-item">
           <div class="accordion-header" id="flush-heading<?php echo $category ?>">
@@ -35,11 +35,11 @@
                                           <div class="accordion-item">
                                             <div class="accordion-header<?php echo $ingredient["ingredientID"]; ?>" id="flush-heading<?php echo $ingredient["ingredientID"]; ?>">
                                               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse<?php echo $ingredient["ingredientID"]; ?>" aria-expanded="false" aria-controls="flush-collapse<?php echo $ingredient["ingredientID"]; ?>">
-                                              <div class="text-decoration-none">Dettagli </div>
+                                              <div class="text-decoration-none">Details </div>
                                               </button>
                                             </div>
                                             <div id="flush-collapse<?php echo $ingredient["ingredientID"]; ?>" class="accordion-collapse collapse" aria-labelledby="flush-heading<?php echo $ingredient["ingredientID"]; ?>" data-bs-parent="#accordionFlush<?php echo $ingredient["ingredientID"]; ?>">
-                                              <div class="accordion-body<?php echo $ingredient["ingredientID"]; ?>">Descrizione:<br><?php echo $ingredient["description"]; ?></div>
+                                              <div class="accordion-body<?php echo $ingredient["ingredientID"]; ?>">Description:<br><?php echo $ingredient["description"]; ?></div>
                                             </div>
                                           </div>
                                         </div>
@@ -72,7 +72,7 @@
                                       <button class="btn btn-dark text-uppercase " id ="deletebtn<?php echo $ingredient["ingredientID"]; ?>"onclick="deleteIngredient(<?php echo $ingredient["ingredientID"]; ?>)">Delete</button> 
 
                                     </div>
-                                  </form>
+                                 
                                     <div id = "warningsLabel<?php echo $ingredient["ingredientID"]; ?>"></div>
                             </div>
                         </div>

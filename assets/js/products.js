@@ -31,9 +31,7 @@ function submitQuantity(id) {
             const xhttp1 = new XMLHttpRequest();
             
             //$(inputSelected).css("border-color", "green").css("border-width", "3px");
-            $(warningSelected).text("Added to cart shopping").css("color", "green");
-            $(warningSelected).fadeIn();
-            setTimeout(function() { fade_out(warningSelected); }, 2000);
+            
             xhttp1.onload = function() {
                 console.log(this.responseText);
             }
@@ -46,6 +44,10 @@ function submitQuantity(id) {
                 $(buttonSelected).attr("disabled", "disabled");
                 $(inputSelected).attr("disabled", "disabled");
             }
+            $(warningSelected).text("Added to cart shopping").css("color", "green");
+            $(warningSelected).fadeIn();
+            setTimeout(function() { fade_out(warningSelected); }, 2000);
+            $(inputSelected).val(""); 
         } else {
             //richiesta quantità maggiore a quella disponibile
             $(inputSelected).css("border-color", "red").css("border-width", "3px");

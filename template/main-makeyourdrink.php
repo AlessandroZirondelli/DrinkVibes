@@ -26,9 +26,10 @@
       <button class="btn btn-dark text-uppercase col-6 mx-1 mt-4" onclick="addShoppingCart()">Add to shopping cart</button>
       <button class="btn btn-dark text-uppercase col-auto mx-1 mt-4" onclick="reset(true)">Reset</button>
   </div>
+  
 </div>
 <div>
-  <p id = "textShoppingCart"></p>
+  <p class = "ms-3" id = "textShoppingCart"></p>
 </div>
 
 <div>
@@ -68,11 +69,11 @@
                                           <div class="accordion-item">
                                             <div class="accordion-header<?php echo $ingredient["ingredientID"]; ?>" id="flush-heading<?php echo $ingredient["ingredientID"]; ?>">
                                               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse<?php echo $ingredient["ingredientID"]; ?>" aria-expanded="false" aria-controls="flush-collapse<?php echo $ingredient["ingredientID"]; ?>">
-                                              <div class="text-decoration-none">Dettagli </div>
+                                              <div class="text-decoration-none">Details </div>
                                               </button>
                                             </div>
                                             <div id="flush-collapse<?php echo $ingredient["ingredientID"]; ?>" class="accordion-collapse collapse" aria-labelledby="flush-heading<?php echo $ingredient["ingredientID"]; ?>" data-bs-parent="#accordionFlush<?php echo $ingredient["ingredientID"]; ?>">
-                                              <div class="accordion-body<?php echo $ingredient["ingredientID"]; ?>">Descrizione:<br><?php echo $ingredient["description"]; ?><br>Quantità totale: <div  class= "d-inline-block" id = "qtnDescription<?php echo $ingredient["ingredientID"]; ?>"> <?php echo $ingredient["qtystock"];?> </div><div class= "d-inline-block"> <?php echo $ingredient["category"] == "Liquid" ? " mL" : " unity";?></div></div>
+                                              <div class="accordion-body<?php echo $ingredient["ingredientID"]; ?>">Description:<br><?php echo $ingredient["description"]; ?><br>Total quantity: <div  class= "d-inline-block" id = "qtnDescription<?php echo $ingredient["ingredientID"]; ?>"> <?php echo $ingredient["qtystock"];?> </div><div class= "d-inline-block"> <?php echo $ingredient["category"] == "Liquid" ? " mL" : " unity";?></div></div>
                                             </div>
                                           </div>
                                         </div>

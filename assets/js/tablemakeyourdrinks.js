@@ -52,6 +52,7 @@ function submitQuantity(id){
             $(warningSelected).text("Added ingredient to drink").css("color","green");
             $(warningSelected).fadeIn();
             setTimeout(function(){fade_out(warningSelected);}, 2000);
+            $(inputSelected).val(""); 
         }else{
 
             $(inputSelected).css("border-color","red").css("border-width","3px");
@@ -119,6 +120,7 @@ function addShoppingCart(){
                 $(textShoppingCart).fadeIn();
                 setTimeout(function(){fade_out(textShoppingCart)}, 2000);
                 reset(false);
+                $(inputSelected).val("");
             }else{
                 setTimeout(function(){fade_out(textShoppingCart)}, 2000);
                 $(textShoppingCart).text(this.responseText).css("color","red");
