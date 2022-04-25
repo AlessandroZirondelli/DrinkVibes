@@ -132,17 +132,22 @@ require_once($_SERVER['DOCUMENT_ROOT']."/DrinkVibes/utils/ManagerHandMakeDrink.p
             return $name." ".$surname;
         }
 
+        public function addOrderDetail($orderDetail){
+            $this->dbh->addOrderDetail($orderDetail->getOrderID(),$orderDetail->getArticleID(),$orderDetail->getQuantity(),$orderDetail->getSubtotal(), $orderDetail->getDescription());
+            //$orderID,$articID,$qty,$subtotal,$description
+        }
+
         public function insertOrder(){
 
             $userID = $_SESSION["userID"];
             $date = date("Y-m-d");
             $time = date("h:i:s");
             $state = "To prepare";
-            $total = null;
+            $total = 0;
             $orderID = ($this->dbh->getLastOrderID())+1;
 
                                 //($userID, $orderID, $date, $time, $state, $total)
-            $newOrder = new Order($userID,$orderID,$date,$time,$state,null);
+            $newOrder = new Order($userID,$orderID,$date,$time,$state,$total);
             //($orderID, $articleName, $articleID, $quantity,$subtotal,$description)
 
             $list_drink = unserialize( $_SESSION["shopping_cart_hmd"]);
@@ -163,14 +168,14 @@ require_once($_SERVER['DOCUMENT_ROOT']."/DrinkVibes/utils/ManagerHandMakeDrink.p
                     $this->managerHandMakeDrink->addHandMadeDrink($drinkID,$idSingleIngredient,$qtySingleIngredient);
                 }
                 //$orderID, $articleName, $articleID, $quantity,$subtotal,$description)
-                $orderDetail = new OrderDetail($orderID,"",$drinkID,$handmadedrink[1],$handmadedrink[0]->getTotalPrice()*$handmadedrink[1],"");
+                $orderDetail = new OrderDetail($orderID,"",$drinkID,$handmadedrink[1],$handmadedrink[0]->getTotalPrice()*$handmadedrink[1],"Custom drink");
+                $total= $total + $handmadedrink[0]->getTotalPrice()*$handmadedrink[1]; //incremento il toale dell'ordine
                 //qty dell'order details  handmadedrink[1]
-                
+                $this->addOrderDetail($orderDetail);
             }
             //inserisco order details come products
            
-           
-            
+           $this->dbh->addTotalOrder();
             //devo settare il totale
         }
         

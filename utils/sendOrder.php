@@ -5,13 +5,11 @@ session_start();
 
 $dbh = new DatabaseHelper("localhost", "root", "", "drinkdb",3306);
 
-$userID = $_SESSION["userID"];
+//$userID = $_SESSION["userID"];
 
 
 $manager = new ManagerOrders();
-//$manager->insertOrder();
-
-
+$manager->insertOrder();
 
 
 

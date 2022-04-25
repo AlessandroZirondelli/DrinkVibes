@@ -493,8 +493,23 @@ class DatabaseHelper{
         $stmt->bind_param('iiids',$orderID,$articID,$qty,$subtotal,$description);
         $stmt->execute();
     }
+    //($orderID, $userID, $articleID, $quantity,$subtotal,$description)
+    public function addTotalOrder($orderID, $userID, $date, $time,$state,$total){
+        $query = "INSERT INTO totalorders (orderID, userID, date, time,state,total) VALUES (?, ?, ?, ?, ?, ?)";
+        if($stmt = $this->conn->prepare($query)){
+            $stmt->bind_param('issssd',$orderID,$userID,$date,$time,$state,$total);
+            $stmt->execute();
+            echo "OK";
+        }else{
+            echo "NO";
+        }
+    }
 }
 
+/*
+$dbh =  new DatabaseHelper("localhost", "root", "", "drinkdb",3306);
+$dbh-> addTotalOrder(100,"Nick987","2020-04-6","12:10:10","To prepare", 1325);
+*/
 
 ?>
 
