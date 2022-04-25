@@ -4,8 +4,10 @@
     require_once("utils/HandMadeDrink.php");
     require_once("utils/Ingredient.php");
     require_once("utils/Product.php");
-    $_SESSION["redirect"] = "empty";
+    //$_SESSION["redirect"] = "empty";
     $templateParams["title"] = "Shopping cart";
+
+
     $templateParams["main-content"] = "main-shoppingcart.php";
     $cssArray[0]="./assets/css/shoppingcart-style.css";
   

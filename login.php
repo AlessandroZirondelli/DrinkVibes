@@ -36,6 +36,10 @@ if(isset($_POST["username"]) && isset($_POST["password"])){
             $_SESSION["redirect"]="empty";
             header("location:notifications.php");
         }
+        elseif(isset($_SESSION["redirect"]) && ($_SESSION["redirect"]=="shoppingcart")){
+            $_SESSION["redirect"]="empty";
+            header("location:shoppingcart.php");
+        }
     }
 }
 
