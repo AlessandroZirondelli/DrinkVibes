@@ -1,7 +1,9 @@
 <?php
 
-require_once("assets/db/database.php");
-require_once("ManagerIngredients.php");
+//require_once("assets/db/database.php");
+require_once($_SERVER['DOCUMENT_ROOT']."/DrinkVibes/assets/db/database.php");
+
+//require_once("ManagerIngredients.php");
     class ManagerProducts{
         private $dbh;
 
@@ -13,7 +15,7 @@ require_once("ManagerIngredients.php");
         public function getAllBeverageProducts() {
             return $this->dbh->getProductByType("Beverage");
         }
-
+    
         public function getAllSpiritsProducts() {
             return $this->dbh->getProductByType("Spirits");
         }
@@ -43,7 +45,7 @@ require_once("ManagerIngredients.php");
                 return false;
             }
         }
-        public function getProductDisponibility($id,$qtn){
+        public function getProductDisponibility($id){
             $product = $this -> getProductsById($id);
             return $product[0]["qtystock"];
             
@@ -69,6 +71,10 @@ require_once("ManagerIngredients.php");
         public function deleteProduct($id){
             return $this->dbh ->deleteProduct($id);
         }
+        public function getDisponibility($id){
+            return $this->dbh -> getProductById($id);
+        }
+     
 
     }
   

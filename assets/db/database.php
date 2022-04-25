@@ -48,6 +48,18 @@ class DatabaseHelper{
         }
         
     }
+    public function getProductById($productID){
+        $query = "SELECT * FROM product WHERE productID=?";
+        if($stmt = $this->conn->prepare($query)){
+            $stmt->bind_param('i',$productID);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return $result->fetch_all(MYSQLI_ASSOC)[0]["qtystock"];
+        }else{
+            return NULL;
+        }
+        
+    }
     public function getUserByUserId($userId){
         $query = "SELECT * FROM user WHERE userID=?";
         if($stmt = $this->conn->prepare($query)){

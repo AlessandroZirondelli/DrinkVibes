@@ -7,15 +7,17 @@ class Product{
     private $price; 
     private $description;
     private $type;
+    private $image;
 
 
-    public function __construct($productID, $name, $qtystock, $price, $description, $type){
+    public function __construct($productID, $name, $qtystock, $price, $description, $type, $image){
          $this-> productID = $productID;
          $this-> name = $name;
          $this-> qtystock = $qtystock;
          $this-> price = $price;
          $this-> description = $description;
          $this-> type = $type;
+         $this-> image = $image; 
     }
 
     public function setProductID($productID){
@@ -23,6 +25,12 @@ class Product{
     }
     public function getProductID(){
         return $this->productID;
+    } 
+    public function setImage($image){
+        $this->image = $image;
+    }
+    public function getImage(){
+        return $this->image;
     } 
 
     public function setName($name){

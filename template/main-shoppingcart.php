@@ -24,7 +24,7 @@
                     <tr id = "rowDrink<?php echo $hmd[0] ->getId();?>">
                         <th scope="rowDrink<?php echo $hmd[0] ->getId();?>">
                         <div class="d-flex align-items-center">
-                            <img src="assets/img/i.png" class="img-fluid rounded-3" style="width: 120px;" alt="Drink">
+                            <img src="assets/img/MysteryDrink2.png" class="img-fluid rounded-3" style="width: 120px;" alt="Drink">
                             <div class = "mx-1">HandMadeDrink<?php echo $hmd[0] ->getId();?></div>
                         </div>
                         
@@ -63,7 +63,7 @@
                     <tr id = "rowProd<?php echo $prod[0] ->getProductID();?>">
                         <th scope="rowProd<?php echo $prod[0] ->getProductID();?>">
                         <div class="d-flex align-items-center">
-                            <img src="assets/img/i.png" class="img-fluid rounded-3" style="width: 120px;" alt="Drink">
+                            <img src="<?php echo $prod[0] ->getImage();?>" class="img-fluid rounded-3" style="width: 120px;" alt="Drink">
                             <div class = "mx-1"><?php echo $prod[0] ->getName();?></div>
                         </div>
                         
@@ -104,7 +104,7 @@
         <div id = "cardempty" class="card-body cart">
           <div class="col-sm-12 empty-cart-cls text-center"> <img src="https://i.imgur.com/dCdflKN.png" width="130" height="130" class="img-fluid mb-4 mr-3">
             <h3><strong>Your Cart is Empty</strong></h3>
-            <h4>Add something to make me happy :)</h4> <a href="#" class="btn btn-dark text-uppercase " data-abc="true">continue shopping</a>
+            <h4>Add something to make me happy :)</h4> <a href="index.php" class="btn btn-dark text-uppercase " data-abc="true">continue shopping</a>
           </div>
         </div>
         <div id = "paycard" class="card shadow-2-strong mb-5 mb-lg-0" style="border-radius: 16px;">

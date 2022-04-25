@@ -1,10 +1,11 @@
 <?php
 require_once("utils/ManagerIngredients.php");
+require_once("utils/ManagerProducts.php");
 require_once("utils/HandMadeDrink.php");
 require_once("utils/Ingredient.php");
 session_start();
 $action = $_REQUEST["action"];
-
+$mngProducts = new ManagerProducts();
 $mngIngredients = new ManagerIngredients();
 $handMadeDrink = new HandMadeDrink();
 $handMadeDrink = unserialize($_SESSION["shopping_cart_temp"]); 
@@ -78,5 +79,9 @@ if($action == 2){
     }else{
         echo "Select ingredients before add to shopping cart";
     }
+}
+if($action == 3){
+    $id = $_REQUEST["id"];
+    echo $mngProducts -> getDisponibility($id);
 }
 ?>
