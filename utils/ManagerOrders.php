@@ -15,6 +15,7 @@ require_once($_SERVER['DOCUMENT_ROOT']."/DrinkVibes/assets/db/database.php");
 require_once($_SERVER['DOCUMENT_ROOT']."/DrinkVibes/utils/ManagerHandMakeDrink.php");
 require_once($_SERVER['DOCUMENT_ROOT']."/DrinkVibes/utils/HandMadeDrink.php");
 require_once($_SERVER['DOCUMENT_ROOT']."/DrinkVibes/utils/Ingredient.php");
+require_once($_SERVER['DOCUMENT_ROOT']."/DrinkVibes/utils/Product.php");
 //require_once("./ManagerHandMakeDrink.php");
 
 //session_start();
@@ -176,19 +177,18 @@ require_once($_SERVER['DOCUMENT_ROOT']."/DrinkVibes/utils/Ingredient.php");
                 //qty dell'order details  handmadedrink[1]
                 $this->addOrderDetail($orderDetail);
             }
-            /*
+            $list_product = unserialize( $_SESSION["shopping_cart_prod"]);
             //inserisco order details come products
             foreach( $list_product as $product){
-
                 //guardo tutti gli ingredienti che ha il drink hand made
-                
                 //$orderID, $articleName, $articleID, $quantity,$subtotal,$description)
-                $orderDetail = new OrderDetail($orderID,"",$drinkID,$handmadedrink[1],$handmadedrink[0]->getTotalPrice()*$handmadedrink[1],"Custom drink");
-                $total= $total + $handmadedrink[0]->getTotalPrice()*$handmadedrink[1]; //incremento il toale dell'ordine
+                $productID = $product[0]->getProductID(); //$orderID, $articleName, $articleID, $quantity,$subtotal,$description
+                $orderDetail = new OrderDetail($orderID,"",$productID,$product[1],$product[0]->getPrice()*$product[1],$product[0]->getDescription());
+                $total= $total + $product[0]->getPrice()*$product[1]; //incremento il toale dell'ordine
                 //qty dell'order details  handmadedrink[1]
                 $this->addOrderDetail($orderDetail);
             }
-*/
+
 
            //($orderID, $userID, $date, $time,$state,$total)
            $this->dbh->addTotalOrder($orderID,$userID,$date,$time,$state,$total);
