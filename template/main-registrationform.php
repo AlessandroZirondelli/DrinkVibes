@@ -46,7 +46,7 @@
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
               </div>
-              <input name="birthday" type="text" class="input form-control" id="birthday" placeholder="Birthday" />
+              <input name="birthday" type="text" class="input form-control" id="birthday" placeholder="Birthday (yyyy-mm-dd)" />
             </div>
           </div>
 
