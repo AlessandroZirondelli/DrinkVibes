@@ -22,10 +22,18 @@
         $jsArray[1]="./assets/js/tablemakeyourdrinks.js";
     }
 
- 
+    if(!isset( $_SESSION["shopping_cart_hmd"])) {
+        $_SESSION["shopping_cart_hmd"] =  serialize(array());
+    }
+    if(!isset( $_SESSION["shopping_cart_prod"])) {
+        $_SESSION["shopping_cart_prod"] = serialize(array());
+    }
+
+    
+  
     
     $mngIngredients = new ManagerIngredients();
-    $_SESSION["shopping_cart_hmd"] = serialize(array());
+   // $_SESSION["shopping_cart_hmd"] = serialize(array());
     $_SESSION["shopping_cart_temp"] = serialize(new HandMadeDrink());
    
     $prova =array(new HandMadeDrink());

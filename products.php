@@ -2,6 +2,7 @@
     require_once("bootstrap.php"); 
     require_once("utils/ManagerProducts.php");
     require_once("utils/Product.php");  
+    require_once("utils/HandMadeDrink.php");
     require_once("utils/ManagerAccounts.php");
     require_once("utils/Account.php");  
 
@@ -25,8 +26,12 @@
     $templateParams["Default drink"] = $manager -> getAllDefaultDrink();
     $templateParams["All"] = $manager -> getAllProducts();
     //$templateParams["Search"] = $manager -> getSearchProduct();
-    
-
+    if(!isset( $_SESSION["shopping_cart_prod"])) {
+        $_SESSION["shopping_cart_prod"] = serialize(array());
+    }if(!isset( $_SESSION["shopping_cart_hmd"])) {
+        $_SESSION["shopping_cart_hmd"] =  serialize(array());
+    }
+    $_SESSION["shopping_cart_temp"] = serialize(new HandMadeDrink());
     $templateParams["title"] = "Product list";
     
     if($managerAcc ->isUserLoggedIn()){

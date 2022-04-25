@@ -15,7 +15,7 @@
     $templateParams["prod"] = array();
    
    // $templateParams["prod"] = array(array(new Product(1,"vodka",4,5,"aaff","Wine") ,4));
-   $_SESSION["shopping_cart_prod"]= serialize(array(array(new Product(1,"vodka",4,5,"aaff","Wine") ,4)));
+  // $_SESSION["shopping_cart_prod"]= serialize(array(array(new Product(1,"vodka",4,5,"aaff","Wine","") ,4)));
 
     if(isset( $_SESSION["shopping_cart_hmd"]) && !empty( $_SESSION["shopping_cart_hmd"])) {
         $templateParams["hmd"] = unserialize( $_SESSION["shopping_cart_hmd"]);

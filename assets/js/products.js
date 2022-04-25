@@ -4,10 +4,14 @@ function submitQuantity(id) {
     var nameSelected = "#name" + id;
     var warningSelected = "#warningsLabel" + id;
     var action = 1;
-
+   // console.log($(inputSelected).val());
+    //console.log($(inputSelected));
+    //console.log(id);
     if ($.isNumeric($(inputSelected).val()) && $(inputSelected).val() > 0) {
+        console.log("Entrato");
         var quantity = $(inputSelected).val();
-        var action = 1;
+        var action = 3;
+        var actionUpdate = 1;
         var disponibility;
 
         const xhttp = new XMLHttpRequest();
@@ -21,37 +25,38 @@ function submitQuantity(id) {
         }
         xhttp.open("GET", "submit.php?action=" + action + "&id=" + id, false);
         xhttp.send();
-
+        //console.log("disponibility " + disponibility);
         //quantità richiesta minore o uguale a quella disponibile
+        console.log(parseInt(disponibility));
+        console.log($(inputSelected).val() <= parseInt(disponibility));
         if (parseInt(disponibility) > 0 && $(inputSelected).val() <= parseInt(disponibility)) {
-
-            const xhttp = new XMLHttpRequest();
-
-            $(inputSelected).css("border-color", "green").css("border-width", "3px");
-            $(warningSelected).text("Quantity correct").css("color", "green");
+        
+            const xhttp1 = new XMLHttpRequest();
+            
+            //$(inputSelected).css("border-color", "green").css("border-width", "3px");
+            $(warningSelected).text("Added to cart shopping").css("color", "green");
             $(warningSelected).fadeIn();
             setTimeout(function() { fade_out(warningSelected); }, 2000);
-
-            xhttp.onload = function() {
+            xhttp1.onload = function() {
                 console.log(this.responseText);
             }
-            xhttp.open("GET", "gettable.php?action=" + action + "&qtn=" + quantity + "&id=" + id);
-            xhttp.send();
+            xhttp1.open("GET", "utils/updateProduct.php?action=" + actionUpdate + "&qtn=" + quantity + "&id=" + id);
+            xhttp1.send();
 
             //se è sold out
             if (parseInt(disponibility) == parseInt(quantity)) {
-                $(nameSelected).text($(nameSelected).text() + " - Sold out");
+                $(nameSelected).text($(nameSelected).text() + " [Sold out]");
                 $(buttonSelected).attr("disabled", "disabled");
                 $(inputSelected).attr("disabled", "disabled");
             }
         } else {
-
+            console.log("ciao");
             //richiesta quantità maggiore a quella disponibile
             $(inputSelected).css("border-color", "red").css("border-width", "3px");
             if ($(inputSelected).val() > parseInt(disponibility)) { // Se la quantità richiesta è maggiore di quella disponibile 
-                $(warningSelected).text("Too many quantity required, max disponibility" + disponibility).css("border-color", "red");
+                $(warningSelected).text("Too many quantity required, max disponibility" + disponibility).css("color", "red");
                 $(warningSelected).fadeIn();
-                //setTimeout(function() { fade_out(warningSelected); }, 2000);
+                setTimeout(function() { fade_out(warningSelected); }, 2000);
             }
         }
     } else {
@@ -62,3 +67,6 @@ function submitQuantity(id) {
 
     }
 }
+function fade_out(id) {
+    $(id).fadeOut(1000, "linear");
+} 

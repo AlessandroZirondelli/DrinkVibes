@@ -154,7 +154,7 @@ if($action == 7){
         if(!($prod[0] -> getProductID() == $id)){
             array_push($list_prod_temp, array($prod[0],$prod[1]));
         }else{
-            $mngProducts ->updateProduct($prod[0] -> getProductID(), $prod[1] + $mngProducts -> getProductDisponibility($prod[0] -> getProductID(),0));
+            $mngProducts ->updateProduct($prod[0] -> getProductID(), $prod[1] + $mngProducts -> getProductDisponibility($prod[0] -> getProductID()));
         }
     }
     $_SESSION["shopping_cart_prod"] = serialize( $list_prod_temp );
@@ -170,7 +170,7 @@ if($action == 8){
     $insuffIng = "";
     $list_prod_temp = array();
     $list_prod = unserialize( $_SESSION["shopping_cart_prod"]);
-    $num = $mngProducts ->getProductDisponibility(1,0);
+    //$num = $mngProducts ->getProductDisponibility(1);
     
     
     foreach($list_prod as $prod){
@@ -184,7 +184,7 @@ if($action == 8){
  
     if($valueRead>$valueStored){
         $val =  $valueRead - $valueStored;
-        $valDb = intval($mngProducts ->getProductDisponibility($id,0));
+        $valDb = intval($mngProducts ->getProductDisponibility($id));
        
         if($val >$valDb){
             
@@ -194,9 +194,9 @@ if($action == 8){
 
    
         if(strcmp($insuffIng,"") == 0){
-            $mngProducts -> updateProduct($prodSelected -> getProductID(), $mngProducts -> getProductDisponibility($prodSelected -> getProductID(),0) - $val);
+            $mngProducts -> updateProduct($prodSelected -> getProductID(), $mngProducts -> getProductDisponibility($prodSelected -> getProductID()) - $val);
             //var_dump($db);
-            $v = $mngProducts -> getProductDisponibility($prodSelected -> getProductID(),0) - $val;
+            $v = $mngProducts -> getProductDisponibility($prodSelected -> getProductID()) - $val;
            // var_dump($v);
            // var_dump($mngProducts -> getProductDisponibility($prodSelected -> getProductID(),0) - $val);
             //var_dump($sep);
@@ -214,7 +214,7 @@ if($action == 8){
     if($valueRead<$valueStored){
        
         $val = $valueStored - $valueRead;
-        $mngProducts -> updateProduct($prodSelected -> getProductID(), $mngProducts -> getProductDisponibility($prodSelected -> getProductID(),0) + $val);
+        $mngProducts -> updateProduct($prodSelected -> getProductID(), $mngProducts -> getProductDisponibility($prodSelected -> getProductID()) + $val);
         
         array_push($list_prod_temp, array($prodSelected, $valueRead));
         

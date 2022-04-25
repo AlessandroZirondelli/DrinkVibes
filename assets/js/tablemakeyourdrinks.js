@@ -13,7 +13,6 @@ function submitQuantity(id){
     var warningSelected = "#warningsLabel" + id;
     var action = 1;
 
-    console.log("primfjdfjfdjo ");
     if($.isNumeric($(inputSelected).val()) && $(inputSelected).val()>0){
         var quantity = $(inputSelected).val();
         var action = 1;
@@ -50,11 +49,14 @@ function submitQuantity(id){
                 $(buttonSelected).attr("disabled","disabled");
                 $(inputSelected).attr("disabled","disabled");
             }
+            $(warningSelected).text("Added ingredient to drink").css("color","green");
+            $(warningSelected).fadeIn();
+            setTimeout(function(){fade_out(warningSelected);}, 2000);
         }else{
 
             $(inputSelected).css("border-color","red").css("border-width","3px");
             if($(inputSelected).val() >  parseInt(disponibility) ){ // Se la quantità richiesta è maggiore di quella disponibile errore
-                $(warningSelected).text("Too many quantity required, max disponibility" + disponibility).css("border-color","red");
+                $(warningSelected).text("Too many quantity required, max disponibility" + disponibility).css("color","red");
                 $(warningSelected).fadeIn();
                 setTimeout(function(){fade_out(warningSelected);}, 2000);       
             }
