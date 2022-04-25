@@ -24,10 +24,6 @@ if($action == 1){
         //var_dump($sep);
        // var_dump($product);
         foreach($list_prod as $prod){
-            
-
-            //echo $sep;
-            //echo $prod;
             if($prod[0]->getProductID() != $id){
                //array_push($list_prod_temp,array(new Product($product[0]["productID"],$product[0]["name"],$product[0]["description"],$product[0]["price"],$product[0]["qtystock"],$product[0]["type"],$product[0]["imageURL"]),$qtn));
                 array_push($list_prod_temp,array($prod[0],$prod[1]));
@@ -37,11 +33,7 @@ if($action == 1){
             }
         }
         if($isFirst == true){
-           
-            array_push($list_prod_temp,array(new Product($product[0]["productID"],$product[0]["name"],$product[0]["description"],$product[0]["price"],$product[0]["qtystock"],$product[0]["type"],$product[0]["imageURL"]),$qtn));
-
-        }else{
-
+            array_push($list_prod_temp,array(new Product($product[0]["productID"],$product[0]["name"],$product[0]["qtystock"],$product[0]["price"],$product[0]["description"],$product[0]["type"],$product[0]["imageURL"]),$qtn));
         }
         //Rimetto nel temp ingredient della sessione
     }
