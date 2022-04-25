@@ -83,7 +83,7 @@
                                 </div>
                                 <div id="flush-collapse<?php echo $products["productID"]; ?>" class="accordion-collapse collapse" aria-labelledby="flush-heading<?php echo $products["productID"]; ?>" data-bs-parent="#accordionFlush<?php echo $products["productID"]; ?>">
 
-                                    <div class="accordion-body<?php echo $products["productID"]; ?>">Description:<br><?php echo $products["description"]; ?><br>Quantity available: <?php echo $products["qtystock"] . " unity"; ?></div>
+                                    <div class="accordion-body<?php echo $products["productID"]; ?>">Description:<br><?php echo $products["description"]; ?><br>Quantity available: <div class="d-inline" id = "quantityDescription<?php echo $products["productID"]; ?>"><?php echo $products["qtystock"]; ?></div> unity</div>
 
                                 </div>
                             </div>

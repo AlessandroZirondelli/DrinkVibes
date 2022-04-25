@@ -3,7 +3,7 @@ function submitQuantity(id) {
     var buttonSelected = "#btn" + id;
     var nameSelected = "#name" + id;
     var warningSelected = "#warningsLabel" + id;
-    var action = 1;
+    
    
     if ($.isNumeric($(inputSelected).val()) && $(inputSelected).val() > 0) {
         console.log("Entrato");
@@ -48,6 +48,7 @@ function submitQuantity(id) {
             $(warningSelected).fadeIn();
             setTimeout(function() { fade_out(warningSelected); }, 2000);
             $(inputSelected).val(""); 
+            updateQtnDescription(id);
         } else {
             //richiesta quantità maggiore a quella disponibile
             $(inputSelected).css("border-color", "red").css("border-width", "3px");
@@ -64,6 +65,18 @@ function submitQuantity(id) {
 
 
     }
+}
+function updateQtnDescription(id){
+    var idQuantityDescription = "#quantityDescription" + id;
+    const xhttp = new XMLHttpRequest();
+    var disponibility = 0;
+    var action = 3;
+    xhttp.onload = function() { // Prende la quantità disponibile del prodotto
+        disponibility = this.responseText;
+    }
+    xhttp.open("GET", "submit.php?action=" + action + "&id=" + id, false);
+    xhttp.send();
+    $(idQuantityDescription).text(disponibility);
 }
 function fade_out(id) {
     $(id).fadeOut(1000, "linear");

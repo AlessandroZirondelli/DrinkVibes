@@ -53,6 +53,7 @@ function submitQuantity(id){
             $(warningSelected).fadeIn();
             setTimeout(function(){fade_out(warningSelected);}, 2000);
             $(inputSelected).val(""); 
+            updateQuantityDescription(id);
         }else{
 
             $(inputSelected).css("border-color","red").css("border-width","3px");
@@ -94,6 +95,11 @@ function deleteRow() {
         }    
         xhttp.open("GET", "gettable.php?action="+ action + "&id="+ JSON.stringify(arrayDeleteId) + "&upDb=" + upgradeDatabase );
         xhttp.send();
+        arrayDeleteId.forEach(id => {
+            console.log("AAAAAA");
+            updateQuantityDescription(id);
+        });
+
     }
 }
 
@@ -160,6 +166,8 @@ function reset(upDataBase){
        
     $('[checked="checked"]').each(function() {
         arrayDeleteId.push($(this).val());
+        //console.log($(this).val());
+        //updateQuantityDescription($(this).val());
     });    
    /* arrayDeleteId.forEach(idUpdate => {
          
@@ -175,10 +183,29 @@ function reset(upDataBase){
     xhttp.onload = function() {
         document.getElementById("ingredientTable").innerHTML = this.responseText;            
     }
-    xhttp.open("GET", "gettable.php?action="+ action + "&id="+ JSON.stringify(arrayDeleteId) + "&upDb=" + upgradeDatabase );
+    xhttp.open("GET", "gettable.php?action="+ action + "&id="+ JSON.stringify(arrayDeleteId) + "&upDb=" + upgradeDatabase,false );
     xhttp.send();
-}
+    
+    arrayDeleteId.forEach(id => {    
+        updateQuantityDescription(id);
+    });
+    
 
+}
+function updateQuantityDescription(id){
+    var action = 1;
+    var disponibility = 0;
+    var idQtnDesc = "#qtnDescription" + id;
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function() {  // Prende la quantità disponibile del prodotto
+        disponibility = this.responseText;
+    }
+    xhttp.open("GET", "submit.php?action=" + action + "&id=" + id,false );
+    xhttp.send();
+    console.log(idQtnDesc + disponibility);
+
+    $(idQtnDesc).text(disponibility);
+}
 function fade_out(id) {
     $(id).fadeOut(1000, "linear");
 } 
