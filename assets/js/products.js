@@ -50,7 +50,6 @@ function submitQuantity(id) {
                 $(inputSelected).attr("disabled", "disabled");
             }
         } else {
-            console.log("ciao");
             //richiesta quantità maggiore a quella disponibile
             $(inputSelected).css("border-color", "red").css("border-width", "3px");
             if ($(inputSelected).val() > parseInt(disponibility)) { // Se la quantità richiesta è maggiore di quella disponibile 

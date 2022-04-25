@@ -84,14 +84,13 @@ function deleteRow() {
         $(buttonSelected).removeAttr("disabled");
         $(inputSelected).removeAttr("disabled");
     });    
-    console.log(arrayDeleteId);
-    if(arrayDeleteId.length!=0){
-        console.log("enter");
+    
+
+    if(arrayDeleteId.length!=0){    
         const xhttp = new XMLHttpRequest();
         xhttp.onload = function() {
             document.getElementById("ingredientTable").innerHTML = this.responseText;            
-        }
-        
+        }    
         xhttp.open("GET", "gettable.php?action="+ action + "&id="+ JSON.stringify(arrayDeleteId) + "&upDb=" + upgradeDatabase );
         xhttp.send();
     }
@@ -105,7 +104,7 @@ function addShoppingCart(){
     var type = "handmadedrink";
     var qtn = $(inputSelected).val();
     var action = 2;
-    console.log("AddToshoopingCart");
+    
     if($.isNumeric(qtn) && qtn>0){ // Controllo se la quantità inserita è maggiore di zero ed è un numero
         $(inputSelected).css("border-color","black");
         $(textShoppingCart).text("").css("color","green"); // Reset testo shoppingCart
