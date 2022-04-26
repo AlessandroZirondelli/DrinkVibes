@@ -24,9 +24,13 @@ class DatabaseHelper{
         $stmt->execute();
     }
     public function deleteIngredient($id){
-        $query = " DELETE FROM Ingredient WHERE ingredientID= ? ";
+      /*  $query = " DELETE FROM Ingredient WHERE ingredientID= ? ";
         $stmt = $this->conn->prepare($query);
         $stmt->bind_param('i',$id);
+        $stmt->execute();*/
+        $query = "UPDATE ingredient SET deleteIngredient = 1 WHERE ingredientID = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt-> bind_param("i",$id);
         $stmt->execute();
     }
     
@@ -73,7 +77,8 @@ class DatabaseHelper{
         
     }
     public function getIngredientByCategory($category){
-        $query = "SELECT * FROM ingredient WHERE category=?";
+       
+        $query = "SELECT * FROM ingredient WHERE category=? AND deleteIngredient = 0 ";
         if($stmt = $this->conn->prepare($query)){
             $stmt->bind_param('s',$category);
             $stmt->execute();
@@ -85,7 +90,7 @@ class DatabaseHelper{
         
     }
     public function getIngredientByTypology($typology){
-        $query = "SELECT * FROM ingredient WHERE typology=?";
+        $query = "SELECT * FROM ingredient WHERE typology=? AND deleteIngredient = 0 ";
         if($stmt = $this->conn->prepare($query)){
             $stmt->bind_param('s',$typology);
             $stmt->execute();
@@ -97,7 +102,7 @@ class DatabaseHelper{
         
     }
     public function getAlcoholIngredient(){
-        $query = "SELECT * FROM ingredient WHERE typology='Spirit' OR typology='Wine' ";
+        $query = "SELECT * FROM ingredient WHERE (typology='Spirit' OR typology='Wine') AND deleteIngredient = 0 ";
         if($stmt = $this->conn->prepare($query)){
             $stmt->execute();
             $result = $stmt->get_result();
@@ -403,10 +408,14 @@ class DatabaseHelper{
     }
     //elimina prodotto da lista prodotti admin (uploadProduct)
     public function deleteProduct($id){
-        $query = " DELETE FROM product WHERE productID= ? ";
+        $query = "UPDATE product SET deleteProduct = 1 WHERE productID = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt-> bind_param("i",$id);
+        $stmt->execute();
+        /*$query = " DELETE FROM product WHERE productID= ? ";
         $stmt = $this->conn->prepare($query);
         $stmt->bind_param('i',$id);
-        $stmt->execute();
+        $stmt->execute();*/
     }
 
     //aggiorna prodotto da lista prodotti admin (uploadProduct)
@@ -449,7 +458,7 @@ class DatabaseHelper{
     }
 
     public function getProduct() {
-        $query = "SELECT * FROM product ORDER BY productID ASC";
+        $query = "SELECT * FROM product WHERE deleteProduct = 0 ORDER BY productID ASC ";
         if($stmt = $this->conn->prepare($query)){
             $stmt->execute();
             $result = $stmt->get_result();
@@ -460,7 +469,7 @@ class DatabaseHelper{
     }
     
     public function getProductByType($type){
-        $query = "SELECT * FROM product WHERE type=?";
+        $query = "SELECT * FROM product WHERE type=? AND deleteProduct = 0 ";
         if($stmt = $this->conn->prepare($query)){
             $stmt->bind_param('s',$type);
             $stmt->execute();

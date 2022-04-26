@@ -11,7 +11,7 @@
   <div class="row">
     <h2 class="p-3">Modify existing products</h2>
     <?php foreach ($templateParams["All"] as $products) : ?>
-      <div class="col-md-4">
+      <div class="col-md-4" id = "card<?php echo $products["productID"];?>">
         <div class="card mb-4 product-wap rounded-0">
           <div class="card-inner">
             <img class="card-img rounded-0" src="assets/img/i.png">

@@ -40,6 +40,7 @@ require_once("assets/db/database.php");
             return $this->dbh ->insertIngredient($name,$image,$description,$quantity,$category,$tipology,$price);
         }
         public function deleteIngredient($id){
+            
             return $this->dbh ->deleteIngredient($id);
         }
         public function maxId(){
