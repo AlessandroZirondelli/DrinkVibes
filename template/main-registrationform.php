@@ -1,6 +1,6 @@
 <div class="container d-flex align-items-center justify-content-center my-5 ">
   <div class="row">
-      <form name="registrationForm" action="./utils/uploadAccount.php" onsubmit="return validateRegistrationForm()" method="POST" autocomplete="off" class="bg-light border p-3">
+      <form id="registrationForm" name="registrationForm" action="./utils/uploadAccount.php" method="POST" autocomplete="off" class="bg-light border p-3">
         <div class="form-row">
           <h4 class="title my-3">Registration</h4>
 
