@@ -60,6 +60,16 @@ function printRadio(){
         console.log($("#radioButton").val());
    
 }
+function addProductTest(){
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function() {
+
+    }
+        //carica le nuove modifiche dei prodotti o ne aggiunge di nuovi a seconda del caso in cui si trova
+    xhttp.open("GET", "uploadProduct.php?action=" + 3 + "&imageurl=" + "fdffdfd" + "&name=" + "newt" + "&descr=" + "descProduct" + "&qtn=" + "5" + "&price=" + "4" + "&tipology=" + "typeProduct");
+    xhttp.send();
+    return false;
+}
 function addProduct() {
     var warningSelected = "#warningsLabel";
     $(warningSelected).text("");
@@ -132,7 +142,7 @@ function addProduct() {
 
     if(errorEmpty == false && errorNum == false){
         xhttp.onload = function() {
-
+            console.log(this.responseText);
         }
             //carica le nuove modifiche dei prodotti o ne aggiunge di nuovi a seconda del caso in cui si trova
         xhttp.open("GET", "uploadProduct.php?action=" + action + "&imageurl=" + imgProduct + "&name=" + nameProduct + "&descr=" + descProduct + "&qtn=" + qtnProduct + "&price=" + priceProduct + "&tipology=" + typeProduct);
