@@ -1,4 +1,4 @@
-$("#formIdProduct").on("submit", function () {
+/*$("#formIdProduct").on("submit", function () {
     $.ajax({
         url: 'uploadImgProduct.php',
         type: 'POST',
@@ -11,11 +11,11 @@ $("#formIdProduct").on("submit", function () {
             alert('text status ' + textStatus + ', err ' + err)
         }
     });
-});
+});*/
 $(document).ready(function() {
     let form = document.getElementById('formIdProduct');
     
-    form.addEventListener('submit', function(event) {
+    /*form.addEventListener('submit', function(event) {
         event.preventDefault();
         let form = event.target;
         let errors = addProduct();
@@ -23,7 +23,23 @@ $(document).ready(function() {
         if(!errors) {
             form.submit();
         }
-    })
+    })*/
+  /*  $("#formIdProduct").submit(function( event ) {
+        //alert( "Handler for .submit() called." );
+        event.preventDefault();
+        //return addProduct();
+       return false;
+    });*/
+   // $("#formIdProduct").addEventListener('submit', checkProduct);
+    function checkProduct(){
+
+    }
+    //document.getElementById("formIdProduct").addEventListener("submit", addProduct);
+    $("#formIdProduct").on("submit",addProduct);
+   
+    function myFunction() {
+        alert("The form was submitted");
+    }
     $("#image").change(function() {
 
         if (this.files && this.files[0]) {
@@ -43,6 +59,9 @@ $(document).ready(function() {
     });
 });
 
+$(document).ajaxError(function(){
+    alert("An error occurred!");
+  }); 
 
 function changeRadioButton(tipology) {
     var radioButtonTipology = "#radioButton" + tipology;
@@ -66,7 +85,7 @@ function addProductTest(){
 
     }
         //carica le nuove modifiche dei prodotti o ne aggiunge di nuovi a seconda del caso in cui si trova
-    xhttp.open("GET", "uploadProduct.php?action=" + 3 + "&imageurl=" + "fdffdfd" + "&name=" + "newt" + "&descr=" + "descProduct" + "&qtn=" + "5" + "&price=" + "4" + "&tipology=" + "typeProduct");
+    xhttp.open("GET", "uploadProduct.php?action=" + 3 + "&imageurl=" + "ciaoBro" + "&name=" + "newt" + "&descr=" + "descProduct" + "&qtn=" + "5" + "&price=" + "4" + "&tipology=" + "typeProduct");
     xhttp.send();
     return false;
 }
@@ -141,12 +160,12 @@ function addProduct() {
     console.log("errorEmpty" + errorEmpty);
 
     if(errorEmpty == false && errorNum == false){
-        xhttp.onload = function() {
+      /*  xhttp.onload = function() {
             console.log(this.responseText);
         }
             //carica le nuove modifiche dei prodotti o ne aggiunge di nuovi a seconda del caso in cui si trova
         xhttp.open("GET", "uploadProduct.php?action=" + action + "&imageurl=" + imgProduct + "&name=" + nameProduct + "&descr=" + descProduct + "&qtn=" + qtnProduct + "&price=" + priceProduct + "&tipology=" + typeProduct);
-        xhttp.send();
+        xhttp.send();*/
     }
     
     if(errorEmpty == true){
@@ -159,7 +178,7 @@ function addProduct() {
         setTimeout(function() { fade_out(warningSelected); }, 2000);
     }
     
-    return errorEmpty || errorNum ;
+    return errorEmpty == false && errorNum == false;
     //return false;
 }
 

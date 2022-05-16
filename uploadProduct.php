@@ -8,8 +8,13 @@
     session_start();
 
     //serve per capire in che situazione sono
-    $action = $_REQUEST["action"];
-
+    if(isset( $_REQUEST["action"])){
+        $action = 3;
+    }else{
+        $action = $_REQUEST["action"];
+    }
+   
+    
     $manager = new ManagerProducts();
     if ($action == 1) {
         $id = $_REQUEST["id"];

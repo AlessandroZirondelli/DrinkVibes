@@ -4,7 +4,7 @@
 
   <div>
     <!-- è la pagina per la card del nuovo prodotto-->
-    <a href="./insertProduct.php" class="btn btn-dark col-12 mx-2" onclick="">Add new product</a>
+    <a href="./insertProduct.php" class="btn btn-dark col-12 mx-2" >Add new product</a>
   </div>
 
 

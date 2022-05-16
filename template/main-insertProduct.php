@@ -28,7 +28,7 @@
 
                     <div class="form-group mb-3 mt-3">
                         <label for="TextArea">Description:</label>
-                        <textarea class="form-control form-rounded" id="textArea" rows="3"></textarea>
+                        <textarea name = "description" class="form-control form-rounded" id="textArea" rows="3"></textarea>
                     </div>
 
                     <div class="mx-1">
@@ -81,7 +81,7 @@
                         <hr class="line my-0">
                     </div>
 
-                    <div> <button  id="insert" name="insert" value="Insert" class="btn btn-dark text-uppercase mb-3 mt-3">Add</button> </div>
+                    <div> <button  type = "submit" id="insert" name="insert" value="Insert" class="btn btn-dark text-uppercase mb-3 mt-3">Add</button> </div>
                     <div id = "warningsLabel"></div>
                 </form>
             </div>
