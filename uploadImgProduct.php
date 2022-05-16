@@ -27,7 +27,7 @@
 
     $manager -> insertProduct($name,$image,$description,$quantity, $tipology,$price);
     
-    //header("location:products.php");
+    header("location:products.php");
 ?>
 
 
