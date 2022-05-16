@@ -8,17 +8,25 @@ function uploadProduct(id) {
     $(warningSelected).text("");
     $(warningSelected).fadeIn();
     if ($.isNumeric(qtn) && qtn >= 0) {
-        xhttp.onload = function() {
-            console.log(this.responseText);
-        }
+        $.post('uploadProduct.php', { "action": action, "id" : id, "qtn" : qtn}, 
+        function(returnedData){
+             console.log(returnedData);
+        }).fail(function(){
+            console.log("error");
+        });
+        console.log("BEO");
         $(warningSelected).text("Saved").css("color", "green");
         $(warningSelected).fadeIn();
         setTimeout(function() { fade_out(warningSelected); }, 2000);
+        /*xhttp.onload = function() {
+                    console.log(this.responseText);
+                }
         console.log(action);
         console.log(id);
         console.log(qtn);
+
         xhttp.open("GET", "uploadProduct.php?action=" + action + "&id=" + id + "&qtn=" + qtn);
-        xhttp.send();
+        xhttp.send();*/
     } else {
         $(warningSelected).text("Incoret Format").css("color", "red");
         $(warningSelected).fadeIn();
@@ -33,14 +41,21 @@ function deleteProduct(id) {
 
     $(cardDelete).remove();
 
-    xhttp.onload = function() {
+    $.post('uploadProduct.php', { "action": action, "id" : id}, 
+    function(returnedData){
+         console.log(returnedData);
+    }).fail(function(){
+        console.log("error");
+    });
+   
+   /* xhttp.onload = function() {
         console.log(this.responseText);
     }
 
     //in js carica visicamente le nuove modifiche dei prodotti o ne aggiunge di nuovi a seconda del caso in cui si trova
     //richiamando poi uploadProduct modifico anche nel db
     xhttp.open("GET", "uploadProduct.php?action=" + action + "&id=" + id);
-    xhttp.send();
+    xhttp.send();*/
 
 }
 
