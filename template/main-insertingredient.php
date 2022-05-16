@@ -26,7 +26,7 @@
 
                                       <div class="form-group mb-3 mt-3">
                                         <label for="textArea">Description:</label>
-                                        <textarea class="form-control form-rounded" id="textArea" rows="3"></textarea>
+                                        <textarea name = "description" class="form-control form-rounded" id="textArea" rows="3"></textarea>
                                       </div>
                                       
                                       <div class="mx-1">
@@ -79,7 +79,7 @@
                                         
                                       
                                       <div class="mb-3 mt-3">
-                                        <label  for="price">Price:</label>
+                                        <label for="price">Price:</label>
                                         <input name="price" type="text" class="form-control form-rounded" id="price" placeholder="Price">
                                       </div>  
                                       
