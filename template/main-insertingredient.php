@@ -5,7 +5,7 @@
                                     <img id = "imgIngredient" class="card-img rounded-0" src="assets/img/i.png" alt = "photo ingredient">       
                                 </div>
                                 <div class="card-body pb-0 pt-0 ps-0 mx-2">
-                                  <form action = "uploadImageIngredient.php" id="formId" method = 'POST' enctype="multipart/form-data">
+                                  <form action = "addIngredient.php" id="formId" method = 'POST' enctype="multipart/form-data">
                                       <div class="text-decoration-none mb-3 mt-3" id="nameDiv">
                                           <label for="name">Name:</label>
                                           <input class="form-control form-rounded " name="name" type="text"  id="name" placeholder="Name" value ="">
