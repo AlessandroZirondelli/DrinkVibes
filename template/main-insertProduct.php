@@ -7,7 +7,7 @@
                 <img id="imgProduct" class="card-img rounded-0" src="assets/img/i.png" alt="photo product">
             </div>
             <div class="card-body pb-0 pt-0 ps-0 mx-2">
-                <form id = "formIdProduct" action="uploadImgProduct.php" method='POST' enctype="multipart/form-data">
+                <form id = "formIdProduct" action="addProduct.php" method='POST' enctype="multipart/form-data">
                     <div class="text-decoration-none mb-3 mt-3" id="nameDiv">
                         <label for="name">Name:</label>
                         <input class="form-control form-rounded " name="name" type="text" id="name" placeholder="Name" value="">

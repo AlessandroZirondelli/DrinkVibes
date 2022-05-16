@@ -1,71 +1,18 @@
-/*$("#formIdProduct").on("submit", function () {
-    $.ajax({
-        url: 'uploadImgProduct.php',
-        type: 'POST',
-        cache: false,
-        //data: { $("#formId").serialize() },
-        success: function (data) {
-            alert('Success!')
-        }
-        , error: function (jqXHR, textStatus, err) {
-            alert('text status ' + textStatus + ', err ' + err)
-        }
-    });
-});*/
-$(document).ready(function() {
-    let form = document.getElementById('formIdProduct');
-    
-    /*form.addEventListener('submit', function(event) {
-        event.preventDefault();
-        let form = event.target;
-        let errors = addProduct();
-    //do all of the error checking here, if there's an error, set errors to true
-        if(!errors) {
-            form.submit();
-        }
-    })*/
-  /*  $("#formIdProduct").submit(function( event ) {
-        //alert( "Handler for .submit() called." );
-        event.preventDefault();
-        //return addProduct();
-       return false;
-    });*/
-   // $("#formIdProduct").addEventListener('submit', checkProduct);
-    function checkProduct(){
-
-    }
-    //document.getElementById("formIdProduct").addEventListener("submit", addProduct);
-    $("#formIdProduct").on("submit",addProduct);
-   
-    function myFunction() {
-        alert("The form was submitted");
-    }
+$(document).ready(function() {    
+    $("#formIdProduct").on("submit",checkProduct);
     $("#image").change(function() {
-
         if (this.files && this.files[0]) {
-
-            var reader = new FileReader();
-
+            let reader = new FileReader();
             reader.onload = function(e) {
-
                 $('#imgProduct').attr('src', e.target.result);
-
             }
-
             reader.readAsDataURL(this.files[0]);
-
         }
-
     });
 });
 
-$(document).ajaxError(function(){
-    alert("An error occurred!");
-  }); 
-
 function changeRadioButton(tipology) {
-    var radioButtonTipology = "#radioButton" + tipology;
-
+    let radioButtonTipology = "#radioButton" + tipology;
     $("#tipology input").each(function() {
         $(this).removeAttr('checked');
     });
@@ -73,39 +20,17 @@ function changeRadioButton(tipology) {
     printRadio();
 }
 
-
 function printRadio(){
-    var radioBtnLiquid ="#radioButton" ;
+    let radioBtnLiquid ="#radioButton" ;
         console.log($("#radioButton").val());
    
 }
-function addProductTest(){
-    const xhttp = new XMLHttpRequest();
-    xhttp.onload = function() {
 
-    }
-        //carica le nuove modifiche dei prodotti o ne aggiunge di nuovi a seconda del caso in cui si trova
-    xhttp.open("GET", "uploadProduct.php?action=" + 3 + "&imageurl=" + "ciaoBro" + "&name=" + "newt" + "&descr=" + "descProduct" + "&qtn=" + "5" + "&price=" + "4" + "&tipology=" + "typeProduct");
-    xhttp.send();
-    return false;
-}
-function addProduct() {
-    var warningSelected = "#warningsLabel";
-    $(warningSelected).text("");
-    $(warningSelected).fadeIn();
+function checkProduct() {
+    let warningSelected = "#warningsLabel";
+    let errorEmpty = false;
+    let errorNum = false;
 
-    const xhttp = new XMLHttpRequest();
-    var imgProduct = "assets/img/i.png";
-    var nameProduct = "";
-    var descProduct = "";
-    var qtnProduct = "";
-    var priceProduct = "";
-    var typeProduct = "";
-    var errorEmpty = false;
-    var errorNum = false;
-    var action = 3;
-
-    var warningSelected = "#warningsLabel";
     $(warningSelected).text("");
     $(warningSelected).fadeIn();
 
@@ -113,22 +38,12 @@ function addProduct() {
     $("#qtn").css("border-color","black"); 
     $("#price").css("border-color","black");
 
-    if ($("#image").val() !== "") {
-        imgProduct = "./upload/" + $("#image").val().replace(/.*(\/|\\)/, '');
-    }
-    if ($("#name").val() !== "") {
-        nameProduct = $("#name").val();
-    } else {
+    if($("#name").val() == ""){
         errorEmpty = true;
         $("#name").css("border-color","red")
                 .css("border-width","3px");
     }
-    if ($("#textArea").val() !== "") {
-        descProduct = $("#textArea").val();
-
-    }
     if ($("#qtn").val() !== "") {
-        qtnProduct = $("#qtn").val();
         if(!($.isNumeric($("#qtn").val()))){
             errorNum = true;
             $("#qtn").css("border-color","red").css("border-width","3px");
@@ -138,7 +53,6 @@ function addProduct() {
         $("#qtn").css("border-color","red").css("border-width","3px");
     }
     if (($("#price").val() !== "")) {
-        priceProduct = $("#price").val();
         if(!($.isNumeric($("#price").val()))){
             errorNum = true;
             $("#price").css("border-color","red").css("border-width","3px");
@@ -146,26 +60,6 @@ function addProduct() {
     } else {
         errorEmpty = true;
         $("#price").css("border-color","red").css("border-width","3px");
-    }
-
-    typeProduct = $("#tipology").children().children('[checked]').val();
-
-    console.log("Immagine: " + imgProduct);
-    console.log("Name: " + nameProduct);
-    console.log("textArea: " + descProduct);
-    console.log("Quantity: " + qtnProduct);
-    console.log("Price: " + priceProduct);
-    console.log("Tipology: " + typeProduct);
-    console.log("errorNum" + errorNum);
-    console.log("errorEmpty" + errorEmpty);
-
-    if(errorEmpty == false && errorNum == false){
-      /*  xhttp.onload = function() {
-            console.log(this.responseText);
-        }
-            //carica le nuove modifiche dei prodotti o ne aggiunge di nuovi a seconda del caso in cui si trova
-        xhttp.open("GET", "uploadProduct.php?action=" + action + "&imageurl=" + imgProduct + "&name=" + nameProduct + "&descr=" + descProduct + "&qtn=" + qtnProduct + "&price=" + priceProduct + "&tipology=" + typeProduct);
-        xhttp.send();*/
     }
     
     if(errorEmpty == true){
@@ -176,12 +70,9 @@ function addProduct() {
         $(warningSelected).text("Error! Not a number").css("color", "red");
         $(warningSelected).fadeIn();
         setTimeout(function() { fade_out(warningSelected); }, 2000);
-    }
-    
+    }  
     return errorEmpty == false && errorNum == false;
-    //return false;
 }
-
 
 function fade_out(id) {
     $(id).fadeOut(1000, "linear");

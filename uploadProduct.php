@@ -8,12 +8,7 @@
     session_start();
 
     //serve per capire in che situazione sono
-    if(isset( $_REQUEST["action"])){
-        $action = 3;
-    }else{
-        $action = $_REQUEST["action"];
-    }
-   
+    $action = $_REQUEST["action"];
     
     $manager = new ManagerProducts();
     if ($action == 1) {
@@ -26,7 +21,7 @@
         $id = $_REQUEST["id"];
         $manager->deleteProduct($id);
     }
-
+/*
     if($action == 3){
         $name = $_REQUEST["name"];
         $image = $_REQUEST["imageurl"];
@@ -44,5 +39,5 @@
     
     
     }
-   
+   */
 ?>
