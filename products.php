@@ -10,9 +10,6 @@
     $jsArray[0]="./assets/js/products-admin.js";
     $jsArray[1]="./assets/js/products.js";
 
-    //$jsArray[1]="./assets/js/products-search.js";
-    //$jsArray[1]="./assets/js/button-top.js"; //pulsante che va sopra
-   
     $_SESSION["redirect"] = "empty";
 
     $manager = new ManagerProducts();
@@ -25,7 +22,7 @@
     $templateParams["Beverage"] = $manager -> getAllBeverageProducts();
     $templateParams["Default drink"] = $manager -> getAllDefaultDrink();
     $templateParams["All"] = $manager -> getAllProducts();
-    //$templateParams["Search"] = $manager -> getSearchProduct();
+
     if(!isset( $_SESSION["shopping_cart_prod"])) {
         $_SESSION["shopping_cart_prod"] = serialize(array());
     }if(!isset( $_SESSION["shopping_cart_hmd"])) {
@@ -47,10 +44,6 @@
         //se non è loggato mostra products normale --> ma non può comprare
         $templateParams["main-content"] = "main-products.php"; 
     }
-
-
-    // va in base per le icone <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    // <link href="https://fonts.googleapis.com/css?family=Merriweather:400,900,900i" rel="stylesheet">
 
 
     require_once("template/base.php");

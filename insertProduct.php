@@ -20,6 +20,6 @@
     $jsArray[0]="./assets/js/insertProduct.js";
     }
   
-    require_once("template/base.php"); //base.php vede la roba definita dentro  e dentro questo file index.php
+    require_once("template/base.php");
 
 ?>

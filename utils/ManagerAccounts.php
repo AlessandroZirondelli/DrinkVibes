@@ -34,35 +34,6 @@ require_once($_SERVER['DOCUMENT_ROOT']."/DrinkVibes/assets/db/database.php");
             }
         }
 
-/*
-function validateDate($birthdate){
-    $format = 'Y-m-d'; //"Y-n-j" senza zeri
-    $d = DateTime::createFromFormat($format, $birthdate);
-    return $d && $d->format($format) === $birthdate;
-}
-
-
-function maggiorenne($sData=null, $nSogliaAnni=18) {
-    $format = 'Y-m-d'; //"Y-n-j" senza zeri
-    
-    $it=false;
-
-    if($sData == null) {
-      $sData = DateTime::createFromFormat($format, $sData);
-      return $sData && $sData->format($format) === $sData;
-    }
-
-    $oDataNascita = new DateTime($sData);
-    $oDataAdesso = new DateTime();
-    $nAnni = $oDataNascita->diff($oDataAdesso)->y;
-    if ($nAnni >= $nSogliaAnni) {
-      return $it= true;
-    }
-    return $it;
-}
-
-*/ 
-
 // messa in insertaccount
         public function checkErrorLogin() {
             if (isset($_POST["login"])) {
@@ -166,24 +137,6 @@ function maggiorenne($sData=null, $nSogliaAnni=18) {
             
             }
     }
-
-/*
-
-//controllo esistenza del utente
- 
-            $duplicate = $this->dbh->checkDuplication($username, $email);
-            if(count($duplicate)!=0){
-                $templateParams["erroreusata"] = "Errore! Questo utente è già registrato";
-            } else {
-                //aggiungo utente
-                //$registration_result = $dbh->registrationNewUser($username, $name, $surname, $email, $password);
-                //registerLoggedUser($registration_result[0]);
-                
-                //$manager->insertAccount($name, $image, $description, $quantity, $category, $tipology, $price);
-            }
-*/
-
-
 
 
     }

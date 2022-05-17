@@ -9,7 +9,7 @@
             <div class="col-md-4">
                 <div class="card mb-4 product-wap rounded-0">
                     <div class="card-inner">
-                        <img class="card-img rounded-0" src ="<?php echo $products["imageURL"]; ?>" >
+                        <img class="card-img rounded-0" alt="img default" src ="<?php echo $products["imageURL"]; ?>" >
                     </div>
                     <div class="card-body pb-0 px-2">
 
@@ -42,7 +42,7 @@
 
                             <div>
                                 <label class="visually-hidden" for="qtn<?php echo $products["productID"]; ?>">Quantity</label>
-                                <input name="qtn<?php echo $products["productID"]; ?>" type="text" class="form-control form-rounded" id="qtn<?php echo $products["productID"]; ?>" <?php echo $products["qtystock"] == "0" ? 'disabled = "disabled";' : "" ?> placeholder="Quantity">
+                                <input title="input" name="qtn<?php echo $products["productID"]; ?>" type="text" class="form-control form-rounded" id="qtn<?php echo $products["productID"]; ?>" <?php echo $products["qtystock"] == "0" ? 'disabled = "disabled";' : "" ?> placeholder="Quantity">
                             </div>
 
                             <div> <button class="btn btn-dark text-uppercase " id="btn<?php echo $products["productID"]; ?>" onclick="submitQuantity(<?php echo $products["productID"]; ?>)" <?php echo $products["qtystock"] == "0" ? 'disabled = "disabled"' : "" ?>>Add</button> </div>
