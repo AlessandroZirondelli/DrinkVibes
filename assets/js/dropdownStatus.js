@@ -15,10 +15,7 @@ function switchSelectedItem(){
             $state=$(this).text().replace(/\s+/g, '+');
             const xhttp = new XMLHttpRequest();
             xhttp.onload = function() {
-                console.log(this.status);
                 if(this.status>206){ // code from 100 to 206 are information or error 
-                    console.log("Error ajax status");
-                    console.log(location.href);
                     document.location.href="/DrinkVibes/errors.php?errorNum="+this.status;
                 } 
                 //no code to do when server generate response
