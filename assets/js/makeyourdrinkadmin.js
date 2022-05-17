@@ -3,7 +3,7 @@ function uploadIngredient(id){
     var qtnUpload = "#qtn" + id;
     var qtn = $(qtnUpload).val();
     var action = 1;
-    const xhttp = new XMLHttpRequest();
+    //const xhttp = new XMLHttpRequest();
  
     $(warningSelected).text("");
     $(warningSelected).fadeIn();

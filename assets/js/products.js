@@ -75,7 +75,6 @@ function updateQtnDescription(id){
     $.post('submit.php', { "action": action, "id" : id}, 
     function(returnedData){
          console.log(returnedData);
-         console.log("BELSDAODKéSDa");
          disponibility = returnedData;
          $(idQuantityDescription).text(disponibility);
     }).fail(function(){
