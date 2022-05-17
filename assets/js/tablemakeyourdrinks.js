@@ -39,7 +39,7 @@ function submitQuantity(id){
             }
             xhttp.open("GET", "gettable.php?action="+ action + "&qtn="+quantity+"&id="+id );
             xhttp.send();
-           
+
             //$(qtnDescription).text(parseInt(disponibility) - parseInt(quantity))
             //se è sold out
             if(parseInt(disponibility) == parseInt(quantity)){   
