@@ -5,7 +5,9 @@ $(document).ready(function(){
 
 function switchSelectedItem(){
     $("ul.dropdown-menu>li>a").click(     
-        function(e){     
+        function(e){   
+            let selectedTab;  
+            let number;
             e.preventDefault();//It use to avoid page up scrolling when someone change state
             $(this).parent().parent().find(".active").removeClass("active"); //Select element that it selected before to deselect.
             $(this).addClass("active");//Mark and select new element just cliccked
@@ -15,10 +17,13 @@ function switchSelectedItem(){
             $state=$(this).text().replace(/\s+/g, '+');
             const xhttp = new XMLHttpRequest();
             xhttp.onload = function() {
+                if(this.status>206){ // code from 100 to 206 are information or error 
+                    document.location.href="/DrinkVibes/errors.php?errorNum="+this.status;
+                } 
                 //no code to do when server generate response
                 //here you must be insert what it must be done when server reply
             }
-            xhttp.open("GET", "utils/updateOrderState.php?id="+$orderID+"&state="+$state, false);
+            xhttp.open("GET", "utils/updateOrderState.php?id="+$orderID+"&state="+$state);//prima era false
             xhttp.send();
             
             // Check if dropdown belong to tab1 or tab2

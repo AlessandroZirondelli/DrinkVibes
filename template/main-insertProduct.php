@@ -7,7 +7,7 @@
                 <img id="imgProduct" class="card-img rounded-0" src="assets/img/i.png" alt="photo product">
             </div>
             <div class="card-body pb-0 pt-0 ps-0 mx-2">
-                <form id = "formIdProduct" action="uploadImgProduct.php" method='POST' enctype="multipart/form-data">
+                <form id = "formIdProduct" action="addProduct.php" method='POST' enctype="multipart/form-data">
                     <div class="text-decoration-none mb-3 mt-3" id="nameDiv">
                         <label for="name">Name:</label>
                         <input class="form-control form-rounded " name="name" type="text" id="name" placeholder="Name" value="">
@@ -28,7 +28,7 @@
 
                     <div class="form-group mb-3 mt-3">
                         <label for="TextArea">Description:</label>
-                        <textarea class="form-control form-rounded" id="textArea" rows="3"></textarea>
+                        <textarea name = "description" class="form-control form-rounded" id="textArea" rows="3"></textarea>
                     </div>
 
                     <div class="mx-1">
@@ -81,7 +81,7 @@
                         <hr class="line my-0">
                     </div>
 
-                    <div> <button  id="insert" name="insert" value="Insert" class="btn btn-dark text-uppercase mb-3 mt-3">Add</button> </div>
+                    <div> <button  type = "submit" id="insert" name="insert" value="Insert" class="btn btn-dark text-uppercase mb-3 mt-3">Add</button> </div>
                     <div id = "warningsLabel"></div>
                 </form>
             </div>

@@ -71,12 +71,23 @@ function updateQtnDescription(id){
     const xhttp = new XMLHttpRequest();
     var disponibility = 0;
     var action = 3;
-    xhttp.onload = function() { // Prende la quantità disponibile del prodotto
+    
+    $.post('submit.php', { "action": action, "id" : id}, 
+    function(returnedData){
+         console.log(returnedData);
+         disponibility = returnedData;
+         $(idQuantityDescription).text(disponibility);
+    }).fail(function(){
+        console.log("error");
+    });
+
+
+    /*xhttp.onload = function() { // Prende la quantità disponibile del prodotto
         disponibility = this.responseText;
     }
     xhttp.open("GET", "submit.php?action=" + action + "&id=" + id, false);
-    xhttp.send();
-    $(idQuantityDescription).text(disponibility);
+    xhttp.send();*/
+    //$(idQuantityDescription).text(disponibility);
 }
 function fade_out(id) {
     $(id).fadeOut(1000, "linear");

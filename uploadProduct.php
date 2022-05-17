@@ -9,7 +9,7 @@
 
     //serve per capire in che situazione sono
     $action = $_REQUEST["action"];
-
+    
     $manager = new ManagerProducts();
     if ($action == 1) {
         $id = $_REQUEST["id"];
@@ -21,7 +21,7 @@
         $id = $_REQUEST["id"];
         $manager->deleteProduct($id);
     }
-
+/*
     if($action == 3){
         $name = $_REQUEST["name"];
         $image = $_REQUEST["imageurl"];
@@ -39,5 +39,5 @@
     
     
     }
-   
+   */
 ?>

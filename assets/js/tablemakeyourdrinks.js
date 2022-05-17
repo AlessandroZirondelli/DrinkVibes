@@ -39,7 +39,7 @@ function submitQuantity(id){
             }
             xhttp.open("GET", "gettable.php?action="+ action + "&qtn="+quantity+"&id="+id );
             xhttp.send();
-           
+
             //$(qtnDescription).text(parseInt(disponibility) - parseInt(quantity))
             //se è sold out
             if(parseInt(disponibility) == parseInt(quantity)){   
@@ -166,20 +166,8 @@ function reset(upDataBase){
        
     $('[checked="checked"]').each(function() {
         arrayDeleteId.push($(this).val());
-        //console.log($(this).val());
-        //updateQuantityDescription($(this).val());
     });    
-   /* arrayDeleteId.forEach(idUpdate => {
-         
-        xhttp.onload = function() {  // Prende la quantità disponibile del prodotto
-            disponibility = this.responseText;
-        }
-        xhttp.open("GET", "submit.php?action=" + action + "&id=" + id,false );
-        xhttp.send();
-        qtnDescription = "#qtnDescription" + idUpdate;
-        $(qtnDescription).text(parseInt(disponibility) - parseInt(quantity))
-
-    });*/
+ 
     xhttp.onload = function() {
         document.getElementById("ingredientTable").innerHTML = this.responseText;            
     }
@@ -197,14 +185,24 @@ function updateQuantityDescription(id){
     var disponibility = 0;
     var idQtnDesc = "#qtnDescription" + id;
     const xhttp = new XMLHttpRequest();
-    xhttp.onload = function() {  // Prende la quantità disponibile del prodotto
+
+    $.post('submit.php', { "action": action, "id" : id}, 
+    function(returnedData){
+         console.log(returnedData);
+         disponibility = returnedData;
+         $(idQtnDesc).text(disponibility);
+    }).fail(function(){
+        console.log("error");
+    });
+
+    /*xhttp.onload = function() {  // Prende la quantità disponibile del prodotto
         disponibility = this.responseText;
     }
     xhttp.open("GET", "submit.php?action=" + action + "&id=" + id,false );
-    xhttp.send();
-    console.log(idQtnDesc + disponibility);
+    xhttp.send();*/
+    //console.log(idQtnDesc + disponibility);
 
-    $(idQtnDesc).text(disponibility);
+    
 }
 function fade_out(id) {
     $(id).fadeOut(1000, "linear");

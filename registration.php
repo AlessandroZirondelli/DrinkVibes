@@ -5,7 +5,7 @@ require_once("./utils/ManagerAccounts.php");
 require_once("./utils/Account.php");  
 
 $cssArray[0]="./assets/css/login-style.css";
-$jsArray[0]="./assets/js/insertAccount.js";
+$jsArray[0]="./assets/js/account/insertAccount.js";
 $manager = new ManagerAccounts();
 
 $templateParams["title"] = "Registration";

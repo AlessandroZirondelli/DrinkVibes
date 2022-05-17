@@ -1,42 +1,35 @@
-/*$(document).ready(function(){
-    //console.log("sono sendNotifications.js");
-    //send();
-});
-*/
 
-
-//questa fuzione verrà chiamata all'interno del dropdownstatus.js
 function sendNotificationByChangeStateOrder(orderRef){
-
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
-    //document.getElementById("hint").innerHTML = this.responseText;         
-    //console.log("sto mandando notifica")
+        if(this.status>206){ // code from 100 to 206 are information or error 
+            document.location.href="/DrinkVibes/errors.php?errorNum="+this.status;
+        } 
     }
-    xhttp.open("GET", "utils/sendNotifications.php?notifType="+"stateChanged"+"&orderRef="+orderRef,false);
-    xhttp.send();
-   
+    xhttp.open("GET", "utils/sendNotifications.php?notifType="+"stateChanged"+"&orderRef="+orderRef);
+    xhttp.send(); 
 }  
 
 
 function sendNotificationByOrderReady(orderRef){
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
-    //document.getElementById("hint").innerHTML = this.responseText;         
-    //console.log("sto mandando notifica ordine pronto")
+        if(this.status>206){ // code from 100 to 206 are information or error 
+            document.location.href="/DrinkVibes/errors.php?errorNum="+this.status;
+        } 
     }
-    xhttp.open("GET", "utils/sendNotifications.php?notifType="+"orderReady"+"&orderRef="+orderRef,false);
+    xhttp.open("GET", "utils/sendNotifications.php?notifType="+"orderReady"+"&orderRef="+orderRef);
     xhttp.send();
-   
 }
 
 function sendNotificationByNewOrder(orderRef,description){
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
-    //document.getElementById("hint").innerHTML = this.responseText;         
-    //console.log("sto mandando notifica nuovo ordine")
+        if(this.status>206){ // code from 100 to 206 are information or error 
+            document.location.href="/DrinkVibes/errors.php?errorNum="+this.status;
+        } 
     }
-    xhttp.open("GET", "utils/sendNotifications.php?notifType="+"newOrder"+"&orderRef="+orderRef+"&description="+description,false);
+    xhttp.open("GET", "utils/sendNotifications.php?notifType="+"newOrder"+"&orderRef="+orderRef+"&description="+description);
     xhttp.send();
 }
 
@@ -44,9 +37,10 @@ function sendNotificationByNewOrder(orderRef,description){
 function sendNotificartionBySoldout(articleIDRef,articleNameRef){
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
-    //document.getElementById("hint").innerHTML = this.responseText;         
-    //console.log("sto mandando notifica nuovo ordine")
+        if(this.status>206){ // code from 100 to 206 are information or error 
+            document.location.href="/DrinkVibes/errors.php?errorNum="+this.status;
+        } 
     }
-    xhttp.open("GET", "utils/sendNotifications.php?notifType="+"soldout"+"&articleIDRef="+articleIDRef+"&articleNameRef="+articleNameRef,false);
+    xhttp.open("GET", "utils/sendNotifications.php?notifType="+"soldout"+"&articleIDRef="+articleIDRef+"&articleNameRef="+articleNameRef);
     xhttp.send();
 }
