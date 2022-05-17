@@ -188,6 +188,7 @@ function updateQuantityDescription(id){
 
     $.post('submit.php', { "action": action, "id" : id}, 
     function(returnedData){
+        console.log("COCORICO");
          console.log(returnedData);
          disponibility = returnedData;
          $(idQtnDesc).text(disponibility);
