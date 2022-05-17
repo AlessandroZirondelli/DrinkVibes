@@ -80,7 +80,7 @@ function submitQuantity(id) {
         $(warningSelected).fadeIn();
         $(inputSelected).css("border-color", "black");
 
-        $.post('submita.php', { "action": action, "id" : id}, 
+        $.post('submit.php', { "action": action, "id" : id}, 
             function(returnedData){
                 
                 disponibility = returnedData;
