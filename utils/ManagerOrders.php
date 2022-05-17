@@ -170,6 +170,10 @@ require_once($_SERVER['DOCUMENT_ROOT']."/DrinkVibes/utils/Product.php");
                     $qtySingleIngredient = $ingredient->getQty();
                     $idSingleIngredient  = $ingredient -> getIngredientID(); //($drinkID, $ingredientID, $qty)
                     $this->managerHandMakeDrink->addHandMadeDrink($drinkID,$idSingleIngredient,$qtySingleIngredient);
+                    if($this->dbh->getIngredientById($ingredient -> getIngredientID())[0]["qtystock"] == 0){
+                    
+                        $this->dbh->insertiNotifSoldout($ingredient -> getIngredientID(),$ingredient->getName());
+                    }
                 }
                 //$orderID, $articleName, $articleID, $quantity,$subtotal,$description)
                 $orderDetail = new OrderDetail($orderID,"",$drinkID,$handmadedrink[1],$handmadedrink[0]->getTotalPrice()*$handmadedrink[1],"Custom drink");
@@ -187,6 +191,11 @@ require_once($_SERVER['DOCUMENT_ROOT']."/DrinkVibes/utils/Product.php");
                 $total= $total + $product[0]->getPrice()*$product[1]; //incremento il toale dell'ordine
                 //qty dell'order details  handmadedrink[1]
                 $this->addOrderDetail($orderDetail);
+
+                if($this->dbh->getProductsById($product[0]->getProductID())[0]["qtystock"] == 0){
+                    
+                    $this->dbh->insertiNotifSoldout($product[0]->getProductID(),$product[0]->getName());
+                }
             }
 
 
