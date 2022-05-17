@@ -6,7 +6,7 @@ function sendNotificationByChangeStateOrder(orderRef){
             document.location.href="/DrinkVibes/errors.php?errorNum="+this.status;
         } 
     }
-    xhttp.open("GET", "utils/sendNotifications.php?notifType="+"stateChanged"+"&orderRef="+orderRef,false);
+    xhttp.open("GET", "utils/sendNotifications.php?notifType="+"stateChanged"+"&orderRef="+orderRef);
     xhttp.send(); 
 }  
 
@@ -18,7 +18,7 @@ function sendNotificationByOrderReady(orderRef){
             document.location.href="/DrinkVibes/errors.php?errorNum="+this.status;
         } 
     }
-    xhttp.open("GET", "utils/sendNotifications.php?notifType="+"orderReady"+"&orderRef="+orderRef,false);
+    xhttp.open("GET", "utils/sendNotifications.php?notifType="+"orderReady"+"&orderRef="+orderRef);
     xhttp.send();
 }
 
@@ -29,7 +29,7 @@ function sendNotificationByNewOrder(orderRef,description){
             document.location.href="/DrinkVibes/errors.php?errorNum="+this.status;
         } 
     }
-    xhttp.open("GET", "utils/sendNotifications.php?notifType="+"newOrder"+"&orderRef="+orderRef+"&description="+description,false);
+    xhttp.open("GET", "utils/sendNotifications.php?notifType="+"newOrder"+"&orderRef="+orderRef+"&description="+description);
     xhttp.send();
 }
 
@@ -41,6 +41,6 @@ function sendNotificartionBySoldout(articleIDRef,articleNameRef){
             document.location.href="/DrinkVibes/errors.php?errorNum="+this.status;
         } 
     }
-    xhttp.open("GET", "utils/sendNotifications.php?notifType="+"soldout"+"&articleIDRef="+articleIDRef+"&articleNameRef="+articleNameRef,false);
+    xhttp.open("GET", "utils/sendNotifications.php?notifType="+"soldout"+"&articleIDRef="+articleIDRef+"&articleNameRef="+articleNameRef);
     xhttp.send();
 }
