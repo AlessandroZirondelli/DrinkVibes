@@ -14,6 +14,7 @@ if(empty($_SESSION["userID"])){
 else{
     $manager = new ManagerOrders();
     $manager->insertOrder();
+    //To empty arrays
     $_SESSION["shopping_cart_prod"] = serialize(array());
     $_SESSION["shopping_cart_hmd"] =  serialize(array());
     header("location:../orders.php");

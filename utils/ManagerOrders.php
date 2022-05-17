@@ -193,6 +193,11 @@ require_once($_SERVER['DOCUMENT_ROOT']."/DrinkVibes/utils/Product.php");
            //($orderID, $userID, $date, $time,$state,$total)
            $this->dbh->addTotalOrder($orderID,$userID,$date,$time,$state,$total);
             //devo settare il totale
+
+            
+            $description="DEFAULT DESCRIPTION";
+            $userRef = $_SESSION["userID"]; 
+            $this->dbh->insertNotifNewOrder($orderID,$userID,$description); 
         }
         
     }
