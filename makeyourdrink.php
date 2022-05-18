@@ -13,8 +13,7 @@
         $templateParams["main-content"] = "main-makeyourdrink-admin.php";
         $cssArray[0]="./assets/css/makeyourdrinkadmin-style.css";
         $jsArray[0]="./assets/js/sendNotifications.js";
-        $jsArray[1]="./assets/js/tablemakeyourdrinks.js";
-        $jsArray[2]="./assets/js/makeyourdrinkadmin.js";
+        $jsArray[1]="./assets/js/makeyourdrinkadmin.js";
     }else{
         $templateParams["main-content"] = "main-makeyourdrink.php";
         $cssArray[0]="./assets/css/makeyourdrink-style.css";

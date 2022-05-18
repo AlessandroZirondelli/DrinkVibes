@@ -1,8 +1,8 @@
 <h1 class="m-3">Make your drink</h1>
 <div>
-  <a href="./insertIngredient.php" class="btn btn-dark text-uppercase col-6 mx-1" onclick="addIngredient()">Add ingredient</a>
-
-
+  <a href="./insertIngredient.php" class="btn btn-dark text-uppercase col-6 mx-1">
+    Add ingredient
+  </a>
 </div>
 <h2 class="p-3">Modify your ingredients</h2>
 <div class="accordion accordion-flush px-3 pb-3" id="accordionFlushExample">
@@ -67,9 +67,9 @@
                       <div class="mx-1">
                         <hr class="line my-0">
                       </div>
-                      <div class="mb-2 mt-2">
-                        <button class="btn btn-dark text-uppercase " id="savebtn<?php echo $ingredient["ingredientID"]; ?>" onclick="uploadIngredient(<?php echo $ingredient["ingredientID"]; ?>)">Save</button>
-                        <button class="btn btn-dark text-uppercase " id="deletebtn<?php echo $ingredient["ingredientID"]; ?>" onclick="deleteIngredient(<?php echo $ingredient["ingredientID"]; ?>)">Delete</button>
+                      <div class="mb-2 mt-2 selection-option">
+                        <button class="btn btn-dark text-uppercase " id="savebtn<?php echo $ingredient["ingredientID"]; ?>" >Save</button>
+                        <button class="btn btn-dark text-uppercase " id="deletebtn<?php echo $ingredient["ingredientID"]; ?>" >Delete</button>
 
                       </div>
 
