@@ -61,7 +61,7 @@ foreach($ingredientOnTable as $ing){
     echo "<td>".$ing->getName()."</td>";
     echo "<td>".$ing->getQty()." ".$cat."</td>";
     echo "<td>".$ing->getPrice() * $ing->getQty() ."</td>";    
-    echo '<td><div class="form-check"><input class="form-check-input" type="checkbox" id="cb'.$ing->getIngredientID().'" value="'.$ing->getIngredientID().'" aria-label="..." onclick = changeCheckbox('.$ing->getIngredientID().')></div></td>';
+    echo '<td><div class="form-check"><input class="form-check-input" type="checkbox" id="cb'.$ing->getIngredientID().'" value="'.$ing->getIngredientID().'" aria-label="..." ></div></td>';
     echo "</tr>"; 
     $totalPrice = $totalPrice + $ing->getPrice() * $ing->getQty();
 }
@@ -71,7 +71,7 @@ echo "<tr>";
 echo  "<td>Total</td>";
 echo  "<td></td>";
 echo  "<td>".$totalPrice."</td>";
-echo  '<td><button class="btn btn-dark text-uppercase" onclick="deleteRow()">Remove</button></td>';
+echo  '<td><button id = "deleteRowBtn" class="btn btn-dark text-uppercase" >Remove</button></td>';
 echo "</tr>";
 echo"</tfoot>";
 
