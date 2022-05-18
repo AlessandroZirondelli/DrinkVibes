@@ -32,8 +32,8 @@ function submitQuantity(id) {
                 disponibility = returnedData;
                 updateQtn(disponibility, id);
             }).fail(function (xhr, status, error) {
-                console.log("xhr:" + xhr.responseText + " " + "error:" + error + " " + "status:" + status);
-                console.log("error");
+                //console.log("xhr:" + xhr.responseText + " " + "error:" + error + " " + "status:" + status);
+                document.location.href = "/DrinkVibes/errors.php?errorNum= ";
             });
     } else {
         //not numeric or less or uqual to 0
@@ -58,7 +58,8 @@ function updateQtn(disponibility, id) {
         function(returnedData){
            updateQtnDescription(id);
         }).fail(function(xhr, status, error){
-            console.log("error:" + error + " " + "status:" + status);
+            //console.log("error:" + error + " " + "status:" + status);
+            document.location.href = "/DrinkVibes/errors.php?errorNum= ";
         });
 
       
@@ -98,7 +99,8 @@ function updateQtnDescription(id) {
             disponibility = returnedData;
             $(idQuantityDescription).text(disponibility);
         }).fail(function () {
-            console.log("error");
+            //console.log("error");
+            document.location.href = "/DrinkVibes/errors.php?errorNum= ";
         });
 }
 function fade_out(id) {
