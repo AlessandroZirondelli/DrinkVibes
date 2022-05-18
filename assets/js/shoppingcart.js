@@ -140,16 +140,26 @@ function deleteDrink(id) {
 
     const xhttp = new XMLHttpRequest();
 
+    /*
     xhttp.onload = function() {
         //document.getElementById("ingredientTable").innerHTML = this.responseText;            
     }
 
     xhttp.open("GET", "shoppingcartfunction.php?action=" + action + "&id=" + idDelete, false);
     xhttp.send();
+*/
 
     totalCost();
     checkCart();
     $(rowId).remove();
+
+
+    $.post('shoppingcartfunction.php', { "action": action, "id": id, "idDelete": false },
+        function(returnedData) {
+            //console.log(returnedData);
+        }).fail(function() {
+        console.log("error");
+    });
 }
 /*
 function buyProduct(){
