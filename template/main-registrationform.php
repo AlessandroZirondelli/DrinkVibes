@@ -77,19 +77,19 @@
               <div id="tipology" class="mb-3 mt-3">
                 <label>Type:</label>
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="tipology" <?php if (isset($_SESSION["type"]) && $_SESSION["type"] == "Admin"); ?> id="radioButtonAdmin" value="Admin" onclick='changeRadioButton("Admin")' checked>
+                  <input class="form-check-input" type="radio" name="tipology" <?php if (isset($_SESSION["type"]) && $_SESSION["type"] == "Admin"); ?> id="radioButtonAdmin" value="Admin" checked>
                   <label class="form-check-label" for="radioButtonAdmin">
                     Admin
                   </label>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="tipology" <?php if (isset($_SESSION["type"]) && $_SESSION["type"] == "Admin"); ?> id="radioButtonUser" value="User" onclick='changeRadioButton("User")' checked>
+                  <input class="form-check-input" type="radio" name="tipology" <?php if (isset($_SESSION["type"]) && $_SESSION["type"] == "Admin"); ?> id="radioButtonUser" value="User" checked>
                   <label class="form-check-label" for="radioButtonUser">
                     User
                   </label>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="tipology" <?php if (isset($_SESSION["type"]) && $_SESSION["type"] == "Admin"); ?> id="radioButtonExpress" value="Express" onclick='changeRadioButton("Express")' checked>
+                  <input class="form-check-input" type="radio" name="tipology" <?php if (isset($_SESSION["type"]) && $_SESSION["type"] == "Admin"); ?> id="radioButtonExpress" value="Express" checked>
                   <label class="form-check-label" for="radioButtonExpress">
                     Express
                   </label>
