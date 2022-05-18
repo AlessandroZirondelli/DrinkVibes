@@ -4,14 +4,14 @@
 
   <div>
     <!-- è la pagina per la card del nuovo prodotto-->
-    <a href="./insertProduct.php" class="btn btn-dark col-12 mx-2" >Add new product</a>
+    <a href="./insertProduct.php" class="btn btn-dark col-12 mx-2">Add new product</a>
   </div>
 
 
   <div class="row">
     <h2 class="p-3">Modify existing products</h2>
     <?php foreach ($templateParams["All"] as $products) : ?>
-      <div class="col-md-4" id = "card<?php echo $products["productID"];?>">
+      <div class="col-md-4" id="card<?php echo $products["productID"]; ?>">
         <div class="card mb-4 product-wap rounded-0">
           <div class="card-inner">
             <img class="card-img rounded-0" alt="img default" src="<?php echo $products["imageURL"]; ?>">
@@ -65,7 +65,6 @@
               <button class="btn btn-success text-uppercase " id="savebtn<?php echo $products["productID"]; ?>">Save</button> 
               <button class="btn btn-danger text-uppercase " id="deletebtn<?php echo $products["productID"]; ?>">Delete</button> 
 
-              
             </div>
 
             <div id="warningsLabel<?php echo $products["productID"]; ?>"></div>
@@ -75,4 +74,4 @@
 
     <?php endforeach; ?>
 
-</div>
+  </div>
