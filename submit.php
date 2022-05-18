@@ -3,8 +3,12 @@ require_once("utils/ManagerIngredients.php");
 require_once("utils/ManagerProducts.php");
 require_once("utils/HandMadeDrink.php");
 require_once("utils/Ingredient.php");
+
 session_start();
+
+//it serves to understand what situation I am in
 $action = $_REQUEST["action"];
+
 $mngProducts = new ManagerProducts();
 $mngIngredients = new ManagerIngredients();
 $handMadeDrink = new HandMadeDrink();

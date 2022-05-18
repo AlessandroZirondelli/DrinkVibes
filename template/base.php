@@ -47,10 +47,10 @@
     <header>
       <div class="row">
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-dark py-4"> <!-- L'accessibilità viene garantita da bootstrap wrappando tutto con un nav -->
-          <a class="navbar-brand text-white me-0 col-3 col-lg-2 ps-3" href="#">Drink Vibes</a>  <!-- Agisce sempre, quando è grande e piccolo-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark py-4"> <!-- Accessibility is ensured by bootstrap by wrapping everything with a nav -->
+          <a class="navbar-brand text-white me-0 col-3 col-lg-2 ps-3" href="#">Drink Vibes</a>  <!-- It always works, when it is big and small-->
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#toggleMobileMenu"   
-            aria-controls="toggleMobileMenu" aria-expanded="false" aria-label="Toggle navigation"> <!-- Agisce quando e piccolo-->
+            aria-controls="toggleMobileMenu" aria-expanded="false" aria-label="Toggle navigation"> <!-- It works when it is small -->
             <span class="navbar-toggler-icon text-white"></span>
           </button>
           <div class="collapse navbar-collapse col-lg-10" id="toggleMobileMenu">

@@ -9,10 +9,11 @@
     */
 
     $templateParams["title"] = "Home";
-    //Serve per reindirizzamento nel momento in cui clicco su Order ma non sono loggato
-    // Controllo se l'utente è loggato o meno. Se non lo è , allora reindirizzo a Orders
+    
+    // It is used for redirection when I click on Order but I am not logged in
+    // Check if the user is logged in or not. If not, then redirect to Orders
     if(empty($_SESSION["userID"])){
-        $_SESSION["redirect"]="orders"; //indica che deve ritornare sulla pag
+        $_SESSION["redirect"]="orders"; //indicates that it should return to the page
         header("location:login.php");
     }
     $templateParams["main-content"] = "main-orders.php";
@@ -21,9 +22,6 @@
     $jsArray[1]="./assets/js/dropdownStatus.js";
     $manager= new ManagerOrders();
     //$manager->createOrdersByUser($_SESSION["userID"]);
-/*
-    $type="Admin";
-    $userID="Admin12";*/
     
     $type=$_SESSION["type"];
     $userID=$_SESSION["userID"];

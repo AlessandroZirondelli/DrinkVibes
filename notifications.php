@@ -10,7 +10,7 @@
     */
     $templateParams["title"] = "Notifications";
     if(empty($_SESSION["userID"])){
-        $_SESSION["redirect"]="notifications"; //indica che deve ritornare sulla pag
+        $_SESSION["redirect"]="notifications"; //indicates that it should return to the page
         header("location:login.php");
     }
     $templateParams["main-content"] = "main-notifications.php";

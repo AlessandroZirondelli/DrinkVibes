@@ -31,17 +31,17 @@
     
     if($managerAcc ->isUserLoggedIn()){
         if($_SESSION["type"] == "Admin") { 
-            //se è loggato ma admin mostra products admin
+            //if logged as admin, it show products admin
             $jsArray[0]="./assets/js/products-admin.js";
             $templateParams["main-content"] = "main-products-admin.php"; 
         } else {
-            //se è loggato mostra products normale
+            //if logged as client it show normal products
             $jsArray[0]="./assets/js/products.js";
             $templateParams["main-content"] = "main-products.php"; 
         }
         
     } else {
-        //se non è loggato mostra products normale --> ma non può comprare
+        // if not logged in show normal products -> but can't buy
         $jsArray[0]="./assets/js/products.js";
         $templateParams["main-content"] = "main-products.php"; 
     }

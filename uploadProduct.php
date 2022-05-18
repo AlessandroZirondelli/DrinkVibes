@@ -1,13 +1,12 @@
 <?php
-//chiamato dai file js
+
     require_once("bootstrap.php");
     require_once("utils/ManagerProducts.php");
     require_once("utils/Product.php");
 
-    //come in login
     session_start();
 
-    //serve per capire in che situazione sono
+    //it serves to understand what situation I am in
     $action = $_REQUEST["action"];
     
     $manager = new ManagerProducts();

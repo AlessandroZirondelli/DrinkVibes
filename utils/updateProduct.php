@@ -12,13 +12,13 @@ $isFirst = true;
 if($action == 1){
     $id = $_REQUEST["id"];
     $qtn = $_REQUEST["qtn"];
-    $product = $mngProducts-> getProductsById($id); // Prendo l'ingredient dal DB
+    $product = $mngProducts-> getProductsById($id); //get the ingredient from the DB
 
-    //Prendo il temp ingredient nella SESSION
+    // get the ingredient temp from the SESSION
     if($qtn<= $product[0]["qtystock"]){
        
         $mngProducts -> updateProduct($product[0]["productID"], $product[0]["qtystock"] - $qtn);
-        //Aggiungo l'ingredient al temp ingredient
+        // I add an ingredient to the temp ingredient
         $sep ="___A___";
      //   var_dump( $list_prod);
         //var_dump($sep);
@@ -35,7 +35,7 @@ if($action == 1){
         if($isFirst == true){
             array_push($list_prod_temp,array(new Product($product[0]["productID"],$product[0]["name"],$product[0]["qtystock"],$product[0]["price"],$product[0]["description"],$product[0]["type"],$product[0]["imageURL"]),$qtn));
         }
-        //Rimetto nel temp ingredient della sessione
+        // Put back in the temp ingredient of the session
     }
     $_SESSION["shopping_cart_prod"] = serialize( $list_prod_temp);
 }
