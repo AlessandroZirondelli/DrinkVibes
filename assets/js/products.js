@@ -113,6 +113,7 @@ function updateQtn(disponibility,id){
             
          //   disponibility = returnedData;
            // updateQtn(disponibility, id);
+           updateQtnDescription(id);
         }).fail(function(xhr, status, error){
             console.log("error:" + error + " " + "status:" + status);
         });
@@ -135,7 +136,7 @@ function updateQtn(disponibility,id){
         $(warningSelected).fadeIn();
         setTimeout(function() { fade_out(warningSelected); }, 2000);
         $(inputSelected).val(""); 
-        updateQtnDescription(id);
+        //updateQtnDescription(id);
 
     } else {
         //richiesta quantità maggiore a quella disponibile
