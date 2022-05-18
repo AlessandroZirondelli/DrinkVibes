@@ -23,7 +23,7 @@ $(document).ready(function() {
 
         }
     )
-
+    
     for (const elem of document.querySelectorAll('.d-flex.flex-row.selector')) {
         elem.querySelector('.btn.btn-link.px-2.down').click(
             function() {
@@ -41,7 +41,15 @@ $(document).ready(function() {
             }
         )
     }
-
+    $(".form-control.form-control-sm.change-btn").each(function(e){
+        let idBtn = $(this).attr('id').replace('formDrink', '');
+        let value = $(this).attr('value');
+        let idBtnChange = (parseInt(idBtn));
+        $(this).change(function(){
+            check_qty(value,idBtnChange);
+        });
+    });
+  
 });
 
 function checkCart() {
