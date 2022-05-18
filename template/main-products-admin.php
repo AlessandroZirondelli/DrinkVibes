@@ -62,7 +62,7 @@
             <div class="mb-2 mt-2">
 
               <!-- fil js product-admin -->
-              <button class="btn btn-success text-uppercase " name = "savebtn" id="savebtn<?php echo $products["productID"]; ?>" >Save</button> 
+              <button class="btn btn-success text-uppercase " id="savebtn<?php echo $products["productID"]; ?>" onclick="uploadProduct(<?php echo $products["productID"]; ?>)">Save</button> 
               <button class="btn btn-danger text-uppercase " id="deletebtn<?php echo $products["productID"]; ?>" onclick="deleteProduct(<?php echo $products["productID"]; ?>)">Delete</button> 
 
               
