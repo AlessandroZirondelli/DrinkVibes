@@ -52,8 +52,8 @@
                         <td class="align-middle">
                         <p class="mb-0" style="font-weight: 500;"><?php echo $hmd[0]->getTotalPrice(); ?></p>
                         </td>
-                        <td  class="align-middle">
-                            <button onclick="deleteDrink(<?php echo $hmd[0] ->getId();?>)" > <i class="bi bi-trash"></i> </button>
+                        <td  class="align-middle deletebtnDrink">
+                            <button id="<?php echo $hmd[0] ->getId(); ?> "> <i class="bi bi-trash"></i> </button>
                         </td>
                         
                     </tr>
@@ -91,8 +91,8 @@
                         <td class="align-middle">
                         <p class="mb-0" style="font-weight: 500;"><?php echo $prod[0]->getPrice(); ?></p>
                         </td>
-                        <td  class="align-middle">
-                            <button onclick="deleteProduct(<?php echo $prod[0] ->getProductID();?>)" > <i class="bi bi-trash"></i> </button>
+                        <td class="align-middle deletebtnProduct">
+                            <button id="<?php echo $prod[0] ->getProductID();?>"> <i class="bi bi-trash"></i> </button>
                         </td>
                         
                     </tr>
