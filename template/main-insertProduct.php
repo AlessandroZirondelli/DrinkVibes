@@ -47,19 +47,19 @@
                 <div id="tipology" class="mb-3 mt-3">
                     <label>Type:</label>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="optradiotipology" id="radioButtonWine" value="Wine" onclick='changeRadioButton("Wine")' checked>
+                        <input class="form-check-input" type="radio" name="optradiotipology" id="radioButtonWine" value="Wine" checked>
                         <label class="form-check-label" for="radioButtonWine">
                             Wine
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="optradiotipology" id="radioButtonBeverage" value="Beverage" onclick="changeRadioButton('Beverage')">
+                        <input class="form-check-input" type="radio" name="optradiotipology" id="radioButtonBeverage" value="Beverage">
                         <label class="form-check-label" for="radioButtonBeverage">
                             Beverage
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="optradiotipology" id="radioButtonDrink" value="Drink" onclick="changeRadioButton('Drink')">
+                        <input class="form-check-input" type="radio" name="optradiotipology" id="radioButtonDrink" value="Drink">
                         <label class="form-check-label" for="radioButtonDrink">
                             Drink
                         </label>
