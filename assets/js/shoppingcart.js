@@ -41,19 +41,19 @@ $(document).ready(function() {
             }
         )
     }
-    $(".form-control.form-control-sm.change-btn").each(function(e){
+    /*$(".form-control.form-control-sm.change-btn").each(function(e){
         let idBtn = $(this).attr('id').replace('formDrink', '');
         let value = $(this).attr('value');
         let idBtnChange = (parseInt(idBtn));
         $(this).change(function(){
             check_qty(value,idBtnChange);
         });
-    });
+    });*/
   
 });
 
 function checkCart() {
-    var action = 6;
+    let action = 6;
 
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
@@ -73,28 +73,20 @@ function checkCart() {
 }
 
 function check_qty_prod(value, id) {
-    console.log(value);
-    console.log(id);
-    var valueRead = value;
-    var idCheck = id;
-    var action = 8;
-    var inputId = "#formProd" + id;
+    let valueRead = value;
+    let idCheck = id;
+    let action = 8;
+    let inputId = "#formProd" + id;
 
 
     const xhttp = new XMLHttpRequest();
 
     xhttp.onload = function() {
-        // document.getElementById("ingredientTable").innerHTML = this.responseText; à
-        var returnString = this.responseText.replace(/(\r\n|\n|\r)/gm, "");
-        console.log("bla");
-        console.log(returnString);
+        
+        let returnString = this.responseText.replace(/(\r\n|\n|\r)/gm, "");
         if ($.isNumeric(returnString)) {
-
-            console.log("Troppo");
             $(inputId).val(parseInt(returnString));
-
         }
-
     }
     xhttp.open("GET", "shoppingcartfunction.php?action=" + action + "&id=" + idCheck + "&value=" + valueRead, false);
     xhttp.send();
@@ -102,25 +94,17 @@ function check_qty_prod(value, id) {
 }
 
 function check_qty(value, id) {
-    var valueRead = value;
-    var idCheck = id;
-    var action = 2;
-    var inputId = "#formDrink" + id;
-
-
+    let valueRead = value;
+    let idCheck = id;
+    let action = 2;
+    let inputId = "#formDrink" + id;
     const xhttp = new XMLHttpRequest();
 
     xhttp.onload = function() {
-        // document.getElementById("ingredientTable").innerHTML = this.responseText; à
-        var returnString = this.responseText.replace(/(\r\n|\n|\r)/gm, "");
-        console.log(returnString);
+        let returnString = this.responseText.replace(/(\r\n|\n|\r)/gm, "");
         if ($.isNumeric(returnString)) {
-
-            console.log("Troppo");
             $(inputId).val(parseInt(returnString));
-
         }
-
     }
     xhttp.open("GET", "shoppingcartfunction.php?action=" + action + "&id=" + idCheck + "&value=" + valueRead, false);
     xhttp.send();
@@ -129,12 +113,10 @@ function check_qty(value, id) {
 
 function deleteProduct(id) {
 
-    var action = 7;
-    var idDelete = id;
-    var rowId = "#rowProd" + id;
-
+    let action = 7;
+    let idDelete = id;
+    let rowId = "#rowProd" + id;
     const xhttp = new XMLHttpRequest();
-
     /*
         xhttp.onload = function() {
             //document.getElementById("ingredientTable").innerHTML = this.responseText;            
@@ -143,9 +125,7 @@ function deleteProduct(id) {
         xhttp.open("GET", "shoppingcartfunction.php?action="+ action + "&id="+ idDelete, false );
         xhttp.send();
     */
-    totalCost();
-    checkCart();
-    $(rowId).remove();
+
 
 
     $.post('shoppingcartfunction.php', { "action": action, "id": id, "idDelete": false },
@@ -155,14 +135,16 @@ function deleteProduct(id) {
         console.log("error");
     });
 
-
+    totalCost();
+    checkCart();
+    $(rowId).remove();
 
 }
 
 function deleteDrink(id) {
-    var action = 1;
-    var idDelete = id;
-    var rowId = "#rowDrink" + id;
+    let action = 1;
+    let idDelete = id;
+    let rowId = "#rowDrink" + id;
 
     const xhttp = new XMLHttpRequest();
 
@@ -175,17 +157,16 @@ function deleteDrink(id) {
     xhttp.send();
 */
 
-    totalCost();
-    checkCart();
-    $(rowId).remove();
-
-
     $.post('shoppingcartfunction.php', { "action": action, "id": id, "idDelete": false },
         function(returnedData) {
             //console.log(returnedData);
         }).fail(function() {
         console.log("error");
     });
+
+    totalCost();
+    checkCart();
+    $(rowId).remove();
 }
 /*
 function buyProduct(){
@@ -201,9 +182,9 @@ function buyProduct(){
     xhttp.send();
 }*/
 function totalCost() {
-    var action = 5;
-    var totalTag = "#total";
-    var total = 0;
+    let action = 5;
+    let totalTag = "#total";
+    let total = 0;
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
         console.log(this.responseText);
