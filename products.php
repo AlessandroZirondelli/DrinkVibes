@@ -7,8 +7,6 @@
     require_once("utils/Account.php");  
 
     $cssArray[0]="./assets/css/products-style.css"; 
-    $jsArray[0]="./assets/js/products-admin.js";
-    $jsArray[1]="./assets/js/products.js";
 
     $_SESSION["redirect"] = "empty";
 
@@ -34,14 +32,17 @@
     if($managerAcc ->isUserLoggedIn()){
         if($_SESSION["type"] == "Admin") { 
             //se è loggato ma admin mostra products admin
+            $jsArray[0]="./assets/js/products-admin.js";
             $templateParams["main-content"] = "main-products-admin.php"; 
         } else {
             //se è loggato mostra products normale
+            $jsArray[0]="./assets/js/products.js";
             $templateParams["main-content"] = "main-products.php"; 
         }
         
     } else {
         //se non è loggato mostra products normale --> ma non può comprare
+        $jsArray[0]="./assets/js/products.js";
         $templateParams["main-content"] = "main-products.php"; 
     }
 
