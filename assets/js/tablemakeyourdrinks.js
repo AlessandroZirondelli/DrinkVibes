@@ -26,46 +26,58 @@ function submitQuantity(id){
         
         xhttp.onload = function() {  // Prende la quantità disponibile del prodotto
             disponibility = this.responseText;
+            updateQtn(disponibility,id);
         }
-        xhttp.open("GET", "submit.php?action=" + action + "&id=" + id,false );
+        xhttp.open("GET", "submit.php?action=" + action + "&id=" + id );
         xhttp.send();
        
-        //controllo che la quantità richiesta sia minore o uguale a quella disponibile
-        if(parseInt(disponibility) > 0 && ($(inputSelected).val() <=  parseInt(disponibility) )){
-            //prendo la tabella
-            const xhttp = new XMLHttpRequest();
-            xhttp.onload = function() {
-                document.getElementById("ingredientTable").innerHTML = this.responseText;            
-            }
-            xhttp.open("GET", "gettable.php?action="+ action + "&qtn="+quantity+"&id="+id );
-            xhttp.send();
-
-            //$(qtnDescription).text(parseInt(disponibility) - parseInt(quantity))
-            //se è sold out
-            if(parseInt(disponibility) == parseInt(quantity)){   
-
-                //sendNotificartionBySoldout(id,$(nameSelected).text()); // metterlo solo quando hai comprato
-                $(nameSelected).text($(nameSelected).text() +" - Sold out");
-                $(buttonSelected).attr("disabled","disabled");
-                $(inputSelected).attr("disabled","disabled");
-            }
-            $(warningSelected).text("Added ingredient to drink").css("color","green");
-            $(warningSelected).fadeIn();
-            setTimeout(function(){fade_out(warningSelected);}, 2000);
-            $(inputSelected).val(""); 
-            updateQuantityDescription(id);
-        }else{
-
-            $(inputSelected).css("border-color","red").css("border-width","3px");
-            if($(inputSelected).val() >  parseInt(disponibility) ){ // Se la quantità richiesta è maggiore di quella disponibile errore
-                $(warningSelected).text("Too many quantity required, max disponibility" + disponibility).css("color","red");
-                $(warningSelected).fadeIn();
-                setTimeout(function(){fade_out(warningSelected);}, 2000);       
-            }
-        }
+        
     }else{
         $(inputSelected).css("border-color","red")
                         .css("border-width","3px");     
+    }
+}
+function updateQtn(disponibility,id){
+    var inputSelected = "#qtn" + id;  
+    var buttonSelected = "#btn" + id;
+    var nameSelected = "#name" + id;
+    var qtnDescription = "#qtnDescription" + id;
+    var warningSelected = "#warningsLabel" + id;
+    var action = 1;
+    var quantity = $(inputSelected).val();
+    //controllo che la quantità richiesta sia minore o uguale a quella disponibile
+    if(parseInt(disponibility) > 0 && ($(inputSelected).val() <=  parseInt(disponibility) )){
+        //prendo la tabella
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function() {
+            document.getElementById("ingredientTable").innerHTML = this.responseText;            
+            updateQuantityDescription(id);
+        }
+        xhttp.open("GET", "gettable.php?action="+ action + "&qtn="+quantity+"&id="+id );
+        xhttp.send();
+
+        //$(qtnDescription).text(parseInt(disponibility) - parseInt(quantity))
+        //se è sold out
+        if(parseInt(disponibility) == parseInt(quantity)){   
+
+            //sendNotificartionBySoldout(id,$(nameSelected).text()); // metterlo solo quando hai comprato
+            $(nameSelected).text($(nameSelected).text() +" - Sold out");
+            $(buttonSelected).attr("disabled","disabled");
+            $(inputSelected).attr("disabled","disabled");
+        }
+        $(warningSelected).text("Added ingredient to drink").css("color","green");
+        $(warningSelected).fadeIn();
+        setTimeout(function(){fade_out(warningSelected);}, 2000);
+        $(inputSelected).val(""); 
+        //updateQuantityDescription(id);
+    }else{
+
+        $(inputSelected).css("border-color","red").css("border-width","3px");
+        if($(inputSelected).val() >  parseInt(disponibility) ){ // Se la quantità richiesta è maggiore di quella disponibile errore
+            $(warningSelected).text("Too many quantity required, max disponibility" + disponibility).css("color","red");
+            $(warningSelected).fadeIn();
+            setTimeout(function(){fade_out(warningSelected);}, 2000);       
+        }
     }
 }
 function deleteRow() {
@@ -91,14 +103,16 @@ function deleteRow() {
     if(arrayDeleteId.length!=0){    
         const xhttp = new XMLHttpRequest();
         xhttp.onload = function() {
-            document.getElementById("ingredientTable").innerHTML = this.responseText;            
+            document.getElementById("ingredientTable").innerHTML = this.responseText; 
+            arrayDeleteId.forEach(id => {
+                updateQuantityDescription(id);
+            });           
         }    
         xhttp.open("GET", "gettable.php?action="+ action + "&id="+ JSON.stringify(arrayDeleteId) + "&upDb=" + upgradeDatabase );
         xhttp.send();
-        arrayDeleteId.forEach(id => {
-            console.log("AAAAAA");
+        /*arrayDeleteId.forEach(id => {
             updateQuantityDescription(id);
-        });
+        });*/
 
     }
 }
@@ -166,17 +180,32 @@ function reset(upDataBase){
        
     $('[checked="checked"]').each(function() {
         arrayDeleteId.push($(this).val());
+       // $(this).parents("tr").remove();
+        if(upgradeDatabase == true){
+            var id = $(this).val();
+            var inputSelected = "#qtn" + id;  
+            var buttonSelected = "#btn" + id;
+            var nameSelected = "#name" + id;
+    
+            $(nameSelected).text($(nameSelected).text().replace(" - Sold out", ""));
+            $(buttonSelected).removeAttr("disabled");
+            $(inputSelected).removeAttr("disabled");    
+        }
+        
     });    
  
     xhttp.onload = function() {
         document.getElementById("ingredientTable").innerHTML = this.responseText;            
+        arrayDeleteId.forEach(id => {    
+            updateQuantityDescription(id);
+        });
     }
     xhttp.open("GET", "gettable.php?action="+ action + "&id="+ JSON.stringify(arrayDeleteId) + "&upDb=" + upgradeDatabase,false );
     xhttp.send();
     
-    arrayDeleteId.forEach(id => {    
+ /*   arrayDeleteId.forEach(id => {    
         updateQuantityDescription(id);
-    });
+    });*/
     
 
 }
