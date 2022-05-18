@@ -1,5 +1,17 @@
 $(document).ready(function() {
     $("#registrationForm").on("submit", validateRegistrationForm);
+
+    $("#radioButtonAdmin").click(function () {
+        changeRadioButton("Admin");
+    });
+
+    $("#radioButtonUser").click(function () {
+        changeRadioButton("User");
+    });
+
+    $("#radioButtonExpress").click(function () {
+        changeRadioButton("Express");
+    });
 });
 
 

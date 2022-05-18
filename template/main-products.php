@@ -42,7 +42,7 @@
                                 <input title="input" name="qtn<?php echo $products["productID"]; ?>" type="text" class="form-control form-rounded" id="qtn<?php echo $products["productID"]; ?>" <?php echo $products["qtystock"] == "0" ? 'disabled = "disabled";' : "" ?> placeholder="Quantity">
                             </div>
 
-                            <div> <button class="btn btn-dark text-uppercase " id="btn<?php echo $products["productID"]; ?>" onclick="submitQuantity(<?php echo $products["productID"]; ?>)" <?php echo $products["qtystock"] == "0" ? 'disabled = "disabled"' : "" ?>>Add</button> </div>
+                            <div class="selection-option"> <button class="btn btn-dark text-uppercase " id="btn<?php echo $products["productID"]; ?>"  <?php echo $products["qtystock"] == "0" ? 'disabled = "disabled"' : "" ?>>Add</button> </div>
 
                         </div>
                         <div id="warningsLabel<?php echo $products["productID"]; ?>"></div>
