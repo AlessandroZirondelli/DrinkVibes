@@ -38,11 +38,11 @@ function uploadIngredient(id) {
     $(warningSelected).text("");
     $(warningSelected).fadeIn();
     if ($.isNumeric(qtn) && qtn >= 0) {
-        $.post('uploadIngredient.php', { "action": action, "id": id, "qtn": qtn },
+        $.post('uploadIngredientttt.php', { "action": action, "id": id, "qtn": qtn },
             function (returnedData) {
                 console.log(returnedData);
             }).fail(function () {
-                console.log("error");
+                document.location.href = "/DrinkVibes/errors.php?errorNum= ";
             });
 
         $(warningSelected).text("Saved").css("color", "green");
@@ -54,7 +54,6 @@ function uploadIngredient(id) {
 function deleteIngredient(id) {
     const cardDelete = "#card" + id;
     const action = 2;
-    const xhttp = new XMLHttpRequest();
 
     $(cardDelete).remove();
 
@@ -62,7 +61,7 @@ function deleteIngredient(id) {
         function (returnedData) {
             //console.log(returnedData);
         }).fail(function () {
-            console.log("error");
+            document.location.href = "/DrinkVibes/errors.php?errorNum= ";
         });
 
 }
