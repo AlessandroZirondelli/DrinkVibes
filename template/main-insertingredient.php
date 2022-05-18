@@ -46,26 +46,26 @@
         <div id="category" class="mb-3 mt-3">
           <label>Category:</label>
           <div class="form-check">
-            <input type="radio" class="form-check-input" id="radioButtonUnit" name="optradiocategory" value="Unit" onclick='changeRadioButtonCategory("Unit")' checked>
+            <input type="radio" class="form-check-input" id="radioButtonUnit" name="optradiocategory" value="Unit" checked>
             <label class="form-check-label" for="radioButtonUnit">Unit</label>
           </div>
           <div class="form-check">
-            <input type="radio" class="form-check-input" id="radioButtonLiquid" name="optradiocategory" value="Liquid" onclick='changeRadioButtonCategory("Liquid")'>
+            <input type="radio" class="form-check-input" id="radioButtonLiquid" name="optradiocategory" value="Liquid">
             <label class="form-check-label" for="radioButtonLiquid">Liquid(mL)</label>
           </div>
         </div>
         <div id="tipology" class="mb-3 mt-3">
           <label>Tipology:</label>
           <div class="form-check">
-            <input type="radio" class="form-check-input" id="radioButtonSpirit" name="optradiotipology" value="Spirit" onclick='changeRadioButtonTipology("Spirit")' checked>
+            <input type="radio" class="form-check-input" id="radioButtonSpirit" name="optradiotipology" value="Spirit" checked>
             <label class="form-check-label" for="radioButtonSpirit">Spirit</label>
           </div>
           <div class="form-check">
-            <input type="radio" class="form-check-input" id="radioButtonWine" name="optradiotipology" value="Wine" onclick='changeRadioButtonTipology("Wine")'>
+            <input type="radio" class="form-check-input" id="radioButtonWine" name="optradiotipology" value="Wine">
             <label class="form-check-label" for="radioButtonWine">Wine</label>
           </div>
           <div class="form-check">
-            <input type="radio" class="form-check-input" id="radioButtonBeverage" name="optradiotipology" value="Beverage" onclick='changeRadioButtonTipology("Beverage")'>
+            <input type="radio" class="form-check-input" id="radioButtonBeverage" name="optradiotipology" value="Beverage">
             <label class="form-check-label" for="radioButtonBeverage">Beverage</label>
           </div>
         </div>
