@@ -30,38 +30,17 @@
                   </th>
 
                   <td class="align-middle">
-<<<<<<< HEAD
-                    <div class="d-flex flex-row">
-
-                      <button class="btn btn-link px-2 " onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-
-                      </button>
-
-                      <input id="formDrink<?php echo $hmd[0]->getId(); ?>" min="1" name="quantity" value="<?php echo $hmd[1]; ?>" type="number" class="form-control form-control-sm" style="width: 50px;" onChange="check_qty(this.value,<?php echo $hmd[0]->getId(); ?>);" />
-
-                      <button class="btn btn-link px-2" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-
-                      </button>
-
-
-=======
                     <div class="d-flex flex-row selector">
                       <button class="btn btn-link px-2 down" ></button>
                       <input id="formDrink<?php echo $hmd[0]->getId(); ?>" min="1" name="quantity" value="<?php echo $hmd[1]; ?>" type="number" class="form-control form-control-sm" style="width: 50px;" onChange="check_qty(this.value,<?php echo $hmd[0]->getId(); ?>);" />
                       <button class="btn btn-link px-2 up" > </button>
->>>>>>> Arianna
                     </div>
                   </td>
                   <td class="align-middle">
                     <p class="mb-0" style="font-weight: 500;"><?php echo $hmd[0]->getTotalPrice(); ?></p>
                   </td>
-<<<<<<< HEAD
-                  <td class="align-middle">
-                    <button onclick="deleteDrink(<?php echo $hmd[0]->getId(); ?>)"> <i class="bi bi-trash"></i> </button>
-=======
                   <td class="align-middle deletebtnDrink">
                     <button id="<?php echo $hmd[0]->getId(); ?> "> <i class="bi bi-trash"></i> </button>
->>>>>>> Arianna
                   </td>
 
                 </tr>
@@ -78,39 +57,19 @@
                   </th>
 
                   <td class="align-middle">
-<<<<<<< HEAD
-                    <div class="d-flex flex-row">
-
-                      <button class="btn btn-link px-2 " onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-
-                      </button>
-
-                      <input id="formProd<?php echo $prod[0]->getProductID(); ?>" min="1" name="quantity" value="<?php echo $prod[1]; ?>" type="number" class="form-control form-control-sm" style="width: 50px;" onChange="check_qty_prod(this.value,<?php echo $prod[0]->getProductID(); ?>);" />
-
-                      <button class="btn btn-link px-2" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-
-                      </button>
-
-=======
                     <div class="d-flex flex-row selector">
 
                       <button class="btn btn-link px-2 down"></button>
                       <input id="formProd<?php echo $prod[0]->getProductID(); ?>" min="1" name="quantity" value="<?php echo $prod[1]; ?>" type="number" class="form-control form-control-sm" style="width: 50px;" onChange="check_qty_prod(this.value,<?php echo $prod[0]->getProductID(); ?>);" />
                       <button class="btn btn-link px-2 up"></button>
->>>>>>> Arianna
 
                     </div>
                   </td>
                   <td class="align-middle">
                     <p class="mb-0" style="font-weight: 500;"><?php echo $prod[0]->getPrice(); ?></p>
                   </td>
-<<<<<<< HEAD
-                  <td class="align-middle">
-                    <button onclick="deleteProduct(<?php echo $prod[0]->getProductID(); ?>)"> <i class="bi bi-trash"></i> </button>
-=======
                   <td class="align-middle deletebtnProduct">
                     <button id="<?php echo $prod[0]->getProductID(); ?>"> <i class="bi bi-trash"></i> </button>
->>>>>>> Arianna
                   </td>
 
                 </tr>
