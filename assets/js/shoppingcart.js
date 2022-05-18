@@ -24,6 +24,24 @@ $(document).ready(function() {
         }
     )
 
+    for (const elem of document.querySelectorAll('.d-flex.flex-row.selector')) {
+        elem.querySelector('.btn.btn-link.px-2.down').click(
+            function() {
+                const numberInput = elem.querySelector('input[type=number]')
+                if (numberInput.value > 0)
+                    numberInput.stepDown();
+            }
+        )
+
+        elem.querySelector('.btn.btn-link.px-2.up').click(
+            function() {
+                const numberInput = elem.querySelector('input[type=number]')
+                if (numberInput.value > 0)
+                    numberInput.stepUp();
+            }
+        )
+    }
+
 });
 
 function checkCart() {
