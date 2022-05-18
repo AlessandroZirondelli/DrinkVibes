@@ -59,11 +59,11 @@
             <div class="mx-1">
               <hr class="line my-0">
             </div>
-            <div class="mb-2 mt-2">
+            <div class="mb-2 mt-2 selection-option">
 
               <!-- fil js product-admin -->
-              <button class="btn btn-success text-uppercase " id="savebtn<?php echo $products["productID"]; ?>" onclick="uploadProduct(<?php echo $products["productID"]; ?>)">Save</button> 
-              <button class="btn btn-danger text-uppercase " id="deletebtn<?php echo $products["productID"]; ?>" onclick="deleteProduct(<?php echo $products["productID"]; ?>)">Delete</button> 
+              <button class="btn btn-success text-uppercase " id="savebtn<?php echo $products["productID"]; ?>">Save</button> 
+              <button class="btn btn-danger text-uppercase " id="deletebtn<?php echo $products["productID"]; ?>">Delete</button> 
 
               
             </div>

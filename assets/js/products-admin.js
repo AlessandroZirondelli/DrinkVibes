@@ -1,18 +1,34 @@
 $(document).ready(function() {
-    //$(".mb-2 mt-2:nth-of-type(1)").click(function(e) {
-    //console.log(e.target.id);
-    //e.uploadProduct($('button[id^=savebtn]'));
+    //save
+    $(".mb-2.mt-2.selection-option :nth-child(1)").each(
+        function(e) {
+            let idBtn = $(this).attr('id').replace('savebtn', '');
+            let idProduct = (parseInt(idBtn));
 
-    //$(".savebtn_products").click(function() {
-    let id = $(".deletebtn_products").data('id');
-    console.log(id);
-    //});
+            $(this).click(
+                function(e) {
+                    uploadProduct(idProduct);
+                    console.log("cliccato " + idProduct);
+                }
+            );
 
-    //});
+        }
+    );
 
-    /*$(".mb-2 mt-2:nth-of-type(2)").click(function(e) {
-        //e.deleteProduct();
-    });*/
+    //delete
+    $(".mb-2.mt-2.selection-option :nth-child(2)").each(
+        function(e) {
+            let idBtn = $(this).attr('id').replace('deletebtn', '');
+            let idProduct = (parseInt(idBtn));
+
+            $(this).click(
+                function(e) {
+                    deleteProduct(idProduct);
+                }
+            );
+
+        }
+    );
 
 });
 
@@ -81,8 +97,8 @@ function deleteProduct(id) {
     //in js carica visicamente le nuove modifiche dei prodotti o ne aggiunge di nuovi a seconda del caso in cui si trova
     //richiamando poi uploadProduct modifico anche nel db
 
-    xhttp.open("GET", "uploadProduct.php?action=" + action + "&id=" + id);
-    xhttp.send();
+    //xhttp.open("GET", "uploadProduct.php?action=" + action + "&id=" + id);
+    //xhttp.send();
 }
 
 
