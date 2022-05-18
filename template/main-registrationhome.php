@@ -6,6 +6,6 @@
         <h4>Name: <?php echo $_SESSION["name"]?></h4> 
         <h4>Surname: <?php echo $_SESSION["surname"]?></h4>
         <h4>Email: <?php echo $_SESSION["email"]?></h4>
-        <h4>Birthday:</h4>
+        <h4>Birthday: <?php echo $_SESSION["birthdate"]?></h4>
     </div> 
 </div>

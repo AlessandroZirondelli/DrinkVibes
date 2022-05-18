@@ -14,7 +14,8 @@
       <div class="col-md-4" id = "card<?php echo $products["productID"];?>">
         <div class="card mb-4 product-wap rounded-0">
           <div class="card-inner">
-            <img class="card-img rounded-0" src="<?php echo $products["imageURL"]; ?>">
+            <img class="card-img rounded-0" alt="img default" src="<?php echo $products["imageURL"]; ?>">
+
           </div>
           <div class="card-body pb-0 px-2">
             <div class="text-decoration-none pb-2" id="name<?php echo $products["productID"]; ?>"><?php echo $products["name"]; ?></div>
@@ -47,7 +48,7 @@
                 <form class="form-inline">
                   <label for="rg-from">Quantity: </label>
                   <div class="form-group me-1">
-                    <input class="form-control form-rounded" type="text" id="qtn<?php echo $products["productID"]; ?>" name="rg-from" value="<?php echo  $products["qtystock"] ?>">
+                    <input class="form-control form-rounded" title="input" type="text" id="qtn<?php echo $products["productID"]; ?>" name="rg-from" value="<?php echo  $products["qtystock"] ?>">
                   </div>
 
                 </form>

@@ -4,10 +4,8 @@ require_once("utils/ManagerAccounts.php");
 require_once("utils/Account.php");  
 
 $cssArray[0]="./assets/css/login-style.css";
-// va in base per le icone <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
 $manager = new ManagerAccounts();
-
 
 //controlliamo username e password
 if(isset($_POST["username"]) && isset($_POST["password"])){
@@ -18,6 +16,7 @@ if(isset($_POST["username"]) && isset($_POST["password"])){
     }
     else{
         $manager -> registerLoggedUser($login_result[0]);
+        
         //Serve per reindirizzamento nel momento in cui clicco su Order ma non sono loggato
         //Quindi clicco su order, mi reindirizza al login, dopodichè ritorna in automatico su order
         if(isset($_SESSION["redirect"]) && ($_SESSION["redirect"]=="orders")){

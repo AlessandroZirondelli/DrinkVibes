@@ -1,5 +1,5 @@
-$( document ).ready(function() {
-    $( "#registrationForm" ).on("submit", validateRegistrationForm);
+$(document).ready(function() {
+    $("#registrationForm").on("submit", validateRegistrationForm);
 });
 
 
@@ -10,29 +10,30 @@ function isValidDate(selectedDate) {
     const date = selectedDate.split("-");
     const month = date[1];
     const day = date[2];
-    if(!( (month <= 12 && month > 0) && (day > 0 && day <=31))){
+    if (!((month <= 12 && month > 0) && (day > 0 && day <= 31))) {
         return false;
     }
     return true;
 }
 
-function isUnique(selectedUserId){
+function isUnique(selectedUserId) {
     const action = 1;
     var res = "";
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
         res = this.responseText;
-        
+
     }
-    xhttp.open("GET", "utils/account/functionAccount.php?action=" + action + "&userId=" + selectedUserId,false);
+    xhttp.open("GET", "utils/account/functionAccount.php?action=" + action + "&userId=" + selectedUserId, false);
     xhttp.send();
-    if (res == false){
+    if (res == false) {
         return false;
-    }else{
+    } else {
         return true;
     }
-   
+
 }
+
 function changeRadioButtonTipology(tipology) {
     const radioButtonTipology = "#radioButton" + tipology;
 
@@ -58,7 +59,7 @@ function validateLetters($name) {
 }
 
 
-function validateRegistrationForm(){
+function validateRegistrationForm() {
     var warningSelected = "#warningsLabel";
     $(warningSelected).text("");
     $(warningSelected).fadeIn();
@@ -69,8 +70,8 @@ function validateRegistrationForm(){
     let emailAcc = "";
     let passwordAcc1 = "";
     let typeAcc = "";
-    let passwordAcc2= "";
-    let birthdayAcc ="";
+    let passwordAcc2 = "";
+    let birthdayAcc = "";
     let action = 3;
     let errorEmpty = false;
     let errorPassWord = false;
@@ -78,25 +79,25 @@ function validateRegistrationForm(){
     let errorUserId = false;
     let errorBirthday = false;
 
-    $("#name").css("border-color","black");
-    $("#surname").css("border-color","black");
-    $("#email").css("border-color","black");
-    $("#userID").css("border-color","black");
-    $("#birthday").css("border-color","black");
-    $("#password1").css("border-color","black");
-    $("#password2").css("border-color","black");
-    
+    $("#name").css("border-color", "black");
+    $("#surname").css("border-color", "black");
+    $("#email").css("border-color", "black");
+    $("#userID").css("border-color", "black");
+    $("#birthday").css("border-color", "black");
+    $("#password1").css("border-color", "black");
+    $("#password2").css("border-color", "black");
+
 
 
     if ($("#name").val() == "") {
-        $("#name").css("border-color","red");
+        $("#name").css("border-color", "red");
         errorEmpty = true;
-    } 
+    }
 
     if ($("#surname").val() == "") {
-        $("#surname").css("border-color","red");
-        errorEmpty = true;   
-    } 
+        $("#surname").css("border-color", "red");
+        errorEmpty = true;
+    }
 
     if ($("#email").val() !== "") {
         emailAcc = $("#email").val();
@@ -104,40 +105,40 @@ function validateRegistrationForm(){
         if (!(validateEmail(emailAcc))) {
             errorEmail = true;
 
-            $("#email").css("border-color","red");
+            $("#email").css("border-color", "red");
             $(warningSelected).text("Error! E-mail format incorrect").css("color", "red");
             $(warningSelected).fadeIn();
             setTimeout(function() { fade_out(warningSelected); }, 2000);
         }
     } else {
-        $("#email").css("border-color","red");
+        $("#email").css("border-color", "red");
         errorEmpty = true;
     }
 
     if ($("#userID").val() !== "") {
         UserIDAcc = $("#userID").val();
-        if(!isUnique(UserIDAcc)){
+        if (!isUnique(UserIDAcc)) {
             errorUserId = true;
-            $("#userID").css("border-color","red");
+            $("#userID").css("border-color", "red");
             $(warningSelected).text("Error! UserId is already present").css("color", "red");
             $(warningSelected).fadeIn();
         }
     } else {
-        $("#userID").css("border-color","red");
+        $("#userID").css("border-color", "red");
         errorEmpty = true;
     }
-    
+
     if ($("#birthday").val() !== "") {
         birthdayAcc = $("#birthday").val();
-        if(!isValidDate(birthdayAcc)){
+        if (!isValidDate(birthdayAcc)) {
             errorBirthday = true;
-            $("#birthday").css("border-color","red");
+            $("#birthday").css("border-color", "red");
             $(warningSelected).text("Error! Date birthday is incorrect").css("color", "red");
             $(warningSelected).fadeIn();
         }
 
     } else {
-        $("#birthday").css("border-color","red");
+        $("#birthday").css("border-color", "red");
         errorEmpty = true;
     }
 
@@ -145,7 +146,7 @@ function validateRegistrationForm(){
         passwordAcc1 = $("#password1").val();
 
     } else {
-        $("#password1").css("border-color","red");
+        $("#password1").css("border-color", "red");
         errorEmpty = true;
     }
 
@@ -153,35 +154,32 @@ function validateRegistrationForm(){
         passwordAcc2 = $("#password2").val();
 
     } else {
-        $("#password2").css("border-color","red");
+        $("#password2").css("border-color", "red");
         errorEmpty = true;
     }
 
     typeAcc = $("#tipology").children('[checked]').val();
 
-    if(passwordAcc1 != passwordAcc2){
+    if (passwordAcc1 != passwordAcc2) {
         errorPassWord = true;
         $(warningSelected).text("Errore! Password non corrispondenti").css("color", "red");
         $(warningSelected).fadeIn();
         setTimeout(function() { fade_out(warningSelected); }, 2000);
-        $("#password1").css("border-color","red");
-        $("#password2").css("border-color","red");
+        $("#password1").css("border-color", "red");
+        $("#password2").css("border-color", "red");
     }
-    if(errorEmpty == true){
+    if (errorEmpty == true) {
         $(warningSelected).text("Errore! Sono presenti alcuni campi vuoti").css("color", "red");
         $(warningSelected).fadeIn();
         setTimeout(function() { fade_out(warningSelected); }, 2000);
     }
-    
 
-return !( errorPassWord || errorEmpty || errorEmail || errorUserId || errorBirthday);
+
+    return !(errorPassWord || errorEmpty || errorEmail || errorUserId || errorBirthday);
 
 }
-
 
 
 function fade_out(id) {
     $(id).fadeOut(1000, "linear");
 }
-
-
