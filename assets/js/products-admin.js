@@ -56,21 +56,6 @@ function uploadProduct(id) {
         $(warningSelected).text("Saved").css("color", "green");
         $(warningSelected).fadeIn();
         setTimeout(function() { fade_out(warningSelected); }, 2000);
-<<<<<<< HEAD
-=======
-
-        /*xhttp.onload = function() {
-                    console.log(this.responseText);
-                }
-        console.log(action);
-        console.log(id);
-        console.log(qtn);
-
-
-        xhttp.open("GET", "uploadProduct.php?action=" + action + "&id=" + id + "&qtn=" + qtn);
-
-        xhttp.send();*/
->>>>>>> Arianna
     } else {
         $(warningSelected).text("Incoret Format").css("color", "red");
         $(warningSelected).fadeIn();

@@ -1,4 +1,4 @@
-<h1 class="m-3">Shopping cart</h1>
+<h1 class="text-center mt-4">Shopping cart</h1>
 <section class="h-100 h-custom">
 
   <div class="container h-100 py-5">
