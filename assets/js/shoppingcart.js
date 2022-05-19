@@ -68,7 +68,7 @@ function checkCart() {
         }
     }
 
-    xhttp.open("GET", "shoppingcartfunction.php?action=" + action, false);
+    xhttp.open("GET", "shoppingcartfunction.php?action=" + action);
     xhttp.send();
 }
 
@@ -87,10 +87,11 @@ function check_qty_prod(value, id) {
         if ($.isNumeric(returnString)) {
             $(inputId).val(parseInt(returnString));
         }
+        totalCost();
     }
-    xhttp.open("GET", "shoppingcartfunction.php?action=" + action + "&id=" + idCheck + "&value=" + valueRead, false);
+    xhttp.open("GET", "shoppingcartfunction.php?action=" + action + "&id=" + idCheck + "&value=" + valueRead);
     xhttp.send();
-    totalCost();
+    
 }
 
 function check_qty(value, id) {
@@ -105,10 +106,11 @@ function check_qty(value, id) {
         if ($.isNumeric(returnString)) {
             $(inputId).val(parseInt(returnString));
         }
+        totalCost();
     }
-    xhttp.open("GET", "shoppingcartfunction.php?action=" + action + "&id=" + idCheck + "&value=" + valueRead, false);
+    xhttp.open("GET", "shoppingcartfunction.php?action=" + action + "&id=" + idCheck + "&value=" + valueRead);
     xhttp.send();
-    totalCost();
+
 }
 
 function deleteProduct(id) {
@@ -128,16 +130,17 @@ function deleteProduct(id) {
 
 
 
-    $.post('shoppingcartfunction.php', { "action": action, "id": id, "idDelete": false },
+    $.post('shoppingcartfunction.php', { "action": action, "id": id },
         function(returnedData) {
             console.log(returnedData);
+            totalCost();
+            checkCart();
+            $(rowId).remove();
         }).fail(function() {
         console.log("error");
     });
 
-    totalCost();
-    checkCart();
-    $(rowId).remove();
+    
 
 }
 
@@ -157,16 +160,17 @@ function deleteDrink(id) {
     xhttp.send();
 */
 
-    $.post('shoppingcartfunction.php', { "action": action, "id": id, "idDelete": false },
+    $.post('shoppingcartfunction.php', { "action": action, "id": id },
         function(returnedData) {
             //console.log(returnedData);
+            totalCost();
+            checkCart();
+            $(rowId).remove();
         }).fail(function() {
         console.log("error");
     });
 
-    totalCost();
-    checkCart();
-    $(rowId).remove();
+    
 }
 /*
 function buyProduct(){
@@ -194,6 +198,6 @@ function totalCost() {
         total = total.toFixed(2);
         document.getElementById("total").innerHTML = total;
     }
-    xhttp.open("GET", "shoppingcartfunction.php?action=" + action, false);
+    xhttp.open("GET", "shoppingcartfunction.php?action=" + action);
     xhttp.send();
 }
