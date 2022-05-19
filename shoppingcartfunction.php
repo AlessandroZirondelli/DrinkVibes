@@ -222,15 +222,6 @@ if($action == 8){
     $_SESSION["shopping_cart_prod"] = serialize($list_prod_temp) ;
 }
 
-if($action == 9){
-    $mngOrders = new ManagerInsertOrder();
-    $newId = $mngOrders -> getMaxOrdertId()[0]["max_id"] + 1; 
-    $order = new Order();
 
 
-
-}
-if($action == 10){
-    
-}
 ?>
