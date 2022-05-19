@@ -27,7 +27,7 @@
               <div class="accordion-item">
                 <div class="accordion-header<?php echo $products["productID"]; ?>" id="flush-heading<?php echo $products["productID"]; ?>">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse<?php echo $products["productID"]; ?>" aria-expanded="false" aria-controls="flush-collapse<?php echo $products["productID"]; ?>">
-                    <div class="text-decoration-none">Details</div>
+                    Details
                   </button>
                 </div>
                 <div id="flush-collapse<?php echo $products["productID"]; ?>" class="accordion-collapse collapse" aria-labelledby="flush-heading<?php echo $products["productID"]; ?>" data-bs-parent="#accordionFlush<?php echo $products["productID"]; ?>">
@@ -46,7 +46,7 @@
               <div>
 
                 <form class="form-inline">
-                  <label for="rg-from">Quantity: </label>
+                  <label for="qtn<?php echo $products["productID"]; ?>">Quantity: </label>
                   <div class="form-group me-1">
                     <input class="form-control form-rounded" title="input" type="text" id="qtn<?php echo $products["productID"]; ?>" name="rg-from" value="<?php echo  $products["qtystock"] ?>">
                   </div>
@@ -74,3 +74,5 @@
     <?php endforeach; ?>
 
   </div>
+
+</div>
