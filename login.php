@@ -12,7 +12,7 @@ if(isset($_POST["username"]) && isset($_POST["password"])){
     $login_result = $dbh->checkLogin($_POST["username"], $_POST["password"]);
     if(count($login_result)==0){
         //Login failed
-        $templateParams["errorelogin"] = "Username o password errata! Riprova.";
+        $templateParams["errorelogin"] = "Wrong username or password! Try again.";
     }
     else{
         $manager -> registerLoggedUser($login_result[0]);

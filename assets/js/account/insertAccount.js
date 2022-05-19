@@ -1,15 +1,15 @@
 $(document).ready(function() {
     $("#registrationForm").on("submit", validateRegistrationForm);
 
-    $("#radioButtonAdmin").click(function () {
+    $("#radioButtonAdmin").click(function() {
         changeRadioButton("Admin");
     });
 
-    $("#radioButtonUser").click(function () {
+    $("#radioButtonUser").click(function() {
         changeRadioButton("User");
     });
 
-    $("#radioButtonExpress").click(function () {
+    $("#radioButtonExpress").click(function() {
         changeRadioButton("Express");
     });
 });
@@ -174,14 +174,14 @@ function validateRegistrationForm() {
 
     if (passwordAcc1 != passwordAcc2) {
         errorPassWord = true;
-        $(warningSelected).text("Errore! Password non corrispondenti").css("color", "red");
+        $(warningSelected).text("Error! Password does not match").css("color", "red");
         $(warningSelected).fadeIn();
         setTimeout(function() { fade_out(warningSelected); }, 2000);
         $("#password1").css("border-color", "red");
         $("#password2").css("border-color", "red");
     }
     if (errorEmpty == true) {
-        $(warningSelected).text("Errore! Sono presenti alcuni campi vuoti").css("color", "red");
+        $(warningSelected).text("Error! There are some empty fields").css("color", "red");
         $(warningSelected).fadeIn();
         setTimeout(function() { fade_out(warningSelected); }, 2000);
     }

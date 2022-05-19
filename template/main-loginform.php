@@ -1,10 +1,10 @@
 <div class="container d-flex align-items-center justify-content-center my-5">
   <div class="row">
-    <form action="#" method="POST" id="login" autocomplete="off" class="bg-light border p-3">
-      <div class="form-row">
-        <h4 class="title my-3">Login For Access</h4>
+    <form action="#" method="POST" id="login" autocomplete="off" class="bg-light border py-3 px-5 ">
+      <div class="form-row ">
+        <h4 class="title my-3 pb-2">Login For Access</h4>
         <div class="col-12">
-          <div class="input-group mb-3">
+          <div class="input-group mb-3 px-4">
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-user"></i></span>
             </div>
@@ -12,7 +12,7 @@
           </div>
         </div>
         <div class="col-12">
-          <div class="input-group mb-3">
+          <div class="input-group mb-3 px-4">
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-lock"></i></span>
             </div>
@@ -27,7 +27,7 @@
         </div>
 
         <div class="col-12 text-right">
-          <input type="submit" name="submit" value="Login" />
+          <input type="submit" class="btn btn-dark text-uppercase " name="submit" value="Login" />
         </div>
 
         <?php if (isset($templateParams["errorelogin"])) : ?>
