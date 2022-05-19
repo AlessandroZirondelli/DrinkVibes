@@ -18,7 +18,7 @@
                 </div>
 
                 <div class="image-upload mb-3 mt-3">
-                    <label for="Image">Product's Image:</label>
+                    <label for="image">Product's Image:</label>
                     <input type="file" id="image" name="imageToSave" accept="image/png , image/jpeg" value="assets/img/i.png" />
                 </div>
 
@@ -27,7 +27,7 @@
                 </div>
 
                 <div class="form-group mb-3 mt-3">
-                    <label for="TextArea">Description:</label>
+                    <label for="textArea">Description:</label>
                     <textarea name="description" class="form-control form-rounded" id="textArea" rows="3"></textarea>
                 </div>
 
@@ -45,25 +45,27 @@
                 </div>
 
                 <div id="tipology" class="mb-3 mt-3">
-                    <label>Type:</label>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="optradiotipology" id="radioButtonWine" value="Wine" checked>
-                        <label class="form-check-label" for="radioButtonWine">
-                            Wine
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="optradiotipology" id="radioButtonBeverage" value="Beverage">
-                        <label class="form-check-label" for="radioButtonBeverage">
-                            Beverage
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="optradiotipology" id="radioButtonDrink" value="Drink">
-                        <label class="form-check-label" for="radioButtonDrink">
-                            Drink
-                        </label>
-                    </div>
+                    <fieldset>
+                        <label>Type:</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="optradiotipology" id="radioButtonWine" value="Wine" checked>
+                            <label class="form-check-label" for="radioButtonWine">
+                                Wine
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="optradiotipology" id="radioButtonBeverage" value="Beverage">
+                            <label class="form-check-label" for="radioButtonBeverage">
+                                Beverage
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="optradiotipology" id="radioButtonDrink" value="Drink">
+                            <label class="form-check-label" for="radioButtonDrink">
+                                Drink
+                            </label>
+                        </div>
+                    </fieldset>
                 </div>
 
                 <div class="mx-1">
