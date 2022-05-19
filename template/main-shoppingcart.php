@@ -32,7 +32,7 @@
                   <td class="align-middle">
                     <div class="d-flex flex-row selector">
                       <button class="btn btn-link px-2 down" ></button>
-                      <input id="formDrink<?php echo $hmd[0]->getId(); ?>" min="1" name="quantity" value="<?php echo $hmd[1]; ?>" type="number" class="form-control form-control-sm change-btn" style="width: 50px;"  onChange="check_qty(this.value,<?php echo $hmd[0]->getId();?>);" />
+                      <input id="formDrink<?php echo $hmd[0]->getId(); ?>" min="1" name="quantity" value="<?php echo $hmd[1]; ?>" type="number" class="form-control form-control-sm change-btn first" style="width: 50px;"   />
                       <button class="btn btn-link px-2 up" > </button>
                     </div>
                   </td>
@@ -60,7 +60,7 @@
                     <div class="d-flex flex-row selector">
 
                       <button class="btn btn-link px-2 down"></button>
-                      <input id="formProd<?php echo $prod[0]->getProductID(); ?>" min="1" name="quantity" value="<?php echo $prod[1]; ?>" type="number" class="form-control form-control-sm" style="width: 50px;" onChange="check_qty_prod(this.value,<?php echo $prod[0]->getProductID(); ?>);" />
+                      <input id="formProd<?php echo $prod[0]->getProductID(); ?>" min="1" name="quantity" value="<?php echo $prod[1]; ?>" type="number" class="form-control form-control-sm change-btn second" style="width: 50px;" />
                       <button class="btn btn-link px-2 up"></button>
 
                     </div>

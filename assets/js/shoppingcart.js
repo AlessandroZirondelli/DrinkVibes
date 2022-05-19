@@ -49,6 +49,39 @@ $(document).ready(function() {
             check_qty(value,idBtnChange);
         });
     });*/
+
+    //onChange="check_qty(this.value,<?php echo $hmd[0]->getId();?>);"
+    //onChange="check_qty_prod(this.value,<?php echo $prod[0]->getProductID(); ?>);" 
+
+    
+    $("input.change-btn.first").each(function(e){
+        let idBtn = $(this).attr('id').replace('formDrink', '');
+        //let value = $(this).attr('value');
+        let idBtnChange = (parseInt(idBtn));
+        $(this).change(function(){
+           // let value = $(this).serialize();
+            //let value =  $(this).serialize();
+            
+            let value = $(this).val();
+            console.log(value);
+            check_qty(value,idBtnChange);
+            //console.log($(this));
+        });
+        
+    });
+
+    $("input.change-btn.second").each(function(e){
+        let idBtn = $(this).attr('id').replace('formProd', '');
+        //let value = $(this).attr('value');
+        let idBtnChange = (parseInt(idBtn));
+        $(this).change(function(){
+            
+            let value = $(this).val(); 
+            console.log(value);
+            check_qty_prod(value,idBtnChange);
+        });
+    });
+
   
 });
 
