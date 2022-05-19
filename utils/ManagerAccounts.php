@@ -11,12 +11,12 @@ require_once($_SERVER['DOCUMENT_ROOT']."/DrinkVibes/assets/db/database.php");
             return $this->dbh ->insertAccount($userID, $name, $surname, $email, $password, $type, $birthdate);
         }
 
-        //controllare se è loggato o meno con SESSION se ha già qualcosa o meno
+        //check if the user is logged in with SESSION. If the session already has something or not
         public function isUserLoggedIn(){
             return !empty($_SESSION['userID']);
         }
 
-        //Registro l'utente x mostrarlo
+        // Register the user to show it
         public function registerLoggedUser($user){
             $_SESSION["userID"] = $user["userID"];
             $_SESSION["name"] = $user["name"];
@@ -24,8 +24,8 @@ require_once($_SERVER['DOCUMENT_ROOT']."/DrinkVibes/assets/db/database.php");
             $_SESSION["email"] = $user["email"];
             $_SESSION["type"] = $user["type"];
             $_SESSION["birthdate"] = $user["birthdate"];
-            //posso aggiungere altri dati, ma ricorda di aggiungerli alla query
         }
+        
         public function isAvailableUserId($userId){
             if(count($this -> dbh ->getUserByUserId($userId)) == 0){
                 return true;

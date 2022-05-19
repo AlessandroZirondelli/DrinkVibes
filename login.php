@@ -7,18 +7,18 @@ $cssArray[0]="./assets/css/login-style.css";
 
 $manager = new ManagerAccounts();
 
-//controlliamo username e password
+//check username e password
 if(isset($_POST["username"]) && isset($_POST["password"])){
     $login_result = $dbh->checkLogin($_POST["username"], $_POST["password"]);
     if(count($login_result)==0){
-        //Login fallito
-        $templateParams["errorelogin"] = "Username o password errata! Riprova.";
+        //Login failed
+        $templateParams["errorelogin"] = "Wrong username or password! Try again.";
     }
     else{
         $manager -> registerLoggedUser($login_result[0]);
         
-        //Serve per reindirizzamento nel momento in cui clicco su Order ma non sono loggato
-        //Quindi clicco su order, mi reindirizza al login, dopodichè ritorna in automatico su order
+        // It is used for redirection when I click on Order but I am not logged in
+        // Then I click on order, it redirects me to login, after which it automatically returns to order
         if(isset($_SESSION["redirect"]) && ($_SESSION["redirect"]=="orders")){
             $_SESSION["redirect"]="empty"; // risetto la variabile ad empty in quanto altrimenti ogni volta che si carica la pagina di login mi si reindirizza in automativo alla pagina degli ordini
             header("location:orders.php");
@@ -45,7 +45,7 @@ if(isset($_POST["username"]) && isset($_POST["password"])){
 
 
 
-if($manager -> isUserLoggedIn()){ // se l'utente è già loggato
+if($manager -> isUserLoggedIn()){ //if the user is already logged in
     if($_SESSION["type"] == "Admin") { 
         $templateParams["title"] = "Manage Account";
         $templateParams["main-content"] = "main-manageaccounts.php";
@@ -54,7 +54,7 @@ if($manager -> isUserLoggedIn()){ // se l'utente è già loggato
         $templateParams["main-content"] = "main-summaryaccount.php";
     } 
 }
-else{ // se l'utente non è loggato
+else{ //if the user isn't logged in
     $templateParams["title"] = "Login";
     $templateParams["main-content"] = "main-loginform.php";
 }

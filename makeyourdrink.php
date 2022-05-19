@@ -4,8 +4,8 @@
     require_once("utils/ManagerIngredients.php");
     require_once("utils/HandMadeDrink.php");
     require_once("utils/Ingredient.php");
-    //session_start();
-    //Serve per evitare che se sono su login non mi reindirizzi a makeyourdrink, se non mi loggo 
+
+    // It is to avoid that if I am logged in, I don't redirect me to makeyourdrink, if I am not logged in
     $_SESSION["redirect"] = "empty";
     $templateParams["title"] = "Make your drink";
 
@@ -43,7 +43,6 @@
     $templateParams["Alcohol"] = $mngIngredients -> getAlcoholIngredient();
     $templateParams["Beverages"] = $mngIngredients -> getBeveragesIngredients();
     $templateParams["Decoration"] = $mngIngredients -> getDecorationIngredients();
-    require_once("template/base.php"); //base.php vede la roba definita dentro  e dentro questo file index.php
-
+    require_once("template/base.php"); 
 ?>
 

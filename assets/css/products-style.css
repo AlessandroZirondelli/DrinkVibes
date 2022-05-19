@@ -1,28 +1,3 @@
-.scroll-to-top {
-    position: fixed;
-    bottom: 48px;
-    right: 32px;
-    background: #e24b0f;
-    border-radius: 40%;
-    box-shadow: 0 apx 16px rgba(0, 0, 0, 0.5);
-    cursor: pointer;
-    z-index: 100;
-    opacity: 0;
-    pointer-events: none;
-    transition: 400ms;
-}
-
-.scroll-to-top.active {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-.scroll-to-top i {
-    color: #fff;
-    font-size: 24px;
-    padding: 14px;
-}
-
 div.accordion-header {
     border: medium solid black;
 }
@@ -32,8 +7,8 @@ h3 {
 }
 
 .accordion-button:hover {
-    background-color: rgb(96, 100, 88) !important;
-    color: black !important;
+    background-color: rgb(203, 203, 203) !important;
+    color: rgb(0, 0, 0) !important;
 }
 
 .accordion-button:not(.collapsed) {
@@ -45,15 +20,18 @@ h3 {
     box-shadow: inherit !important;
 }
 
+
+/*
 [class="accordion-button"] {
-    background-color: rgb(185, 40, 40) !important;
+    background-color: rgb(59, 185, 40) !important;
 }
+*/
 
 img {
     object-fit: contain;
     /*width: 150px;
-  height: 200px;*/
-    width: 1%;
+    height: 200px;
+    width: 1%;*/
     display: flex;
     align-items: center;
     justify-content: center
@@ -77,10 +55,6 @@ p.h3.text-decoration-none {
     margin-top: 0;
     margin-bottom: 0;
     margin-right: 0;
-}
-
-.text-muted {
-    color: red;
 }
 
 .btn {
@@ -115,6 +89,8 @@ p.h3.text-decoration-none {
     height: 100%;
     text-align: center;
 }
+
+
 /*
 .card img {
     width: 100%;
@@ -141,12 +117,15 @@ p.h3.text-decoration-none {
     padding: 1px 10px
 }
 
+
+/*
 .row>* {
     max-width: 100%;
     padding-right: calc(var(--bs-gutter-x)/ 2);
     padding-left: calc(var(--bs-gutter-x)/ 2);
     margin-top: var(--bs-gutter-y);
 }
+*/
 
 body,
 ul,
@@ -171,7 +150,10 @@ div {
     display: block;
 }
 
+
+/* eliminare
 .row {
     --bs-gutter-x: 1.5rem;
     --bs-gutter-y: 0;
 }
+*/

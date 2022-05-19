@@ -1,24 +1,24 @@
-$(document).ready(function () {
+$(document).ready(function() {
     $("#formIdProduct").on("submit", checkProduct);
-    $("#image").change(function () {
+    $("#image").change(function() {
         if (this.files && this.files[0]) {
             let reader = new FileReader();
-            reader.onload = function (e) {
+            reader.onload = function(e) {
                 $('#imgProduct').attr('src', e.target.result);
             }
             reader.readAsDataURL(this.files[0]);
         }
     });
 
-    $("#radioButtonWine").click(function () {
+    $("#radioButtonWine").click(function() {
         changeRadioButton("Wine");
     });
 
-    $("#radioButtonBeverage").click(function () {
+    $("#radioButtonBeverage").click(function() {
         changeRadioButton('Beverage');
     });
 
-    $("#radioButtonDrink").click(function () {
+    $("#radioButtonDrink").click(function() {
         changeRadioButton('Drink');
     });
 
@@ -26,18 +26,18 @@ $(document).ready(function () {
 
 function changeRadioButton(tipology) {
     let radioButtonTipology = "#radioButton" + tipology;
-    $("#tipology input").each(function () {
+    $("#tipology input").each(function() {
         $(this).removeAttr('checked');
     });
     $(radioButtonTipology).attr('checked', 'checked');
     printRadio();
 }
-
+/* FOR DEBUGGING
 function printRadio() {
     let radioBtnLiquid = "#radioButton";
     console.log($("#radioButton").val());
-
 }
+*/
 
 function checkProduct() {
     let warningSelected = "#warningsLabel";
@@ -78,11 +78,11 @@ function checkProduct() {
     if (errorEmpty == true) {
         $(warningSelected).text("Error! Empty field").css("color", "red");
         $(warningSelected).fadeIn();
-        setTimeout(function () { fade_out(warningSelected); }, 2000);
+        setTimeout(function() { fade_out(warningSelected); }, 2000);
     } else if (errorNum == true) {
         $(warningSelected).text("Error! Not a number").css("color", "red");
         $(warningSelected).fadeIn();
-        setTimeout(function () { fade_out(warningSelected); }, 2000);
+        setTimeout(function() { fade_out(warningSelected); }, 2000);
     }
     return errorEmpty == false && errorNum == false;
 }

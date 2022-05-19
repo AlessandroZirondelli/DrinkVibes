@@ -8,23 +8,25 @@ function uploadImage($path, $image){
     $acceptedExtensions = array("jpg", "jpeg", "png", "gif");
     $result = 0;
     $msg = "";
-    //Controllo se immagine è veramente un'immagine
+
+    // Check if image is really an image
     $imageSize = getimagesize($image["tmp_name"]);
     if($imageSize === false) {
         $msg .= "File caricato non è un'immagine! ";
     }
-    //Controllo dimensione dell'immagine < 500KB
+    
+    // Image size control <500KB
     if ($image["size"] > $maxKB * 1024) {
         $msg .= "File caricato pesa troppo! Dimensione massima è $maxKB KB. ";
     }
 
-    //Controllo estensione del file
+    // Check file extension
     $imageFileType = strtolower(pathinfo($fullPath,PATHINFO_EXTENSION));
     if(!in_array($imageFileType, $acceptedExtensions)){
         $msg .= "Accettate solo le seguenti estensioni: ".implode(",", $acceptedExtensions);
     }
 
-    //Controllo se esiste file con stesso nome ed eventualmente lo rinomino
+    // Check if there is a file with the same name and possibly rename it
     if (file_exists($fullPath)) {
         $i = 1;
         do{
@@ -35,7 +37,7 @@ function uploadImage($path, $image){
         $fullPath = $path.$imageName;
     }
 
-    //Se non ci sono errori, sposto il file dalla posizione temporanea alla cartella di destinazione
+    // If there are no errors, I move the file from the temporary location to the destination folder
     if(strlen($msg)==0){
         if(!move_uploaded_file($image["tmp_name"], $fullPath)){
             $msg.= "Errore nel caricamento dell'immagine.";

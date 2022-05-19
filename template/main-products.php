@@ -10,8 +10,7 @@
                     </div>
                     <div class="card-body pb-0 px-2">
 
-                        <div class="h3 text-decoration-none pb-3" id="name<?php echo $products["productID"]; ?>"><?php echo $products["name"];
-                                                                                                                    echo $products["qtystock"] == "0" ? " [Sold out]" : "" ?></div>
+                        <div class="h3 text-decoration-none pb-3" id="name<?php echo $products["productID"]; ?>"><?php echo $products["name"];echo $products["qtystock"] == "0" ? " [Sold out]" : "" ?></div>
 
                         <div class="mx-1">
                             <hr class="line my-0">

@@ -1,5 +1,6 @@
 $(document).ready(function() {
-    //save
+
+    //select button SAVE in all cards
     $(".mb-2.mt-2.selection-option :nth-child(1)").each(
         function(e) {
             let idBtn = $(this).attr('id').replace('savebtn', '');
@@ -8,14 +9,13 @@ $(document).ready(function() {
             $(this).click(
                 function(e) {
                     uploadProduct(idProduct);
-                    console.log("cliccato " + idProduct);
                 }
             );
 
         }
     );
 
-    //delete
+    //select button DELETE in all cards
     $(".mb-2.mt-2.selection-option :nth-child(2)").each(
         function(e) {
             let idBtn = $(this).attr('id').replace('deletebtn', '');
@@ -47,7 +47,7 @@ function uploadProduct(id) {
 
         $.post('uploadProduct.php', { "action": action, "id": id, "qtn": qtn },
             function(returnedData) {
-                console.log(returnedData);
+                //console.log(returnedData);
             }).fail(function() {
                 document.location.href = "/DrinkVibes/errors.php?errorNum= ";
         });
@@ -56,6 +56,21 @@ function uploadProduct(id) {
         $(warningSelected).text("Saved").css("color", "green");
         $(warningSelected).fadeIn();
         setTimeout(function() { fade_out(warningSelected); }, 2000);
+<<<<<<< HEAD
+=======
+
+        /*xhttp.onload = function() {
+                    console.log(this.responseText);
+                }
+        console.log(action);
+        console.log(id);
+        console.log(qtn);
+
+
+        xhttp.open("GET", "uploadProduct.php?action=" + action + "&id=" + id + "&qtn=" + qtn);
+
+        xhttp.send();*/
+>>>>>>> Arianna
     } else {
         $(warningSelected).text("Incoret Format").css("color", "red");
         $(warningSelected).fadeIn();

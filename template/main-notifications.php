@@ -26,7 +26,7 @@
 
                                 <div id="flush-collapseNotifTypeOne<?php echo $notif->getNotifID() ?>" class="accordion-collapse collapse" aria-labelledby="flush-headingNotifTypeOne<?php echo $notif->getNotifID() ?>" data-bs-parent="#accordionFlushNotifTypeOne<?php echo $notif->getNotifID() ?>">
                                     <div class="accordion-body p-0 ms-4">
-                                        <?php if ($type == "User") : //l'utente che entra nelle notifiche è User 
+                                        <?php if ($type == "User") : // the user who enters the notifications is User
                                         ?>
                                             <p>
                                                 Order number: <?php echo $notif->getOrderRef(); ?> has changed state in : <?php echo $notif->getChangedState(); ?>

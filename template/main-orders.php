@@ -185,7 +185,7 @@
                                                             <li><a class="dropdown-item <?php if ($tmp->getState() == 'Ready to delivery') {
                                                                                             echo 'active';
                                                                                         } ?>" href="#">Ready to delivery</a></li>
-                                                            <!--Per disabilitarlo aggiungere disabled come classe al tag <a> -->
+                                                            <!--To disable it add 'disabled' as a class to the <a> tag -->
                                                             <li><a class="dropdown-item <?php if ($tmp->getState() == 'Shipped') {
                                                                                             echo 'active';
                                                                                         } ?>" href="#">Shipped</a></li>
@@ -254,7 +254,7 @@
                             <?php endif; //endif of control if there are orders or not
                             ?>
                         </div>
-                    <?php endif; //endif del controllo se è fattorino o meno
+                    <?php endif; //endif of control if it is espress or not
                     ?>
 
                 </div>
