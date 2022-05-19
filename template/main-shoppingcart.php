@@ -21,7 +21,7 @@
 
               <?php foreach ($templateParams["hmd"] as $hmd) : ?>
                 <tr id="rowDrink<?php echo $hmd[0]->getId(); ?>">
-                  <th scope="rowDrink<?php echo $hmd[0]->getId(); ?>">
+                  <th scope="row">
                     <div class="d-flex align-items-center">
                       <img src="assets/img/MysteryDrink2.png" class="img-fluid rounded-3" style="width: 120px;" alt="Drink">
                       <div class="mx-1">HandMadeDrink<?php echo $hmd[0]->getId(); ?></div>
@@ -48,7 +48,7 @@
               <?php endforeach; ?>
               <?php foreach ($templateParams["prod"] as $prod) : ?>
                 <tr id="rowProd<?php echo $prod[0]->getProductID(); ?>">
-                  <th scope="rowProd<?php echo $prod[0]->getProductID(); ?>">
+                  <th scope="row">
                     <div class="d-flex align-items-center">
                       <img src="<?php echo $prod[0]->getImage(); ?>" class="img-fluid rounded-3" style="width: 120px;" alt="Drink">
                       <div class="mx-1"><?php echo $prod[0]->getName(); ?></div>
@@ -135,7 +135,7 @@
                     </div>
 
                     <div class="form-outline mb-4 mb-xl-5">
-                      <input type="text" title="typeExp" id="typeExp" class="form-control form-control-lg" placeholder="MM/YY" size="7" id="exp" minlength="7" maxlength="7" />
+                      <input type="text" title="typeExp" id="typeExp" class="form-control form-control-lg" placeholder="MM/YY" size="7" minlength="7" maxlength="7" />
                       <label class="form-label" for="typeExp">Expiration</label>
                     </div>
                   </div>
