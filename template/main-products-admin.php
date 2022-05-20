@@ -1,6 +1,6 @@
 <h1 class="p-3">Shop Products</h1>
 
-<div class="container mb-5 p-6">
+<div class="container mb-5 p-2">
 
   <div>
     <!-- è la pagina per la card del nuovo prodotto-->

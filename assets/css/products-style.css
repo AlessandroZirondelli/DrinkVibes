@@ -2,6 +2,10 @@ div.accordion-header {
     border: medium solid black;
 }
 
+h1 {
+    text-align: center;
+}
+
 h3 {
     color: black;
 }
@@ -18,6 +22,18 @@ h3 {
 
 .accordion-button:focus {
     box-shadow: inherit !important;
+}
+
+.form-rounded {
+    border-radius: 1rem !important;
+    margin-left: 1px;
+    margin-right: 5px;
+    border-color: black;
+    border-width: 3px !important;
+    border-radius: 1rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 1px 10px
 }
 
 img {
@@ -38,6 +54,10 @@ p {
     font-size: 1pz;
     font-family: 'Roboto Slab', serif;
     margin-left: 10px;
+}
+
+div.card-body {
+    padding-right: 3px !important;
 }
 
 p.h3.text-decoration-none {
@@ -80,4 +100,8 @@ p.h3.text-decoration-none {
 
 div {
     display: block;
+}
+
+.accordion-button {
+    padding-left: 0;
 }

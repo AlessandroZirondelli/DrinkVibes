@@ -2,6 +2,10 @@ div.accordion-header {
     border: medium solid black;
 }
 
+h1 {
+    text-align: center;
+}
+
 h3 {
     color: black;
 }
@@ -47,6 +51,14 @@ p.h3.text-decoration-none {
     margin-right: 0;
 }
 
+p {
+    align-self: left;
+    color: rgb(0, 0, 0);
+    font-size: 1pz;
+    font-family: 'Roboto Slab', serif;
+    margin-left: 10px;
+}
+
 .btn {
     border-radius: 20px;
     font-size: 0.8rem;
@@ -78,4 +90,20 @@ p.h3.text-decoration-none {
 
 div {
     display: block;
+}
+
+.form-rounded {
+    border-radius: 1rem !important;
+    margin-left: 1px;
+    margin-right: 5px;
+    border-color: black;
+    border-width: 3px !important;
+    border-radius: 1rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 1px 10px
+}
+
+.accordion-button {
+    padding-left: 0;
 }
