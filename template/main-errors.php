@@ -1,4 +1,10 @@
-<?php $errorNum = $_GET["errorNum"]; ?>
+<?php 
+    if(isset($_GET["errorNum"])){
+      $errorNum = $_GET["errorNum"];
+    } else{
+      $errorNum="undefined";
+    }
+ ?>
 <div class="container my-5 ">
   <div class="alert alert-danger" role="alert">
     <h4 class="alert-heading">Some errors occurs!</h4>
