@@ -94,7 +94,7 @@ div {
 
 .form-rounded {
     border-radius: 1rem !important;
-    margin-left: 5px;
+    margin-left: 1px;
     margin-right: 5px;
     border-color: black;
     border-width: 3px !important;
@@ -102,4 +102,8 @@ div {
     font-size: 0.8rem;
     font-weight: 600;
     padding: 1px 10px
+}
+
+.accordion-button {
+    padding-left: 0;
 }

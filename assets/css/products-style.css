@@ -26,7 +26,7 @@ h3 {
 
 .form-rounded {
     border-radius: 1rem !important;
-    margin-left: 5px;
+    margin-left: 1px;
     margin-right: 5px;
     border-color: black;
     border-width: 3px !important;
@@ -100,4 +100,8 @@ p.h3.text-decoration-none {
 
 div {
     display: block;
+}
+
+.accordion-button {
+    padding-left: 0;
 }

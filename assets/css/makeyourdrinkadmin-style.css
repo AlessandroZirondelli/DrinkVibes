@@ -30,9 +30,6 @@ h3 {
 
 img {
     object-fit: contain;
-    /*width: 150px;
-  height: 200px;
-  width: 1%;*/
     display: flex;
     align-items: center;
     justify-content: center
@@ -47,24 +44,11 @@ div.card-body {
     padding-right: 3px !important;
 }
 
-
-/*p {
-  align-self: left;
-  color: rgb(0, 0, 0);
-  font-size: 1pz;
-  font-family: 'Roboto Slab', serif;
-  margin-left: 10px;
-}*/
-
 p.h3.text-decoration-none {
     margin-left: 0;
     margin-top: 0;
     margin-bottom: 0;
     margin-right: 0;
-}
-
-.text-muted {
-    color: red;
 }
 
 .btn {
@@ -75,10 +59,6 @@ p.h3.text-decoration-none {
 }
 
 .card {
-    background-color: transparent;
-    /*width: 200px;
-  height: 200px;*/
-    /*perspective: 1000px;*/
     position: relative;
     display: flex;
     flex-direction: column;
@@ -99,23 +79,9 @@ p.h3.text-decoration-none {
     text-align: center;
 }
 
-
-/*.card img {
-  width: 100%;
-  height: 1%;
-  backface-visibility: hidden;
-  top: 0;
-  left: 0;
-  right: 0;
-}*/
-
-.accordion-button {
-    padding-left: 0;
-}
-
 .form-rounded {
     border-radius: 1rem !important;
-    margin-left: 5px;
+    margin-left: 1px;
     margin-right: 5px;
     border-color: black;
     border-width: 3px !important;
@@ -125,24 +91,10 @@ p.h3.text-decoration-none {
     padding: 1px 10px
 }
 
-.row>* {
-    max-width: 100%;
-    padding-right: calc(var(--bs-gutter-x)/ 2);
-    padding-left: calc(var(--bs-gutter-x)/ 2);
-    margin-top: var(--bs-gutter-y);
-}
-
-*,
-::after,
-::before {
-    box-sizing: border-box;
-}
-
 div {
     display: block;
 }
 
-.row {
-    --bs-gutter-x: 1.5rem;
-    --bs-gutter-y: 0;
+.accordion-button {
+    padding-left: 0;
 }
