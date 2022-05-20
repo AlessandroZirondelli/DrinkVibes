@@ -1,5 +1,5 @@
 <h1 class="m-3">Make your drink</h1>
-<div class="mx-5 mb-1 px-5 py-3">
+<div class="mx-5 mb-1  py-3">
   <table class="table table-bordered " id="ingredientTable">
     <caption>Ingredients choosen</caption>
     <thead>
@@ -43,7 +43,7 @@
 </div>
 
 <h2 class="p-3">Choose your ingredients</h2>
-<div class="accordion accordion-flush px-3 pb-3" id="accordionFlushExample">
+<div class="accordion accordion-flush px-3 mx-5 pb-3" id="accordionFlushExample">
   <?php foreach ($templateParams["categories"] as $category) : ?>
     <div class="accordion-item">
       <div class="accordion-header" id="flush-heading<?php echo $category ?>">
