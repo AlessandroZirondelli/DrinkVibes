@@ -13,7 +13,7 @@
                 <th scope="col" id="tableProd" class="h5">Product</th>
                 <th scope="col" id="tableQuantity">Quantity</th>
                 <th scope="col" id="tablePrice">Price</th>
-                <th></th>
+                <th scope="col" id="tableDelete"></th>
               </tr>
             </thead>
 
@@ -21,25 +21,25 @@
 
               <?php foreach ($templateParams["hmd"] as $hmd) : ?>
                 <tr id="rowDrink<?php echo $hmd[0]->getId(); ?>">
-                  <th scope="row">
+                  <td headers="tableProd">
                     <div class="d-flex align-items-center">
                       <img src="assets/img/MysteryDrink2.png" class="img-fluid rounded-3" style="width: 120px;" alt="Drink">
                       <div class="mx-1">HandMadeDrink<?php echo $hmd[0]->getId(); ?></div>
                     </div>
 
-                  </th>
+                  </td>
 
-                  <td class="align-middle">
+                  <td class="align-middle" headers="tableQuantity">
                     <div class="d-flex flex-row selector">
                       <button class="btn btn-link px-2 down"></button>
                       <input id="formDrink<?php echo $hmd[0]->getId(); ?>" min="1" title="quantity" name="quantity" value="<?php echo $hmd[1]; ?>" type="number" class="form-control form-control-sm change-btn first" style="width: 50px;" />
                       <button class="btn btn-link px-2 up"> </button>
                     </div>
                   </td>
-                  <td class="align-middle">
+                  <td class="align-middle" headers="tablePrice">
                     <p class="mb-0" style="font-weight: 500;"><?php echo $hmd[0]->getTotalPrice(); ?></p>
                   </td>
-                  <td class="align-middle deletebtnDrink">
+                  <td class="align-middle deletebtnDrink" header="tableDelete">
                     <button id="<?php echo $hmd[0]->getId(); ?> "> <i class="bi bi-trash"></i> </button>
                   </td>
 
@@ -48,13 +48,13 @@
               <?php endforeach; ?>
               <?php foreach ($templateParams["prod"] as $prod) : ?>
                 <tr id="rowProd<?php echo $prod[0]->getProductID(); ?>">
-                  <th scope="row">
+                  <td>
                     <div class="d-flex align-items-center">
                       <img src="<?php echo $prod[0]->getImage(); ?>" class="img-fluid rounded-3" style="width: 120px;" alt="Drink">
                       <div class="mx-1"><?php echo $prod[0]->getName(); ?></div>
                     </div>
 
-                  </th>
+                  </td>
 
                   <td class="align-middle">
                     <div class="d-flex flex-row selector">
