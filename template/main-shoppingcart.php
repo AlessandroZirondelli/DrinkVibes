@@ -60,6 +60,9 @@
                     <div class="d-flex flex-row selector">
 
                       <button class="btn btn-link px-2 down"></button>
+                      <label class="visually-hidden" for="formProd<?php echo $prod[0]->getProductID(); ?>">
+                        quantity
+                      </label>
                       <input id="formProd<?php echo $prod[0]->getProductID(); ?>" min="1" title="quantity" name="quantity" value="<?php echo $prod[1]; ?>" type="number" class="form-control form-control-sm change-btn second" style="width: 50px;" />
                       <button class="btn btn-link px-2 up"></button>
 
