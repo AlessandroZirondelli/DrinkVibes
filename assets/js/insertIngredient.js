@@ -104,14 +104,3 @@ function checkIngredient() {
 function fade_out(id) {
     $(id).fadeOut(1000, "linear");
 }
-/* FOR DEBUGGING
-function printRadio(){
-    var radioBtnLiquid ="#radioButtonLiquid" ;
-    var radioBtnUnit = "#radioButtonUnit";
-    if($(radioBtnLiquid).attr('checked') === "checked"){
-        console.log($(radioBtnLiquid).val());
-    }else{
-        console.log($(radioBtnUnit).val());
-    }
-}
-*/

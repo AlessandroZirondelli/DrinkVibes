@@ -11,7 +11,6 @@ $(document).ready(function() {
     $(".btn.btn-dark.text-uppercase.add-button").each(function(e){
         let idBtn = $(this).attr('id').replace('btn', '');
         let idProduct = (parseInt(idBtn));
-        console.log(idProduct);
         $(this).click(
             function(e) {
                 submitQuantity(idProduct);
@@ -57,6 +56,9 @@ function submitQuantity(id){
         $(inputSelected).css("border-color","black");
         
         xhttp.onload = function() {  // Prende la quantità disponibile del prodotto
+            if(this.status>206){ // code from 100 to 206 are information or error 
+                document.location.href="/DrinkVibes/errors.php?errorNum="+this.status;
+            } 
             let disponibility = this.responseText;
             updateQtn(disponibility,id);
         }
@@ -72,7 +74,6 @@ function updateQtn(disponibility,id){
     var inputSelected = "#qtn" + id;  
     var buttonSelected = "#btn" + id;
     var nameSelected = "#name" + id;
-    var qtnDescription = "#qtnDescription" + id;
     var warningSelected = "#warningsLabel" + id;
     var action = 1;
     var quantity = $(inputSelected).val();
@@ -81,6 +82,9 @@ function updateQtn(disponibility,id){
         //prendo la tabella
         const xhttp = new XMLHttpRequest();
         xhttp.onload = function() {
+            if(this.status>206){ // code from 100 to 206 are information or error 
+                document.location.href="/DrinkVibes/errors.php?errorNum="+this.status;
+            } 
             document.getElementById("ingredientTable").innerHTML = this.responseText;            
             updateQuantityDescription(id);
             setListenerTable();
@@ -130,6 +134,9 @@ function deleteRow() {
     if(arrayDeleteId.length!=0){    
         const xhttp = new XMLHttpRequest();
         xhttp.onload = function() {
+            if(this.status>206){ // code from 100 to 206 are information or error 
+                document.location.href="/DrinkVibes/errors.php?errorNum="+this.status;
+            } 
             document.getElementById("ingredientTable").innerHTML = this.responseText; 
             arrayDeleteId.forEach(id => {
                 updateQuantityDescription(id);
@@ -157,6 +164,9 @@ function addShoppingCart(){
         
         //Aggiungo al carrello
         xhttp.onload = function() {
+            if(this.status>206){ // code from 100 to 206 are information or error 
+                document.location.href="/DrinkVibes/errors.php?errorNum="+this.status;
+            } 
             let returnString = this.responseText.replace(/(\r\n|\n|\r)/gm,"");
             if("Added to shopping cart" == returnString ){
                 $(textShoppingCart).text(this.responseText).css("color","green");
@@ -220,6 +230,9 @@ function reset(upDataBase){
     });    
  
     xhttp.onload = function() {
+        if(this.status>206){ // code from 100 to 206 are information or error 
+            document.location.href="/DrinkVibes/errors.php?errorNum="+this.status;
+        } 
         document.getElementById("ingredientTable").innerHTML = this.responseText;            
         arrayDeleteId.forEach(id => {    
             updateQuantityDescription(id);
@@ -240,7 +253,7 @@ function updateQuantityDescription(id){
         disponibility = returnedData;
         $(idQtnDesc).text(disponibility);
     }).fail(function(){
-        console.log("error");
+        document.location.href = "/DrinkVibes/errors.php?errorNum= ";
     });    
 }
 function fade_out(id) {

@@ -30,9 +30,12 @@ function isValidDate(selectedDate) {
 
 function isUnique(selectedUserId) {
     const action = 1;
-    var res = "";
+    let res = "";
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
+        if (this.status > 206) { // code from 100 to 206 are information or error 
+            document.location.href = "/DrinkVibes/errors.php?errorNum=" + this.status;
+        }
         res = this.responseText;
 
     }
@@ -63,7 +66,7 @@ function validateEmail($email) {
 }
 
 function validateLetters($name) {
-    var letters = /^[a-zA-Z]/;
+    let letters = /^[a-zA-Z]/;
     if (letters.test($name)) {
         return true;
     }
@@ -72,19 +75,16 @@ function validateLetters($name) {
 
 
 function validateRegistrationForm() {
-    var warningSelected = "#warningsLabel";
+    let warningSelected = "#warningsLabel";
     $(warningSelected).text("");
     $(warningSelected).fadeIn();
 
-    let nameAcc;
     let UserIDAcc = "";
-    let surnameAcc = "";
     let emailAcc = "";
     let passwordAcc1 = "";
     let typeAcc = "";
     let passwordAcc2 = "";
     let birthdayAcc = "";
-    let action = 3;
     let errorEmpty = false;
     let errorPassWord = false;
     let errorEmail = false;

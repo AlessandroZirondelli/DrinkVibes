@@ -40,7 +40,7 @@ function uploadIngredient(id) {
     if ($.isNumeric(qtn) && qtn >= 0) {
         $.post('uploadIngredientttt.php', { "action": action, "id": id, "qtn": qtn },
             function (returnedData) {
-                console.log(returnedData);
+                
             }).fail(function () {
                 document.location.href = "/DrinkVibes/errors.php?errorNum= ";
             });
@@ -59,7 +59,7 @@ function deleteIngredient(id) {
 
     $.post('uploadIngredient.php', { "action": action, "id": id },
         function (returnedData) {
-            //console.log(returnedData);
+            
         }).fail(function () {
             document.location.href = "/DrinkVibes/errors.php?errorNum= ";
         });

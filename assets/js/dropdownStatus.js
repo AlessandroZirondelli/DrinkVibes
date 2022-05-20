@@ -10,8 +10,7 @@ function switchSelectedItem() {
             e.preventDefault();//It use to avoid page up scrolling when someone change state
             $(this).parent().parent().find(".active").removeClass("active"); //Select element that it selected before to deselect.
             $(this).addClass("active");//Mark and select new element just cliccked
-            //localion.reload();
-
+    
             $orderID = $(this).parent().parent().attr('id').match(/\d+/);//serve per prendere solo la parte numerica dell'ID che corrisponde all'ID dell'ordine
             $state = $(this).text().replace(/\s+/g, '+');
             const xhttp = new XMLHttpRequest();
@@ -23,8 +22,6 @@ function switchSelectedItem() {
           
                 // Check if dropdown belong to tab1 or tab2
                 dropDownSelectedID = $(varThis).parent().parent();
-                console.log(dropDownSelectedID);
-                //$containerToDelete= $dropDownSelectedID.closest(".container").remove();
 
                 selectedTab = dropDownSelectedID.attr('id');
                 number = selectedTab.match(/\d+/); //Order number. Match is used to remove every caracter
