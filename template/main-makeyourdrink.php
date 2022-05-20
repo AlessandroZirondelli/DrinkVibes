@@ -23,8 +23,8 @@
 <div class="pl-4">
   <div class="d-flex form-group align-items-center justify-content-between py-3 px-6 col-md-6">
     <div class="ms-1 px-4">
-      <label class="ms-1" for="qtnShoppingCart">Quantity drink handmade:</label>
-      <input name="qtnShoppingCart" type="text" class="form-control form-rounded" id="qtnShoppingCart" placeholder="Quantity">
+      <label class="ms-3" for="qtnShoppingCart">Quantity drink handmade:</label>
+      <input name="qtnShoppingCart" type="text" class="form-control form-rounded ms-3" id="qtnShoppingCart" placeholder="Quantity">
     </div>
     <button id="addShoppingCartBtn" class="btn btn-dark text-uppercase col-6 mx-1 mt-4">Add to shopping cart</button>
     <button id="resetBtn" class="btn btn-dark text-uppercase col-auto mx-1 mt-4">Reset</button>

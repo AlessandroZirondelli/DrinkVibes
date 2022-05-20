@@ -2,6 +2,10 @@ div.accordion-header {
     border: medium solid black;
 }
 
+h1 {
+    text-align: center;
+}
+
 h3 {
     color: black;
 }
@@ -38,6 +42,10 @@ p {
     font-size: 1pz;
     font-family: 'Roboto Slab', serif;
     margin-left: 10px;
+}
+
+div.card-body {
+    padding-right: 3px !important;
 }
 
 p.h3.text-decoration-none {

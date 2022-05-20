@@ -2,6 +2,10 @@ div.accordion-header {
     border: medium solid black;
 }
 
+h1 {
+    text-align: center;
+}
+
 h3 {
     color: black;
 }

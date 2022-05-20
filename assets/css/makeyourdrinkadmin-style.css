@@ -1,45 +1,52 @@
-div.accordion-header{
+div.accordion-header {
     border: medium solid black;
-
-}
-h3{
-    color:black;
-}
-.accordion-button:hover{
-    background-color:rgb(185, 40, 40) !important;
-    color:black !important;
 }
 
-.accordion-button:not(.collapsed){
- color:inherit;
-  background-color: inherit !important;
+h1 {
+    text-align: center;
 }
 
-.accordion-button:focus{
-  box-shadow: inherit !important;
+h3 {
+    color: black;
 }
-[class="accordion-button"]{
-    background-color:rgb(185, 40, 40) !important;
+
+.accordion-button:hover {
+    background-color: rgb(185, 40, 40) !important;
+    color: black !important;
+}
+
+.accordion-button:not(.collapsed) {
+    color: inherit;
+    background-color: inherit !important;
+}
+
+.accordion-button:focus {
+    box-shadow: inherit !important;
+}
+
+[class="accordion-button"] {
+    background-color: rgb(185, 40, 40) !important;
 }
 
 img {
-  object-fit: contain;
-  /*width: 150px;
+    object-fit: contain;
+    /*width: 150px;
   height: 200px;
   width: 1%;*/
-  display: flex;
-  align-items: center;
-  justify-content: center
+    display: flex;
+    align-items: center;
+    justify-content: center
 }
 
 .h4 {
-  font-family: 'Roboto Slab', serif;
-  margin: 0px;
+    font-family: 'Roboto Slab', serif;
+    margin: 0px;
 }
 
 div.card-body {
-  padding-right: 3px !important;
+    padding-right: 3px !important;
 }
+
 
 /*p {
   align-self: left;
@@ -50,50 +57,48 @@ div.card-body {
 }*/
 
 p.h3.text-decoration-none {
-  margin-left: 0;
-  margin-top: 0;
-  margin-bottom: 0;
-  margin-right: 0;
-}
-.text-muted{
-  color:red;
+    margin-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-right: 0;
 }
 
+.text-muted {
+    color: red;
+}
 
 .btn {
-  border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  padding: 4px 10px !important; 
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 4px 10px !important;
 }
 
-
-
 .card {
-  background-color: transparent;
-  /*width: 200px;
+    background-color: transparent;
+    /*width: 200px;
   height: 200px;*/
-  /*perspective: 1000px;*/
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  min-width: 0px;
-  overflow-wrap: break-word;
-  background-clip: border-box;
-  border-width: 1px;
-  border-style: solid;
-  border-color: black;
-  border-width: 3px;
-  border-image: initia
+    /*perspective: 1000px;*/
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0px;
+    overflow-wrap: break-word;
+    background-clip: border-box;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+    border-image: initia
 }
 
 .card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
 }
+
 
 /*.card img {
   width: 100%;
@@ -104,41 +109,40 @@ p.h3.text-decoration-none {
   right: 0;
 }*/
 
-.accordion-button{
-  padding-left: 0;
+.accordion-button {
+    padding-left: 0;
 }
 
 .form-rounded {
-  border-radius: 1rem !important;
-  margin-left: 5px;
-  margin-right: 5px;
-  border-color: black;
-  border-width: 3px !important;
-  border-radius: 1rem;
-  font-size: 0.8rem;
-  font-weight: 600;
-  padding: 1px 10px
-}
-.row>* {
-  max-width: 100%;
-  padding-right: calc(var(--bs-gutter-x)/ 2);
-  padding-left: calc(var(--bs-gutter-x)/ 2);
-  margin-top: var(--bs-gutter-y);
+    border-radius: 1rem !important;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-color: black;
+    border-width: 3px !important;
+    border-radius: 1rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 1px 10px
 }
 
+.row>* {
+    max-width: 100%;
+    padding-right: calc(var(--bs-gutter-x)/ 2);
+    padding-left: calc(var(--bs-gutter-x)/ 2);
+    margin-top: var(--bs-gutter-y);
+}
 
 *,
 ::after,
 ::before {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 div {
-  display: block;
+    display: block;
 }
 
 .row {
-  --bs-gutter-x: 1.5rem;
-  --bs-gutter-y: 0;
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
 }
-

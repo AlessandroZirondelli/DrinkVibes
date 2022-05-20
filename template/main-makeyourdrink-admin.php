@@ -1,11 +1,11 @@
-<h1 class="m-3">Make your drink</h1>
+<h1 class="p-3">Make your drink</h1>
 <div class="container mb-1 mu-2 p-6">
   <a href="./insertIngredient.php" class="btn btn-dark col-12 mx-2">
     Add ingredient
   </a>
 </div>
-<h2 class="p-3">Modify your ingredients</h2>
-<div class="accordion accordion-flush px-3 pb-3" id="accordionFlushExample">
+<h2 class="px-5 py-3">Modify your ingredients</h2>
+<div class="accordion accordion-flush px-3 mx-5 pb-3" id="accordionFlushExample">
 
   <?php foreach ($templateParams["categories"] as $category) : ?>
     <div class="accordion-item">
