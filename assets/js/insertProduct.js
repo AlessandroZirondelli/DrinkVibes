@@ -30,14 +30,7 @@ function changeRadioButton(tipology) {
         $(this).removeAttr('checked');
     });
     $(radioButtonTipology).attr('checked', 'checked');
-    printRadio();
 }
-/* FOR DEBUGGING
-function printRadio() {
-    let radioBtnLiquid = "#radioButton";
-    console.log($("#radioButton").val());
-}
-*/
 
 function checkProduct() {
     let warningSelected = "#warningsLabel";

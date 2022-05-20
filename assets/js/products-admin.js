@@ -39,19 +39,18 @@ function uploadProduct(id) {
     let qtnUpload = "#qtn" + id;
     let qtn = $(qtnUpload).val();
     let action = 1;
-    const xhttp = new XMLHttpRequest();
-
+    
     $(warningSelected).text("");
     $(warningSelected).fadeIn();
     if ($.isNumeric(qtn) && qtn >= 0) {
 
         $.post('uploadProduct.php', { "action": action, "id": id, "qtn": qtn },
             function(returnedData) {
-                //console.log(returnedData);
+                
             }).fail(function() {
                 document.location.href = "/DrinkVibes/errors.php?errorNum= ";
         });
-        console.log("BEO");
+        
 
         $(warningSelected).text("Saved").css("color", "green");
         $(warningSelected).fadeIn();
@@ -66,14 +65,13 @@ function uploadProduct(id) {
 function deleteProduct(id) {
     let cardDelete = "#card" + id;
     let action = 2;
-    const xhttp = new XMLHttpRequest();
+    
 
     $(cardDelete).remove();
 
-
     $.post('uploadProduct.php', { "action": action, "id": id },
         function(returnedData) {
-            console.log(returnedData);
+            
         }).fail(function() {
             document.location.href = "/DrinkVibes/errors.php?errorNum= ";
     });

@@ -28,11 +28,9 @@ function submitQuantity(id) {
 
         $.post('submit.php', { "action": action, "id": id },
             function (returnedData) {
-
                 disponibility = returnedData;
                 updateQtn(disponibility, id);
             }).fail(function (xhr, status, error) {
-                //console.log("xhr:" + xhr.responseText + " " + "error:" + error + " " + "status:" + status);
                 document.location.href = "/DrinkVibes/errors.php?errorNum= ";
             });
     } else {
@@ -51,14 +49,11 @@ function updateQtn(disponibility, id) {
     let quantity = $(inputSelected).val();
 
     if (parseInt(disponibility) > 0 && $(inputSelected).val() <= parseInt(disponibility)) {
-        console.log("SONO BRAVO 2");
-        const xhttp1 = new XMLHttpRequest();
-        //$(inputSelected).css("border-color", "green").css("border-width", "3px");
+        
         $.post('utils/updateProduct.php', { "action": action, "id" : id, "qtn" : quantity}, 
         function(returnedData){
            updateQtnDescription(id);
         }).fail(function(xhr, status, error){
-            //console.log("error:" + error + " " + "status:" + status);
             document.location.href = "/DrinkVibes/errors.php?errorNum= ";
         });
 
@@ -87,19 +82,15 @@ function updateQtn(disponibility, id) {
     }
 }
 function updateQtnDescription(id) {
-    var idQuantityDescription = "#quantityDescription" + id;
-    const xhttp = new XMLHttpRequest();
-    var disponibility = 0;
-    var action = 3;
+    let idQuantityDescription = "#quantityDescription" + id;
+    let disponibility = 0;
+    let action = 3;
 
     $.post('submit.php', { "action": action, "id": id },
         function (returnedData) {
-            console.log("Cococrico product");
-            console.log(returnedData);
             disponibility = returnedData;
             $(idQuantityDescription).text(disponibility);
         }).fail(function () {
-            //console.log("error");
             document.location.href = "/DrinkVibes/errors.php?errorNum= ";
         });
 }

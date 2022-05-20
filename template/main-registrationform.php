@@ -11,8 +11,8 @@
                 <span class="input-group-text"><i class="fas fa-user"></i></span>
               </div>
               <label class="visually-hidden" for="name">
-              Name
-            </label>
+                Name
+              </label>
               <input name="name" type="text" class="input form-control" id="name" placeholder="Name" />
             </div>
           </div>
@@ -23,8 +23,8 @@
                 <span class="input-group-text"><i class="fas fa-user"></i></span>
               </div>
               <label class="visually-hidden" for="surname">
-              Surname
-            </label>
+                Surname
+              </label>
               <input name="surname" type="text" class="input form-control" id="surname" placeholder="Surname" />
             </div>
           </div>
@@ -35,8 +35,8 @@
                 <span class="input-group-text"><i class="fas fa-user"></i></span>
               </div>
               <label class="visually-hidden" for="userID">
-              Username
-            </label>
+                Username
+              </label>
               <input name="userID" type="text" class="input form-control" id="userID" placeholder="Username" />
             </div>
           </div>
@@ -48,8 +48,8 @@
                 <span class="input-group-text"><i class="fas fa-paper-plane"></i></span>
               </div>
               <label class="visually-hidden" for="email">
-              Email
-            </label>
+                Email
+              </label>
               <input name="email" type="text" class="input form-control" id="email" placeholder="E-mail" />
             </div>
           </div>
@@ -60,8 +60,8 @@
                 <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
               </div>
               <label class="visually-hidden" for="birthday">
-              Birthday
-            </label>
+                Birthday
+              </label>
               <input name="birthday" type="text" class="input form-control" id="birthday" placeholder="Birthday (yyyy-mm-dd)" />
             </div>
           </div>
@@ -72,8 +72,8 @@
                 <span class="input-group-text"><i class="fas fa-lock"></i></span>
               </div>
               <label class="visually-hidden" for="password1">
-              Password
-            </label>
+                Password
+              </label>
               <input name="password1" type="password" class="input form-control" id="password1" placeholder="Password" />
             </div>
           </div>
@@ -84,8 +84,8 @@
                 <span class="input-group-text"><i class="fas fa-lock"></i></span>
               </div>
               <label class="visually-hidden" for="password2">
-              Password
-            </label>
+                Password
+              </label>
               <input name="password2" type="password" class="input form-control" id="password2" placeholder="Reapet Password" />
             </div>
           </div>
