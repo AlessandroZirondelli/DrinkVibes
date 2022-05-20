@@ -4,10 +4,10 @@
     <caption>Ingredients choosen</caption>
     <thead>
       <tr>
-      <th>Ingredient</th>
-      <th>Quantity</th>
-      <th>Price</th>
-      <th></th>
+        <th>Ingredient</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th></th>
       </tr>
     </thead>
     <tfoot>
@@ -15,7 +15,7 @@
         <td>Total</td>
         <td></td>
         <td></td>
-        <td><button id = "deleteRowBtn" class="btn btn-dark text-uppercase" >Remove</button></td>
+        <td><button id="deleteRowBtn" class="btn btn-dark text-uppercase">Remove</button></td>
       </tr>
     </tfoot>
   </table>
@@ -26,8 +26,8 @@
       <label class="ms-1" for="qtnShoppingCart">Quantity drink handmade:</label>
       <input name="qtnShoppingCart" type="text" class="form-control form-rounded" id="qtnShoppingCart" placeholder="Quantity">
     </div>
-    <button id = "addShoppingCartBtn" class="btn btn-dark text-uppercase col-6 mx-1 mt-4" >Add to shopping cart</button>
-    <button id = "resetBtn" class="btn btn-dark text-uppercase col-auto mx-1 mt-4" >Reset</button>
+    <button id="addShoppingCartBtn" class="btn btn-dark text-uppercase col-6 mx-1 mt-4">Add to shopping cart</button>
+    <button id="resetBtn" class="btn btn-dark text-uppercase col-auto mx-1 mt-4">Reset</button>
   </div>
 
 </div>
@@ -73,7 +73,7 @@
                         <div class="accordion-item">
                           <div class="accordion-header<?php echo $ingredient["ingredientID"]; ?>" id="flush-heading<?php echo $ingredient["ingredientID"]; ?>">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse<?php echo $ingredient["ingredientID"]; ?>" aria-expanded="false" aria-controls="flush-collapse<?php echo $ingredient["ingredientID"]; ?>">
-                              Details 
+                              Details
                             </button>
                           </div>
                           <div id="flush-collapse<?php echo $ingredient["ingredientID"]; ?>" class="accordion-collapse collapse" aria-labelledby="flush-heading<?php echo $ingredient["ingredientID"]; ?>" data-bs-parent="#accordionFlush<?php echo $ingredient["ingredientID"]; ?>">
@@ -96,7 +96,7 @@
                           <input name="qtn<?php echo $ingredient["ingredientID"]; ?>" type="text" class="form-control form-rounded" id="qtn<?php echo $ingredient["ingredientID"]; ?>" <?php echo $ingredient["qtystock"] == "0" ? 'disabled = "disabled";' : "" ?> placeholder="Quantity(<?php echo $ingredient["category"] == "Liquid" ? "mL" : "unity"; ?>)">
                         </div>
 
-                        <div> <button class="btn btn-dark text-uppercase add-button" id="btn<?php echo $ingredient["ingredientID"]; ?>"  <?php echo $ingredient["qtystock"] == "0" ? 'disabled = "disabled"' : "" ?>>Add</button> </div>
+                        <div> <button class="btn btn-dark text-uppercase add-button" id="btn<?php echo $ingredient["ingredientID"]; ?>" <?php echo $ingredient["qtystock"] == "0" ? 'disabled = "disabled"' : "" ?>>Add</button> </div>
 
                       </div>
                       <div id="warningsLabel<?php echo $ingredient["ingredientID"]; ?>"></div>
