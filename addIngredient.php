@@ -26,5 +26,5 @@ $mngIngredients = new ManagerIngredients();
     $mngIngredients -> insertIngredient($name,$image,$description,$quantity,$category,$tipology,$price);
 
 
-    header("location:makeyourdrink-admin.php"); //mettere da qualche altra parte
+    header("location:makeyourdrink.php"); //mettere da qualche altra parte
 ?>
