@@ -8,7 +8,12 @@
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-user"></i></span>
             </div>
-            <input name="username" type="text" class="input form-control" id="username" placeholder="Username" />
+            
+               <label for="username">
+
+               </label>
+              <input name="username" type="text" class="input form-control" id="username" placeholder="Username" />
+                       
           </div>
         </div>
         <div class="col-12">
@@ -16,8 +21,8 @@
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-lock"></i></span>
             </div>
+            
             <input name="password" type="password" class="input form-control" id="password" placeholder="Password" />
-
           </div>
 
         </div>
