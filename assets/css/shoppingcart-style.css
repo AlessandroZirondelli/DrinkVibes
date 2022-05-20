@@ -3,3 +3,18 @@ tr button{
     border: none;
     background: none;
 }
+.img-fluid.rounded-3{
+    width: 30vh;
+}
+.card.shadow-2-strong.mb-5.mb-lg-0{
+    border-radius: 16px;
+}
+.form-control.form-control-sm.change-btn{
+    width: 15vh;
+}
+
+@media (max-width: 576px) {
+    .img-fluid.rounded-3{
+        display:none;
+    }
+ }
