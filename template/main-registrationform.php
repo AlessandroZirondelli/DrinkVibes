@@ -9,7 +9,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-user"></i></span>
             </div>
-            <input name="name" type="text" class="input form-control" id="name" placeholder="Name" />
+            <input name="name" type="text" class="input form-control" id="name" placeholder="Name" /> 
           </div>
         </div>
 
@@ -99,7 +99,7 @@
           <?php endif; ?>
 
           <div class="col-12 text-right">
-            <input type="submit" name="insertButton" value="Submit" class="btn btn-dark text-uppercase mb-3 mt-3"></button>
+            <input type="submit" name="insertButton" value="Submit" class="btn btn-dark text-uppercase mb-3 mt-3" />
           </div>
           <div id="warningsLabel"></div>
           </div>
