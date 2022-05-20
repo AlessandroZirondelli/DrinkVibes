@@ -19,7 +19,7 @@
 
                 <div class="image-upload mb-3 mt-3">
                     <label for="image">Product's Image:</label>
-                    <input type="file" id="image" name="imageToSave" accept="image/png , image/jpeg" value="assets/img/i.png" />
+                    <input type="file" id="image" name="imageToSave" accept="image/png , image/jpeg" />
                 </div>
 
                 <div class="mx-1">
