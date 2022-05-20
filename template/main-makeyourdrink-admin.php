@@ -11,7 +11,7 @@
     <div class="accordion-item">
       <div class="accordion-header" id="flush-heading<?php echo $category ?>">
         <button class="accordion-button collapsed p-2" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse<?php echo $category ?>" aria-expanded="false" aria-controls="flush-collapse<?php echo $category ?>">
-          <h3><?php echo $category ?></h3>
+          <?php echo $category ?>
         </button>
       </div>
       <div id="flush-collapse<?php echo $category ?>" class="accordion-collapse collapse" aria-labelledby="flush-heading<?php echo $category ?>" data-bs-parent="#accordionFlushExample">
@@ -35,7 +35,7 @@
                         <div class="accordion-item">
                           <div class="accordion-header<?php echo $ingredient["ingredientID"]; ?>" id="flush-heading<?php echo $ingredient["ingredientID"]; ?>">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse<?php echo $ingredient["ingredientID"]; ?>" aria-expanded="false" aria-controls="flush-collapse<?php echo $ingredient["ingredientID"]; ?>">
-                              <div class="text-decoration-none">Details </div>
+                              Details 
                             </button>
                           </div>
                           <div id="flush-collapse<?php echo $ingredient["ingredientID"]; ?>" class="accordion-collapse collapse" aria-labelledby="flush-heading<?php echo $ingredient["ingredientID"]; ?>" data-bs-parent="#accordionFlush<?php echo $ingredient["ingredientID"]; ?>">
@@ -54,7 +54,7 @@
                         <div>
 
                           <form class="form-inline">
-                            <label for="rg-from">Quantity: </label>
+                            <label for="qtn<?php echo $ingredient["ingredientID"]; ?>">Quantity: </label>
                             <div class="form-group me-1">
                               <input class="form-control form-rounded" type="text" id="qtn<?php echo $ingredient["ingredientID"]; ?>" name="rg-from" value="<?php echo  $ingredient["qtystock"]; ?>">
                             </div>
