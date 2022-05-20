@@ -100,32 +100,33 @@
                   <label>Type:</label>
                   <div class="form-check">
                     
-                    <input class="form-check-input" type="radio" name="tipology" <?php if (isset($_SESSION["type"]) && $_SESSION["type"] == "Admin"); ?> id="radioButtonAdmin" value="Admin" checked>
+                    <input class="form-check-input" type="radio" name="tipology" <?php if (isset($_SESSION["type"]) && $_SESSION["type"] == "Admin"); ?> id="radioButtonAdmin" value="Admin" checked />
                     <label class="form-check-label" for="radioButtonAdmin">
                       Admin
                     </label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="tipology" <?php if (isset($_SESSION["type"]) && $_SESSION["type"] == "Admin"); ?> id="radioButtonUser" value="User" checked>
+                    <input class="form-check-input" type="radio" name="tipology" <?php if (isset($_SESSION["type"]) && $_SESSION["type"] == "Admin"); ?> id="radioButtonUser" value="User" checked />
                     <label class="form-check-label" for="radioButtonUser">
                       User
                     </label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="tipology" <?php if (isset($_SESSION["type"]) && $_SESSION["type"] == "Admin"); ?> id="radioButtonExpress" value="Express" checked>
+                    <input class="form-check-input" type="radio" name="tipology" <?php if (isset($_SESSION["type"]) && $_SESSION["type"] == "Admin"); ?> id="radioButtonExpress" value="Express" checked />
                     <label class="form-check-label" for="radioButtonExpress">
                       Express
                     </label>
                   </div>
                 </div>
               </div>
+            </div>
             <?php endif; ?>
 
             <div class="col-12 text-right">
               <input type="submit" name="insertButton" value="Submit" class="btn btn-dark text-uppercase mb-3 mt-3" />
             </div>
             <div id="warningsLabel"></div>
-            </div>
+            
         </div>
       </fieldset>
     </form>
