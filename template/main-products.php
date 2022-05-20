@@ -1,5 +1,5 @@
 <h1 class="p-3">Shop Products</h1>
-<div class="container mb-5 p-0">
+<div class="container mb-5 p-6">
 
     <div class="row">
         <?php foreach ($templateParams["All"] as $products) : ?>
