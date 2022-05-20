@@ -24,6 +24,18 @@ h3 {
     box-shadow: inherit !important;
 }
 
+.form-rounded {
+    border-radius: 1rem !important;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-color: black;
+    border-width: 3px !important;
+    border-radius: 1rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 1px 10px
+}
+
 img {
     object-fit: contain;
     display: flex;
