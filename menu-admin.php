@@ -12,6 +12,10 @@ if($manager -> isUserLoggedIn()){
     $templateParams["title"] = "Login - Access";
     $templateParams["main-content"] = "./template/main-summaryaccount.php";
 }
+else{
+    $templateParams["title"] = "Login - Access";
+    $templateParams["main-content"] = "./template/main-accessdenied.php";   
+}
 
 require 'template/base.php';
 ?>
