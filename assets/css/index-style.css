@@ -11,7 +11,7 @@ a:hover, button:hover{
     color: red !important;
 }
 
-button{
+a.lets-build{
     background-color: black;
     color: white;
 }
