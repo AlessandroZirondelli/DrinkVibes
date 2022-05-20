@@ -6,91 +6,93 @@
     </div>
     <div class="card-body pb-0 pt-0 ps-0 mx-2">
       <form action="addIngredient.php" id="formId" method='POST' enctype="multipart/form-data">
-        <div class="text-decoration-none mb-3 mt-3" id="nameDiv">
-          <label for="name">Name:</label>
-          <input class="form-control form-rounded " name="name" type="text" id="name" placeholder="Name" value="">
-        </div>
-
-        <div class="mx-1">
-          <hr class="line my-0">
-        </div>
-
-        <div class="image-upload mb-3 mt-3">
-          <label for="image">Ingredient's Image:</label>
-          <input type="file" id="image" name="imageToSave" accept="image/png , image/jpeg" value="assets/img/i.png" />
-        </div>
-
-        <div class="mx-1">
-          <hr class="line my-0">
-        </div>
-
-        <div class="form-group mb-3 mt-3">
-          <label for="textArea">Description:</label>
-          <textarea name="description" class="form-control form-rounded" id="textArea" rows="3"></textarea>
-        </div>
-
-        <div class="mx-1">
-          <hr class="line my-0">
-        </div>
-
-        <div class="mb-3 mt-3">
-          <label for="qtn">Quantity:</label>
-          <input name="qtn" type="text" class="form-control form-rounded" id="qtn" placeholder="Quantity">
-        </div>
-
-        <div class="mx-1">
-          <hr class="line my-0">
-        </div>
-
-
-        <div id="category" class="mb-3 mt-3">
-          <label>Category:</label>
-          <div class="form-check">
-            <input type="radio" class="form-check-input" id="radioButtonUnit" name="optradiocategory" value="Unit" checked>
-            <label class="form-check-label" for="radioButtonUnit">Unit</label>
+        <fieldset>
+          <div class="text-decoration-none mb-3 mt-3" id="nameDiv">
+            <label for="name">Name:</label>
+            <input class="form-control form-rounded " name="name" type="text" id="name" placeholder="Name" value="">
           </div>
-          <div class="form-check">
-            <input type="radio" class="form-check-input" id="radioButtonLiquid" name="optradiocategory" value="Liquid">
-            <label class="form-check-label" for="radioButtonLiquid">Liquid(mL)</label>
+
+          <div class="mx-1">
+            <hr class="line my-0">
           </div>
-        </div>
-        <div id="tipology" class="mb-3 mt-3">
-          <label>Tipology:</label>
-          <div class="form-check">
-            <input type="radio" class="form-check-input" id="radioButtonSpirit" name="optradiotipology" value="Spirit" checked>
-            <label class="form-check-label" for="radioButtonSpirit">Spirit</label>
+
+          <div class="image-upload mb-3 mt-3">
+            <label for="image">Ingredient's Image:</label>
+            <input type="file" id="image" name="imageToSave" accept="image/png , image/jpeg"  />
           </div>
-          <div class="form-check">
-            <input type="radio" class="form-check-input" id="radioButtonWine" name="optradiotipology" value="Wine">
-            <label class="form-check-label" for="radioButtonWine">Wine</label>
+
+          <div class="mx-1">
+            <hr class="line my-0">
           </div>
-          <div class="form-check">
-            <input type="radio" class="form-check-input" id="radioButtonBeverage" name="optradiotipology" value="Beverage">
-            <label class="form-check-label" for="radioButtonBeverage">Beverage</label>
+
+          <div class="form-group mb-3 mt-3">
+            <label for="textArea">Description:</label>
+            <textarea name="description" class="form-control form-rounded" id="textArea" rows="3"></textarea>
           </div>
-        </div>
+
+          <div class="mx-1">
+            <hr class="line my-0">
+          </div>
+
+          <div class="mb-3 mt-3">
+            <label for="qtn">Quantity:</label>
+            <input name="qtn" type="text" class="form-control form-rounded" id="qtn" placeholder="Quantity">
+          </div>
+
+          <div class="mx-1">
+            <hr class="line my-0">
+          </div>
+
+
+          <div id="category" class="mb-3 mt-3">
+            <label>Category:</label>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" id="radioButtonUnit" name="optradiocategory" value="Unit" checked>
+              <label class="form-check-label" for="radioButtonUnit">Unit</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" id="radioButtonLiquid" name="optradiocategory" value="Liquid">
+              <label class="form-check-label" for="radioButtonLiquid">Liquid(mL)</label>
+            </div>
+          </div>
+          <div id="tipology" class="mb-3 mt-3">
+            <label>Tipology:</label>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" id="radioButtonSpirit" name="optradiotipology" value="Spirit" checked>
+              <label class="form-check-label" for="radioButtonSpirit">Spirit</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" id="radioButtonWine" name="optradiotipology" value="Wine">
+              <label class="form-check-label" for="radioButtonWine">Wine</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" id="radioButtonBeverage" name="optradiotipology" value="Beverage">
+              <label class="form-check-label" for="radioButtonBeverage">Beverage</label>
+            </div>
+          </div>
 
 
 
-        <div class="mx-1">
-          <hr class="line my-0">
-        </div>
+          <div class="mx-1">
+            <hr class="line my-0">
+          </div>
 
 
 
-        <div class="mb-3 mt-3">
-          <label for="price">Price:</label>
-          <input name="price" type="text" class="form-control form-rounded" id="price" placeholder="Price">
-        </div>
+          <div class="mb-3 mt-3">
+            <label for="price">Price:</label>
+            <input name="price" type="text" class="form-control form-rounded" id="price" placeholder="Price">
+          </div>
 
-        <div class="mx-1">
-          <hr class="line my-0">
-        </div>
+          <div class="mx-1">
+            <hr class="line my-0">
+          </div>
 
-        <div>
-          <button id="insert" name="insert" value="Insert" class="btn btn-dark text-uppercase mb-3 mt-3">Add</button>
-        </div>
-        <div id="warningsLabel"></div>
+          <div>
+            <button id="insert" name="insert" value="Insert" class="btn btn-dark text-uppercase mb-3 mt-3">Add</button>
+          </div>
+          <div id="warningsLabel"></div>
+        </fieldset>
       </form>
     </div>
   </div>

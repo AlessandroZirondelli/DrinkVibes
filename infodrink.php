@@ -8,12 +8,16 @@
         header("location: login.php");
     }
     */
-
+    
     $templateParams["title"] = "Info drinks";
     $templateParams["main-content"] = "main-infodrink.php";
     
     $articID = $_REQUEST["articID"];
     $orderID = $_REQUEST["orderID"];
+
+    if(!isset($orderID)&&!isset($articID)){
+        header("location: errors.php");
+    }
 
     $manager = new ManagerInfoDrink();
     $manager->createIngredientsOfDrink($articID);
