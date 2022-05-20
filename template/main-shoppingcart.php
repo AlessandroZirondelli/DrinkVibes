@@ -10,7 +10,7 @@
           <table class="table">
             <thead>
               <tr>
-                <th scope="col" id="tableProduct" class="h5">Product</th>
+                <th scope="col" id="tableProd" class="h5">Product</th>
                 <th scope="col" id="tableQuantity">Quantity</th>
                 <th scope="col" id="tablePrice">Price</th>
                 <th></th>
