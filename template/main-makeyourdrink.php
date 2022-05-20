@@ -1,5 +1,5 @@
 <h1 class="m-3">Make your drink</h1>
-<div class="mx-5 mb-1  py-3">
+<div class="container">
   <table class="table table-bordered " id="ingredientTable">
     <caption>Ingredients choosen</caption>
     <thead>
@@ -20,17 +20,37 @@
     </tfoot>
   </table>
 </div>
-<div class="pl-4">
-  <div class="d-flex form-group align-items-center justify-content-between py-3 px-6 col-md-6">
-    <div class="ms-1 px-4">
-      <label class="ms-3" for="qtnShoppingCart">Quantity drink handmade:</label>
-      <input name="qtnShoppingCart" type="text" class="form-control form-rounded ms-3" id="qtnShoppingCart" placeholder="Quantity">
-    </div>
-    <button id="addShoppingCartBtn" class="btn btn-dark text-uppercase col-6 mx-1 mt-4">Add to shopping cart</button>
-    <button id="resetBtn" class="btn btn-dark text-uppercase col-auto mx-1 mt-4">Reset</button>
-  </div>
 
+<div class="container">
+  <div class="row"> 
+    <div class="col-md-3 col-1 "> </div>
+
+    <div class="py-3 col-md-6 col-10  text-center">
+      <div class="text-center">
+          <label for="qtnShoppingCart">Quantity drink:</label>
+          <div class="row">
+            <div class="col-2"> </div>
+            <div class="col-8">
+              <input name="qtnShoppingCart" type="text" class="form-control form-rounded mx-0 px-0" id="qtnShoppingCart" placeholder="Quantity">
+            </div>
+            <div class="col-2"> </div>
+          </div>   
+      </div>
+    
+      <div class="row">
+        <div class="col-12">
+            <button id="addShoppingCartBtn" class="btn btn-dark text-uppercase col-auto mt-4">Add to shopping cart</button>
+            <button id="resetBtn" class="btn btn-dark text-uppercase  col-auto mt-4">Reset</button>
+        </div>
+      </div>
+
+    </div>
+    
+    <div class="col-md-3 col-1"> </div>
+  </div>
 </div>
+
+
 <div>
   <p class="ms-3" id="textShoppingCart"></p>
 </div>
