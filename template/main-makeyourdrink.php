@@ -55,12 +55,7 @@
   <p class="ms-3 text-center" id="textShoppingCart"></p>
 </div>
 
-<div>
-  <table class="table table-bordered " id="sessionTable">
 
-
-  </table>
-</div>
 
 <h2 class="p-3">Choose your ingredients</h2>
 <div class="accordion accordion-flush px-3 mx-3 pb-3" id="accordionFlushExample">

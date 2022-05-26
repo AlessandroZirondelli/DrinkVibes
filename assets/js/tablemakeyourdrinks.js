@@ -190,16 +190,7 @@ function addShoppingCart(){
         setTimeout(function(){fade_out(textShoppingCart)}, 2000);
 
     }
-
-    //Debug dati
-    xhttp.onload = function() {
-           document.getElementById("sessionTable").innerHTML = this.responseText;       
-           
-    }   
-    xhttp.open("GET", "cart.php?",false);
-    xhttp.send();
-
-    
+ 
 }
 function reset(upDataBase){
     let upgradeDatabase = upDataBase;
