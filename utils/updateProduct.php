@@ -38,6 +38,7 @@ if($action == 1){
         // Put back in the temp ingredient of the session
     }
     $_SESSION["shopping_cart_prod"] = serialize( $list_prod_temp);
+    setcookie("product",$_SESSION["shopping_cart_prod"], time()+60*60*24*30);
 }
 
 ?>
