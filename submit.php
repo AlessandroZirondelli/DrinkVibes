@@ -47,7 +47,6 @@ if($action == 2){
  
         $ingredients = $handMadeDrink -> getIngredient();
         foreach($ingredients as $ing){
-            //$firstQtn = $firstAdd ?  $ing->getQty() : 0;
             $firstQtn = $ing->getQty();
             if( ($ing->getQty() * $qtn - $firstQtn )> $mngIngredients -> getDisponibility($ing -> getIngredientId()) ){
                 $insuffIng =  $insuffIng . $ing -> getName() . ", ";
@@ -55,8 +54,7 @@ if($action == 2){
         }
     
         if(strcmp($insuffIng,"") == 0){
-            foreach($ingredients as $ing){
-                //$firstQtn = $firstAdd ? $ing->getQty() : 0;    
+            foreach($ingredients as $ing){   
                 $firstQtn = $ing->getQty();
                 $mngIngredients -> updateIngredient($ing -> getIngredientId(), $mngIngredients -> getDisponibility($ing -> getIngredientId()) - ($ing->getQty() * $qtn - $firstQtn ));
                 

@@ -32,7 +32,7 @@
   
     
     $mngIngredients = new ManagerIngredients();
-   // $_SESSION["shopping_cart_hmd"] = serialize(array());
+    // $_SESSION["shopping_cart_hmd"] = serialize(array());
     $_SESSION["shopping_cart_temp"] = serialize(new HandMadeDrink());
    
     $prova =array(new HandMadeDrink());
