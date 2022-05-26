@@ -1,12 +1,11 @@
 <?php
- 
 require_once("utils/ManagerIngredients.php");
 require_once("utils/Ingredient.php");
 require_once("utils/HandMadeDrink.php");
 session_start();
 $mngIngredients = new ManagerIngredients();
 $handMadeDrink = new HandMadeDrink();
-//Prendo il temp ingredient nella SESSION
+//Get temp ingredient from SESSION
 $handMadeDrink = unserialize($_SESSION["shopping_cart_temp"]);
 $action = $_REQUEST["action"];
 
@@ -14,15 +13,14 @@ if($action == 1){
     $qtn = $_REQUEST["qtn"];
     $id = $_REQUEST["id"];
    
-    $ingredients = $mngIngredients -> getIngredientById($id); // Prendo l'ingredient dal DB
+    $ingredients = $mngIngredients -> getIngredientById($id);
 
-    //Prendo il temp ingredient nella SESSION
+    //Get temp ingredient from SESSION
     if($qtn<= $ingredients[0]["qtystock"]){
-
         $mngIngredients -> updateIngredient($ingredients[0]["ingredientID"], $ingredients[0]["qtystock"] - $qtn);
-        //Aggiungo l'ingredient al temp ingredient
+        //Add ingredient to ingredient
         $handMadeDrink -> addIngredient(new Ingredient($ingredients[0]["ingredientID"],$ingredients[0]["name"],$qtn,$ingredients[0]["price"],$ingredients[0]["description"],$ingredients[0]["typology"],$ingredients[0]["category"]));
-        //Rimetto nel temp ingredient della sessione
+        ////Add ingredient to ingredient in session
     }
     $_SESSION["shopping_cart_temp"] = serialize( $handMadeDrink);
 }

@@ -1,5 +1,4 @@
 <?php
-    
     require_once("bootstrap.php");
     require_once("utils/ManagerIngredients.php");
     require_once("utils/HandMadeDrink.php");

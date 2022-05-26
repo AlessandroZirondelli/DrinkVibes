@@ -1,7 +1,5 @@
 <?php
-/* QUesto percorso va bene in riferimento ad Order, ma non in riferimento a orders.php dove cè il require once
-require_once("./OrderDetail.php");
-*/
+
 
 class Notification{
     private $forWho; // for what type of account is the notification
@@ -67,15 +65,5 @@ class Notification{
     }
 
 }
-
-
-$notification = new Notification("Admin",12,235,"Delivered","Nick987",1);
-$notification->toString();
-
-
-
-
-
-
 
 ?>

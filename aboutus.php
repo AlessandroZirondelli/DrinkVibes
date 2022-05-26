@@ -1,5 +1,4 @@
 <?php
-    
     $templateParams["title"] = "About us";
     $templateParams["main-content"] = "main-aboutus.php";
     $cssArray[0]="./assets/css/aboutus-style.css";

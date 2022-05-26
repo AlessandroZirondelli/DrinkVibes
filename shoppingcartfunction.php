@@ -62,17 +62,13 @@ if($action == 2){
                 $insuffIng =  $insuffIng . $ing -> getName() . ", ";
             }
         }
-
-
-
+        
         if(strcmp($insuffIng,"") == 0){
             foreach($ingredients as $ing){
     
                 $mngIngredients -> updateIngredient($ing -> getIngredientId(), $mngIngredients -> getDisponibility($ing -> getIngredientId()) - ($ing->getQty() * $val ));
                 
-            }
-            //echo "Added to shopping cart";
-            
+            }           
             array_push($list_drink_temp,array($drinkSelected, $valueRead));
             echo "Added";
         }else{
@@ -83,24 +79,13 @@ if($action == 2){
     }
     if($valueRead<$valueStored){
         $max = "maggiore";
-        //var_dump($max);
         $val = $valueStored - $valueRead;
         foreach($drinkSelected -> getIngredient() as $ing){
-           // echo $ing->getQty();
-           // echo $val;
-           // echo $val * $ing -> getQty();
-            //var_dump($ing->getQty());
-            //var_dump($val);
-            //var_dump($val * $ing-> getQty());
             $ingredients = $mngIngredients -> getIngredientById($ing -> getIngredientID());
-            //var_dump($ingredients[0]["qtystock"]);
-            //var_dump($ingredients[0]["qtystock"] + ($val * $ing -> getQty()) );
             $mngIngredients -> updateIngredient($ing -> getIngredientID(), $ingredients[0]["qtystock"] + ($val * $ing -> getQty()));  
         }
         array_push($list_drink_temp, array($drinkSelected, $valueRead));
         $max = "maggiore";
-        //var_dump($max);
-       // var_dump($val);
     }
     $_SESSION["shopping_cart_hmd"] = serialize($list_drink_temp) ;
 }
@@ -169,9 +154,7 @@ if($action == 8){
     $mngProducts = new ManagerProducts();
     $insuffIng = "";
     $list_prod_temp = array();
-    $list_prod = unserialize( $_SESSION["shopping_cart_prod"]);
-    //$num = $mngProducts ->getProductDisponibility(1);
-    
+    $list_prod = unserialize( $_SESSION["shopping_cart_prod"]);   
     
     foreach($list_prod as $prod){
         if($prod[0] -> getProductID() == $id){
@@ -195,17 +178,10 @@ if($action == 8){
    
         if(strcmp($insuffIng,"") == 0){
             $mngProducts -> updateProduct($prodSelected -> getProductID(), $mngProducts -> getProductDisponibility($prodSelected -> getProductID()) - $val);
-            //var_dump($db);
-            $v = $mngProducts -> getProductDisponibility($prodSelected -> getProductID()) - $val;
-           // var_dump($v);
-           // var_dump($mngProducts -> getProductDisponibility($prodSelected -> getProductID(),0) - $val);
-            //var_dump($sep);
-            //echo "Added to shopping cart";
-            
+            $v = $mngProducts -> getProductDisponibility($prodSelected -> getProductID()) - $val;            
             array_push($list_prod_temp,array($prodSelected, $valueRead));
             echo "Added";
         }else{
-           // var_dump($suff);
             array_push($list_prod_temp,array($prodSelected, $valueStored));
             echo $valueStored;
         }

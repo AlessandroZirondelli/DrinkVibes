@@ -20,23 +20,4 @@
         $id = $_REQUEST["id"];
         $manager->deleteProduct($id);
     }
-/*
-    if($action == 3){
-        $name = $_REQUEST["name"];
-        $image = $_REQUEST["imageurl"];
-        $description = $_REQUEST["descr"];
-        $quantity = $_REQUEST["qtn"];
-        $tipology = $_REQUEST["tipology"];
-        $price = $_REQUEST["price"];
-        echo $name;
-        echo $image;
-        echo $description;
-        echo $tipology;
-        echo $price;
-                                             
-        $manager -> insertProduct($name,$image,$description,$quantity, $tipology,$price);
-    
-    
-    }
-   */
 ?>
