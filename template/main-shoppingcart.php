@@ -85,7 +85,7 @@
           </table>
         </div>
         <div id="cardempty" class="card-body cart">
-          <div class="col-sm-12 empty-cart-cls text-center"> <img src="https://i.imgur.com/dCdflKN.png" alt="cart" width="130" height="130" class="img-fluid mb-4 mr-3">
+          <div class="col-sm-12 empty-cart-cls text-center"> <img src="https://i.imgur.com/dCdflKN.png" alt="cart"  class="img-fluid mb-4 ">
             <h3><strong>Your Cart is Empty</strong></h3>
             <h4>Add something to make me happy :)</h4> <a href="index.php" class="btn btn-dark text-uppercase " data-abc="true">continue shopping</a>
           </div>
@@ -177,7 +177,7 @@
                     <p class="mb-2">Total (tax included)</p>
                     <div id="total" class="mb-2"><span>&#8364;</span><span id="totale">302.99</span></div>
                   </div>
-                  <form action="../DrinkVibes/utils/sendOrder.php" method="GET">
+                  <form id = "formShoppingCart" action="../DrinkVibes/utils/sendOrder.php" method="GET">
                     <input type="submit" title="value" value="Submit" name="insertButton">
                   </form>
 
