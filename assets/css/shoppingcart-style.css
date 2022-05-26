@@ -17,4 +17,7 @@ tr button{
     .img-fluid.rounded-3{
         display:none;
     }
+    .form-control.form-control-sm.change-btn{
+        width: 7vh;
+    }
  }
