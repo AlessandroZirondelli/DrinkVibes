@@ -52,7 +52,7 @@
 
 
 <div>
-  <p class="ms-3" id="textShoppingCart"></p>
+  <p class="ms-3 text-center" id="textShoppingCart"></p>
 </div>
 
 <div>
