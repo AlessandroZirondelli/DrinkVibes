@@ -1,6 +1,5 @@
 <?php
 
-//require_once("assets/db/database.php");
 require_once($_SERVER['DOCUMENT_ROOT']."/DrinkVibes/assets/db/database.php");
 
     class ManagerProducts{
@@ -10,7 +9,7 @@ require_once($_SERVER['DOCUMENT_ROOT']."/DrinkVibes/assets/db/database.php");
             $this->dbh = new DatabaseHelper("localhost","root","", "drinkdb",3306);
         }
 
-        //fare funzione unica, che cambia tipologia
+        
         public function getAllBeverageProducts() {
             return $this->dbh->getProductByType("Beverage");
         }

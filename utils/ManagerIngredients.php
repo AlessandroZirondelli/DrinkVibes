@@ -62,6 +62,4 @@ require_once("assets/db/database.php");
             
         }
     }
-    //$mng = new ManagerIngredients();
-    //$mng ->insertIngredient(1,"NuovoGabge",4,5.0,"DESCRIPTION OF GANG","tipo","cat","URLìì/image");
 ?>

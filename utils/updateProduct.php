@@ -16,16 +16,10 @@ if($action == 1){
 
     // get the ingredient temp from the SESSION
     if($qtn<= $product[0]["qtystock"]){
-       
         $mngProducts -> updateProduct($product[0]["productID"], $product[0]["qtystock"] - $qtn);
         // I add an ingredient to the temp ingredient
-        $sep ="___A___";
-     //   var_dump( $list_prod);
-        //var_dump($sep);
-       // var_dump($product);
         foreach($list_prod as $prod){
             if($prod[0]->getProductID() != $id){
-               //array_push($list_prod_temp,array(new Product($product[0]["productID"],$product[0]["name"],$product[0]["description"],$product[0]["price"],$product[0]["qtystock"],$product[0]["type"],$product[0]["imageURL"]),$qtn));
                 array_push($list_prod_temp,array($prod[0],$prod[1]));
             }else{
                 $isFirst = false;

@@ -6,15 +6,11 @@ But these are wrong  refers to file "Orders.php" where there is require_once.
 require_once("./Order.php"); // includes also OrderDetails.php
 require_once("./../assets/db/database.php");*/
 
-
 require_once("./utils/NotificationStateChanges.php");
 require_once("./utils/NotificationOrderReady.php");
 require_once("./utils/NotificationNewOrder.php");
 require_once("./utils/NotificationSoldOut.php");
 require_once("./assets/db/database.php");
-
-//require_once("./NotificationStateChanges.php");
-//require_once("./../assets/db/database.php");
 
     class ManagerNotifications{
         private $dbh;

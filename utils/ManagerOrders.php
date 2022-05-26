@@ -8,17 +8,13 @@ require_once("./../assets/db/database.php");
 require_once("./Order.php"); // include anche OrderDetails.php
 require_once("./../assets/db/database.php");*/
 
-//require_once("./utils/Order.php");
 require_once($_SERVER['DOCUMENT_ROOT']."/DrinkVibes/utils/Order.php");
-//require_once("./assets/db/database.php");
 require_once($_SERVER['DOCUMENT_ROOT']."/DrinkVibes/assets/db/database.php");
 require_once($_SERVER['DOCUMENT_ROOT']."/DrinkVibes/utils/ManagerHandMakeDrink.php");
 require_once($_SERVER['DOCUMENT_ROOT']."/DrinkVibes/utils/HandMadeDrink.php");
 require_once($_SERVER['DOCUMENT_ROOT']."/DrinkVibes/utils/Ingredient.php");
 require_once($_SERVER['DOCUMENT_ROOT']."/DrinkVibes/utils/Product.php");
-//require_once("./ManagerHandMakeDrink.php");
 
-//session_start();
 
     class ManagerOrders{
         private $dbh;
