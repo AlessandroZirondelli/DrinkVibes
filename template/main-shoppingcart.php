@@ -42,8 +42,8 @@
                   <td class="align-middle" headers="tablePrice">
                     <p class="mb-0"><?php echo $hmd[0]->getTotalPrice(); ?></p>
                   </td>
-                  <td class="align-middle deletebtnDrink" header="tableDelete">
-                    <button class="button-trash" id="<?php echo $hmd[0]->getId(); ?> "> <i class="bi bi-trash"></i> </button>
+                  <td class="align-middle deletebtnDrink" headers="tableDelete">
+                    <button class="button-trash" id="<?php echo $hmd[0]->getId(); ?>"> <i class="bi bi-trash"></i> </button>
                   </td>
 
                 </tr>
