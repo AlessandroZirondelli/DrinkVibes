@@ -4,7 +4,7 @@
 
     <div class="card col-md-6 mb-2 product-wap rounded-0 d-flex justify-content-center">
         <div class="card-inner">
-            <img id="imgProduct" class="card-img rounded-0" src="assets/img/i.png" alt="photo product">
+            <img id="imgProduct" class="card-img rounded-0" src="assets/img/prd_default.png" alt="photo product">
         </div>
         <div class="card-body pb-0 pt-0 ps-0 mx-2">
             <form id="formIdProduct" action="utils/addProduct.php" method='POST' enctype="multipart/form-data">

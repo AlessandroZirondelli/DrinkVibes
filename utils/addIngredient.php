@@ -10,7 +10,7 @@ $mngIngredients = new ManagerIngredients();
         list($result, $msg) = uploadImage(UPLOAD_DIR, $_FILES["imageToSave"]);
         $image = "./upload/" .  $_FILES["imageToSave"]["name"];
     }else{
-        $image = "assets/img/i.png";
+        $image = "assets/img/prd_default.png";
     }
     
     $name = $_REQUEST["name"];
