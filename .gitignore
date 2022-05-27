@@ -1,3 +1,2 @@
-*.jpeg
-*.png
-*.gif
+/upload/*.jpg
+/upload/*.png
