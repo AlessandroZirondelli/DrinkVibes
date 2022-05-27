@@ -1,8 +1,8 @@
 <?php
 
-    require_once("bootstrap.php");
-    require_once("utils/ManagerProducts.php");
-    require_once("utils/Product.php");
+    require_once($_SERVER['DOCUMENT_ROOT']."/DrinkVibes/bootstrap.php");
+    require_once("ManagerProducts.php");
+    require_once("Product.php");
     $manager = new ManagerProducts();
 
     if($_FILES["imageToSave"]["name"] != ""){
@@ -20,7 +20,7 @@
 
     $manager -> insertProduct($name,$image,$description,$quantity, $tipology,$price);
     
-    header("location:products.php");
+    header("location:../products.php");
 ?>
 
 

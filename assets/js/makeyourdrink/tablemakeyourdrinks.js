@@ -106,7 +106,7 @@ function submitQuantity(id){
             let disponibility = this.responseText;
             updateQtn(disponibility,id);
         }
-        xhttp.open("GET", "submit.php?action=" + action + "&id=" + id );
+        xhttp.open("GET", "utils/submit.php?action=" + action + "&id=" + id );
         xhttp.send();
 
     }else{
@@ -226,7 +226,7 @@ function addShoppingCart(){
             }
         }
        
-        xhttp.open("GET", "submit.php?action="+ action + "&qtn="+ qtn,false);
+        xhttp.open("GET", "utils/submit.php?action="+ action + "&qtn="+ qtn,false);
         xhttp.send();
     }else{
         $(inputSelected).css("border-color","red")
@@ -236,16 +236,7 @@ function addShoppingCart(){
         setTimeout(function(){fade_out(textShoppingCart)}, 2000);
 
     }
-
-    //Debug dati
-    xhttp.onload = function() {
-           document.getElementById("sessionTable").innerHTML = this.responseText;       
-           
-    }   
-    xhttp.open("GET", "cart.php?",false);
-    xhttp.send();
-
-    
+ 
 }
 function reset(upDataBase){
     let upgradeDatabase = upDataBase;
@@ -294,7 +285,7 @@ function updateQuantityDescription(id){
     let disponibility = 0;
     let idQtnDesc = "#qtnDescription" + id;
 
-    $.post('submit.php', { "action": action, "id" : id}, 
+    $.post('utils/submit.php', { "action": action, "id" : id}, 
     function(returnedData){
         disponibility = returnedData;
         $(idQtnDesc).text(disponibility);

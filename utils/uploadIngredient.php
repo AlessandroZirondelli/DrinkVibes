@@ -1,8 +1,8 @@
 <?php
-    require_once("bootstrap.php"); 
-    require_once("utils/ManagerIngredients.php");
-    require_once("utils/HandMadeDrink.php");
-    require_once("utils/Ingredient.php");
+    require_once($_SERVER['DOCUMENT_ROOT']."/DrinkVibes/bootstrap.php"); 
+    require_once("ManagerIngredients.php");
+    require_once("HandMadeDrink.php");
+    require_once("Ingredient.php");
 
     session_start();
     

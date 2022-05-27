@@ -68,7 +68,7 @@ function submitQuantity(id) {
         $(warningSelected).fadeIn();
         $(inputSelected).css("border-color", "black");
 
-        $.post('submit.php', { "action": action, "id": id },
+        $.post('utils/submit.php', { "action": action, "id": id },
             function (returnedData) {
                 disponibility = returnedData;
                 updateQtn(disponibility, id);
@@ -129,7 +129,7 @@ function updateQtnDescription(id) {
     let disponibility = 0;
     let action = 3;
 
-    $.post('submit.php', { "action": action, "id": id },
+    $.post('utils/submit.php', { "action": action, "id": id },
         function (returnedData) {
             disponibility = returnedData;
             $(idQuantityDescription).text(disponibility);

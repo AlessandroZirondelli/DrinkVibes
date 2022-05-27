@@ -5,8 +5,6 @@ session_start();
 
 $dbh = new DatabaseHelper("localhost", "root", "", "drinkdb",3306);
 
-//$userID = $_SESSION["userID"];
-
 if(empty($_SESSION["userID"])){
     $_SESSION["redirect"]="shoppingcart"; 
     header("location:../login.php");

@@ -1,13 +1,6 @@
 <?php
     require_once("./utils/ManagerOrders.php");
     require_once("bootstrap.php");
-    /*require_once("./utils/functions.php");
-    
-    if(!isUserLoggedIn()){
-        header("location: login.php");
-    }
-    */
-
     $templateParams["title"] = "Home";
     
     // It is used for redirection when I click on Order but I am not logged in
@@ -18,8 +11,8 @@
     }
     $templateParams["main-content"] = "main-orders.php";
     $cssArray[0]="./assets/css/orders-style.css";
-    $jsArray[0]="./assets/js/sendNotifications.js";
-    $jsArray[1]="./assets/js/dropdownStatus.js";
+    $jsArray[0]="./assets/js/notifications/sendNotifications.js";
+    $jsArray[1]="./assets/js/orders/dropdownStatus.js";
     $manager= new ManagerOrders();
     //$manager->createOrdersByUser($_SESSION["userID"]);
     

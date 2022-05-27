@@ -1,11 +1,10 @@
 <?php
 
 require_once("utils/functions.php");
-require_once("./assets/db/database.php");
+require_once($_SERVER['DOCUMENT_ROOT']."/DrinkVibes/assets/db/database.php");
 session_start();
-define("UPLOAD_DIR", "./upload/");
+define("UPLOAD_DIR", "../upload/");
 
-//require_once("assets/db/database.php");
 $dbh = new DatabaseHelper("localhost", "root", "", "drinkdb",3306);
 
 

@@ -104,7 +104,7 @@
     <?php require($templateParams["main-content"]); ?>
    </main>
 
-   <footer class="bg-dark">
+   <footer>
     <div class="container">
         <div class="row">
             <div class="col-md-4 pt-5">
@@ -145,7 +145,7 @@
         </div>
     </div>
 
-    <div class="bg-dark py-3">
+    <div class="py-3">
         <div class="row">
               <div class="col-12">
                   <p class="text-center text-white">

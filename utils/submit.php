@@ -1,8 +1,8 @@
 <?php
-require_once("utils/ManagerIngredients.php");
-require_once("utils/ManagerProducts.php");
-require_once("utils/HandMadeDrink.php");
-require_once("utils/Ingredient.php");
+require_once("ManagerIngredients.php");
+require_once("ManagerProducts.php");
+require_once("HandMadeDrink.php");
+require_once("Ingredient.php");
 
 session_start();
 
@@ -47,7 +47,6 @@ if($action == 2){
  
         $ingredients = $handMadeDrink -> getIngredient();
         foreach($ingredients as $ing){
-            //$firstQtn = $firstAdd ?  $ing->getQty() : 0;
             $firstQtn = $ing->getQty();
             if( ($ing->getQty() * $qtn - $firstQtn )> $mngIngredients -> getDisponibility($ing -> getIngredientId()) ){
                 $insuffIng =  $insuffIng . $ing -> getName() . ", ";
@@ -55,8 +54,7 @@ if($action == 2){
         }
     
         if(strcmp($insuffIng,"") == 0){
-            foreach($ingredients as $ing){
-                //$firstQtn = $firstAdd ? $ing->getQty() : 0;    
+            foreach($ingredients as $ing){   
                 $firstQtn = $ing->getQty();
                 $mngIngredients -> updateIngredient($ing -> getIngredientId(), $mngIngredients -> getDisponibility($ing -> getIngredientId()) - ($ing->getQty() * $qtn - $firstQtn ));
                 
@@ -76,7 +74,7 @@ if($action == 2){
                 array_push($list_shopping_cart_hdm_temp,array($hdm[0],$hdm[1] + $qtn));
             }
         }else{
-            echo "I seguenti prodotti non sono sufficienti nelle quantità selezionate ".$insuffIng;
+            echo "Ingredients aren't available for selected quantity:".$insuffIng;
         }
         $_SESSION["shopping_cart_hmd"] = serialize($list_shopping_cart_hdm_temp);
        

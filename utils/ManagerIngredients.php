@@ -1,6 +1,6 @@
 <?php
 
-require_once("assets/db/database.php");
+require_once($_SERVER['DOCUMENT_ROOT']."/DrinkVibes/assets/db/database.php");
     class ManagerIngredients{
         private $dbh;
 
@@ -62,6 +62,4 @@ require_once("assets/db/database.php");
             
         }
     }
-    //$mng = new ManagerIngredients();
-    //$mng ->insertIngredient(1,"NuovoGabge",4,5.0,"DESCRIPTION OF GANG","tipo","cat","URLìì/image");
 ?>

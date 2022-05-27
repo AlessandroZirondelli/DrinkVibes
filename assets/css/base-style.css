@@ -12,9 +12,14 @@ a:hover, button:hover{
 }
 
 
-footer a, footer h3{
+footer a{
     color:white;
 }
+
+footer{
+    background-color: blue !important;
+}
+
 
 li.icons-link li{
     display: inline-block !important;

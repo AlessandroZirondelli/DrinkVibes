@@ -9,6 +9,6 @@
     $templateParams["aside-content"] = "aside-index.php"; 
     $cssArray[0]="./assets/css/index-style.css";
     
-    require_once("template/base.php"); //base.php vede la roba definita dentro  e dentro questo file index.php
+    require_once("template/base.php");
 ?>
 
