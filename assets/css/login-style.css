@@ -33,3 +33,7 @@ a {
     flex-direction: column;
     justify-content: flex-start;
 }
+
+#error {
+    color: red;
+}

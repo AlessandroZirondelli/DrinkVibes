@@ -38,7 +38,7 @@
         </div>
 
         <?php if (isset($templateParams["errorelogin"])) : ?>
-          <p><br><?php echo $templateParams["errorelogin"]; ?></br></p>
+          <p id="error"><br><?php echo $templateParams["errorelogin"]; ?></br></p>
         <?php endif; ?>
       </div>
     </form>
