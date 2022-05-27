@@ -15,7 +15,6 @@ if(isset($_POST["username"]) && isset($_POST["password"])){
         $templateParams["errorelogin"] = "Wrong username or password! Try again.";
     }
     else{
-        echo "ciao";
         $loggedUser = $manager->getInfoAccount($_POST["username"]);
         $manager -> registerLoggedUser($loggedUser);
         
