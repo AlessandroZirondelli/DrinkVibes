@@ -108,7 +108,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 pt-5">
-                <h2 class="h2 text-white border-bottom pb-3 border-light">Drink Vibes</h2>
+                <h2 class="h2 border-bottom pb-3 border-light" id="footer-category" >Drink Vibes</h2>
                 <ul class="list-unstyled text-light ">
                     <li>
                         Italy, Cesena, Via Montalti, 69
@@ -123,7 +123,7 @@
             </div>
 
             <div class="col-md-4 pt-5">
-                <h2 class="h2 text-light border-bottom pb-3 border-light">Products</h2>
+                <h2 class="h2 border-bottom pb-3 border-light" id="footer-category">Products</h2>
                 <ul class="list-unstyled text-light footer-link-list">
                     <li><a class="text-decoration-none" href="#">Wine</a></li>
                     <li><a class="text-decoration-none" href="#">Beverages</a></li>
@@ -133,7 +133,7 @@
             </div>
 
             <div class="col-md-4 pt-5">
-                <h2 class="h2 text-light border-bottom pb-3 border-light">Further Info</h2>
+                <h2 class="h2 border-bottom pb-3 border-light" id="footer-category">Further Info</h2>
                 <ul class="list-unstyled text-light footer-link-list">
                     <li><a class="text-decoration-none" href="./index.php">Home</a></li>
                     <li><a class="text-decoration-none" href="./products.php">Products</a></li>
