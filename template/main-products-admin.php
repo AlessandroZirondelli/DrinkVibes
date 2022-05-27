@@ -41,7 +41,7 @@
             <div class="d-flex align-items-center justify-content-between py-3 px-6">
               <div>
                 <label>Prezzo:</label>
-                <div class="h4"><span>&#8364;</span><?php echo $products["price"]; ?>/pz</div>
+                <div><span>&#8364;</span><?php echo $products["price"]; ?>/pz</div>
               </div>
               <div>
 
