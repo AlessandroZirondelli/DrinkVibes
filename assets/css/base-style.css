@@ -10,10 +10,6 @@ a:hover {
     color: #EF626C !important;
 }
 
-button:hover {
-    color: #22181C !important;
-}
-
 footer a {
     color: #F6E8EA;
 }
@@ -42,9 +38,4 @@ li.icons-link li {
     ul.navbar-nav>li.col-lg-2>a.nav-link.text-white {
         text-align: center !important;
     }
-    /*
-        li.icons-link li{
-        display: inline-block !important;
-    }
-    */
 }
