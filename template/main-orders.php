@@ -220,7 +220,7 @@
 
                                                 <div id="<?php echo 'flush-collapseTabTwo' . $tmp->getOrderID(); ?>" class="accordion-collapse collapse" aria-labelledby="<?php echo 'flush-headingTabTwo' . $tmp->getOrderID(); ?>" data-bs-parent=" <?php echo '#accordionFlushTabTwo' . $tmp->getOrderID(); ?>">
                                                     <div class="accordion-body p-0">
-                                                        <?php if ($type == "Express") : ?>
+                                                        <?php if ($type != "User") : ?>
                                                             <div>
                                                                 Recipient: <?php echo $manager->getRecipientName($tmp->getOrderID()); ?>
                                                             </div>

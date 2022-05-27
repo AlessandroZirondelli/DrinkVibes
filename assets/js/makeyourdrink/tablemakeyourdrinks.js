@@ -8,7 +8,7 @@ $(document).ready(function() {
     $("#deleteRowBtn").click(function () {
         deleteRow();
     });
-    $(".btn.btn-dark.text-uppercase.add-button").each(function(e){
+    $(".btn.text-uppercase.add-button").each(function(e){
         let idBtn = $(this).attr('id').replace('btn', '');
         let idProduct = (parseInt(idBtn));
         $(this).click(
