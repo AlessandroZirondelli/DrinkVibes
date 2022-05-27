@@ -6,7 +6,7 @@
       <tr>
         <th>Ingredient</th>
         <th>Quantity</th>
-        <th>Price (€)</th>
+        <th>Price</th>
         <th></th>
       </tr>
     </thead>
