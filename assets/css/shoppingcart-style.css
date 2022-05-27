@@ -34,6 +34,13 @@ button {
     color: #EF626C;
 }
 
+.h-100.h-custom {
+    display: flex;
+    min-height: 65vh;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
 #insertButton {
     background-color: #EF626C;
     color: #22181C;

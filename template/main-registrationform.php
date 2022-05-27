@@ -123,7 +123,7 @@
             <?php endif; ?>
 
             <div class="col-12 text-right">
-              <input type="submit" name="insertButton" id="insertButton" value="submit" class="btn text-uppercase mb-3 mt-3" />
+              <input type="submit" name="insertButton" id="insertButton" value="Submit" class="btn text-uppercase mb-3 mt-3" />
             </div>
             <div id="warningsLabel"></div>
             

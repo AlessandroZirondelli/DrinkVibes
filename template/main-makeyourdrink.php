@@ -78,7 +78,7 @@
                     </div>
                     <div class="card-body pb-0 px-2">
 
-                      <div class="text-decoration-none pb-2" id="name<?php echo $ingredient["ingredientID"]; ?>"><?php echo $ingredient["name"];
+                      <div class="text-decoration-none pb-3 h4" id="name<?php echo $ingredient["ingredientID"]; ?>"><?php echo $ingredient["name"];
                                                                                                                   echo $ingredient["qtystock"] == "0" ? " - Sold out" : "" ?></div>
 
                       <div class="mx-1">
@@ -104,7 +104,7 @@
                       <div class="d-flex align-items-center justify-content-between py-3 px-6">
 
 
-                        <div class="" style=""><span>&#8364;</span><?php echo $ingredient["price"]; ?>/<?php echo $ingredient["category"] == "Liquid" ? "mL" : "u"; ?></div>
+                        <div><span>&#8364;</span><?php echo $ingredient["price"]; ?>/<?php echo $ingredient["category"] == "Liquid" ? "mL" : "u"; ?></div>
 
                         <div>
                           <label class="visually-hidden" for="qtn<?php echo $ingredient["ingredientID"]; ?>">Quantity</label>

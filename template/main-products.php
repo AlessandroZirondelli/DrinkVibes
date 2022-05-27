@@ -34,7 +34,7 @@
                             <hr class="line my-0">
                         </div>
                         <div class="d-flex align-items-center justify-content-between py-3 px-6">
-                            <div class="h4"><span>&#8364;</span><?php echo $products["price"]; ?>/pz</div>
+                            <div><span>&#8364;</span><?php echo $products["price"]; ?>/pz</div>
 
                             <div>
                                 <label class="visually-hidden" for="qtn<?php echo $products["productID"]; ?>">Quantity</label>
