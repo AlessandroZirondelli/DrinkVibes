@@ -1,6 +1,4 @@
 $(document).ready(function() {
-    upgradeDBProd();
-    upgradeDBIngr();
     totalCost();
     checkCart();
     //delete product
@@ -57,95 +55,10 @@ $(document).ready(function() {
             check_qty_prod(value,idBtnChange);
         });
     });  
-    $("#formShoppingCart").on("submit", resetCookie);
-    console.log($("tbody tr").length == 0);
-    console.log($("#cardempty").is(":hidden"));
-    if($("tbody tr").length == 0 && !$("#cardempty").is(":visible")){
-        window.location.reload();
-    }
+    
 });
-function setCookie(cname,cvalue,exdays) {
-    const d = new Date();
-    d.setTime(d.getTime() + (exdays*24*60*60*1000));
-    let expires = "expires=" + d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-  }
-  function getCookie(cname) {
-    const getCookieValue = decodeURIComponent(document.cookie.match('(^|;)\\s*' + cname + '\\s*=\\s*([^;]+)')?.pop() || '');
-    return getCookieValue;
-  
-  }
-//  RESET
-function resetCookie(){
-    document.cookie = "product=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-    document.cookie = "handmadedrink=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-    return true;
-}
-//
-//PRODOTTI
-function upgradeCookieProd(){
-    var action = 10;
-    $.post('shoppingcartfunction.php', { "action": action },
-    function(returnedData) {
-       
-        let returnString = returnedData.replace(/(\r\n|\n|\r)/gm, "");
-        let returna  =  encodeURIComponent(returnString);
-        setCookie('product',"" + returna,30);
-     
-    }).fail(function() {
-        document.location.href = "/DrinkVibes/errors.php?errorNum= ";
-    });
-}
 
-function upgradeDBProd(){
-    var action = 9;
-    var sp =  getCookie("product");
 
-    if(sp != ""){
-        
-        $.post('shoppingcartfunction.php', { "action": action, "sp": sp },
-        function(returnedData) {
-            console.log(returnedData);
-            
-        }).fail(function() {
-            document.location.href = "/DrinkVibes/errors.php?errorNum= ";
-        });
-    }else{
-        console.log("Not execute");
-    }
-
-}
-//INGREDIENTI
-function upgradeDBIngr(){
-    var action = 11;
-    var sp =  getCookie("handmadedrink");
-
-    if(sp != ""){
-        
-        $.post('shoppingcartfunction.php', { "action": action, "sp": sp },
-        function(returnedData) {
-            console.log(returnedData);
-            
-        }).fail(function() {
-            document.location.href = "/DrinkVibes/errors.php?errorNum= ";
-        });
-    }else{
-        console.log("Not execute");
-    }
-
-}
-function upgradeCookieIngr(){
-    var action = 12;
-    $.post('shoppingcartfunction.php', { "action": action },
-    function(returnedData) {
-        let returnString = returnedData.replace(/(\r\n|\n|\r)/gm, "");
-        let returna  =  encodeURIComponent(returnString);
-        setCookie('handmadedrink',"" + returna,30);
-    }).fail(function() {
-        document.location.href = "/DrinkVibes/errors.php?errorNum= ";
-    });
-}
-//
 function checkCart() {
     let action = 6;
     const xhttp = new XMLHttpRequest();
@@ -183,7 +96,7 @@ function check_qty_prod(value, id) {
         if ($.isNumeric(returnString)) {
             $(inputId).val(parseInt(returnString));
         }
-        upgradeCookieProd();
+       
         totalCost();
     }
     xhttp.open("GET", "utils/shoppingcartfunction.php?action=" + action + "&id=" + idCheck + "&value=" + valueRead);
@@ -206,7 +119,7 @@ function check_qty(value, id) {
         if ($.isNumeric(returnString)) {
             $(inputId).val(parseInt(returnString));
         }
-        upgradeCookieIngr();
+        
         totalCost();
     }
     xhttp.open("GET", "utils/shoppingcartfunction.php?action=" + action + "&id=" + idCheck + "&value=" + valueRead);
@@ -223,7 +136,7 @@ function deleteProduct(id) {
             totalCost();
             checkCart();
             $(rowId).remove();
-            upgradeCookieProd();
+           
         }).fail(function() {
             document.location.href = "/DrinkVibes/errors.php?errorNum= ";
     });
@@ -239,7 +152,7 @@ function deleteDrink(id) {
             totalCost();
             checkCart();
             $(rowId).remove();
-            upgradeCookieIngr();
+           
         }).fail(function() {
             document.location.href = "/DrinkVibes/errors.php?errorNum= ";
     });

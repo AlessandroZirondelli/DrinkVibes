@@ -20,48 +20,12 @@ $(document).ready(function() {
     
     
     
-    upgradeDBIngr();
+    
 });
 
-function upgradeDBIngr(){
-    let action = 11;
-    let sp =  getCookie("handmadedrink");
 
-    if(sp != ""){
-        
-        $.post('shoppingcartfunction.php', { "action": action, "sp": sp },
-        function(returnedData) {
-            console.log(returnedData);
-            
-        }).fail(function() {
-            document.location.href = "/DrinkVibes/errors.php?errorNum= ";
-        });
-    }else{
-        console.log("Not execute");
-    }
 
-}
-function setCookie(cname,cvalue,exdays) {
-    const d = new Date();
-    d.setTime(d.getTime() + (exdays*24*60*60*1000));
-    let expires = "expires=" + d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
-function getCookie(cname) {
-    const getCookieValue = decodeURIComponent(document.cookie.match('(^|;)\\s*' + cname + '\\s*=\\s*([^;]+)')?.pop() || '');
-    return getCookieValue;
-}
-function upgradeCookieIngr(){
-    let action = 12;
-    $.post('shoppingcartfunction.php', { "action": action },
-    function(returnedData) {
-        let returnString = returnedData.replace(/(\r\n|\n|\r)/gm, "");
-        let returna  =  encodeURIComponent(returnString);
-        setCookie('handmadedrink',"" + returna,30);
-    }).fail(function() {
-        document.location.href = "/DrinkVibes/errors.php?errorNum= ";
-    });
-}
+
 
 function setListenerTable(){
     $("#deleteRowBtn").click(function () {
@@ -218,7 +182,7 @@ function addShoppingCart(){
                 $(textShoppingCart).fadeIn();
                 setTimeout(function(){fade_out(textShoppingCart)}, 2000);
                 reset(false);
-                upgradeCookieIngr();
+                
                 $(inputSelected).val("");
             }else{
                 setTimeout(function(){fade_out(textShoppingCart)}, 2000);
