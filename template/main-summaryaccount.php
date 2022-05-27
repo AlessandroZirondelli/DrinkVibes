@@ -1,5 +1,5 @@
 <div class="container">
-    <h2 class="mb-0 text-center mt-4">Logged-in user</h2>
+    <h3 class="mb-0 text-center mt-4">Logged-in user</h3>
     <div class="border p-3 m-4" id="summary">
         <h4>Username: <?php echo $_SESSION["userID"] ?></h4>
         <h4>Name: <?php echo $_SESSION["name"] ?></h4>
