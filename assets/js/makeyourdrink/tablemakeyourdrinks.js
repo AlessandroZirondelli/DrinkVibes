@@ -226,7 +226,7 @@ function addShoppingCart(){
             }
         }
        
-        xhttp.open("GET", "utils/submit.php?action="+ action + "&qtn="+ qtn,false);
+        xhttp.open("GET", "utils/submit.php?action="+ action + "&qtn="+ qtn);
         xhttp.send();
     }else{
         $(inputSelected).css("border-color","red")
