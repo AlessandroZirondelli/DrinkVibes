@@ -108,7 +108,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 pt-5">
-                <h2 class="h2 border-bottom pb-3 border-light" id="footer-category" >Drink Vibes</h2>
+                <h2 class="h2 border-bottom pb-3 border-light" id="footer-category-info" >Drink Vibes</h2>
                 <ul class="list-unstyled text-light ">
                     <li>
                         Italy, Cesena, Via Montalti, 69
