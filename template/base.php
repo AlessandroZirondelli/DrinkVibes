@@ -123,7 +123,7 @@
             </div>
 
             <div class="col-md-4 pt-5">
-                <h2 class="h2 border-bottom pb-3 border-light" id="footer-category">Products</h2>
+                <h2 class="h2 border-bottom pb-3 border-light" id="footer-category-products">Products</h2>
                 <ul class="list-unstyled text-light footer-link-list">
                     <li><a class="text-decoration-none" href="#">Wine</a></li>
                     <li><a class="text-decoration-none" href="#">Beverages</a></li>
