@@ -18,14 +18,18 @@ require_once($_SERVER['DOCUMENT_ROOT']."/DrinkVibes/assets/db/database.php");
 
         // Register the user to show it
         public function registerLoggedUser($user){
-            $_SESSION["userID"] = $user["userID"];
-            $_SESSION["name"] = $user["name"];
-            $_SESSION["surname"] = $user["surname"];
-            $_SESSION["email"] = $user["email"];
-            $_SESSION["type"] = $user["type"];
-            $_SESSION["birthdate"] = $user["birthdate"];
+            $_SESSION["userID"] = $user[0]["userID"];
+            $_SESSION["name"] = $user[0]["name"];
+            $_SESSION["surname"] = $user[0]["surname"];
+            $_SESSION["email"] = $user[0]["email"];
+            $_SESSION["type"] = $user[0]["type"];
+            $_SESSION["birthdate"] = $user[0]["birthdate"];
         }
         
+        public function getInfoAccount($userID){
+            return $this -> dbh->getInfoAccount($userID);
+        }
+
         public function isAvailableUserId($userId){
             if(count($this -> dbh ->getUserByUserId($userId)) == 0){
                 return true;
