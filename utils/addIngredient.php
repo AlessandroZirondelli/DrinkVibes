@@ -1,9 +1,9 @@
 <?php
 
-require_once("bootstrap.php");
-require_once("utils/ManagerIngredients.php");
-require_once("utils/HandMadeDrink.php");
-require_once("utils/Ingredient.php");
+require_once($_SERVER['DOCUMENT_ROOT']."/DrinkVibes/bootstrap.php");
+require_once("ManagerIngredients.php");
+require_once("HandMadeDrink.php");
+require_once("Ingredient.php");
 $mngIngredients = new ManagerIngredients();
 
     if($_FILES["imageToSave"]["name"] != ""){
@@ -26,5 +26,5 @@ $mngIngredients = new ManagerIngredients();
     $mngIngredients -> insertIngredient($name,$image,$description,$quantity,$category,$tipology,$price);
 
 
-    header("location:makeyourdrink.php"); //mettere da qualche altra parte
+    header("location:../makeyourdrink.php"); //mettere da qualche altra parte
 ?>

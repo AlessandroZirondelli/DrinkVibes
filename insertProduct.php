@@ -15,7 +15,7 @@
     $templateParams["main-content"] = "main-insertProduct.php";
 
     $cssArray[0]="./assets/css/products-style.css";
-    $jsArray[0]="./assets/js/insertProduct.js";
+    $jsArray[0]="./assets/js/products/insertProduct.js";
     }
   
     require_once("template/base.php");

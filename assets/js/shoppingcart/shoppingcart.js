@@ -76,7 +76,7 @@ function checkCart() {
         }
     }
 
-    xhttp.open("GET", "shoppingcartfunction.php?action=" + action);
+    xhttp.open("GET", "utils/shoppingcartfunction.php?action=" + action);
     xhttp.send();
 }
 
@@ -97,7 +97,7 @@ function check_qty_prod(value, id) {
         }
         totalCost();
     }
-    xhttp.open("GET", "shoppingcartfunction.php?action=" + action + "&id=" + idCheck + "&value=" + valueRead);
+    xhttp.open("GET", "utils/shoppingcartfunction.php?action=" + action + "&id=" + idCheck + "&value=" + valueRead);
     xhttp.send();
     
 }
@@ -119,7 +119,7 @@ function check_qty(value, id) {
         }
         totalCost();
     }
-    xhttp.open("GET", "shoppingcartfunction.php?action=" + action + "&id=" + idCheck + "&value=" + valueRead);
+    xhttp.open("GET", "utils/shoppingcartfunction.php?action=" + action + "&id=" + idCheck + "&value=" + valueRead);
     xhttp.send();
 
 }
@@ -128,7 +128,7 @@ function deleteProduct(id) {
     let action = 7;
     let rowId = "#rowProd" + id;
     
-    $.post('shoppingcartfunction.php', { "action": action, "id": id },
+    $.post('utils/shoppingcartfunction.php', { "action": action, "id": id },
         function(returnedData) {
             totalCost();
             checkCart();
@@ -143,7 +143,7 @@ function deleteDrink(id) {
     let action = 1;
     let rowId = "#rowDrink" + id;
 
-    $.post('shoppingcartfunction.php', { "action": action, "id": id },
+    $.post('utils/shoppingcartfunction.php', { "action": action, "id": id },
         function(returnedData) {
             totalCost();
             checkCart();
@@ -166,6 +166,6 @@ function totalCost() {
         total = total.toFixed(2);
         document.getElementById("total").innerHTML = total;
     }
-    xhttp.open("GET", "shoppingcartfunction.php?action=" + action);
+    xhttp.open("GET", "utils/shoppingcartfunction.php?action=" + action);
     xhttp.send();
 }

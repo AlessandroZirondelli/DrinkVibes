@@ -44,7 +44,7 @@ function uploadProduct(id) {
     $(warningSelected).fadeIn();
     if ($.isNumeric(qtn) && qtn >= 0) {
 
-        $.post('uploadProduct.php', { "action": action, "id": id, "qtn": qtn },
+        $.post('utils/uploadProduct.php', { "action": action, "id": id, "qtn": qtn },
             function(returnedData) {
                 
             }).fail(function() {
@@ -69,7 +69,7 @@ function deleteProduct(id) {
 
     $(cardDelete).remove();
 
-    $.post('uploadProduct.php', { "action": action, "id": id },
+    $.post('utils/uploadProduct.php', { "action": action, "id": id },
         function(returnedData) {
             
         }).fail(function() {

@@ -1,12 +1,12 @@
 <?php
-require_once("utils/ManagerIngredients.php");
-require_once("utils/HandMadeDrink.php");
-require_once("utils/Ingredient.php");
-require_once("utils/Product.php");
-require_once("utils/ManagerProducts.php");
-require_once("utils/ManagerInsertOrder.php");
-require_once("utils/Order.php");
-require_once("utils/OrderDetail.php");
+require_once("ManagerIngredients.php");
+require_once("HandMadeDrink.php");
+require_once("Ingredient.php");
+require_once("Product.php");
+require_once("ManagerProducts.php");
+require_once("ManagerInsertOrder.php");
+require_once("Order.php");
+require_once("OrderDetail.php");
 session_start();
 
 $action = $_REQUEST["action"];

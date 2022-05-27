@@ -1,8 +1,8 @@
 <?php
 
-    require_once("bootstrap.php");
-    require_once("utils/ManagerProducts.php");
-    require_once("utils/Product.php");
+    require_once($_SERVER['DOCUMENT_ROOT']."/DrinkVibes/bootstrap.php");
+    require_once("ManagerProducts.php");
+    require_once("Product.php");
 
     session_start();
 

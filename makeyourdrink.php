@@ -12,13 +12,13 @@
     if(isset($_SESSION["type"]) && $_SESSION["type"] == "Admin") { 
         $templateParams["main-content"] = "main-makeyourdrink-admin.php";
         $cssArray[0]="./assets/css/makeyourdrinkadmin-style.css";
-        $jsArray[0]="./assets/js/sendNotifications.js";
-        $jsArray[1]="./assets/js/makeyourdrinkadmin.js";
+        $jsArray[0]="./assets/js/notifications/sendNotifications.js";
+        $jsArray[1]="./assets/js/makeyourdrink/makeyourdrinkadmin.js";
     }else{
         $templateParams["main-content"] = "main-makeyourdrink.php";
         $cssArray[0]="./assets/css/makeyourdrink-style.css";
-        $jsArray[0]="./assets/js/sendNotifications.js";
-        $jsArray[1]="./assets/js/tablemakeyourdrinks.js";
+        $jsArray[0]="./assets/js/notifications/sendNotifications.js";
+        $jsArray[1]="./assets/js/makeyourdrink/tablemakeyourdrinks.js";
     }
 
     if(!isset( $_SESSION["shopping_cart_hmd"])) {

@@ -38,7 +38,7 @@ function uploadIngredient(id) {
     $(warningSelected).text("");
     $(warningSelected).fadeIn();
     if ($.isNumeric(qtn) && qtn >= 0) {
-        $.post('uploadIngredient.php', { "action": action, "id": id, "qtn": qtn },
+        $.post('utils/uploadIngredient.php', { "action": action, "id": id, "qtn": qtn },
             function (returnedData) {
                 
             }).fail(function () {
@@ -57,7 +57,7 @@ function deleteIngredient(id) {
 
     $(cardDelete).remove();
 
-    $.post('uploadIngredient.php', { "action": action, "id": id },
+    $.post('utils/uploadIngredient.php', { "action": action, "id": id },
         function (returnedData) {
             
         }).fail(function () {

@@ -11,8 +11,8 @@
     $templateParams["main-content"] = "main-shoppingcart.php";
     $cssArray[0]="./assets/css/shoppingcart-style.css";
   
-    $jsArray[0]="./assets/js/shoppingcart.js";
-    $jsArray[1]="./assets/js/sendNotifications.js";
+    $jsArray[0]="./assets/js/shoppingcart/shoppingcart.js";
+    $jsArray[1]="./assets/js/notifications/sendNotifications.js";
     $templateParams["hmd"] = array();
     $templateParams["prod"] = array();
    

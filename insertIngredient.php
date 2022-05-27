@@ -13,7 +13,7 @@
     else{
         $templateParams["main-content"] = "main-insertingredient.php";
         $cssArray[0]="./assets/css/makeyourdrinkadmin-style.css";
-        $jsArray[0]="./assets/js/insertIngredient.js";
+        $jsArray[0]="./assets/js/makeyourdrink/insertIngredient.js";
     }
     require_once("template/base.php");
 ?>
