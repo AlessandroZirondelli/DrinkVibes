@@ -39,7 +39,7 @@
             </p>
             <img src="./assets/img/bartender.webp" class="img-fluid mt-2 " alt="Bartender image"/>
             <div>
-              <a class="px-5 lets-build text-decoration-none" href="./makeyourdrink.php">Let's build</a>
+              <a class="px-5 lets-build text-decoration-none text-uppercase" href="./makeyourdrink.php">Let's build</a>
             </div>
           </div>
           <div class="col-1 col-md-2"></div>

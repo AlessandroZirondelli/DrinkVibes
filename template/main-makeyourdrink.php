@@ -15,7 +15,7 @@
         <td>Total</td>
         <td></td>
         <td></td>
-        <td><button id="deleteRowBtn" class="btn btn-dark text-uppercase">Remove</button></td>
+        <td><button id="deleteRowBtn" class="btn text-uppercase">Remove</button></td>
       </tr>
     </tfoot>
   </table>
@@ -39,8 +39,8 @@
     
       <div class="row">
         <div class="col-12">
-            <button id="addShoppingCartBtn" class="btn btn-dark text-uppercase col-auto mt-4">Add to shopping cart</button>
-            <button id="resetBtn" class="btn btn-dark text-uppercase  col-auto mt-4">Reset</button>
+            <button id="addShoppingCartBtn" class="btn text-uppercase col-auto mt-4">Add to shopping cart</button>
+            <button id="resetBtn" class="btn text-uppercase  col-auto mt-4">Reset</button>
         </div>
       </div>
 
@@ -111,7 +111,7 @@
                           <input name="qtn<?php echo $ingredient["ingredientID"]; ?>" type="text" class="form-control form-rounded" id="qtn<?php echo $ingredient["ingredientID"]; ?>" <?php echo $ingredient["qtystock"] == "0" ? 'disabled = "disabled";' : "" ?> placeholder="Quantity(<?php echo $ingredient["category"] == "Liquid" ? "mL" : "unity"; ?>)">
                         </div>
 
-                        <div> <button class="btn btn-dark text-uppercase add-button" id="btn<?php echo $ingredient["ingredientID"]; ?>" <?php echo $ingredient["qtystock"] == "0" ? 'disabled = "disabled"' : "" ?>>Add</button> </div>
+                        <div> <button class="btn text-uppercase add-button" id="btn<?php echo $ingredient["ingredientID"]; ?>" <?php echo $ingredient["qtystock"] == "0" ? 'disabled = "disabled"' : "" ?>>Add</button> </div>
 
                       </div>
                       <div id="warningsLabel<?php echo $ingredient["ingredientID"]; ?>"></div>
