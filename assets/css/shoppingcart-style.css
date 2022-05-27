@@ -59,3 +59,9 @@ button {
         width: 7vh;
     }
 }
+@media (max-width: 768px) {
+    .img-fluid.rounded-3 {
+        display: none;
+    }
+    
+}
