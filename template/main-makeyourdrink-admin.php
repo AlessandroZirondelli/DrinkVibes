@@ -26,7 +26,7 @@
                     </div>
                     <div class="card-body pb-0 px-2">
 
-                      <div class="text-decoration-none pb-2" id="name<?php echo $ingredient["ingredientID"]; ?>"><?php echo $ingredient["name"]; ?></div>
+                      <div class="h4 text-decoration-none pb-3" id="name<?php echo $ingredient["ingredientID"]; ?>"><?php echo $ingredient["name"]; ?></div>
 
                       <div class="mx-1">
                         <hr class="line my-0">
@@ -49,7 +49,7 @@
                       <div class="d-flex align-items-center justify-content-between py-3 px-6">
                         <div>
                           <label>Prezzo:</label>
-                          <div class="" style=""><span>&#8364;</span><?php echo $ingredient["price"]; ?>/<?php echo $ingredient["category"] == "Liquid" ? "mL" : "u"; ?></div>
+                          <div><span>&#8364;</span><?php echo $ingredient["price"]; ?>/<?php echo $ingredient["category"] == "Liquid" ? "mL" : "u"; ?></div>
                         </div>
                         <div>
 
