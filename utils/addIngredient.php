@@ -8,7 +8,11 @@ $mngIngredients = new ManagerIngredients();
 
     if($_FILES["imageToSave"]["name"] != ""){
         list($result, $msg) = uploadImage(UPLOAD_DIR, $_FILES["imageToSave"]);
-        $image = "./upload/" .  $_FILES["imageToSave"]["name"];
+        if($result == 1){
+            $image = "./upload/" . $msg;
+        }else{
+            $image = "assets/img/prd_default.png";
+        }
     }else{
         $image = "assets/img/prd_default.png";
     }
