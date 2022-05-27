@@ -16,7 +16,7 @@
           </div>
           <div class="col-12 col-md-4">
             <a href="#">
-              <img src="./assets/img/BeveragesIcon2.png" class="img-fluid rounded-circle" alt="Button image cocktail" />
+              <img src="./assets/img/BeveragesIcon.png" class="img-fluid rounded-circle" alt="Button image cocktail" />
             </a>
           </div>
           <div class="col-12 col-md-4">
