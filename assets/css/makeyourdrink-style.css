@@ -41,7 +41,7 @@ img {
 }
 
 .h4 {
-    font-family: 'Roboto Slab', serif;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
     margin: 0px;
 }
 
@@ -60,7 +60,7 @@ p {
     align-self: left;
     color: rgb(0, 0, 0);
     font-size: 1pz;
-    font-family: 'Roboto Slab', serif;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
     margin-left: 10px;
 }
 
