@@ -10,9 +10,20 @@ h3 {
     color: black;
 }
 
+.btn.col-12.mx-2,
+.btn.text-uppercase {
+    background-color: #EF626C;
+    color: #22181C;
+}
+
+.btn.col-12.mx-2:hover,
+.btn.text-uppercase:hover {
+    color: #22181C !important;
+}
+
 .accordion-button:hover {
-    background-color: rgb(203, 203, 203) !important;
-    color: rgb(0, 0, 0) !important;
+    background-color: #EF626C !important;
+    color: #22181C !important;
 }
 
 .accordion-button:not(.collapsed) {
@@ -44,7 +55,7 @@ img {
 }
 
 .h4 {
-    font-family: 'Roboto Slab', serif;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
     margin: 0px;
 }
 
@@ -52,7 +63,7 @@ p {
     align-self: left;
     color: rgb(0, 0, 0);
     font-size: 1pz;
-    font-family: 'Roboto Slab', serif;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
     margin-left: 10px;
 }
 
@@ -67,10 +78,12 @@ p.h3.text-decoration-none {
     margin-right: 0;
 }
 
-.btn {
+.btn,
+.btn.col-12.mx-2 {
     border-radius: 20px;
     font-size: 0.8rem;
     font-weight: 600;
+    border-color: #22181C;
     padding: 4px 10px !important;
 }
 
@@ -104,4 +117,11 @@ div {
 
 .accordion-button {
     padding-left: 0;
+}
+
+.container.mb-5.p-2 {
+    display: flex;
+    min-height: 65vh;
+    flex-direction: column;
+    justify-content: flex-start;
 }

@@ -1,6 +1,6 @@
-<div class="container d-flex align-items-center justify-content-center my-5">
+<div class="container d-flex align-items-center justify-content-center my-5" id="container-login">
   <div class="row">
-    <form action="#" method="POST" id="login" autocomplete="off" class="bg-light border py-3 px-5 ">
+    <form action="#" method="POST" id="login" autocomplete="off" class="border py-3 px-5 ">
       <div class="form-row ">
         <h4 class="title my-3 pb-2">Login For Access</h4>
         <div class="col-12">
@@ -34,11 +34,11 @@
         </div>
 
         <div class="col-12 text-right">
-          <input type="submit" class="btn btn-dark text-uppercase " name="submit" value="Login" />
+          <input type="submit" class="btn text-uppercase " name="submit" value="Login" />
         </div>
 
         <?php if (isset($templateParams["errorelogin"])) : ?>
-          <p><br><?php echo $templateParams["errorelogin"]; ?></br></p>
+          <p id="error"><br><?php echo $templateParams["errorelogin"]; ?></br></p>
         <?php endif; ?>
       </div>
     </form>

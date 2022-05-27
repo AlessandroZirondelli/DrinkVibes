@@ -1,6 +1,6 @@
 <h1 class="p-3">Make your drink</h1>
 <div class="container mb-1 mu-2 p-6">
-  <a href="./insertIngredient.php" class="btn btn-dark col-12 mx-2">
+  <a href="./insertIngredient.php" class="btn col-12 mx-2">
     Add ingredient
   </a>
 </div>
@@ -68,8 +68,8 @@
                         <hr class="line my-0">
                       </div>
                       <div class="mb-2 mt-2 selection-option">
-                        <button class="btn btn-dark text-uppercase " id="savebtn<?php echo $ingredient["ingredientID"]; ?>" >Save</button>
-                        <button class="btn btn-dark text-uppercase " id="deletebtn<?php echo $ingredient["ingredientID"]; ?>" >Delete</button>
+                        <button class="btn text-uppercase " id="savebtn<?php echo $ingredient["ingredientID"]; ?>" >Save</button>
+                        <button class="btn text-uppercase " id="deletebtn<?php echo $ingredient["ingredientID"]; ?>" >Delete</button>
 
                       </div>
 

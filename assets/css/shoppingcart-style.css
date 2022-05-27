@@ -1,23 +1,54 @@
-tr button{
-    padding:0;
+tr button {
+    padding: 0;
     border: none;
     background: none;
 }
-.img-fluid.rounded-3{
+
+.img-fluid.rounded-3 {
     width: 30vh;
 }
-.card.shadow-2-strong.mb-5.mb-lg-0{
+
+.card.shadow-2-strong.mb-5.mb-lg-0 {
     border-radius: 16px;
 }
-.form-control.form-control-sm.change-btn{
+
+.form-control.form-control-sm.change-btn {
     width: 15vh;
 }
 
+.btn.text-uppercase {
+    background-color: #EF626C;
+    color: #22181C;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-color: #22181C;
+    padding: 4px 10px !important;
+}
+
+.btn.text-uppercase:hover {
+    color: #22181C !important;
+}
+
+button {
+    color: #EF626C;
+}
+
+#insertButton {
+    background-color: #EF626C;
+    color: #22181C;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-color: #22181C;
+    padding: 4px 10px !important;
+}
+
 @media (max-width: 576px) {
-    .img-fluid.rounded-3{
-        display:none;
+    .img-fluid.rounded-3 {
+        display: none;
     }
-    .form-control.form-control-sm.change-btn{
+    .form-control.form-control-sm.change-btn {
         width: 7vh;
     }
- }
+}

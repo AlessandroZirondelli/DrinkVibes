@@ -10,7 +10,7 @@
                     </div>
                     <div class="card-body pb-0 px-2">
 
-                        <div class="h3 text-decoration-none pb-3" id="name<?php echo $products["productID"]; ?>"><?php echo $products["name"];echo $products["qtystock"] == "0" ? " [Sold out]" : "" ?></div>
+                        <div class="h4 text-decoration-none pb-3" id="name<?php echo $products["productID"]; ?>"><?php echo $products["name"];echo $products["qtystock"] == "0" ? " [Sold out]" : "" ?></div>
 
                         <div class="mx-1">
                             <hr class="line my-0">
@@ -41,7 +41,7 @@
                                 <input title="input" name="qtn<?php echo $products["productID"]; ?>" type="text" class="form-control form-rounded" id="qtn<?php echo $products["productID"]; ?>" <?php echo $products["qtystock"] == "0" ? 'disabled = "disabled";' : "" ?> placeholder="Quantity">
                             </div>
 
-                            <div class="selection-option"> <button class="btn btn-dark text-uppercase " id="btn<?php echo $products["productID"]; ?>"  <?php echo $products["qtystock"] == "0" ? 'disabled = "disabled"' : "" ?>>Add</button> </div>
+                            <div class="selection-option"> <button class="btn text-uppercase " id="btn<?php echo $products["productID"]; ?>"  <?php echo $products["qtystock"] == "0" ? 'disabled = "disabled"' : "" ?>>Add</button> </div>
 
                         </div>
                         <div id="warningsLabel<?php echo $products["productID"]; ?>"></div>
