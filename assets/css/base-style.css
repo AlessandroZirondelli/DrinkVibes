@@ -31,6 +31,10 @@ li.icons-link li {
     display: inline-block !important;
 }
 
+#DrinkVibes {
+    color: #EF626C !important;
+}
+
 @media screen and (max-width: 992px) {
     ul.navbar-nav>li.col-lg-2>a.nav-link.text-start.text-white {
         text-align: center !important;
