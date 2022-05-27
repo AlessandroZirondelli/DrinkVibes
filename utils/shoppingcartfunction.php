@@ -197,23 +197,7 @@ if($action == 8){
     }
     $_SESSION["shopping_cart_prod"] = serialize($list_prod_temp) ;
 }
-if($action == 9){
-    $sp = $_REQUEST["sp"];
-    $_SESSION["shopping_cart_prod"]=json_decode(($sp));
-    //echo $sp;
-}
-if($action == 10){
-    echo json_encode(($_SESSION["shopping_cart_prod"]));
-}
 
-if($action == 11){
-    $sp = $_REQUEST["sp"];
-    $_SESSION["shopping_cart_hmd"]=json_decode(($sp));
-    //echo $sp;
-}
-if($action == 12){
-    echo json_encode(($_SESSION["shopping_cart_hmd"]));
-}
 
 
 ?>

@@ -11,50 +11,9 @@ $(document).ready(function () {
                 );
             }
         );
-        
-        upgradeDBProd();
-       //console.log(getCookie("product") == "");
-       
+               
 });
-function upgradeDBProd(){
-    let action = 9;
-    let sp =  getCookie("product");
 
-    if(sp != ""){
-        
-        $.post('shoppingcartfunction.php', { "action": action, "sp": sp },
-        function(returnedData) {
-            console.log(returnedData);
-            
-        }).fail(function() {
-            document.location.href = "/DrinkVibes/errors.php?errorNum= ";
-        });
-    }else{
-        console.log("Not execute");
-    }
-
-}
-function setCookie(cname,cvalue,exdays) {
-    const d = new Date();
-    d.setTime(d.getTime() + (exdays*24*60*60*1000));
-    let expires = "expires=" + d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
-function getCookie(cname) {
-    const getCookieValue = decodeURIComponent(document.cookie.match('(^|;)\\s*' + cname + '\\s*=\\s*([^;]+)')?.pop() || '');
-    return getCookieValue;
-}
-function upgradeCookieProd(){
-    let action = 10;
-    $.post('shoppingcartfunction.php', { "action": action },
-    function(returnedData) {
-        let returnString = returnedData.replace(/(\r\n|\n|\r)/gm, "");
-        let returna  =  encodeURIComponent(returnString);
-        setCookie('product',"" + returna,30);
-    }).fail(function() {
-        document.location.href = "/DrinkVibes/errors.php?errorNum= ";
-    });
-}
 
 function submitQuantity(id) {
     const inputSelected = "#qtn" + id;
@@ -95,7 +54,7 @@ function updateQtn(disponibility, id) {
         $.post('utils/updateProduct.php', { "action": action, "id" : id, "qtn" : quantity}, 
         function(returnedData){
            updateQtnDescription(id);
-           upgradeCookieProd();
+           
         }).fail(function(xhr, status, error){
             document.location.href = "/DrinkVibes/errors.php?errorNum= ";
         });
