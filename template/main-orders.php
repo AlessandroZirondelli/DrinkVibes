@@ -112,18 +112,18 @@
                                                         </div>
                                                     <?php endif; ?>
                                                     <div>
-                                                        Total: <?php echo $tmp->getTotal(); ?> $
+                                                        Total: <?php echo $tmp->getTotal(); ?> €
                                                     </div>
                                                     <?php foreach ($tmp->getOrderDetails() as $detail) : ?>
                                                         <?php if ($detail->getArticleName() == "Custom drink") : ?>
                                                             <div>
                                                                 <span> <?php echo $detail->getQuantity(); ?> </span>
                                                                 <a class="text-dark" href="infodrink.php?orderID=<?php echo $detail->getOrderID(); ?>&articID=<?php echo $detail->getArticleID(); ?>">Custom Drink</a>
-                                                                <span> <?php echo $detail->getSubtotal() . " $"; ?> </span>
+                                                                <span> <?php echo $detail->getSubtotal() . " €"; ?> </span>
                                                             </div>
                                                         <?php else : ?>
                                                             <div>
-                                                                <?php echo $detail->getQuantity() . " " . $detail->getArticleName() . " " . $detail->getSubtotal() . " $"; ?>
+                                                                <?php echo $detail->getQuantity() . " " . $detail->getArticleName() . " " . $detail->getSubtotal() . " €"; ?>
                                                             </div>
                                                         <?php endif; ?>
                                                     <?php endforeach; ?>
@@ -226,18 +226,18 @@
                                                             </div>
                                                         <?php endif; ?>
                                                         <div>
-                                                            Total: <?php echo $tmp->getTotal(); ?> $
+                                                            Total: <?php echo $tmp->getTotal(); ?> €
                                                         </div>
                                                         <?php foreach ($tmp->getOrderDetails() as $detail) : ?>
                                                             <?php if ($detail->getArticleName() == "Custom drink") : ?>
                                                                 <div>
                                                                     <span> <?php echo $detail->getQuantity(); ?> </span>
                                                                     <a class="text-dark" href="infodrink.php?orderID=<?php echo $detail->getOrderID(); ?>&articID=<?php echo $detail->getArticleID(); ?>">Custom Drink</a>
-                                                                    <span> <?php echo $detail->getSubtotal() . " $"; ?> </span>
+                                                                    <span> <?php echo $detail->getSubtotal() . " €"; ?> </span>
                                                                 </div>
                                                             <?php else : ?>
                                                                 <div>
-                                                                    <?php echo $detail->getQuantity() . " " . $detail->getArticleName() . " " . $detail->getSubtotal() . " $"; ?>
+                                                                    <?php echo $detail->getQuantity() . " " . $detail->getArticleName() . " " . $detail->getSubtotal() . " €"; ?>
                                                                 </div>
                                                             <?php endif; ?>
                                                         <?php endforeach; ?>
