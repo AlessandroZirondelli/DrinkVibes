@@ -43,7 +43,7 @@
                     <p class="mb-0"><?php echo $hmd[0]->getTotalPrice(); ?></p>
                   </td>
                   <td class="align-middle deletebtnDrink" header="tableDelete">
-                    <button id="<?php echo $hmd[0]->getId(); ?> "> <i class="bi bi-trash"></i> </button>
+                    <button class="button-trash" id="<?php echo $hmd[0]->getId(); ?> "> <i class="bi bi-trash"></i> </button>
                   </td>
 
                 </tr>
@@ -87,7 +87,7 @@
         <div id="cardempty" class="card-body cart">
           <div class="col-sm-12 empty-cart-cls text-center"> <img src="https://i.imgur.com/dCdflKN.png" alt="cart" width="130" height="130" class="img-fluid mb-4 mr-3">
             <h3><strong>Your Cart is Empty</strong></h3>
-            <h4>Add something to make me happy :)</h4> <a href="index.php" class="btn btn-dark text-uppercase " data-abc="true">continue shopping</a>
+            <h4>Add something to make me happy :)</h4> <a href="index.php" class="btn text-uppercase " data-abc="true">continue shopping</a>
           </div>
         </div>
         <div id="paycard" class="mt-4">
@@ -178,7 +178,7 @@
                     <div id="total" class="mb-2"><span>&#8364;</span><span id="totale">302.99</span></div>
                   </div>
                   <form action="../DrinkVibes/utils/sendOrder.php" method="GET">
-                    <input type="submit" title="value" value="Submit" name="insertButton">
+                    <input id="insertButton" type="submit" class="text-uppercase" title="value" value="Submit" name="insertButton">
                   </form>
 
                 </div>

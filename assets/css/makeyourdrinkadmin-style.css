@@ -10,9 +10,20 @@ h3 {
     color: black;
 }
 
+.btn.col-12.mx-2,
+.btn.text-uppercase {
+    background-color: #EF626C;
+    color: #22181C;
+}
+
+.btn.col-12.mx-2:hover,
+.btn.text-uppercase:hover {
+    color: #22181C !important;
+}
+
 .accordion-button:hover {
-    background-color: rgb(185, 40, 40) !important;
-    color: black !important;
+    background-color: #EF626C !important;
+    color: #22181C !important;
 }
 
 .accordion-button:not(.collapsed) {
@@ -22,10 +33,6 @@ h3 {
 
 .accordion-button:focus {
     box-shadow: inherit !important;
-}
-
-[class="accordion-button"] {
-    background-color: rgb(185, 40, 40) !important;
 }
 
 img {
@@ -51,10 +58,12 @@ p.h3.text-decoration-none {
     margin-right: 0;
 }
 
-.btn {
+.btn,
+.btn.col-12.mx-2 {
     border-radius: 20px;
     font-size: 0.8rem;
     font-weight: 600;
+    border-color: #22181C;
     padding: 4px 10px !important;
 }
 
@@ -67,7 +76,7 @@ p.h3.text-decoration-none {
     background-clip: border-box;
     border-width: 1px;
     border-style: solid;
-    border-color: black;
+    border-color: #22181C;
     border-width: 3px;
     border-image: initia
 }

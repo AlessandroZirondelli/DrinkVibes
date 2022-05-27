@@ -4,7 +4,7 @@
 
   <div>
     <!-- è la pagina per la card del nuovo prodotto-->
-    <a href="./insertProduct.php" class="btn btn-dark col-12 mx-2">Add new product</a>
+    <a href="./insertProduct.php" class="btn col-12 mx-2">Add new product</a>
   </div>
 
 
@@ -18,7 +18,7 @@
 
           </div>
           <div class="card-body pb-0 px-2">
-            <div class="text-decoration-none pb-2" id="name<?php echo $products["productID"]; ?>"><?php echo $products["name"]; ?></div>
+            <div class="h4 text-decoration-none pb-3" id="name<?php echo $products["productID"]; ?>"><?php echo $products["name"]; ?></div>
 
             <div class="mx-1">
               <hr class="line my-0">
@@ -61,8 +61,8 @@
             </div>
             <div class="mb-2 mt-2 selection-option">
 
-              <button class="btn btn-success text-uppercase " id="savebtn<?php echo $products["productID"]; ?>">Save</button> 
-              <button class="btn btn-danger text-uppercase " id="deletebtn<?php echo $products["productID"]; ?>">Delete</button> 
+              <button class="btn text-uppercase " id="savebtn<?php echo $products["productID"]; ?>">Save</button> 
+              <button class="btn text-uppercase " id="deletebtn<?php echo $products["productID"]; ?>">Delete</button> 
 
             </div>
 
