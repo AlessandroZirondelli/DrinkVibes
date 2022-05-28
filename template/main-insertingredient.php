@@ -1,4 +1,4 @@
-<h1 class="m-3">Insert your ingredient</h1>
+<h1 class="m-3 text-center">Insert your ingredient</h1>
 <div class="container d-flex justify-content-center">
   <div class="card col-md-6 mb-2 product-wap rounded-0 d-flex justify-content-center">
     <div class="card-inner">
