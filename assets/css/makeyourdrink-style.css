@@ -2,6 +2,11 @@ div.accordion-header {
     border: medium solid black;
 }
 
+div.text-decoration-none.pb-3 {
+    font-weight: bold !important;
+    font-size: 20px;
+}
+
 .btn.text-uppercase {
     background-color: #EF626C;
     color: #22181C;
