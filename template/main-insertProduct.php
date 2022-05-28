@@ -1,4 +1,4 @@
-<h1 class="m-3">Add new product</h1>
+<h1 class="m-3 text-center">Add new product</h1>
 
 <div class="container d-flex justify-content-center">
 

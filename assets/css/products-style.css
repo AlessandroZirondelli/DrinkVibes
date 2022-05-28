@@ -7,14 +7,6 @@ div.accordion-header {
     border: medium solid black;
 }
 
-h1 {
-    text-align: center;
-}
-
-h3 {
-    color: black;
-}
-
 .btn.col-12.mx-2,
 .btn.text-uppercase {
     background-color: #EF626C;
@@ -59,18 +51,6 @@ img {
     justify-content: center
 }
 
-.h4 {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
-    margin: 0px;
-}
-
-p {
-    align-self: left;
-    color: rgb(0, 0, 0);
-    font-size: 1pz;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
-    margin-left: 10px;
-}
 
 div.card-body {
     padding-right: 3px !important;

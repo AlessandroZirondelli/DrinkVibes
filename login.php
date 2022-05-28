@@ -10,12 +10,13 @@ $manager = new ManagerAccounts();
 //check username e password
 if(isset($_POST["username"]) && isset($_POST["password"])){
     $login_result = $dbh->checkLogin($_POST["username"], $_POST["password"]);
-    if(count($login_result)==0){
+    if($login_result==false){
         //Login failed
         $templateParams["errorelogin"] = "Wrong username or password! Try again.";
     }
     else{
-        $manager -> registerLoggedUser($login_result[0]);
+        $loggedUser = $manager->getInfoAccount($_POST["username"]);
+        $manager -> registerLoggedUser($loggedUser);
         
         // It is used for redirection when I click on Order but I am not logged in
         // Then I click on order, it redirects me to login, after which it automatically returns to order
