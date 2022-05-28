@@ -1,3 +1,8 @@
+div.text-decoration-none.pb-3 {
+    font-weight: bold !important;
+    font-size: 20px;
+}
+
 div.accordion-header {
     border: medium solid black;
 }
