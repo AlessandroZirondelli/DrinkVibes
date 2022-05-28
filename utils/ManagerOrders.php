@@ -207,7 +207,7 @@ require_once($_SERVER['DOCUMENT_ROOT']."/DrinkVibes/utils/Product.php");
                 $numHmd++;
             }
             if($numHmd != 0){
-                $description = $description . "HandMadeDrink:".  $numHmd . ".";
+                $description = $description . "HandMadeDrink:".  $numHmd . " .";
             }
             $userRef = $_SESSION["userID"]; 
             $this->dbh->insertNotifNewOrder($orderID,$userID,$description); 
