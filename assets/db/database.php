@@ -7,7 +7,7 @@ class DatabaseHelper{
     public function __construct($servername, $username, $password, $dbname, $port){
         $this->conn = new mysqli($servername, $username, $password, $dbname, $port);
         if ($this->conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
+            die("Connection failed: " . $this->conn->connect_error);
         } 
         //echo "Connessione OK" ;      
     }
@@ -389,13 +389,31 @@ class DatabaseHelper{
 
         
     public function checkLogin($userID, $password){
-        $query = "SELECT userID, name, surname, email, type, birthdate FROM user WHERE  userID = ? AND password = ?";
+        $query = "SELECT password FROM user WHERE userID=? ";
         $stmt = $this->conn->prepare($query);
-        $stmt->bind_param('ss',$userID, $password);
+
+        $stmt->bind_param('s', $userID);
         $stmt->execute();
         $result = $stmt->get_result();
-        return $result->fetch_all(MYSQLI_ASSOC);
+        $res =  $result->fetch_all(MYSQLI_ASSOC);
+        if($res==null){
+            return false;
+        }
+        $hashedPassword = $res[0]["password"];
+
+        return password_verify($password,$hashedPassword);
+
     }   
+
+    public function getInfoAccount($userID){
+        $query = "SELECT userID,name,surname,email,type,birthdate FROM user WHERE userID=? ";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param('s', $userID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return  $result->fetch_all(MYSQLI_ASSOC);
+
+    }
     
     public function checkDuplication($userID, $email){
         $query = "SELECT * FROM user WHERE userID = ? OR email = ? ";
@@ -453,7 +471,8 @@ class DatabaseHelper{
         //$query = 'INSERT INTO user (userID, name, surname, type ,email, password, birthdate) VALUES ( '.$userID.','.$name.','.$surname.','.$type.','.$email.','.$password.','.$birthdate.')';
         $query = "INSERT INTO user (userID, name, surname, type ,email, password, birthdate) VALUES (?,?,?,?,?,?,?)";
         $stmt = $this->conn->prepare($query);
-        $stmt->bind_param('sssssss',$userID, $name, $surname, $type, $email , $password, $birthdate );
+        $hashPassword = password_hash($password,PASSWORD_DEFAULT);
+        $stmt->bind_param('sssssss',$userID, $name, $surname, $type, $email , $hashPassword, $birthdate );
         $stmt->execute();
     }
 
@@ -529,8 +548,7 @@ class DatabaseHelper{
 
 /*
 $dbh =  new DatabaseHelper("localhost", "root", "", "drinkdb",3306);
-$dbh-> addTotalOrder(100,"Nick987","2020-04-6","12:10:10","To prepare", 1325);
+echo $dbh-> checkLogin("Pippo","pippo");
 */
-
 ?>
 
