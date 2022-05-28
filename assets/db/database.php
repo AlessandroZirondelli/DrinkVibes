@@ -546,9 +546,5 @@ class DatabaseHelper{
     }
 }
 
-/*
-$dbh =  new DatabaseHelper("localhost", "root", "", "drinkdb",3306);
-echo $dbh-> checkLogin("Pippo","pippo");
-*/
 ?>
 
