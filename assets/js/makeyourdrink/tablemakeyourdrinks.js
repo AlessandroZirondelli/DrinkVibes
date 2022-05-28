@@ -240,7 +240,7 @@ function reset(upDataBase){
         });
         setListenerTable();
     }
-    xhttp.open("GET", "gettable.php?action="+ action + "&id="+ JSON.stringify(arrayDeleteId) + "&upDb=" + upgradeDatabase,false );
+    xhttp.open("GET", "gettable.php?action="+ action + "&id="+ JSON.stringify(arrayDeleteId) + "&upDb=" + upgradeDatabase);
     xhttp.send();
     
 }
