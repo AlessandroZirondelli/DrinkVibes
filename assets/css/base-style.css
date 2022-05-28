@@ -44,10 +44,10 @@ li.icons-link li {
 }
 
 @media screen and (max-width: 992px) {
-    ul.navbar-nav>li.col-lg-2>a.nav-link.text-start.text-white {
+    ul.navbar-nav>li.col-lg-2>a.nav-link.text-start {
         text-align: center !important;
     }
-    ul.navbar-nav>li.col-lg-2>a.nav-link.text-white {
+    ul.navbar-nav>li.col-lg-2>a.nav-link{
         text-align: center !important;
     }
 }
