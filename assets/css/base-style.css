@@ -10,11 +10,19 @@ a:hover {
     color: #EF626C !important;
 }
 
-footer a {
+footer a,
+.list-unstyled,
+.copyright.text-center {
     color: #F6E8EA;
 }
 
-#footer-category, #footer-category-products, #footer-category-info {
+.nav-link.text-start {
+    color: #F6E8EA !important;
+}
+
+#footer-category,
+#footer-category-products,
+#footer-category-info {
     color: #F6E8EA;
 }
 

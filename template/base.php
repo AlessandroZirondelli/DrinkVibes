@@ -57,19 +57,19 @@
             <div class="col-12">
               <ul class="navbar-nav ">
                 <li class="col-lg-2">
-                  <a class="nav-link text-start text-white" href="./index.php">Home</a>
+                  <a class="nav-link text-start" href="./index.php">Home</a>
                 </li>
                 <li class="col-lg-2">
-                  <a class="nav-link text-white text-start" href="./products.php">Products</a>
+                  <a class="nav-link text-start" href="./products.php">Products</a>
                 </li>
                 <li class="col-lg-2">
-                  <a class="nav-link text-white" href="./makeyourdrink.php">Make drinks</a>
+                  <a class="nav-link text-start" href="./makeyourdrink.php">Make drinks</a>
                 </li>
                 <li class="col-lg-2">
-                  <a class="nav-link text-white" href="./orders.php">Orders</a>
+                  <a class="nav-link text-start" href="./orders.php">Orders</a>
                 </li>
                 <li class="col-lg-2">
-                  <a class="nav-link text-white" href="./aboutus.php">About us</a>
+                  <a class="nav-link text-start" href="./aboutus.php">About us</a>
                 </li>
                 
                 <li class="icons-link col-lg-2">
@@ -109,7 +109,7 @@
         <div class="row">
             <div class="col-md-4 pt-5">
                 <h2 class="h2 border-bottom pb-3 border-light" id="footer-category-info" >Drink Vibes</h2>
-                <ul class="list-unstyled text-light ">
+                <ul class="list-unstyled">
                     <li>
                         Italy, Cesena, Via Montalti, 69
                     </li>
@@ -124,7 +124,7 @@
 
             <div class="col-md-4 pt-5">
                 <h2 class="h2 border-bottom pb-3 border-light" id="footer-category-products">Products</h2>
-                <ul class="list-unstyled text-light footer-link-list">
+                <ul class="list-unstyled footer-link-list">
                     <li><a class="text-decoration-none" href="#">Wine</a></li>
                     <li><a class="text-decoration-none" href="#">Beverages</a></li>
                     <li><a class="text-decoration-none" href="#">Spirits</a></li>
@@ -134,7 +134,7 @@
 
             <div class="col-md-4 pt-5">
                 <h2 class="h2 border-bottom pb-3 border-light" id="footer-category">Further Info</h2>
-                <ul class="list-unstyled text-light footer-link-list">
+                <ul class="list-unstyled footer-link-list">
                     <li><a class="text-decoration-none" href="./index.php">Home</a></li>
                     <li><a class="text-decoration-none" href="./products.php">Products</a></li>
                     <li><a class="text-decoration-none" href="./makeyourdrink.php">Make drinks</a></li>
@@ -148,7 +148,7 @@
     <div class="py-3">
         <div class="row">
               <div class="col-12">
-                  <p class="text-center text-white">
+                  <p class="copyright text-center">
                      Copyright &copy; 2021 Baggiani S.R.L | Designed by Baggiani S.R.L
                   </p>
               </div>
