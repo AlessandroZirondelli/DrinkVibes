@@ -39,7 +39,18 @@
                                         <?php endif; ?>
                                         <?php if ($type == "Admin") : ?>
                                             <p>
-                                                New order number: <?php echo $notif->getOrderRef(); ?> by <?php echo $notif->getUserRef(); ?> received ! You need to prepare: <?php echo $notif->getDescription(); ?>
+                                                New order number: <?php echo $notif->getOrderRef(); ?> by <?php echo $notif->getUserRef(); ?> received ! You need to prepare:
+                                                <ul>
+                                                    <?php
+                                                    $description = $notif->getDescription();
+                                                    $list_art = explode(",",  $description );
+                                                    foreach($list_art as $art){
+                                                        if(strcmp($art,"") != 0 && strcmp($art," ") != 0 ){
+                                                            echo "<li>"; echo $art; echo "</li>";   
+                                                        }          
+                                                    }
+                                                    ?>
+                                                </ul>
                                             </p>
                                         <?php endif; ?>
                                     </div>
@@ -84,7 +95,22 @@
                                             <?php if ($type == "User") : //Who enters in notification are is User 
                                             ?>
                                                 <p>
-                                                    You have ordered ! Order number: <?php echo $notif->getOrderRef(); ?> Description: <?php echo $notif->getDescription(); ?>
+                                                    You have ordered ! Order number: <?php echo $notif->getOrderRef(); ?>
+                                                    <div>
+                                                        Description:
+                                                        <ul>
+                                                            <?php
+                                                            $description = $notif->getDescription();
+                                                            $list_art = explode(",",  $description );
+                                                            foreach($list_art as $art){
+                                                                if(strcmp($art,"") != 0 && strcmp($art," ") != 0 ){
+                                                                    echo "<li>"; echo $art; echo "</li>";   
+                                                                }
+                                                               
+                                                            }
+                                                            ?>
+                                                        </ul>
+                                                    </div>
                                                 </p>
                                             <?php endif; ?>
                                             <?php if ($type == "Admin") : ?>

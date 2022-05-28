@@ -200,14 +200,14 @@ require_once($_SERVER['DOCUMENT_ROOT']."/DrinkVibes/utils/Product.php");
             //devo settare il totale
             $description ="";
             foreach($list_product as $product){
-                $description = $description . $product[0] -> getName(). ":" . $product[1] . ", ";
+                $description = $description . $product[0] -> getName(). " : " . $product[1] . ",";
             }
             $numHmd = 0;
             foreach( $list_drink as $handmadedrink){
                 $numHmd++;
             }
             if($numHmd != 0){
-                $description = $description . "HandMadeDrink:".  $numHmd . " .";
+                $description = $description . "HandMadeDrink : ".  $numHmd;
             }
             $userRef = $_SESSION["userID"]; 
             $this->dbh->insertNotifNewOrder($orderID,$userID,$description); 
