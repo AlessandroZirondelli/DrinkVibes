@@ -10,17 +10,17 @@
         </div>
         <div class="row">
           <div class="col-12 col-md-4">
-            <a href="#">
+            <a href="./products.php">
               <img src="./assets/img/WineIcon.png" class="img-fluid rounded-circle" alt="Button image spirits" />
             </a>
           </div>
           <div class="col-12 col-md-4">
-            <a href="#">
+            <a href="./products.php">
               <img src="./assets/img/BeveragesIcon.png" class="img-fluid rounded-circle" alt="Button image cocktail" />
             </a>
           </div>
           <div class="col-12 col-md-4">
-            <a href="#">
+            <a href="./products.php">
               <img src="./assets/img/DrinksIcon.png" class="img-fluid rounded-circle" alt="Button image spirits" />
             </a>
           </div>
