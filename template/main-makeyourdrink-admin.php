@@ -1,4 +1,4 @@
-<h1 class="p-3">Make your drink</h1>
+<h1 class="p-3 text-center">Make your drink</h1>
 <div class="container mb-1 mu-2 p-6">
   <a href="./insertIngredient.php" class="btn col-12 mx-2">
     Add ingredient
@@ -26,7 +26,7 @@
                     </div>
                     <div class="card-body pb-0 px-2">
 
-                      <div class="h4 text-decoration-none pb-3" id="name<?php echo $ingredient["ingredientID"]; ?>"><?php echo $ingredient["name"]; ?></div>
+                      <div class="text-decoration-none pb-3" id="name<?php echo $ingredient["ingredientID"]; ?>"><?php echo $ingredient["name"]; ?></div>
 
                       <div class="mx-1">
                         <hr class="line my-0">

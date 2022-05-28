@@ -1,4 +1,4 @@
-<h1 class="m-3">Make your drink</h1>
+<h1 class="m-3 text-center">Make your drink</h1>
 <div class="container">
   <table class="table table-bordered " id="ingredientTable">
     <caption>Ingredients choosen</caption>
@@ -78,7 +78,7 @@
                     </div>
                     <div class="card-body pb-0 px-2">
 
-                      <div class="text-decoration-none pb-3 h4" id="name<?php echo $ingredient["ingredientID"]; ?>"><?php echo $ingredient["name"];
+                      <div class="text-decoration-none pb-3" id="name<?php echo $ingredient["ingredientID"]; ?>"><?php echo $ingredient["name"];
                                                                                                                   echo $ingredient["qtystock"] == "0" ? " - Sold out" : "" ?></div>
 
                       <div class="mx-1">
