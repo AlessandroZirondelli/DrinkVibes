@@ -40,6 +40,7 @@
                                         <?php if ($type == "Admin") : ?>
                                             <p>
                                                 New order number: <?php echo $notif->getOrderRef(); ?> by <?php echo $notif->getUserRef(); ?> received ! You need to prepare:
+                                            </p>
                                                 <ul>
                                                     <?php
                                                     $description = $notif->getDescription();
@@ -51,7 +52,7 @@
                                                     }
                                                     ?>
                                                 </ul>
-                                            </p>
+                                            
                                         <?php endif; ?>
                                     </div>
                                 </div>
@@ -94,10 +95,10 @@
                                         <div class="accordion-body p-0 ms-4">
                                             <?php if ($type == "User") : //Who enters in notification are is User 
                                             ?>
-                                                <p>
-                                                    You have ordered ! Order number: <?php echo $notif->getOrderRef(); ?>
-                                                    <div>
-                                                        Description:
+                                            <p>
+                                                    You have ordered ! Order number: <?php echo $notif->getOrderRef(); ?>     
+                                            </p>
+                                            Description:
                                                         <ul>
                                                             <?php
                                                             $description = $notif->getDescription();
@@ -110,8 +111,6 @@
                                                             }
                                                             ?>
                                                         </ul>
-                                                    </div>
-                                                </p>
                                             <?php endif; ?>
                                             <?php if ($type == "Admin") : ?>
                                                 <p>
