@@ -21,6 +21,7 @@
     background-color: #F6E8EA !important;
     color: #22181C !important;
 }
+
 li {
     color: #22181C !important;
 }
@@ -30,6 +31,7 @@ a {
     justify-content: flex-start;
 }
 
+#container-summary,
 #container-login {
     display: flex;
     min-height: 65vh;

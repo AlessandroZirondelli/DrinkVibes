@@ -6,7 +6,8 @@
     border: 1px solid white;
 }
 
-a:hover {
+a.nav-link:hover,
+a.text-decoration-none:hover {
     color: #EF626C !important;
 }
 
@@ -39,15 +40,15 @@ li.icons-link li {
     color: #EF626C !important;
 }
 
-*:not(i){
-    font-family: Arial,Helvetica, sans-serif !important;
+*:not(i) {
+    font-family: Arial, Helvetica, sans-serif !important;
 }
 
 @media screen and (max-width: 992px) {
     ul.navbar-nav>li.col-lg-2>a.nav-link.text-start {
         text-align: center !important;
     }
-    ul.navbar-nav>li.col-lg-2>a.nav-link{
+    ul.navbar-nav>li.col-lg-2>a.nav-link {
         text-align: center !important;
     }
 }

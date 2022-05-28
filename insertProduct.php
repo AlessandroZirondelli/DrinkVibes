@@ -10,6 +10,7 @@
     }
     else if($_SESSION["type"]!="Admin"){
         $templateParams["main-content"] = "main-accessdenied.php";
+        $cssArray[1]="./assets/css/accessdenied-style.css";
     }
     else{
     $templateParams["main-content"] = "main-insertProduct.php";

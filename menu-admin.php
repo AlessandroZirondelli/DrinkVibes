@@ -7,6 +7,7 @@ require_once("utils/Account.php");
 $manager = new ManagerAccounts();
 
 $cssArray[0]="./assets/css/login-style.css";
+$cssArray[1]="./assets/css/accessdenied-style.css";
 
 if($manager -> isUserLoggedIn()){
     $templateParams["title"] = "Login - Access";

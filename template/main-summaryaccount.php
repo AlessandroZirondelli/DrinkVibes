@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" id="container-summary">
     <h3 class="mb-0 text-center mt-4">Logged-in user</h3>
     <div class="border p-3 m-4" id="summary">
         <ul class="list-unstyled ">

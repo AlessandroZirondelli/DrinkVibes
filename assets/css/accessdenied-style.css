@@ -1,0 +1,6 @@
+#access-denied {
+    display: flex;
+    min-height: 35vh;
+    flex-direction: column;
+    justify-content: flex-start;
+}
