@@ -4,18 +4,18 @@
     <caption>Ingredients choosen</caption>
     <thead>
       <tr>
-        <th>Ingredient</th>
-        <th>Quantity</th>
-        <th>Price</th>
-        <th></th>
+        <th scope = "col" id = "ingrTab">Ingredient</th>
+        <th scope = "col" id = "qtnTab">Quantity</th>
+        <th scope = "col" id = "priceTab">Price</th>
+        <th scope = "col" id = "deleteTab"></th>
       </tr>
     </thead>
     <tfoot>
       <tr>
-        <td>Total</td>
-        <td></td>
-        <td></td>
-        <td><button id="deleteRowBtn" class="btn text-uppercase">Remove</button></td>
+        <td headers = "ingrTab">Total</td>
+        <td headers = "qtnTab"></td>
+        <td headers = "priceTab"></td>
+        <td headers = "deleteTab"><button id="deleteRowBtn" class="btn text-uppercase">Remove</button></td>
       </tr>
     </tfoot>
   </table>

@@ -42,10 +42,12 @@ $ingredientOnTable = $handMadeDrink -> getIngredient();
 
 echo "<caption>Ingredients choosen</caption>";
 echo "<thead>";
-echo "<th>Ingredient</th>";
-echo "<th>Quantity</th>";
-echo "<th>Price</th>";
-echo "<th></th>";
+echo "<tr>";
+echo "<th scope = 'col' id = 'ingrTab'>Ingredient</th>";
+echo "<th scope = 'col' id = 'qtnTab'>Quantity</th>";
+echo "<th scope = 'col' id = 'priceTab'>Price</th>";
+echo "<th scope = 'col' id = 'deleteTab'></th>";
+echo "</tr>";
 echo "</thead>";
 echo "<tbody>";
 $totalPrice=0;
@@ -57,20 +59,20 @@ foreach($ingredientOnTable as $ing){
         $cat = "unit";
     }
     echo "<tr>";
-    echo "<td>".$ing->getName()."</td>";
-    echo "<td>".$ing->getQty()." ".$cat."</td>";
-    echo "<td>".$ing->getPrice() * $ing->getQty() ." €</td>";    
-    echo '<td><div class="form-check"><input class="form-check-input" type="checkbox" id="cb'.$ing->getIngredientID().'" value="'.$ing->getIngredientID().'" aria-label="..." ></div></td>';
+    echo "<td headers = 'ingrTab'>".$ing->getName()."</td>";
+    echo "<td headers = 'qtnTab'>".$ing->getQty()." ".$cat."</td>";
+    echo "<td headers = 'priceTab'>".$ing->getPrice() * $ing->getQty() ." €</td>";    
+    echo '<td headers = "deleteTab"><div class="form-check"><input class="form-check-input" type="checkbox" id="cb'.$ing->getIngredientID().'" value="'.$ing->getIngredientID().'" aria-label="..." ></div></td>';
     echo "</tr>"; 
     $totalPrice = $totalPrice + $ing->getPrice() * $ing->getQty();
 }
 echo "</tbody>";
 echo "<tfoot>";
 echo "<tr>";
-echo  "<td>Total</td>";
-echo  "<td></td>";
-echo  "<td>".$totalPrice." €</td>";
-echo  '<td><button id = "deleteRowBtn" class="btn btn-dark text-uppercase" >Remove</button></td>';
+echo  "<td headers = 'ingrTab'>Total</td>";
+echo  "<td headers = 'qtnTab'></td>";
+echo  "<td headers = 'priceTab'>".$totalPrice." €</td>";
+echo  '<td headers = "deleteTab"><button id = "deleteRowBtn" class="btn btn-dark text-uppercase" >Remove</button></td>';
 echo "</tr>";
 echo"</tfoot>";
 
