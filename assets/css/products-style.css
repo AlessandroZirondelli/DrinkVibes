@@ -7,13 +7,13 @@ div.accordion-header {
     border: medium solid black;
 }
 
-.btn.col-12.mx-2,
+.btn.col-12,
 .btn.text-uppercase {
     background-color: #EF626C;
     color: #22181C;
 }
 
-.btn.col-12.mx-2:hover,
+.btn.col-12:hover,
 .btn.text-uppercase:hover {
     color: #22181C !important;
 }
@@ -64,7 +64,7 @@ p.h3.text-decoration-none {
 }
 
 .btn,
-.btn.col-12.mx-2 {
+.btn.col-12 {
     border-radius: 20px;
     font-size: 0.8rem;
     font-weight: 600;

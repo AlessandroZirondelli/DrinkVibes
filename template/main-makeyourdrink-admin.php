@@ -1,6 +1,6 @@
 <h1 class="p-3 text-center">Make your drink</h1>
 <div class="container mb-1 mu-2 p-6">
-  <a href="./insertIngredient.php" class="btn col-12 mx-2">
+  <a href="./insertIngredient.php" class="btn col-12">
     Add ingredient
   </a>
 </div>
