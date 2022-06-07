@@ -1,4 +1,4 @@
-<div class="container ">
+<div id="container-manager" class="container ">
     <div class="my-3 ">
         <h1 class="mb-0 text-center mt-4 ">Admin Menu</h1>
     </div>
